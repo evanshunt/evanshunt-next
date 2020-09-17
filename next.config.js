@@ -2,11 +2,13 @@ const path = require('path');
 const Dotenv = require('dotenv');
 const DotenvWebPack = require('dotenv-webpack');
 const withFonts = require('nextjs-fonts');
-const withSass = require('@zeit/next-sass');
 const CMSApi = require('./utility/cms');
 
-const next_config = withSass(withFonts({
+const next_config = withFonts({
   trailingSlash: true,
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+  },
   exportPathMap: async function() {
     const paths = {
       '/': { page: '/' }
@@ -50,7 +52,7 @@ const next_config = withSass(withFonts({
     ];
 
     return config;
-  },
-}));
+  }
+});
 
 module.exports = {...next_config};
