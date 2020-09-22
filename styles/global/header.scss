@@ -1,36 +1,108 @@
 #header-main {
-  padding: 53px 58px;
+  padding: 22px 18px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   position: absolute;
   top: 0;
   background: transparent;
   z-index: 2;
   width: 100%;
-  
-  // for the version that sits within the document flow
+
+  @media (min-width: 992px) {
+    padding: 53px 58px;
+    align-items: flex-end;
+  }
+
+  // Inline version - for the version that sits within the document flow
   &.inline {
-    
+
+  }
+  
+
+  // Mobile - when the Nav is open
+  &.nav-active {
+    background: $lightgrey;
+
+    #header-logo #ComponentsNavLogo{
+      fill: $red;
+    }
+
+    .header-nav-toggle {
+      color: $black;
+    }
+  }
+}
+
+// EH Logo in the header
+#header-logo {
+  max-width: 86px;
+  width: 100%;
+  height: auto;
+  @media (min-width: 992px) {
+    max-width: none;
   }
 }
 
 .header-nav {
   line-height: 1;
+  position: absolute;
+  top: 70px;
+  right: -100%;
+  width: 100%;
+  background: $lightgrey;
+  height: calc(100vh - 70px);
+  
+  &.active {
+    transform: translateX(-100%);
+  }
+
+  @media (min-width: 992px) {
+    position: relative;
+    top: auto;
+    right: auto;
+    background: none;
+    height: auto;
+  }
+  
 }
 
 .header-nav-link {
-  display: inline-block;
-  margin-right: 53px;
-  color: $white;
+  display: block;
+  color: $black;
   line-height: 1;
+  margin: 20px 42px 20px 64px;
+  text-transform: uppercase;
   
   &:last-child {
     margin-right: 0;
   }
-  
+
   &:hover {
     text-decoration: line-through;
+    color: $black;
+  }
+
+  @media (min-width: 992px) {
+    display: inline-block;
     color: $white;
+    margin: 0 53px 0 0;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+// Nav toggle - only shows up on mobile
+.header-nav-toggle {
+  display: block;
+  border: none;
+  outline: none;
+  background: none;
+  color: $white;
+  
+  @media (min-width: 992px) {
+    display: none;
   }
 }
