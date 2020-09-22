@@ -20,8 +20,6 @@ class Header extends React.Component {
   
   render() {
     
-    console.log('nav state', this.state.navActive)
-    
     return (
       <header id={`header-main`} className={`${this.state.navActive ? 'nav-active' : ''}`}>
         <a href="/" title="Home">
