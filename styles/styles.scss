@@ -5,6 +5,11 @@
 @import "~sass-em/em";
 @import "~sass-rem/rem";
 
+// Get the variables in above things
+@import "variables";
+
+// Globally shared styles i.e header, footer, etc...
+@import "global/header";
 
 // Layout
 // These are styles specific to layouts
