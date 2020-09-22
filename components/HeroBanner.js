@@ -886,10 +886,15 @@ const HeroBanner = () => {
 
   useEffect(() => {
     var gradient = new Gradient();
-    gradient.initGradient("#hero-banner");
+    gradient.initGradient("#gradient-canvas");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <canvas id="hero-banner"></canvas>;
+  return (
+    <section className="hero-banner">
+      <canvas id="gradient-canvas" className="red"></canvas>
+    </section>
+  );
 };
 
 export default HeroBanner;

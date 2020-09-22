@@ -1,52 +1,48 @@
-canvas#hero-banner {
+section.hero-banner {
+  position: relative;
   width: 100%;
   height: 700px;
   border-radius: 0 0 13vw 0;
-  --gradient-color-1: #fe6f3a; 
-  --gradient-color-2: #f86f4d; 
-  --gradient-color-3: #fb228d;  
-  --gradient-color-4: #d3022d;
+  overflow: hidden;
+
+  #gradient-canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    &.red {
+      --gradient-color-1: #fe6f3a;
+      --gradient-color-2: #f86f4d;
+      --gradient-color-3: #fb228d;
+      --gradient-color-4: #d3022d;
+    }
+
+    &.green {
+      --gradient-color-1: #22e7a0;
+      --gradient-color-2: #5cddf2;
+      --gradient-color-3: #1371e5;
+      --gradient-color-4: #18afc7;
+    }
+
+    &.purple {
+      --gradient-color-1: #563af4;
+      --gradient-color-2: #5d1ee0;
+      --gradient-color-3: #874bb0;
+      --gradient-color-4: #f85322;
+    }
+
+    &.yellow {
+      --gradient-color-1: #ff9523;
+      --gradient-color-2: #e1160a;
+      --gradient-color-3: #c01306;
+      --gradient-color-4: #fc8d29;
+    }
+
+    &.blue {
+      --gradient-color-1: #2fcffd;
+      --gradient-color-2: #fd0f15;
+      --gradient-color-3: #9674e1;
+      --gradient-color-4: #3560b4;
+    }
+  }
 }
-
-// section.hero-banner {
-//   width: 100%;
-//   height: 700px;
-//   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-// 	background-size: 400% 400%;
-//   animation: gradient 15s ease infinite;
-//   position: relative;
-//   overflow: hidden;
-//   border-radius: 0 0 13vw 0;
-
-//   .gradient-overlay {
-//     position: absolute;
-//     width: 200%;
-//     min-height: 400%;
-//     top: -100%;
-//     left: -50%;
-//     opacity: 0.5;
-//     background: radial-gradient(circle at top left, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 56%);
-//     animation: spin 24s ease-in-out infinite;
-//   }
-// }
-
-// @keyframes gradient {
-// 	0% {
-// 		background-position: 0% 50%;
-// 	}
-// 	50% {
-// 		background-position: 100% 50%;
-// 	}
-// 	100% {
-// 		background-position: 0% 50%;
-// 	}
-// }
-
-// @keyframes spin {
-// 	0% { transform: rotate(0deg); }
-// 	20% { transform: rotate(-90deg); }
-// 	40% { transform: rotate(60deg); }
-// 	60% { transform: rotate(-180deg); }
-// 	80% { transform: rotate(-270deg); }
-// 	100% { transform: rotate(0deg); }
-// }
