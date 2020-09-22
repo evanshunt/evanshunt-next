@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 const HeroBanner = () => {
   /*
    *   Stripe WebGl Gradient Animation
@@ -642,7 +644,7 @@ const HeroBanner = () => {
                 ((this.computedCanvasStyle = getComputedStyle(this.el)),
                 this.waitForCssVars());
             }));
-            /*
+      /*
         this.scrollObserver = await s.create(.1, !1),
         this.scrollObserver.observe(this.el),
         this.scrollObserver.onSeparate(() => {
@@ -881,8 +883,11 @@ const HeroBanner = () => {
    * Gradient.toggleColor(index)
    * Gradient.updateFrequency(freq)
    */
-  var gradient = new Gradient();
-  gradient.initGradient("#hero-banner");
+
+  useEffect(() => {
+    var gradient = new Gradient();
+    gradient.initGradient("#hero-banner");
+  }, []);
 
   return <canvas id="hero-banner"></canvas>;
 };
