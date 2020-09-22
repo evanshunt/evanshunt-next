@@ -6,6 +6,7 @@ section.hero-banner {
   animation: gradient 15s ease infinite;
   position: relative;
   overflow: hidden;
+  border-radius: 0 0 13vw 0;
 
   .gradient-overlay {
     position: absolute;
