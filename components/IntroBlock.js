@@ -9,7 +9,7 @@ const IntroBlock = (props) => {
   
   return (
     <section className={introBlockClasses}>
-      <h2 className="intro-block-title">Let's do great things</h2>
+      <h1 className="intro-block-title">Let's do great things</h1>
       <div className="intro-block-text">
         <p>
           We’re marketers, researchers, creatives and developers working on the difficult task of achieving simplicity.
