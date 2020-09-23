@@ -1,0 +1,40 @@
+$base-font-size: 16px;
+$base-font-family: "UntitledSans";
+$base-font-color: $black;
+$base-line-height: 1.5625;
+$heading-font-family: "UntitledSerif";
+$heading-line-height: 1.1;
+
+$regular: 400;
+$medium: 500;
+$bold: 700;
+
+@font-face {
+  font-family: "UntitledSans";
+  font-weight: $regular;
+  src: url("/fonts/untitled-sans-web-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "UntitledSans";
+  font-weight: $medium;
+  src: url("/fonts/untitled-sans-web-medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "UntitledSans";
+  font-weight: $bold;
+  src: url("/fonts/untitled-sans-web-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "UntitledSerif";
+  font-weight: $medium;
+  src: url("/fonts/untitled-serif-web-medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "UntitledSerif";
+  font-weight: $regular;
+  src: url("/fonts/untitled-serif-web-regular.woff") format("woff");
+}
