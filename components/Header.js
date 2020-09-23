@@ -1,6 +1,7 @@
 import React from 'react'
+import classNames from 'classnames'
 
-// the site wide Header
+// the site-wide Header
 class Header extends React.Component {
   
   constructor(props) {
@@ -20,8 +21,11 @@ class Header extends React.Component {
   
   render() {
     
+    const headerClasses = classNames({'nav-active': this.state.navActive})
+    const headerNavClasses = classNames('header-nav', {'active' : this.state.navActive})
+    
     return (
-      <header id={`header-main`} className={`${this.state.navActive ? 'nav-active' : ''}`}>
+      <header id={`header-main`} className={headerClasses}>
         <a href="/" title="Home">
           <svg width="202px" height="37px" viewBox="0 0 202 37" version="1.1" id="header-logo">
             <title>evanshunt logo</title>
@@ -36,14 +40,25 @@ class Header extends React.Component {
         </a>
 
         <div className="header-nav-wrap">
-          <button className="header-nav-toggle" onClick={this.toggleMenu}>{this.state.navActive ? 'X' : 'Menu'}</button>
-          <nav className={`header-nav ${this.state.navActive ? 'active' : ''}`}>
+          <button className="header-nav-toggle" onClick={this.toggleMenu}>
+            {this.state.navActive ? 'X' : 'Menu'}
+          </button>
+          
+          <nav className={headerNavClasses}>
             <a href="/" className={"header-nav-link"} title={''}>Our Work</a>
             <a href="/" className={"header-nav-link"} title={''}>Our Services</a>
             <a href="/" className={"header-nav-link"} title={''}>About Us</a>
             <a href="/" className={"header-nav-link"} title={''}>Careers</a>
             <a href="/" className={"header-nav-link"} title={''}>Contact</a>
+            <div className="header-nav-contact-box">
+              <div className="header-nav-contact">
+                <h4 className="header-nav-contact-heading">Get in touch</h4>
+                <a className={'header-nav-contact-link'} href="mailto:info@evanshunt.com">info@evanshunt.com</a>
+              </div>
+              <div className="header-nav-contact-shape" />
+            </div>
           </nav>
+          
         </div>
       </header>
     ) 
