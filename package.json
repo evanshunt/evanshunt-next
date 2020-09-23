@@ -13,9 +13,11 @@
   "author": "Justine Matsalla",
   "license": "ISC",
   "dependencies": {
+    "@evanshunt/derekstrap": "^0.1.11",
     "@zeit/next-sass": "^1.0.1",
     "bootstrap": "^4.5.2",
     "breakpoint-sass": "^2.7.1",
+    "classnames": "^2.2.6",
     "contentful": "^7.14.6",
     "dotenv-webpack": "^2.0.0",
     "next": "^9.5.2",
