@@ -1,0 +1,19 @@
+.intro-block {
+  padding: 60px 30px;
+  
+  @media (min-width: $desktop) {
+    padding: 179px 179px 107px;  
+  }
+  
+  &.centered {
+    text-align: center;
+  }
+}
+
+.intro-block-text {
+  padding-left: 25px;
+
+  @media (min-width: $desktop) {
+    padding-left: 131px;  
+  }
+}
