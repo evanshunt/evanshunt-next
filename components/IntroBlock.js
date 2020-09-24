@@ -16,6 +16,7 @@ const IntroBlock = (props) => {
           We don’t arrive with any fixed notions. Instead, we listen and collaborate. Then we create meaningful
           connections that transform businesses and improve daily life.
         </p>
+        {cta && <a href="/" className="btn btn-secondary">Button</a>}
       </div>
     </section>
   )
