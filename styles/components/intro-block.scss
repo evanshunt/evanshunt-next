@@ -17,6 +17,10 @@
     font-size: 3.68rem;
     margin-bottom: 65px;
   }
+  @media (min-width: $desktop-large) {
+    max-width: 1050px;
+    margin: 0 auto 65px;
+  }
 }
 
 .intro-block-text {
@@ -24,7 +28,9 @@
 
   @media (min-width: $desktop) {
     margin: 0 auto;
+    max-width: 850px;
+  }
+  @media (min-width: $desktop-large) {
     padding-left: 0;
-    max-width: 70%;
   }
 }
