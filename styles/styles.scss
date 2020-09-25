@@ -14,6 +14,7 @@
 @import "global/header";
 @import "global/footer";
 @import "global/buttons";
+@import "global/images";
 
 // Layout
 // These are styles specific to layouts
@@ -22,3 +23,4 @@
 
 // Components
 @import "components/intro-block";
+@import "components/featured-projects";

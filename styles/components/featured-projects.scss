@@ -1,0 +1,35 @@
+.featured-projects {
+  padding: 30px;
+  position: relative;
+  margin-bottom: 50px;
+  
+  @media (min-width: $desktop) {
+    padding: 30px 60px;
+    margin-bottom: 75px;
+  }
+  
+  &-list {
+    
+    img {
+      display: block;
+      margin-bottom: 20px;
+      height: 420px;
+      object-fit: cover;
+
+      @media (min-width: $desktop) {
+        height: auto;
+        object-fit: none;
+      }
+    }
+  }
+}
+
+.featured-projects-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  
+  @media (min-width: $desktop) {
+    right: 100px; 
+  }
+}
