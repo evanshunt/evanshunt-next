@@ -1,0 +1,72 @@
+.service-circles {
+  max-width: 1102px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 160px 15px 30px;
+  
+  &-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 55px;
+    flex-wrap: wrap;
+    
+    @media (min-width: $tablet) {
+      justify-content: space-between;  
+    }
+  }
+  
+  .btn {
+    margin-bottom: 30px;
+  }
+  
+  &-title, &-copy {
+    display: block;
+    @media (min-width: $tablet) {
+      display: none;
+    }
+  }
+}
+
+.service-circle-column {
+  width: 50%;
+
+  @media (min-width: $tablet) {
+    width: 25%;
+  }
+}
+
+.service-circle {
+  height: 140px;
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: $pink;
+  margin: 0 auto 35px;
+  flex-direction: column;
+  transition: background 0.3s ease;
+  
+  @media (min-width: $desktop) {
+    height: 240px;
+    width: 240px;
+  }
+  
+  &:hover {
+    background: $black;
+    transition: background 0.1s ease;
+    
+    .service-circle-description {
+      display: block;
+    }
+  }
+  
+  span {
+    color: $white;
+  }
+  
+  &-description {
+    display: none;
+  }
+}

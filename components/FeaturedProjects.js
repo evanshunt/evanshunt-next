@@ -2,7 +2,7 @@ import React from 'react'
 
 const FeaturedProjects = (props) => {
   
-  const { projects, cta } = props
+  const { title, projects, cta } = props
   
   return (
     <section className="featured-projects">

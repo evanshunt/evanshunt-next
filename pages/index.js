@@ -2,6 +2,7 @@ import Layout from "../layouts/Page";
 import HeroBanner from "../components/HeroBanner";
 import IntroBlock from "../components/IntroBlock";
 import FeaturedProjects from "../components/FeaturedProjects";
+import ServiceCircles from "../components/ServiceCircles";
 
 function HomePage() {
   return (
@@ -9,6 +10,7 @@ function HomePage() {
       <HeroBanner />
       <IntroBlock />
       <FeaturedProjects />
+      <ServiceCircles />
     </Layout>
   );
 }
