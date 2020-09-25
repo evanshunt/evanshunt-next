@@ -9,6 +9,7 @@
   }
   
   &-list {
+    position: relative;
     
     img {
       display: block;
@@ -16,20 +17,26 @@
       height: 420px;
       object-fit: cover;
 
-      @media (min-width: $desktop) {
+      @media (min-width: $tablet) {
         height: auto;
         object-fit: none;
       }
     }
   }
+  
+  &-inner {
+    max-width: 1325px;
+    margin: 0 auto;
+  }
 }
 
-.featured-projects-btn {
+.featured-projects-btn-2 {
   position: absolute;
-  right: 20px;
-  bottom: 0;
+  right: -10px;
+  bottom: -40px;
   
   @media (min-width: $desktop) {
-    right: 100px; 
+    right: 50px;
+    bottom: -50px;
   }
 }
