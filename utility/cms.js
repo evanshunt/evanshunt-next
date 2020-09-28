@@ -11,6 +11,23 @@ function CMSApi() {
     accessToken: process.env.CONTENTFUL_TOKEN
   });
 
+  this.fetchContentType = async (contentType) => {
+    return await this.client
+      .getEntries({
+        include: 4,
+        content_type: contentType
+      })
+      .then(async results => {
+        const page = results.items[0];
+        
+        if (page) {
+          return page;
+        }
+
+        return null;
+      });
+  };
+
   // COPIED FROM STAMPEDE FOR REFERENCE
   // this.fetchContentPageBySlug = async slug => {
   //   return await this.client

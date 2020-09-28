@@ -1,6 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const HeroBanner = () => {
+const HeroBanner = ({
+  smallText,
+  largeText,
+  gradientHero,
+  gradientColour,
+  backgroundImage,
+  backgroundVideo,
+}) => {
+  console.log(
+    smallText,
+    largeText,
+    gradientHero,
+    gradientColour,
+    backgroundImage,
+    backgroundVideo
+  );
   /*
    *   Stripe WebGl Gradient Animation
    *   ScrollObserver functionality to disable animation when not scrolled into view has been disabled and
@@ -885,14 +900,46 @@ const HeroBanner = () => {
    */
 
   useEffect(() => {
-    var gradient = new Gradient();
-    gradient.initGradient("#gradient-canvas");
+    if (gradientHero) {
+      var gradient = new Gradient();
+      gradient.initGradient("#gradient-canvas");
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // transform gradient to classname
+  const [gradientClass, setGradientClass] = useState("");
+
+  useEffect(() => {
+    if (gradientColour === "Yellow/Red") {
+      setGradientClass("yellow");
+    } else if (gradientColour === "Orange/Red") {
+      setGradientClass("red");
+    } else if (gradientColour === "Green/Blue") {
+      setGradientClass("green");
+    } else if (gradientColour === "Purple/Orange") {
+      setGradientClass("purple");
+    } else if (gradientColour === "Blue/Red") {
+      setGradientClass("blue");
+    }
+  }, [gradientColour]);
+
   return (
     <section className="hero-banner">
-      <canvas id="gradient-canvas" className="red"></canvas>
+      {gradientHero && (
+        <canvas id="gradient-canvas" className={gradientClass}></canvas>
+      )}
+      {backgroundImage && <img src={backgroundImage} alt="" />}
+      {backgroundVideo && (
+        <video autoPlay muted>
+          <source src={backgroundVideo} type="video/mp4" />
+        </video>
+      )}
+
+      <div className="banner-text">
+        {smallText && <p className="small-text">{smallText}</p>}
+        {largeText && <h1 className="large-text">{largeText}</h1>}
+      </div>
     </section>
   );
 };

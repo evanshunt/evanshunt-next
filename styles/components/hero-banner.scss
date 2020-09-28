@@ -45,4 +45,41 @@ section.hero-banner {
       --gradient-color-4: #3560b4;
     }
   }
+
+  .banner-text {
+    // @include horizontal-spacer("both");
+    // @include vertical-spacer("both");
+    position: absolute;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .small-text, .large-text {
+      color: $white;
+    }
+
+    .small-text {
+      font-weight: $bold;
+      display: flex;
+      align-items: center;
+      &:before {
+        content: "";
+        display: inline-block;
+        width: 192px;
+        height: 1px;
+        background-color: $white;
+        margin-right: 1rem;
+      }
+    }
+
+    .large-text {
+      margin-left: 208px;
+      font-weight: $medium;
+
+      @media (min-width: $desktop) {
+        font-size: 90px;
+      }
+    }
+  }
 }
