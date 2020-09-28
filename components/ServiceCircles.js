@@ -26,26 +26,26 @@ const ServiceCircles = (props) => {
       <div className="service-circles-list">
         
         <div className="service-circle-column">
-          <div className="service-circle">
+          <div className="service-circle service-circle-1">
             <span className="service-circle-title">Strategy</span>
             <span className="service-circle-description">A bunch of text</span>
           </div>
         </div>
 
         <div className="service-circle-column">
-          <div className="service-circle">
+          <div className="service-circle service-circle-2">
             <span className="service-circle-title">Digital</span>
             <span className="service-circle-description">A bunch of text</span>
           </div>
         </div>
         <div className="service-circle-column">
-          <div className="service-circle">
+          <div className="service-circle service-circle-3">
             <span className="service-circle-title">Branding</span>
             <span className="service-circle-description">A bunch of text</span>
           </div>
         </div>
         <div className="service-circle-column">
-          <div className="service-circle">
+          <div className="service-circle service-circle-4">
             <span className="service-circle-title">Marketing</span>
             <span className="service-circle-description">A bunch of text</span>
           </div>

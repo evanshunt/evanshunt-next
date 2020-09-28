@@ -22,7 +22,7 @@
   
   &-title, &-copy {
     display: block;
-    @media (min-width: $tablet) {
+    @media (min-width: $desktop) {
       display: none;
     }
   }
@@ -31,7 +31,7 @@
 .service-circle-column {
   width: 50%;
 
-  @media (min-width: $tablet) {
+  @media (min-width: $desktop) {
     width: 25%;
   }
 }
@@ -47,8 +47,13 @@
   margin: 0 auto 35px;
   flex-direction: column;
   transition: background 0.3s ease;
+
+  @media (min-width: $large-phone) {
+    height: 180px;
+    width: 180px;
+  }
   
-  @media (min-width: $desktop) {
+  @media (min-width: $tablet) {
     height: 240px;
     width: 240px;
   }
@@ -69,4 +74,22 @@
   &-description {
     display: none;
   }
+}
+
+
+// specific gradients - not perfect yet... need creative help probably
+.service-circle-1 {
+  background-image: linear-gradient(to bottom right, $orange, #ff4700);
+}
+
+.service-circle-2 {
+  background-image: linear-gradient(to bottom right, #ff4d06, #fa3944);
+}
+
+.service-circle-3 {
+  background-image: linear-gradient(to bottom right, #ff2a1e, #ee396c);
+}
+
+.service-circle-4 {
+  background-image: linear-gradient(to bottom right, #f2395e, #de4998);
 }
