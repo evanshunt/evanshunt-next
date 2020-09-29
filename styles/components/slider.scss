@@ -1,0 +1,41 @@
+.react-slider {
+  
+  &-slide {
+    
+  }
+  
+  .slide-inner {
+    padding-right: 25px;
+    
+    img {
+      margin-bottom: 15px;
+    }
+  }
+  
+  &-dot-group {
+    display: flex;
+    justify-content: center;
+    
+    button {
+      width: 10%;
+      border: none;
+      outline: 0;
+      height: 5px;
+      
+      &:disabled {
+        background: $darkgrey;
+      }
+    }
+  }
+}
+
+.react-slider-wrap {
+  padding-left: 30px;
+  
+  @media (min-width: $desktop) {
+    padding-left: 60px;  
+  }
+  @media (min-width: $desktop-large) {
+    padding-left: calc((100vw - 1325px)/2);
+  }
+}

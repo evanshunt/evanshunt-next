@@ -4,6 +4,7 @@
 @import "~breakpoint-sass/stylesheets/breakpoint";
 @import "~sass-em/em";
 @import "~sass-rem/rem";
+@import '~pure-react-carousel/dist/react-carousel.es.css';
 
 // Get the variables in above things
 @import "variables";
@@ -26,3 +27,4 @@
 @import "components/intro-block";
 @import "components/featured-projects";
 @import "components/service-circles";
+@import "components/slider";

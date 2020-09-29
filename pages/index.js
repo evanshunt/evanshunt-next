@@ -3,6 +3,7 @@ import HeroBanner from "../components/HeroBanner";
 import IntroBlock from "../components/IntroBlock";
 import FeaturedProjects from "../components/FeaturedProjects";
 import ServiceCircles from "../components/ServiceCircles";
+import Slider from '../components/Slider'
 
 function HomePage() {
   return (
@@ -10,6 +11,7 @@ function HomePage() {
       <HeroBanner />
       <IntroBlock />
       <FeaturedProjects />
+      <Slider />
       <ServiceCircles />
     </Layout>
   );
