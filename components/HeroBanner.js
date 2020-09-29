@@ -8,14 +8,6 @@ const HeroBanner = ({
   backgroundImage,
   backgroundVideo,
 }) => {
-  console.log(
-    smallText,
-    largeText,
-    gradientHero,
-    gradientColour,
-    backgroundImage,
-    backgroundVideo
-  );
   /*
    *   Stripe WebGl Gradient Animation
    *   ScrollObserver functionality to disable animation when not scrolled into view has been disabled and
@@ -904,8 +896,8 @@ const HeroBanner = ({
       var gradient = new Gradient();
       gradient.initGradient("#gradient-canvas");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gradientHero]);
 
   // transform gradient to classname
   const [gradientClass, setGradientClass] = useState("");
@@ -925,13 +917,13 @@ const HeroBanner = ({
   }, [gradientColour]);
 
   return (
-    <section className="hero-banner">
+    <section className={backgroundImage || backgroundVideo ? `hero-banner tall` : `hero-banner`}>
       {gradientHero && (
         <canvas id="gradient-canvas" className={gradientClass}></canvas>
       )}
-      {backgroundImage && <img src={backgroundImage} alt="" />}
+      {backgroundImage && <img src={backgroundImage} alt="" className="background-image" />}
       {backgroundVideo && (
-        <video autoPlay muted>
+        <video autoPlay muted loop className="background-video">
           <source src={backgroundVideo} type="video/mp4" />
         </video>
       )}

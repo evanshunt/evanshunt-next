@@ -1,9 +1,21 @@
 section.hero-banner {
   position: relative;
   width: 100%;
-  height: 700px;
-  border-radius: 0 0 13vw 0;
+  height: 474px;
+  border-radius: 0 0 15vw 0;
   overflow: hidden;
+
+  @media (min-width: $desktop) {
+    height: 700px;
+  }
+
+  &.tall {
+    height: 535px;
+
+    @media (min-width: $desktop) {
+      height: 850px;
+    }
+  }
 
   #gradient-canvas {
     position: absolute;
@@ -46,16 +58,30 @@ section.hero-banner {
     }
   }
 
-  .banner-text {
-    // @include horizontal-spacer("both");
-    // @include vertical-spacer("both");
+  .background-image, .background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
     position: absolute;
-    height: 700px;
+  }
+
+  .banner-text {
+    padding-right: 1rem;
+    position: absolute;
+    height: 474px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    .small-text, .large-text {
+    @media (min-width: $desktop) {
+      padding-right: 200px;
+      padding-left: 58px;
+      height: 700px;
+    }
+
+    .small-text,
+    .large-text {
       color: $white;
     }
 
@@ -66,19 +92,25 @@ section.hero-banner {
       &:before {
         content: "";
         display: inline-block;
-        width: 192px;
+        width: 1.5rem;
         height: 1px;
         background-color: $white;
-        margin-right: 1rem;
+        margin-right: 0.5rem;
+
+        @media (min-width: $desktop) {
+          width: 192px;
+          margin-right: 1rem;
+        }
       }
     }
 
     .large-text {
-      margin-left: 208px;
+      margin-left: 2rem;
       font-weight: $medium;
 
       @media (min-width: $desktop) {
         font-size: 90px;
+        margin-left: 208px;
       }
     }
   }
