@@ -1,0 +1,23 @@
+
+.container {
+  padding: 0 15px;
+  max-width: 100%;
+  
+  @media (min-width: $large-phone) {
+    max-width: 92%;
+    margin: 0 auto;
+  }
+
+  @media (min-width: $tablet) {
+    max-width: 720px;
+  }
+
+  @media (min-width: $desktop) {
+    max-width: 960px;
+  }
+
+  @media (min-width: $desktop-large) {
+    max-width: 1325px;
+  }
+  
+}
