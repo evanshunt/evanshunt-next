@@ -19,9 +19,7 @@ const IntroBlock = (props) => {
       {introText && (
         <div className="intro-block-text">
           <p>
-            We’re marketers, researchers, creatives and developers working on the difficult task of achieving simplicity.
-            We don’t arrive with any fixed notions. Instead, we listen and collaborate. Then we create meaningful
-            connections that transform businesses and improve daily life.
+            {introText}
           </p>
           {cta && <a href="/" className="btn">Button</a>}
         </div>
