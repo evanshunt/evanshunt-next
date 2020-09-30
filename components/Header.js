@@ -45,7 +45,7 @@ class Header extends React.Component {
           </button>
           
           <nav className={headerNavClasses}>
-            <a href="/" className={"header-nav-link"} title={''}>Our Work</a>
+            <a href="/our-work" className={"header-nav-link"} title={''}>Our Work</a>
             <a href="/" className={"header-nav-link"} title={''}>Our Services</a>
             <a href="/" className={"header-nav-link"} title={''}>About Us</a>
             <a href="/" className={"header-nav-link"} title={''}>Careers</a>
