@@ -6,6 +6,14 @@ a {
   }
 }
 
+ul {
+  list-style: none;
+  padding-left: 0;
+  
+  li {
+    margin-bottom: 2.5px;
+  }
+}
 
 .base-font {
   font-family: 'UntitledSans', Arial, sans-serif;

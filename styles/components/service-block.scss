@@ -1,0 +1,59 @@
+.service-block {
+  padding-top: 75px;
+  @media (min-width: $tablet) {
+    padding-top: 200px;  
+  }
+  
+  &-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @media (min-width: $tablet) {
+      flex-wrap: nowrap;
+    }
+  }
+  
+  &-text {
+    max-width: 383px;
+    order: 1;
+    @media (min-width: $tablet) {
+      order: 0;
+    }
+  }
+  
+  &-title {
+    font-size: 3.125rem;
+    margin-bottom: 30px;
+    @media (min-width: $tablet) {
+      font-size: 4.374rem;  
+    }
+  }
+  
+  &-copy {
+    padding-left: 15px;
+    @media (min-width: $tablet) {
+      padding-left: 40px;
+    }
+  }
+  
+  &-services {
+    margin-bottom: 25px;  
+  }
+  
+  &-service {
+    color: $service-green;
+    margin-bottom: 10px;
+  }
+  
+  &-img {
+    
+    @media (min-width: $tablet) {
+      padding: 30px;  
+    }
+    
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

@@ -27,4 +27,10 @@
   &.btn-pink {
     background: $pink;
   }
+  
+  &.btn-outline {
+    border: 1px solid $black;
+    background: transparent;
+    color: $black;
+  }
 }

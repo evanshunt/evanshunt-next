@@ -5,7 +5,7 @@ import LogoGrid from '../components/LogoGrid'
 
 function OurWorkPage() {
   return (
-    <Layout className="content-page work-work-page">
+    <Layout className="content-page our-work-page">
       <IntroBlock />
       <WorkGrid />
       <LogoGrid />
