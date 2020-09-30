@@ -1,0 +1,25 @@
+section.side-by-side-images {
+  padding: 0 0 2rem;
+  margin: 0 1rem;
+
+  @media (min-width: $desktop) {
+    display: flex;
+    justify-content: center;
+  }  
+
+  img {
+    width: 100%;
+    margin-bottom: 1rem;
+
+    &:first-child {
+      @media (min-width: $desktop) {
+        margin-right: 1rem;
+      }
+    }
+
+    @media (min-width: $desktop) {
+      width: auto;
+      height: 23.8vw;
+    }
+  }
+}

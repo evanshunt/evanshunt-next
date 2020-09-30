@@ -1,0 +1,49 @@
+section.contact-block {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4rem 1rem;
+  position: relative;
+  justify-content: space-between;
+  
+  @media (min-width: $desktop-large) {
+    padding: 105px 207px 105px 229px;
+  }
+
+  h1, h2 {
+    font-family: $base-font-family;
+    font-size: 1rem;
+
+    @media (min-width: $desktop-large) {
+      font-size: 1.875rem;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+
+    @media (min-width: $desktop-large) {
+      font-size: 1.25rem;
+    }
+  }
+
+  .column {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 3rem;
+
+    &:first-child {
+      @media (min-width: $desktop-large) {
+        text-align: left;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    @media (min-width: $desktop-large) {
+      width: auto;
+      padding: 0 1rem;
+    }
+  }
+}

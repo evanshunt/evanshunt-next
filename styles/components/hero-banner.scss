@@ -67,7 +67,7 @@ section.hero-banner {
   }
 
   .banner-text {
-    padding-right: 1rem;
+    padding-right: 4rem;
     position: absolute;
     height: 474px;
     display: flex;
@@ -75,7 +75,7 @@ section.hero-banner {
     justify-content: center;
 
     @media (min-width: $desktop) {
-      padding-right: 200px;
+      padding-right: 250px;
       padding-left: 58px;
       height: 700px;
     }
@@ -98,7 +98,7 @@ section.hero-banner {
         margin-right: 0.5rem;
 
         @media (min-width: $desktop) {
-          width: 192px;
+          width: 153px;
           margin-right: 1rem;
         }
       }
@@ -110,7 +110,7 @@ section.hero-banner {
 
       @media (min-width: $desktop) {
         font-size: 90px;
-        margin-left: 208px;
+        margin-left: 171px;
       }
     }
   }
