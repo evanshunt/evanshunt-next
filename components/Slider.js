@@ -37,7 +37,7 @@ class SliderComponent extends React.Component {
   
   render() {
     
-    const { title = 'Featured Clients', slides } = this.props
+    const { title, slides } = this.props
     const { visibleSlides, slideWidth, slideHeight } = this.state
     
     return (
@@ -53,7 +53,7 @@ class SliderComponent extends React.Component {
           className="react-slider"
         >
           <Slider>
-            
+            {/* TODO: pull in slides when some exist in contentful */}
             <Slide className="react-slider-slide" innerClassName="slide-inner" index={0}>
               <Image src="//via.placeholder.com/430x430/ff0000" className="img-fluid" alt="" />
               <p>Alterra</p>

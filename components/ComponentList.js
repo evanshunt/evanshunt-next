@@ -1,6 +1,10 @@
 import HeroBanner from "./HeroBanner";
 import ContactBlock from "./ContactBlock";
 import SideBySideImages from "./SideBySideImages";
+import IntroBlock from "../components/IntroBlock";
+import FeaturedProjects from "../components/FeaturedProjects";
+import ServiceCircles from "../components/ServiceCircles";
+import Slider from "../components/Slider";
 
 const renderComponents = (components) => {
   return components.map((component, i) => {
@@ -44,6 +48,55 @@ const renderComponents = (components) => {
         return (
           <SideBySideImages
             images={component.fields.images}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentIntroBlock":
+        return (
+          <IntroBlock
+            largeText={component.fields.largeText}
+            introText={component.fields.introText}
+            centerAlign={component.fields.centerAlign}
+            cta={component.fields.centerAlign}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentFeaturedProjects":
+        return (
+          <FeaturedProjects
+            title={component.fields.title}
+            projects={component.fields.project}
+            cta={component.fields.cta}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentSlider":
+        return (
+          <Slider
+            title={component.fields.title}
+            slides={component.fields.slides}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentServiceCircles":
+        return (
+          <ServiceCircles
+            title={component.fields.title}
+            smallText={component.fields.smallText}
+            circle1Title={component.fields.circle1Title}
+            circle1Description={component.fields.circle1Description}
+            circle2Title={component.fields.circle2Title}
+            circle2Description={component.fields.circle2Description}
+            circle3Title={component.fields.circle3Title}
+            circle3Description={component.fields.circle3Description}
+            circle4Title={component.fields.circle4Title}
+            circle4Description={component.fields.circle4Description}
+            primaryCta={component.fields.primaryCta}
+            secondaryCta={component.fields.secondaryCta}
             key={`component-${i}`}
           />
         );

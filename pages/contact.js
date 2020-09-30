@@ -4,7 +4,6 @@ import renderComponents from "../components/ComponentList";
 const CMSApi = require("../utility/cms");
 
 const ContactUs = (content) => {
-  console.log(content);
   return (
     <Layout className="content-page contact-page">
       <PageMeta

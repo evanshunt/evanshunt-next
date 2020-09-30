@@ -1,20 +1,30 @@
 import Layout from "../layouts/Page";
-import HeroBanner from "../components/HeroBanner";
-import IntroBlock from "../components/IntroBlock";
-import FeaturedProjects from "../components/FeaturedProjects";
-import ServiceCircles from "../components/ServiceCircles";
-import Slider from '../components/Slider'
+import PageMeta from "../components/PageMeta";
+import renderComponents from "../components/ComponentList";
+const CMSApi = require("../utility/cms");
 
-function HomePage() {
+const HomePage = (content) => {
   return (
     <Layout className="content-page home-page">
-      <HeroBanner />
-      <IntroBlock />
-      <FeaturedProjects />
-      <Slider />
-      <ServiceCircles />
+      <PageMeta
+        seoTitle={content.fields.pageMeta.fields.seoTitle}
+        metaDescription={content.fields.pageMeta.fields.metaDescription}
+        socialMediaImage={content.fields.pageMeta.fields.socialMediaImage}
+      />
+      {content.fields.components && renderComponents(content.fields.components)}
     </Layout>
   );
 }
+
+HomePage.getInitialProps = async () => {
+  const api = new CMSApi();
+  const json = await api.fetchContentType("pageHome");
+
+  if (json) {
+    return json;
+  } else {
+    return { errorCode: 404 };
+  }
+};
 
 export default HomePage;
