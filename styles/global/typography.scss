@@ -5,3 +5,19 @@ a {
     color: lighten(#000, 10%);
   }
 }
+
+
+.base-font {
+  font-family: 'UntitledSans', Arial, sans-serif;
+  font-weight: $regular;
+  
+  &-medium {
+    font-family: 'UntitledSans', Arial, sans-serif;
+    font-weight: $medium;  
+  }
+
+  &-bold {
+    font-family: 'UntitledSans', Arial, sans-serif;
+    font-weight: $bold;
+  }
+}

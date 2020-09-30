@@ -1,0 +1,39 @@
+.logo-grid {
+  text-align: center;
+  margin-bottom: 25px;
+  
+  .small-title {
+    color: $red;
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+  
+  .large-title {
+    margin-top: 10px;
+    margin-bottom: 68px;
+    @media (min-width: $desktop-large) {
+      margin-bottom: 134px;  
+    }
+  }
+  
+  &-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  &-logo {
+    margin: 0 15px 60px;
+    width: calc(50% - 30px);
+    
+    @media (min-width: $tablet) {
+      margin: 0 30px 100px;
+      width: calc(25% - 60px);  
+    }
+  }
+  
+  &-img {
+    margin: 0 auto;
+    display: block;
+  }
+}
