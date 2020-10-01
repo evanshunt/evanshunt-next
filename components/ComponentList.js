@@ -5,6 +5,8 @@ import IntroBlock from "../components/IntroBlock";
 import FeaturedProjects from "../components/FeaturedProjects";
 import ServiceCircles from "../components/ServiceCircles";
 import Slider from "../components/Slider";
+import CentreAlignedText from './CentreAlignedText'
+import StaggeredImagesWithText from './StaggeredImagesWithText'
 
 const renderComponents = (components) => {
   return components.map((component, i) => {
@@ -97,6 +99,23 @@ const renderComponents = (components) => {
             circle4Description={component.fields.circle4Description}
             primaryCta={component.fields.primaryCta}
             secondaryCta={component.fields.secondaryCta}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentCentreAlignedText":
+        return (
+          <CentreAlignedText
+            title={component.fields.title}
+            text={component.fields.text}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentStaggeredImagesWithText":
+        return (
+          <StaggeredImagesWithText
+            imageAndTextBlocks={component.fields.imageAndTextBlocks}
             key={`component-${i}`}
           />
         );

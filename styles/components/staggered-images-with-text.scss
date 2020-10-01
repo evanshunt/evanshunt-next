@@ -1,0 +1,50 @@
+.staggered-images-with-text {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 75px;
+  @media (min-width: $large-phone) {
+    flex-wrap: nowrap;
+  }
+  
+  .staggered-column {
+    width: 100%;
+    max-width: 530px;
+
+    &:last-child {
+      margin-top: 30px;
+    }
+
+    @media (min-width: $large-phone) {
+      width: 50%;
+
+      &:first-child {
+        margin-right: 3rem;
+      }
+
+      &:last-child {
+        margin-top: 138px;
+      }
+    }
+    
+    img {
+      margin-bottom: 1.25rem;
+      @media (min-width: $desktop-large) {
+        margin-bottom: 3.25rem;  
+      }
+    }
+
+    .title {
+      font-size: 1.56rem;
+      margin-bottom: 30px;
+
+      @media (min-width: $desktop-large) {
+        font-size: 3.125rem;
+      }
+    }
+    
+    .text {
+      max-width: 420px;
+    }
+  }
+}

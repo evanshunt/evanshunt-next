@@ -11,7 +11,7 @@ function OurServicesPage() {
       <ServiceBlock title="Branding" />
       <ServiceBlock title="Marketing" textLeftOrRight={false} />
       <InlineVideo />
-      <IntroBlock largeText="Ready to get started?" introText={false} centreAlign={true} cta={true} />
+      <IntroBlock largeText="Ready to get started?" introText={false} centreAlign={true} cta={false} />
     </Layout>
   );
 }

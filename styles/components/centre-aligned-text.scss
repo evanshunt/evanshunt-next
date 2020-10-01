@@ -1,0 +1,26 @@
+.centre-aligned-text {
+  margin-bottom: 40px;
+
+  @media (min-width: $tablet) {
+    margin-bottom: 75px;  
+  }
+  
+  .title {
+    font-size: 1.56rem;
+    text-align: center;
+    margin-bottom: 30px;
+    
+    @media (min-width: $tablet) {
+      font-size: 3.125rem;
+    }
+  }
+  
+  .text {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    @media (min-width: $tablet) {
+      text-align: left;  
+    }
+  }
+}
