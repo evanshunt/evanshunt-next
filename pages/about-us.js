@@ -5,7 +5,7 @@ const CMSApi = require("../utility/cms");
 
 const AboutUsPage = (content) => {
   return (
-    <Layout className="content-page home-page">
+    <Layout className="content-page about-us-page">
       <PageMeta
         seoTitle={content.fields.pageMeta.fields.seoTitle}
         metaDescription={content.fields.pageMeta.fields.metaDescription}

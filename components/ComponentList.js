@@ -9,6 +9,7 @@ import CentreAlignedText from './CentreAlignedText'
 import StaggeredImagesWithText from './StaggeredImagesWithText'
 import FullWidthImage from './FullWidthImage'
 import DecorativeLine from './DecorativeLine'
+import OurTeam from './OurTeam'
 
 const renderComponents = (components) => {
   return components.map((component, i) => {
@@ -136,6 +137,16 @@ const renderComponents = (components) => {
         return (
           <DecorativeLine
             image={component.fields.image}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentOurTeam":
+        return (
+          <OurTeam
+            title={component.fields.title}
+            intro={component.fields.intro}
+            leaders={component.fields.leaders}
             key={`component-${i}`}
           />
         );
