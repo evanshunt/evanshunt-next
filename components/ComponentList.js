@@ -7,6 +7,8 @@ import ServiceCircles from "../components/ServiceCircles";
 import Slider from "../components/Slider";
 import CentreAlignedText from './CentreAlignedText'
 import StaggeredImagesWithText from './StaggeredImagesWithText'
+import FullWidthImage from './FullWidthImage'
+import DecorativeLine from './DecorativeLine'
 
 const renderComponents = (components) => {
   return components.map((component, i) => {
@@ -116,6 +118,24 @@ const renderComponents = (components) => {
         return (
           <StaggeredImagesWithText
             imageAndTextBlocks={component.fields.imageAndTextBlocks}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentFullWidthImage":
+        return (
+          <FullWidthImage
+            title={component.fields.title}
+            image={component.fields.image}
+            addPadding={component.fields.addPadding}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentDecorativeLine":
+        return (
+          <DecorativeLine
+            image={component.fields.image}
             key={`component-${i}`}
           />
         );

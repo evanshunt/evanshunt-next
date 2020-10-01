@@ -1,0 +1,26 @@
+.full-width-image {
+  margin-bottom: 30px;
+  @media (min-width: $desktop-large) {
+    margin-bottom: 65px;  
+  }
+  
+  &-inner {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  img {
+    @media (min-width: $desktop-large) {
+      object-fit: cover;
+    }
+  }
+  
+  &.with-padding {
+    padding: 0 15px;
+    @media (min-width: $tablet) {
+      padding: 0 40px;
+    }
+  }
+}
