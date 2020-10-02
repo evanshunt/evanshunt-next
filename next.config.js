@@ -12,7 +12,8 @@ const next_config = withFonts({
   exportPathMap: async function() {
     const paths = {
       '/': { page: '/' },
-      '/contact': { page: '/contact' }
+      '/contact': { page: '/contact' },
+      '/careers': { page: '/careers' }
     };
 
     // COPIED FROM STAMPEDE FOR REFERENCE

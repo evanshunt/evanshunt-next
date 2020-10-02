@@ -1,0 +1,28 @@
+section.open-positions {
+  padding: 3rem 1rem;
+
+  @media (min-width: $tablet) {
+    padding: 6rem 10rem;
+  }
+
+  @media (min-width: $desktop) {
+    padding: 9rem 19rem;
+  }
+
+  h1, .intro-text {
+    text-align: center;
+  }
+
+  h1 {
+    @media (min-width: $desktop) {
+      font-size: 70px;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .intro-text {
+    @media (min-width: $desktop) {
+      font-size: 25px;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+section.text-blocks {
+  padding: 0 2rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @media (min-width: $desktop) {
+    padding: 4rem 14.5625rem 6rem;
+  }
+
+  .block {
+    width: 100%;
+    margin-bottom: 1rem;
+
+    @media (min-width: $desktop) {
+      width: 40%;
+      margin-bottom: 3rem;
+    }
+  }
+}
