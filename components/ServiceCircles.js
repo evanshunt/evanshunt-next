@@ -14,8 +14,6 @@ const ServiceCircles = ({
   primaryCta,
   secondaryCta,
 }) => {
-  console.log(title);
-  console.log(smallText);
   return (
     <section className="service-circles">
       {title && <h3 className="service-circles-title">{title}</h3>}

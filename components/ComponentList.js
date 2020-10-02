@@ -1,14 +1,16 @@
 import HeroBanner from "./HeroBanner";
 import ContactBlock from "./ContactBlock";
 import SideBySideImages from "./SideBySideImages";
-import IntroBlock from "../components/IntroBlock";
-import FeaturedProjects from "../components/FeaturedProjects";
-import ServiceCircles from "../components/ServiceCircles";
-import Slider from "../components/Slider";
-import CentreAlignedText from './CentreAlignedText'
-import StaggeredImagesWithText from './StaggeredImagesWithText'
-import FullWidthImage from './FullWidthImage'
-import DecorativeLine from './DecorativeLine'
+import IntroBlock from "./IntroBlock";
+import FeaturedProjects from "./FeaturedProjects";
+import ServiceCircles from "./ServiceCircles";
+import Slider from "./Slider";
+import CentreAlignedText from "./CentreAlignedText";
+import StaggeredImagesWithText from "./StaggeredImagesWithText";
+import FullWidthImage from "./FullWidthImage";
+import DecorativeLine from "./DecorativeLine";
+import TextBlocks from "./TextBlocks";
+import OpenPositions from "./OpenPositions";
 import OurTeam from './OurTeam'
 
 const renderComponents = (components) => {
@@ -63,7 +65,7 @@ const renderComponents = (components) => {
             largeText={component.fields.largeText}
             introText={component.fields.introText}
             centerAlign={component.fields.centerAlign}
-            cta={component.fields.centerAlign}
+            cta={component.fields.cta}
             key={`component-${i}`}
           />
         );
@@ -140,6 +142,23 @@ const renderComponents = (components) => {
             key={`component-${i}`}
           />
         );
+
+      case "componentTextBlocks":
+        return (
+          <TextBlocks
+            textBlocks={component.fields.textBlocks}
+            key={`component-${i}`}
+          />
+        );
+
+        case "componentOpenPositions":
+          return (
+            <OpenPositions
+            title={component.fields.title}
+            introText={component.fields.introText}
+              key={`component-${i}`}
+            />
+          );
 
       case "componentOurTeam":
         return (

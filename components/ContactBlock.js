@@ -9,7 +9,6 @@ const ContactBlock = ({
   cta2Title,
   cta2,
 }) => {
-  console.log(address);
   return (
     <section className="contact-block">
       <div className="column">
