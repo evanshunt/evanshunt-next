@@ -12,6 +12,7 @@ import DecorativeLine from "./DecorativeLine";
 import TextBlocks from "./TextBlocks";
 import OpenPositions from "./OpenPositions";
 import OurTeam from './OurTeam'
+import OurCulture from './OurCulture'
 
 const renderComponents = (components) => {
   return components.map((component, i) => {
@@ -166,6 +167,16 @@ const renderComponents = (components) => {
             title={component.fields.title}
             intro={component.fields.intro}
             leaders={component.fields.leaders}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentOurCulture":
+        return (
+          <OurCulture
+            title={component.fields.title}
+            video={component.fields.video}
+            images={component.fields.images}
             key={`component-${i}`}
           />
         );
