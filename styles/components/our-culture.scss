@@ -83,6 +83,10 @@
         height: 50vw;
         width: 50vw;        
       }
+      @media (min-width: 1600px) {
+        height: 640px;
+        width: 640px;
+      }
     }
   }
   
