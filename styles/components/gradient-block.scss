@@ -2,18 +2,17 @@ section.gradient-block {
   overflow: hidden;
   background-image: linear-gradient(192deg, #FF0015 2%, #B4AAFF 100%);
   min-height: 224px;
-  padding: 0 2rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  justify-content: left;
 
-  @media (min-width: $desktop) {
-    padding: 0 179px;
+  .container-narrow {
+    flex-shrink: 0;
+    width: 100%;
   }
 
   @media (min-width: $desktop-large) {
     min-height: 425px;
-    padding: 0 360px;
   }
 
   h1, p {

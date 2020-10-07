@@ -16,21 +16,7 @@ const ContactBlock = ({
         <ReactMarkdown source={address} />
         <a href={directionsLink} target="_blank" rel="noreferrer">
           Get directions{" "}
-          <svg width="21" height="9">
-            <defs>
-              <path id="a" d="M0 0h21v10H0z" />
-            </defs>
-            <g fill="none" fillRule="evenodd">
-              <mask id="b" fill="#fff">
-                <use xlinkHref="#a" />
-              </mask>
-              <path
-                d="M20.751 4.013L15.847 0l-1.331.974 3.448 2.818H-10.5v1.416h28.464l-3.448 2.818L15.847 9l4.904-4.013c.168-.137.25-.299.249-.487a.707.707 0 00-.249-.487z"
-                fill="#000"
-                mask="url(#b)"
-              />
-            </g>
-          </svg>
+          <img src="/images/small-right-arrow.svg" alt="Right pointing arrow" />
         </a>
       </div>
 

@@ -1,0 +1,56 @@
+section.job-description {
+  padding: 2.5rem 0;
+
+  .left {
+    a {
+      display: flex;
+      align-items: center;
+      font-weight: $medium;
+
+      img {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .rich-text {
+    margin: 2rem 0;
+
+    @media (min-width: $desktop) {
+      font-size: 20px;
+    }
+      
+    ul {
+      @media (min-width: $desktop) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .collapsing-section {
+    .rich-text {
+      margin-top: 0;
+    }
+  }
+
+  .ctas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: $desktop) {
+      flex-direction: row;
+      justify-content: left;
+      padding: 2rem 0;
+    }
+
+    .btn {
+      margin-bottom: 3rem;
+      @media (min-width: $desktop) {
+        margin-bottom: 0;
+        margin-right: 2.5rem;
+      }
+    }
+  }
+}
