@@ -81,7 +81,7 @@ const renderComponents = (components) => {
         return (
           <FeaturedProjects
             title={component.fields.title}
-            projects={component.fields.project}
+            projects={component.fields.projects}
             cta={component.fields.cta}
             key={`component-${i}`}
           />
