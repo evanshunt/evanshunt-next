@@ -6,7 +6,7 @@ const CMSApi = require("../../utility/cms");
 const CareerDetails = (content) => {
   console.log(content)
   return (
-    <Layout className="content-page contact-page">
+    <Layout className="content-page career-details-page" inlineHeader={true}>
       <PageMeta
         seoTitle={content.fields.pageMeta.fields.seoTitle}
         metaDescription={content.fields.pageMeta.fields.metaDescription}

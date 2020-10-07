@@ -1,8 +1,6 @@
-const GradientBlock = ({ leaveSpaceForNav, smallerText, title }) => {
+const GradientBlock = ({ smallerText, title }) => {
   return (
-    <section
-      className={leaveSpaceForNav ? `gradient-block space` : `gradient-block`}
-    >
+    <section className="gradient-block">
       <div className="container-narrow">
         <h1>{title}</h1>
         <p>{smallerText}</p>

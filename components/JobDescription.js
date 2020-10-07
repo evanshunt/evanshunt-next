@@ -48,9 +48,9 @@ const JobDescription = (components) => {
             }
           })}
 
-          {/* TODO: figure out what these links do */}
           <div className="ctas">
-            <a href="#" className="btn btn-outline btn-secondary">Apply Now</a>
+            <a href="#apply-form" className="btn btn-outline btn-secondary">Apply Now</a>
+            {/* TODO: figure out what this link should do */}
             <a href="#">Send to a friend <img src="/images/small-right-arrow.svg" alt="Right pointing arrow" /></a>
           </div>
           

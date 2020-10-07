@@ -1,5 +1,6 @@
 section.job-description {
   padding: 2.5rem 0;
+  position: relative;
 
   .left {
     a {
@@ -7,9 +8,20 @@ section.job-description {
       align-items: center;
       font-weight: $medium;
 
+      @media (min-width: $desktop-large) {
+        justify-content: center;
+      }
+
       img {
         margin-right: 0.5rem;
       }
+    }
+
+    @media (min-width: $desktop-large) {
+      position: absolute;
+      width: calc((100vw - 800px) / 2);
+      left: 0;
+      top: 4.5rem;
     }
   }
 
