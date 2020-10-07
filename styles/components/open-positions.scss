@@ -1,11 +1,11 @@
 section.open-positions {
   padding: 3rem 1rem;
 
-  @media (min-width: $tablet) {
+  @media (min-width: $desktop) {
     padding: 6rem 10rem;
   }
 
-  @media (min-width: $desktop) {
+  @media (min-width: $desktop-large) {
     padding: 9rem 19rem;
   }
 
@@ -14,6 +14,7 @@ section.open-positions {
   }
 
   h1 {
+    font-size: 34px;
     @media (min-width: $desktop) {
       font-size: 70px;
       margin-bottom: 2rem;
@@ -21,8 +22,48 @@ section.open-positions {
   }
 
   .intro-text {
+    font-size: 13px;
+    margin-bottom: 3rem;
     @media (min-width: $desktop) {
       font-size: 25px;
+      margin-bottom: 5rem;
+    }
+  }
+
+  .position {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #D6DDE0;
+    min-height: 100px;
+
+    @media (min-width: $desktop) {
+      min-height: 126px;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:first-of-type {
+      border-top: 2px solid #D6DDE0;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: $medium;
+      margin-bottom: 0;
+      @media (min-width: $desktop) {
+        font-size: 30px;
+      }
+    }
+
+    .department {
+      margin-bottom: 0;
+      font-size: 13px;
+      @media (min-width: $desktop) {
+        font-size: 1rem;
+      }
     }
   }
 }

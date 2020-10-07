@@ -11,8 +11,11 @@ import FullWidthImage from "./FullWidthImage";
 import DecorativeLine from "./DecorativeLine";
 import TextBlocks from "./TextBlocks";
 import OpenPositions from "./OpenPositions";
-import OurTeam from './OurTeam'
+import OurTeam from "./OurTeam";
 import OurCulture from './OurCulture'
+import GradientBlock from "./GradientBlock";
+import JobDescription from "./JobDescription";
+import ApplyForm from "./ApplyForm";
 
 const renderComponents = (components) => {
   return components.map((component, i) => {
@@ -152,14 +155,15 @@ const renderComponents = (components) => {
           />
         );
 
-        case "componentOpenPositions":
-          return (
-            <OpenPositions
+      case "componentOpenPositions":
+        return (
+          <OpenPositions
             title={component.fields.title}
             introText={component.fields.introText}
-              key={`component-${i}`}
-            />
-          );
+            openPositions={component.fields.openPositions}
+            key={`component-${i}`}
+          />
+        );
 
       case "componentOurTeam":
         return (
@@ -180,6 +184,27 @@ const renderComponents = (components) => {
             key={`component-${i}`}
           />
         );
+
+      case "componentGradientBlock":
+        return (
+          <GradientBlock
+            leaveSpaceForNav={component.fields.leaveSpaceForNav}
+            smallerText={component.fields.smallerText}
+            title={component.fields.title}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentJobDescription":
+        return (
+          <JobDescription
+            components={component.fields.components}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentApplyForm":
+        return <ApplyForm key={`component-${i}`} />;
 
       default:
         return (
