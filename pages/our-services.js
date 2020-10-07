@@ -2,9 +2,6 @@ import Layout from '../layouts/Page'
 import PageMeta from "../components/PageMeta";
 import renderComponents from "../components/ComponentList";
 const CMSApi = require("../utility/cms");
-import ServiceBlock from '../components/ServiceBlock'
-import InlineVideo from '../components/InlineVideo'
-import IntroBlock from '../components/IntroBlock'
 
 const OurServicesPage = (content) => {
   return (
@@ -15,12 +12,6 @@ const OurServicesPage = (content) => {
         socialMediaImage={content.fields.pageMeta.fields.socialMediaImage}
       />
       {content.fields.components && renderComponents(content.fields.components)}
-      {/*<ServiceBlock />*/}
-      {/*<ServiceBlock title="Digital" textLeftOrRight={false} />*/}
-      {/*<ServiceBlock title="Branding" />*/}
-      {/*<ServiceBlock title="Marketing" textLeftOrRight={false} />*/}
-      {/*<InlineVideo />*/}
-      {/*<IntroBlock largeText="Ready to get started?" introText={false} centreAlign={true} cta={false} />*/}
     </Layout>
   );
 }

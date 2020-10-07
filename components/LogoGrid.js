@@ -8,44 +8,17 @@ const LogoGrid = (props) => {
       <div className="container">
         {smallTitle && <h4 className="small-title base-font-medium">{smallTitle}</h4>}
         {largeTitle && <h1 className="large-title">{largeTitle}</h1>}
-        <div className="logo-grid-logos">
-          <div className="logo-grid-logo">
-            <img src="//via.placeholder.com/140x67" alt="" className="logo-grid-img" />
+        {logos && (
+          <div className="logo-grid-logos">
+            {logos.map((logo, i) => {
+              return (
+                <div className="logo-grid-logo" key={i}>
+                  <img src={logo.fields.logo.fields.file.url} alt={logo.fields.logo.fields.file.description} className="logo-grid-img" />
+                </div> 
+              )
+            })}
           </div>
-          <div className="logo-grid-logo">
-            <img src="//via.placeholder.com/140x67" alt="" className="logo-grid-img" />
-          </div>
-          <div className="logo-grid-logo">
-            <img src="//via.placeholder.com/140x67" alt="" className="logo-grid-img" />
-          </div>
-          <div className="logo-grid-logo">
-            <img src="//via.placeholder.com/140x67" alt="" className="logo-grid-img" />
-          </div>
-          <div className="logo-grid-logo">
-            <img src="//via.placeholder.com/140x67" alt="" className="logo-grid-img" />
-          </div>
-          <div className="logo-grid-logo">
-            <img src="//via.placeholder.com/140x67" alt="" className="logo-grid-img" />
-          </div>
-          <div className="logo-grid-logo">
-            <img src="//via.placeholder.com/140x67" alt="" className="logo-grid-img" />
-          </div>
-          <div className="logo-grid-logo">
-            <img src="//via.placeholder.com/140x67" alt="" className="logo-grid-img" />
-          </div>
-          <div className="logo-grid-logo">
-            <img src="//via.placeholder.com/140x67" alt="" className="logo-grid-img" />
-          </div>
-          <div className="logo-grid-logo">
-            <img src="//via.placeholder.com/140x67" alt="" className="logo-grid-img" />
-          </div>
-          <div className="logo-grid-logo">
-            <img src="//via.placeholder.com/140x67" alt="" className="logo-grid-img" />
-          </div>
-          <div className="logo-grid-logo">
-            <img src="//via.placeholder.com/140x67" alt="" className="logo-grid-img" />
-          </div>
-        </div>
+        )}
       </div>
     </section>
   )

@@ -21,7 +21,8 @@ class Header extends React.Component {
   
   render() {
     
-    const headerClasses = classNames({'nav-active': this.state.navActive})
+    const { inlineHeader } = this.props
+    const headerClasses = classNames({'nav-active': this.state.navActive}, {'nav-inline': inlineHeader})
     const headerNavClasses = classNames('header-nav', {'active' : this.state.navActive})
     
     return (

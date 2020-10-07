@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 
 const Layout = (props) => (
   <>
-    <Header /> 
+    <Header inlineHeader={props.inlineHeader} /> 
     <main className={props.className}>{props.children}</main>
     <Footer /> 
   </>

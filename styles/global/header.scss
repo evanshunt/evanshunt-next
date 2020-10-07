@@ -14,9 +14,17 @@
     align-items: flex-end;
   }
 
-  // Inline version - for the version that sits within the document flow
-  &.inline {
-
+  // Inline version - the version that sits within the document flow, and sits atop a white background
+  &.nav-inline {
+    position: relative;
+    
+    #header-logo #ComponentsNavLogo{
+      fill: $red;
+    }
+    
+    .header-nav-link, .header-nav-toggle {
+      color: $black;
+    }
   }
   
 

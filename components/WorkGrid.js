@@ -3,67 +3,33 @@ import React from 'react'
 const WorkGrid = (props) => {
   
   const { workPages } = props
+  if (!workPages) {
+    return null
+  }
   
   return (
     <section className="work-grid">
       <div className="container">
-        
         <div className="work-grid-columns">
-          
-          <div className="work-grid-column">
-            <div className="work-grid-img">
-              <a href="/">
-                <img src="//via.placeholder.com/520x580" className="img-fluid" alt=""/>
-              </a>
-              <div className="work-grid-cta">
-                <a href="/" className="btn">View Case Study</a>
+          {workPages.map((page, i) => {
+            return (
+              <div className="work-grid-column" key={i}>
+                <div className="work-grid-img">
+                  {page.fields.squareImage && (
+                    <a href={`/our-work/${page.fields.slug}`}>
+                      <img src={page.fields.squareImage.fields.file.url} className="img-fluid" alt={page.fields.squareImage.fields.file.description} />
+                    </a>
+                  )}
+                  <div className="work-grid-cta">
+                    <a href={`/our-work/${page.fields.slug}`} className="btn">View Case Study</a>
+                  </div>
+                </div>
+                {page.fields.title && <h5 className="work-grid-title base-font-medium">{page.fields.title}</h5>}
+                {page.fields.servicesList && <p>{page.fields.servicesList.join(', ')}</p>}
               </div>
-            </div>
-            <h5 className="work-grid-title base-font-medium">Bad Coffee</h5>
-            <p>Branding, Campaigns</p>
-          </div>
-          
-          <div className="work-grid-column">
-            <div className="work-grid-img">
-              <a href="/">
-                <img src="//via.placeholder.com/520x580" className="img-fluid" alt=""/>
-              </a>
-              <div className="work-grid-cta">
-                <a href="/" className="btn">View Case Study</a>
-              </div>
-            </div>
-            <h5 className="work-grid-title base-font-medium">Ikon Pass</h5>
-            <p>eCommerce, Experience Design, Digital Transformation</p>
-          </div>
-
-          <div className="work-grid-column">
-            <div className="work-grid-img">
-              <a href="/">
-                <img src="//via.placeholder.com/520x580" className="img-fluid" alt=""/>
-              </a>
-              <div className="work-grid-cta">
-                <a href="/" className="btn">View Case Study</a>
-              </div>
-            </div>
-            <h5 className="work-grid-title base-font-medium">Shaw</h5>
-            <p>Digital Transformation, Creative, Website</p>
-          </div>
-
-          <div className="work-grid-column">
-            <div className="work-grid-img">
-              <a href="/">
-                <img src="//via.placeholder.com/520x580" className="img-fluid" alt=""/>
-              </a>
-              <div className="work-grid-cta">
-                <a href="/" className="btn">View Case Study</a>
-              </div>
-            </div>
-            <h5 className="work-grid-title base-font-medium">Pursuit</h5>
-            <p>Branding, Experience Design, Campaigns</p>
-          </div>
-          
+            )
+          })}
         </div>
-        
       </div>
     </section>
   )
