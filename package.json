@@ -13,6 +13,7 @@
   "author": "Justine Matsalla",
   "license": "ISC",
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^14.1.1",
     "@evanshunt/derekstrap": "^0.1.11",
     "@zeit/next-sass": "^1.0.1",
     "bootstrap": "^4.5.2",
