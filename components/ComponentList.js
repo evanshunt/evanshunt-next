@@ -11,11 +11,14 @@ import FullWidthImage from "./FullWidthImage";
 import DecorativeLine from "./DecorativeLine";
 import TextBlocks from "./TextBlocks";
 import OpenPositions from "./OpenPositions";
+import ServiceBlock from './ServiceBlock'
 import OurTeam from "./OurTeam";
 import OurCulture from './OurCulture'
 import GradientBlock from "./GradientBlock";
 import JobDescription from "./JobDescription";
 import ApplyForm from "./ApplyForm";
+import InlineVideo from './InlineVideo'
+import CtaBlock from './CtaBlock'
 
 const renderComponents = (components) => {
   return components.map((component, i) => {
@@ -205,6 +208,38 @@ const renderComponents = (components) => {
 
       case "componentApplyForm":
         return <ApplyForm key={`component-${i}`} />;
+
+      case "componentServiceBlock":
+        return (
+          <ServiceBlock
+            title={component.fields.title}
+            introText={component.fields.introText}
+            servicesList={component.fields.servicesList}
+            link={component.fields.link}
+            image={component.fields.image}
+            textLeftOrRight={component.fields.textLeftOrRight}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentInlineVideo":
+        return (
+          <InlineVideo
+            title={component.fields.title}
+            image={component.fields.image}
+            video={component.fields.video}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentCtaBlock":
+        return (
+          <CtaBlock
+            title={component.fields.title}
+            cta={component.fields.cta}
+            key={`component-${i}`}
+          />
+        );
 
       default:
         return (

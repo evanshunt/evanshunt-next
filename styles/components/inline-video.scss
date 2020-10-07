@@ -1,6 +1,7 @@
 .inline-video {
   position: relative;
   margin-top: 60px;
+  margin-bottom: 100px;
   
   @media (min-width: $tablet) {
     margin-top: 135px;
@@ -16,6 +17,10 @@
       bottom: 55px;
       left: 40px;      
     }
+  }
+  
+  video {
+    object-fit: cover;
   }
   
   &-play {

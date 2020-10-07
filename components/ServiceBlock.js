@@ -2,7 +2,7 @@ import React from 'react'
 
 const ServiceBlock = (props) => {
   
-  const { textLeftOrRight = true } = props
+  const { textLeftOrRight } = props
   
   return (
     <section className="service-block">
@@ -30,11 +30,12 @@ const ServiceBlock = (props) => {
 const ServiceBlockText = (props) => {
   
   const {
-    title = "Strategy",
-    introText = "Like you, we’ve seen our share of beautiful, functional creative that nobody uses. We say, why not do some strategy first? We’ll figure out who you’re talking to, the best ways to reach them and how you’ll know when your message is connecting.",
-    servicesList = ['Research', 'Strategy Development', 'Experience Design', 'Analytics and Data'],
-    link = 'Learn More',
+    title,
+    introText,
+    servicesList,
+    link,
   } = props
+  
   
   return (
     <div className="service-block-text">
@@ -50,7 +51,7 @@ const ServiceBlockText = (props) => {
             })}
           </ul>
         )}
-        {link && <a href="/our-services/strategy" className="btn btn-secondary btn-outline">{link}</a>}
+        {link && <a href={link.fields.url} className="btn btn-secondary btn-outline">{link.fields.title}</a>}
       </div>
     </div>
   )
@@ -60,7 +61,7 @@ const ServiceBlockImage = (props) => {
   const { image } = props
   return (
     <div className="service-block-img">
-      <img src="//via.placeholder.com/605x471/cccccc" className="img-fluid" alt=""/>
+      <img src={image.fields.file.url} className="img-fluid" alt={image.fields.file.description} />
     </div>
   )
 }
