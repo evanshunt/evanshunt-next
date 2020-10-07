@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 const ServiceBlock = (props) => {
   
@@ -51,7 +52,11 @@ const ServiceBlockText = (props) => {
             })}
           </ul>
         )}
-        {link && <a href={link.fields.url} className="btn btn-secondary btn-outline">{link.fields.title}</a>}
+        {link && (
+          <Link href={link.fields.url}>
+            <a className="btn btn-secondary btn-outline" title={link.fields.title}>{link.fields.title}</a>
+          </Link>
+        )}
       </div>
     </div>
   )

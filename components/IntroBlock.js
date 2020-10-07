@@ -1,5 +1,6 @@
 import React from "react";
 import classNames from "classnames";
+import Link from 'next/link'
 
 // Intro Block
 const IntroBlock = ({ largeText, introText, centreAlign, cta }) => {
@@ -14,16 +15,20 @@ const IntroBlock = ({ largeText, introText, centreAlign, cta }) => {
         <div className="intro-block-text">
           <p>{introText}</p>
           {cta && (
-            <a href={cta.fields.url} className="btn">
-              {cta.fields.title}
-            </a>
+            <Link href={cta.fields.url}>
+              <a className="btn" title={cta.fields.title}>
+                {cta.fields.title}
+              </a>
+            </Link>
           )}
         </div>
       )}
       {!introText && cta && (
-        <a href={cta.fields.url} className="btn">
-          {cta.fields.title}
-        </a>
+        <Link href={cta.fields.url}>
+          <a className="btn" title={cta.fields.title}>
+            {cta.fields.title}
+          </a>
+        </Link>
       )}
     </section>
   );

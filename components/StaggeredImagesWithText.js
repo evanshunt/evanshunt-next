@@ -3,8 +3,6 @@ const StaggeredImagesWithText = (props) => {
   
   const { imageAndTextBlocks } = props
   
-  console.log(imageAndTextBlocks)
-  
   return (
     <section className="staggered-images-with-text container">
       {imageAndTextBlocks && imageAndTextBlocks.map((block, i) => {

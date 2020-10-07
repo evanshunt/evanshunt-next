@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/link'
 
 const ServiceCircles = ({
   title,
@@ -57,15 +58,19 @@ const ServiceCircles = ({
 
       {primaryCta && (
         <div>
-          <a href={primaryCta.fields.url} className="btn btn-secondary">
-            {primaryCta.fields.title}
-          </a>
+          <Link href={primaryCta.fields.url}>
+            <a className="btn btn-secondary" title={primaryCta.fields.title}>
+              {primaryCta.fields.title}
+            </a>
+          </Link>
         </div>
       )}
 
       {secondaryCta && (
         <div>
-          <a href={secondaryCta.fields.url}>{secondaryCta.fields.title}</a>
+          <Link href={secondaryCta.fields.url}>
+            <a title={secondaryCta.fields.title}>{secondaryCta.fields.title}</a>
+          </Link>
         </div>
       )}
     </section>
