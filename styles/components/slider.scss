@@ -27,10 +27,28 @@
       }
     }
   }
+  
+  p {
+    max-width: 400px;
+    display: none;
+    
+    @media (min-width: $desktop) {
+      display: block;
+    }
+  }
+  
+  h6 {
+    display: none;
+
+    @media (min-width: $desktop) {
+      display: block;
+    }
+  }
 }
 
 .react-slider-wrap {
   padding-left: 15px;
+  margin-bottom: 40px;
 
   // these help it match up with the regular container breakpoints
   // 100vw - container max-width + container 30px of padding / 2

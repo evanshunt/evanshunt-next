@@ -1,36 +1,72 @@
 import React from 'react'
 import { CarouselProvider, Slider, Slide, DotGroup, Image } from 'pure-react-carousel';
+import classNames from 'classnames'
+
+
+// Settings for both types of slider - client slide / global slide item
+const clientSlideDimensions = {
+  desktopWidth: 430,
+  desktopHeight: 500,
+  visibleSlides: 3.05,
+  mobileWidth: 240,
+  mobileHeight: 300,
+  mobileVisibleSlides: 1.25
+}
+
+const normalSlideDimensions = {
+  desktopWidth: 757,
+  desktopHeight: 600,
+  visibleSlides: 1.75,
+  mobileWidth: 380,
+  mobileHeight: 214,
+  mobileVisibleSlides: 1.05
+}
 
 class SliderComponent extends React.Component {
   
   constructor(props){
     super(props)
     
-    this.state = {
-      visibleSlides: 3.05,
-      slideWidth: 430,
-      slideHeight: 500
+    let slideDimensions = {}
+    let slideType = 'normal'
+    if (props && props.slides) {
+      // determine which settings to use based on the content type of the first item
+      if (props.slides[0].sys.contentType.sys.id === 'globalElementCarouselItem') {
+        slideDimensions = normalSlideDimensions
+      } else {
+        slideDimensions = clientSlideDimensions
+        slideType = 'client'
+      }
     }
+    
+    this.state = {
+      visibleSlides: slideDimensions.visibleSlides,
+      slideWidth: slideDimensions.desktopWidth,
+      slideHeight: slideDimensions.desktopHeight,
+      slideDimensions: slideDimensions,
+      slideType: slideType
+    }
+    
     this.onResize = this.onResize.bind(this)
   }
   
   componentDidMount() {
-    
     window.addEventListener('resize', this.onResize)
   }
   
   onResize() {
+    const { slideDimensions } = this.state
     if (window.innerWidth < 768) {
       this.setState({
-        visibleSlides: 1.25,
-        slideWidth: 240,
-        slideHeight: 300
+        visibleSlides: slideDimensions.mobileVisibleSlides,
+        slideWidth: slideDimensions.mobileWidth,
+        slideHeight: slideDimensions.mobileHeight
       })
     } else {
       this.setState({
-        visibleSlides: 3.05,
-        slideWidth: 430,
-        slideHeight: 500
+        visibleSlides: slideDimensions.visibleSlides,
+        slideWidth: slideDimensions.desktopWidth,
+        slideHeight: slideDimensions.desktopHeight
       })
     }
   }
@@ -38,42 +74,40 @@ class SliderComponent extends React.Component {
   render() {
     
     const { title, slides } = this.props
-    const { visibleSlides, slideWidth, slideHeight } = this.state
+    const { visibleSlides, slideWidth, slideHeight, slideType } = this.state
+    
+    if (!slides) {
+      return null
+    }
+    
+    // this deals with the different property names for the images between normal and client style slides
+    const imagePropertyName = (slideType === 'normal') ? 'image' : 'largeImage'
+    
+    const titleClass = classNames({'base-font-medium': slideType === 'normal'}, {'base-font': slideType === 'client'})
     
     return (
       <section className="react-slider-wrap">
         
-        {title && <p><strong>{title}</strong></p>}
+        {title && <h6 className="base-font-medium">{title}</h6>}
         
         <CarouselProvider
           naturalSlideWidth={slideWidth}
           naturalSlideHeight={slideHeight}
-          totalSlides={5}
+          totalSlides={slides.length}
           visibleSlides={visibleSlides}
           className="react-slider"
+          isIntrinsicHeight={true}
         >
           <Slider>
-            {/* TODO: pull in slides when some exist in contentful */}
-            <Slide className="react-slider-slide" innerClassName="slide-inner" index={0}>
-              <Image src="//via.placeholder.com/430x430/ff0000" className="img-fluid" alt="" />
-              <p>Alterra</p>
-            </Slide>
-            <Slide className="react-slider-slide" innerClassName="slide-inner" index={1}>
-              <Image src="//via.placeholder.com/430x430/ff6600" className="img-fluid" alt="" />
-              <p>Pursuit</p>
-            </Slide>
-            <Slide className="react-slider-slide" innerClassName="slide-inner" index={2}>
-              <Image src="//via.placeholder.com/430x430/ff3e3e" className="img-fluid" alt="" />
-              <p>Glassdoor</p>
-            </Slide>
-            <Slide className="react-slider-slide" innerClassName="slide-inner" index={3}>
-              <Image src="//via.placeholder.com/430x430/ff0000" className="img-fluid" alt="" />
-              <p>Another</p>
-            </Slide>
-            <Slide className="react-slider-slide" innerClassName="slide-inner" index={4}>
-              <Image src="//via.placeholder.com/430x430/ff6600" className="img-fluid" alt="" />
-              <p>Another+</p>
-            </Slide>
+            {slides && slides.map((slide, i) => {
+              return (
+                <Slide className="react-slider-slide" innerClassName="slide-inner" index={i} key={i}>
+                  <Image src={slide.fields[`${imagePropertyName}`].fields.file.url} className="img-fluid" alt={slide.fields[`${imagePropertyName}`].fields.file.description} />
+                  {slide.fields.title && <h6 className={titleClass}>{slide.fields.title}</h6>}
+                  {slide.fields.description && <p>{slide.fields.description}</p>}
+                </Slide>
+              )
+            })}
             
           </Slider>
           
