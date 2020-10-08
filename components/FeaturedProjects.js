@@ -11,7 +11,7 @@ const FeaturedProjects = ({ title, projects, cta }) => {
           {projects && projects.map((project, i) => {
             return (
               <Link href={`/our-work/${project.fields.slug}`} key={i}>
-                <a>
+                <a title={project.fields.title}>
                   <img
                     src={project.fields.featuredProjectImage.fields.file.url}
                     alt={project.fields.featuredProjectImage.fields.file.description}
@@ -23,7 +23,7 @@ const FeaturedProjects = ({ title, projects, cta }) => {
           })}
           {cta && (
             <Link href={cta.fields.url}>
-              <a className="btn featured-projects-btn">
+              <a className="btn featured-projects-btn" title={cta.fields.title}>
                 {cta.fields.title}
               </a>
             </Link>
