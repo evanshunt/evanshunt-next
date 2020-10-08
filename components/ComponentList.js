@@ -191,7 +191,6 @@ const renderComponents = (components) => {
       case "componentGradientBlock":
         return (
           <GradientBlock
-            leaveSpaceForNav={component.fields.leaveSpaceForNav}
             smallerText={component.fields.smallerText}
             title={component.fields.title}
             key={`component-${i}`}

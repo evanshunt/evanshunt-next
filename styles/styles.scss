@@ -4,12 +4,12 @@
 @import "~breakpoint-sass/stylesheets/breakpoint";
 @import "~sass-em/em";
 @import "~sass-rem/rem";
-@import '~pure-react-carousel/dist/react-carousel.es.css';
+@import "~pure-react-carousel/dist/react-carousel.es.css";
 
 // Get the variables in above things
 @import "variables";
 @import "fonts";
-@import '~@evanshunt/derekstrap/index';
+@import "~@evanshunt/derekstrap/index";
 
 // Globally shared styles i.e header, footer, etc...
 @import "global/typography";
@@ -47,3 +47,7 @@
 @import "components/collapsing-section";
 @import "components/job-description";
 @import "components/cta-block";
+
+// Pages
+// Sometimes you need to override component styles on a page basis
+@import "pages/career-details"
