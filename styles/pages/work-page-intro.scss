@@ -1,0 +1,63 @@
+
+.work-page-intro {
+  margin: 50px 0;
+  
+  @media (min-width: $desktop) {
+    margin: 150px 0;
+  }
+  
+  &-flex {
+    display: flex;
+    flex-wrap: wrap;
+    
+    @media (min-width: $desktop) {
+      flex-wrap: nowrap;
+    }
+    
+    &-item {
+      
+      // left side
+      &:first-child {
+        width: 100%;
+
+        @media (min-width: $desktop) {
+          width: 75%;
+          padding-right: 223px;
+        }
+      }
+      
+      // right side
+      &:last-child {
+        width: 100%;
+
+        @media (min-width: $desktop) {
+          width: 25%;
+        }
+      }
+    }
+  }
+  
+  .description {
+    margin: 45px 0;
+    font-size: 1.5rem;
+  }
+  
+  .service-list {
+    
+    li {
+      margin-bottom: 15px;
+      font-size: .9rem;
+      
+      &.hidden {
+        opacity: 0;
+      }
+    }
+    
+    // the animation for these will take some TLC
+    &-toggle {
+      border: none;
+      outline: 0;
+      background: transparent;
+    }
+  }
+}

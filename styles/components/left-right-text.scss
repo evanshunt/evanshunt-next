@@ -1,0 +1,35 @@
+.left-right-text-flex {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 75px 0;
+  
+  @media (min-width: $desktop) {
+    flex-wrap: nowrap;
+    margin: 150px 0;
+  }
+  
+  .title {
+    margin-top: 0;
+  }
+  
+  .description {
+    font-size: 1.25rem;
+  }
+  
+  .left-text {
+    width: 100%;
+
+    @media (min-width: $desktop) {
+      width: 22%;
+    }
+  }
+  
+  .right-text {
+    width: 100%;
+
+    @media (min-width: $desktop) {
+      width: 55%;
+      padding-left: 80px;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.pull-quote {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  
+  .quote {
+    font-size: 2.75rem;
+    font-family: 'UntitledSerif', Arial, sans-serif;
+    font-weight: 400;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    
+    @media (min-width: $desktop) {
+      font-size: 3.75rem;
+    }
+  }
+  
+  .author {
+    color: $red;
+    margin-bottom: 30px;
+  }
+}

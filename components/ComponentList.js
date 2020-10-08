@@ -19,6 +19,8 @@ import JobDescription from "./JobDescription";
 import ApplyForm from "./ApplyForm";
 import InlineVideo from './InlineVideo'
 import CtaBlock from './CtaBlock'
+import LeftRightText from './LeftRightText'
+import PullQuote from './PullQuote'
 
 const renderComponents = (components) => {
   return components.map((component, i) => {
@@ -236,6 +238,25 @@ const renderComponents = (components) => {
           <CtaBlock
             title={component.fields.title}
             cta={component.fields.cta}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentLeftRightText":
+        return (
+          <LeftRightText
+            title={component.fields.title}
+            text={component.fields.text}
+            externalLink={component.fields.externalLink}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentPullQuote":
+        return (
+          <PullQuote
+            quote={component.fields.quote}
+            author={component.fields.author}
             key={`component-${i}`}
           />
         );

@@ -56,6 +56,24 @@ function CMSApi() {
         return null;
       });
   };
+
+  this.fetchWorkPageBySlug = async slug => {
+    return await this.client
+      .getEntries({
+        include: 3,
+        content_type: "pageWork",
+        "fields.slug": slug
+      })
+      .then(async results => {
+        const page = results.items[0];
+
+        if (page) {
+          return page;
+        }
+
+        return null;
+      });
+  };
 }
 
 module.exports = CMSApi;

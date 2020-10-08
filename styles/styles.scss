@@ -47,7 +47,10 @@
 @import "components/collapsing-section";
 @import "components/job-description";
 @import "components/cta-block";
+@import "components/left-right-text";
+@import "components/pull-quote";
 
 // Pages
 // Sometimes you need to override component styles on a page basis
-@import "pages/career-details"
+@import "pages/career-details";
+@import "pages/work-page-intro";
