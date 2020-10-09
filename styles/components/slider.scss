@@ -64,4 +64,11 @@
   @media (min-width: $desktop-large) {
     padding-left: calc((100vw - 1325px + 30px)/2);
   }
+  
+  // currently used for normal slides types, not clients
+  &.narrower {
+    @media (min-width: $desktop-large) {
+      padding-left: calc((100vw - 1110px + 15px)/2) !important;
+    }
+  }
 }

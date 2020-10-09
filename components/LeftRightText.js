@@ -4,7 +4,7 @@ const LeftRightText = (props) => {
   
   return (
     <section className="left-right-text">
-      <div className="container">
+      <div className="container-medium">
         <div className="left-right-text-flex">
           <div className="left-text">
             <h2 className="title">{title}</h2>
@@ -12,7 +12,7 @@ const LeftRightText = (props) => {
           <div className="right-text">
             <p className="description">{text}</p>
             {externalLink && (
-              <a href={externalLink} title={externalLink} target="_blank">{externalLink}</a>
+              <a href={externalLink.fields.url} title={externalLink.fields.title} target="_blank">{externalLink.fields.title}</a>
             )}
           </div>
         </div>

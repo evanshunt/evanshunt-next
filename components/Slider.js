@@ -86,7 +86,7 @@ class SliderComponent extends React.Component {
     const titleClass = classNames({'base-font-medium': slideType === 'normal'}, {'base-font': slideType === 'client'})
     
     return (
-      <section className="react-slider-wrap">
+      <section className={classNames('react-slider-wrap', {'narrower': slideType === 'normal'})}>
         
         {title && <h6 className="base-font-medium">{title}</h6>}
         

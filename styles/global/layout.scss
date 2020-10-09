@@ -22,6 +22,30 @@
   
 }
 
+
+// strange need for this in some cases, mainly above 1440px. the rest matches the normal container
+.container-medium {
+  padding: 0 15px;
+  max-width: 100%;
+  
+  @media (min-width: $large-phone) {
+    max-width: 92%;
+    margin: 0 auto;
+  }
+
+  @media (min-width: $tablet) {
+    max-width: 720px;
+  }
+
+  @media (min-width: $desktop) {
+    max-width: 960px;
+  }
+
+  @media (min-width: $desktop-large) {
+    max-width: calc(1100px + 30px); // calc for padding
+  }
+}
+
 .container-narrow {
   padding: 0 15px;
   margin: 0 auto;

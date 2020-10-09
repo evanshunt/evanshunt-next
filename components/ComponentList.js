@@ -21,6 +21,7 @@ import InlineVideo from './InlineVideo'
 import CtaBlock from './CtaBlock'
 import LeftRightText from './LeftRightText'
 import PullQuote from './PullQuote'
+import ImagesBlock from './ImagesBlock'
 
 const renderComponents = (components) => {
   return components.map((component, i) => {
@@ -257,6 +258,14 @@ const renderComponents = (components) => {
           <PullQuote
             quote={component.fields.quote}
             author={component.fields.author}
+            key={`component-${i}`}
+          />
+        );
+        
+      case "componentImagesBlock":
+        return (
+          <ImagesBlock
+            images={component.fields.images}
             key={`component-${i}`}
           />
         );

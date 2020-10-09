@@ -24,7 +24,7 @@ class WorkPageIntro extends React.Component {
     
     return (
       <section className="work-page-intro">
-        <div className="container">
+        <div className="container-medium">
           <div className="work-page-intro-flex">
             <div className="work-page-intro-flex-item">
               {title && <h1 className="title">{title}</h1>}
