@@ -9,7 +9,7 @@ const ImagesBlock = (props) => {
       <div className="images-block-columns">
         {images && images.map((img, i) => {
           return (
-            <div className="images-block-column">
+            <div className="images-block-column" key={i}>
               <img src={img.fields.file.url} alt={img.fields.file.description} className="img-fluid" />
             </div>
           )

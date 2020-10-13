@@ -1,0 +1,23 @@
+.related-work {
+  background: $grey;
+  padding: 65px 0;
+  
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+  
+  &-flex {
+    display: flex;
+    
+    &-item {
+      margin-right: 15px;
+      
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

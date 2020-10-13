@@ -22,6 +22,7 @@ import CtaBlock from './CtaBlock'
 import LeftRightText from './LeftRightText'
 import PullQuote from './PullQuote'
 import ImagesBlock from './ImagesBlock'
+import RelatedWork from './RelatedWork'
 
 const renderComponents = (components) => {
   return components.map((component, i) => {
@@ -266,6 +267,14 @@ const renderComponents = (components) => {
         return (
           <ImagesBlock
             images={component.fields.images}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentRelatedWork":
+        return (
+          <RelatedWork
+            relatedWork={component.fields.relatedWork}
             key={`component-${i}`}
           />
         );
