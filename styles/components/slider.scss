@@ -6,6 +6,7 @@
   
   .slide-inner {
     padding-right: 25px;
+    padding-bottom: 15px;
     
     img {
       margin-bottom: 15px;
@@ -38,7 +39,7 @@
   }
   
   h6 {
-    display: none;
+    //display: none;
 
     @media (min-width: $desktop) {
       display: block;
@@ -49,6 +50,7 @@
 .react-slider-wrap {
   padding-left: 15px;
   margin-bottom: 40px;
+  margin-top: 75px;
 
   // these help it match up with the regular container breakpoints
   // 100vw - container max-width + container 30px of padding / 2
@@ -65,7 +67,7 @@
     padding-left: calc((100vw - 1325px + 30px)/2);
   }
   
-  // currently used for normal slides types, not clients
+  // currently used for normal slide types, not clients
   &.narrower {
     @media (min-width: $desktop-large) {
       padding-left: calc((100vw - 1110px + 15px)/2) !important;

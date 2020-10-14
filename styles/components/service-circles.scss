@@ -2,7 +2,10 @@
   max-width: 1102px;
   margin: 0 auto;
   text-align: center;
-  padding: 160px 15px 30px;
+  padding: 85px 15px 80px;
+  @media (min-width: $tablet) {
+    padding: 160px 15px 30px;  
+  }
   
   &-list {
     display: flex;
@@ -57,14 +60,16 @@
     height: 240px;
     width: 240px;
   }
-  
-  &:hover {
-    background: $black;
-    transition: background 0.1s ease;
-    
-    .service-circle-description {
-      display: block;
-    }
+
+  @media (min-width: $desktop) {
+    &:hover {
+      background: $black;
+      transition: background 0.1s ease;
+
+      .service-circle-description {
+        display: block;
+      }
+    } 
   }
   
   span {
