@@ -12,11 +12,23 @@ const next_config = withFonts({
   exportPathMap: async function () {
     const paths = {
       "/": { page: "/" },
+      "/our-work": { page: "/our-work" },
+      "/our-services": { page: "/our-services" },
+      "/about-us": { page: "/about-us" },
       "/contact": { page: "/contact" },
       "/careers": { page: "/careers" },
     };
 
     const api = new CMSApi();
+
+    const workPages = await api.fetchContentPages("pageWork");
+    workPages.forEach((page) => {
+      console.log(page.fields.slug);
+      paths[`/our-work/${page.fields.slug}`] = {
+        page: "/our-work/[slug]",
+        query: { slug: page.fields.slug },
+      };
+    });
 
     const careerPages = await api.fetchContentPages("pageCareerDetails");
     careerPages.forEach((page) => {

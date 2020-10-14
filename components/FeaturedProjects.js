@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from 'next/link'
 
 const FeaturedProjects = ({ title, projects, cta }) => {
+  
+  const [ isMobile, setIsMobile ] = useState(false)
+  
+  useEffect(() => {
+    if (window && window.innerWidth < 720) {
+      setIsMobile(true)
+    }
+  })
+  
+  // will need a resize event here for changing the image out
   
   return (
     <section className="featured-projects">
@@ -9,12 +19,18 @@ const FeaturedProjects = ({ title, projects, cta }) => {
         {title && <h6 className="base-font-medium">{title}</h6>}
         <div className="featured-projects-list">
           {projects && projects.map((project, i) => {
+            let imgUrl = project.fields.featuredProjectImage.fields.file.url
+            let imgDesc = project.fields.featuredProjectImage.fields.file.description
+            if (isMobile && project.fields.featuredProjectMobileImage) {
+              imgUrl = project.fields.featuredProjectMobileImage.fields.file.url
+              imgDesc = project.fields.featuredProjectMobileImage.fields.file.description
+            }
             return (
               <Link href={`/our-work/${project.fields.slug}`} key={i}>
                 <a title={project.fields.title}>
                   <img
-                    src={project.fields.featuredProjectImage.fields.file.url}
-                    alt={project.fields.featuredProjectImage.fields.file.description}
+                    src={imgUrl}
+                    alt={imgDesc}
                     className="img-fluid"
                   />
                 </a>
