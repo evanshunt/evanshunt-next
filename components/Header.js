@@ -45,7 +45,7 @@ class Header extends React.Component {
 
         <div className="header-nav-wrap">
           <button className="header-nav-toggle" onClick={this.toggleMenu}>
-            {this.state.navActive ? 'X' : 'Menu'}
+            {this.state.navActive ? <MenuCloseIcon /> : <HamburgerIcon />}
           </button>
           
           <nav className={headerNavClasses}>
@@ -68,5 +68,55 @@ class Header extends React.Component {
     ) 
   }
 }
+
+
+// this allows us to style the SVG with css
+const HamburgerIcon = () => {
+  return (
+    <svg width="22px" height="14px" viewBox="0 0 22 14" version="1.1">
+        <title>Hamburger menu</title>
+      <defs>
+        <filter id="filter-1">
+          <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.098039 0 0 0 0 0.090196 0 0 0 0 0.090196 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+      </defs>
+      <g id="Symbols" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+        <g id="Mobile-Top-Nav" transform="translate(-280.000000, -23.000000)">
+          <g id="Hamburger-menu">
+            <g transform="translate(280.000000, 23.000000)">
+              <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="22" height="2"></rect>
+              <rect id="Rectangle-Copy" fill="#FFFFFF" x="0" y="6" width="22" height="2"></rect>
+              <rect id="Rectangle-Copy-2" fill="#FFFFFF" x="0" y="12" width="22" height="2"></rect>
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
+  ) 
+}
+
+const MenuCloseIcon = () => {
+  return (
+    <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1">
+      <title>Menu Close</title>
+      <defs>
+        <filter id="filter-1">
+          <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.000000 0 0 0 0 0.000000 0 0 0 0 0.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+      </defs>
+      <g id="MOBILE" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+        <g id="Mobile:-Menu-Open-OPT-1" transform="translate(-281.000000, -47.000000)">
+          <g filter="url(#filter-1)" id="Close">
+            <g transform="translate(281.000000, 47.000000)">
+              <path d="M-1.85185185,8.88888889 L21.8518519,8.88888889 C22.4655016,8.88888889 22.962963,9.38635028 22.962963,10 C22.962963,10.6136497 22.4655016,11.1111111 21.8518519,11.1111111 L-1.85185185,11.1111111 C-2.46550157,11.1111111 -2.96296296,10.6136497 -2.96296296,10 C-2.96296296,9.38635028 -2.46550157,8.88888889 -1.85185185,8.88888889 Z" id="Rectangle" fill="#FFFFFF" transform="translate(10.000000, 10.000000) rotate(-315.000000) translate(-10.000000, -10.000000) "></path>
+              <path d="M-1.85185185,8.88888889 L21.8518519,8.88888889 C22.4655016,8.88888889 22.962963,9.38635028 22.962963,10 C22.962963,10.6136497 22.4655016,11.1111111 21.8518519,11.1111111 L-1.85185185,11.1111111 C-2.46550157,11.1111111 -2.96296296,10.6136497 -2.96296296,10 C-2.96296296,9.38635028 -2.46550157,8.88888889 -1.85185185,8.88888889 Z" id="Rectangle" fill="#FFFFFF" transform="translate(10.000000, 10.000000) rotate(-225.000000) translate(-10.000000, -10.000000) "></path>
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
+  )
+}
+
 
 export default Header;

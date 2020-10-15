@@ -8,10 +8,20 @@ const FeaturedProjects = ({ title, projects, cta }) => {
   useEffect(() => {
     if (window && window.innerWidth < 720) {
       setIsMobile(true)
+      window.addEventListener('resize', handleResize)
     }
-  })
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
   
-  // will need a resize event here for changing the image out
+  const handleResize = () => {
+    if (window.innerWidth < 720) {
+      setIsMobile(true)
+    } else {
+      setIsMobile(false)
+    }
+  }
   
   return (
     <section className="featured-projects">
@@ -21,6 +31,7 @@ const FeaturedProjects = ({ title, projects, cta }) => {
           {projects && projects.map((project, i) => {
             let imgUrl = project.fields.featuredProjectImage.fields.file.url
             let imgDesc = project.fields.featuredProjectImage.fields.file.description
+            // if there is a mobile specific image, switch to it
             if (isMobile && project.fields.featuredProjectMobileImage) {
               imgUrl = project.fields.featuredProjectMobileImage.fields.file.url
               imgDesc = project.fields.featuredProjectMobileImage.fields.file.description

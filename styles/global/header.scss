@@ -24,6 +24,10 @@
     
     .header-nav-link, .header-nav-toggle {
       color: $black;
+      
+      rect {
+        fill: #191717;
+      }
     }
   }
   
