@@ -8,13 +8,20 @@ const CMSApi = require("../../utility/cms");
 const WorkDetails = (content) => {
   console.log(content)
   
+  if (!content) {
+    return null
+  }
+  
   return (
     <Layout className="content-page work-details-page">
-      <PageMeta
-        seoTitle={content.fields.pageMeta.fields.seoTitle}
-        metaDescription={content.fields.pageMeta.fields.metaDescription}
-        socialMediaImage={content.fields.pageMeta.fields.socialMediaImage}
-      />
+      
+      {content.fields.pageMeta && (
+        <PageMeta
+          seoTitle={content.fields.pageMeta.fields.seoTitle}
+          metaDescription={content.fields.pageMeta.fields.metaDescription}
+          socialMediaImage={content.fields.pageMeta.fields.socialMediaImage}
+        />
+      )}
       
       {/* A bit weird to have the hero here too, but for now it will do */}
       {content.fields.heroBanner && (
@@ -38,6 +45,7 @@ const WorkDetails = (content) => {
       )}
       
       <WorkPageIntro {...content.fields} />
+      
       
       {content.fields.components && renderComponents(content.fields.components)}
       
