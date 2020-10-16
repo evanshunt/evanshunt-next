@@ -6,7 +6,7 @@
   
   .slide-inner {
     padding-right: 25px;
-    padding-bottom: 15px;
+    padding-bottom: 25px;
     
     img {
       margin-bottom: 15px;
@@ -49,8 +49,8 @@
 
 .react-slider-wrap {
   padding-left: 15px;
-  margin-bottom: 40px;
-  margin-top: 75px;
+  padding-bottom: 40px;
+  padding-top: 100px;
 
   // these help it match up with the regular container breakpoints
   // 100vw - container max-width + container 30px of padding / 2
