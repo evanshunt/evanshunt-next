@@ -50,6 +50,7 @@
   margin: 0 auto 35px;
   flex-direction: column;
   transition: background 0.3s ease;
+  padding: 10px 20px;
 
   @media (min-width: $large-phone) {
     height: 180px;
@@ -64,10 +65,14 @@
   @media (min-width: $desktop) {
     &:hover {
       background: $black;
-      transition: background 0.1s ease;
+      transition: all 0.1s ease;
+      transform: scale(1.2);
 
       .service-circle-description {
         display: block;
+      }
+      .service-circle-title {
+        margin-bottom: 10px;
       }
     } 
   }
@@ -76,8 +81,13 @@
     color: $white;
   }
   
+  &-title {
+    font-size: 1.25rem;
+  }
+  
   &-description {
     display: none;
+    font-size: 0.8rem;
   }
 }
 
