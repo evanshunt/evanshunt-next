@@ -44,12 +44,30 @@
   
   .service-list {
     
-    li {
+    &-item {
       margin-bottom: 15px;
       font-size: .9rem;
+    }
+    
+    &-more {
+      max-height: 0;
+      opacity: 0;
       
-      &.hidden {
-        opacity: 0;
+      &.active {
+        max-height: 1000px;
+        opacity: 1;
+        transition: max-height, opacity 0.2s ease-in;
+        padding-top: 20px;
+        @media (min-width: 992px) {
+          padding-top: 0;
+        }
+      }
+    }
+    
+    &-title {
+      display: none;
+      @media (min-width: 992px) {
+        display: block;
       }
     }
     
@@ -58,7 +76,35 @@
       border: none;
       outline: 0;
       background: transparent;
+      position: relative;
+      z-index: 2;
+      padding: 25px 0 0;
+      border-top: 1px solid $grey;
+      width: 100%;
+      font-size: 0.9rem;
+      font-weight:  500;
+      margin-top: 15px;
+      @media (min-width: 992px) {
+        padding: 20px 0 0;  
+      }
+      
+      span {
+        display: flex;
+        align-items: center;
+        line-height: 1;
+        
+        img {
+          margin-right: 15px;
+        }
+      }
     }
+  }
+  
+  .work-page-external-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding-bottom: 10px;
+    display: block;
   }
 }
 

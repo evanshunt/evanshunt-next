@@ -6,9 +6,9 @@ const FeaturedProjects = ({ title, projects, cta }) => {
   const [ isMobile, setIsMobile ] = useState(false)
   
   useEffect(() => {
+    window.addEventListener('resize', handleResize)
     if (window && window.innerWidth < 720) {
       setIsMobile(true)
-      window.addEventListener('resize', handleResize)
     }
     return () => {
       window.removeEventListener('resize', handleResize)
