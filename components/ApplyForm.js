@@ -1,11 +1,15 @@
 import { useState } from "react";
 import ReactMarkdown from "react-markdown/with-html";
 
-const encode = (data) => {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
+function encode(data) {
+  const formData = new FormData();
+
+  for (const key of Object.keys(data)) {
+    formData.append(key, data[key]);
+  }
+
+  return formData;
+}
 
 const ApplyForm = ({
   title,
@@ -23,17 +27,19 @@ const ApplyForm = ({
   const [fileName, setFileName] = useState("");
 
   const handleSubmit = (e) => {
+    let data = encode({
+      "form-name": "apply-form",
+      "first-name": firstName,
+      "last-name": lastName,
+      email: email,
+      resume: resume,
+      message: message,
+    });
+    
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": "apply-form",
-        "first-name": firstName,
-        "last-name": lastName,
-        email: email,
-        resume: resume,
-        message: message,
-      }),
+      body: data,
     })
       .then(() => {
         setShowThanks(true);
