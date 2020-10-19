@@ -2,11 +2,9 @@ import { useState } from "react";
 import ReactMarkdown from "react-markdown/with-html";
 
 const encode = (data) => {
-  const formData = new FormData();
-  Object.keys(data).forEach((k) => {
-    formData.append(k, data[k]);
-  });
-  return formData;
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
 };
 
 const ApplyForm = ({
