@@ -37,4 +37,12 @@
       font-size: 1.562rem;
     }
   }
+
+  .btn {
+    margin-top: 1rem;
+
+    @media (min-width: $desktop) {
+      margin-top: 2rem;
+    }
+  }
 }

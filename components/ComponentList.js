@@ -11,9 +11,9 @@ import FullWidthImage from "./FullWidthImage";
 import DecorativeLine from "./DecorativeLine";
 import TextBlocks from "./TextBlocks";
 import OpenPositions from "./OpenPositions";
-import ServiceBlock from './ServiceBlock'
+import ServiceBlock from "./ServiceBlock";
 import OurTeam from "./OurTeam";
-import OurCulture from './OurCulture'
+import OurCulture from "./OurCulture";
 import GradientBlock from "./GradientBlock";
 import JobDescription from "./JobDescription";
 import ApplyForm from "./ApplyForm";
@@ -210,7 +210,16 @@ const renderComponents = (components) => {
         );
 
       case "componentApplyForm":
-        return <ApplyForm key={`component-${i}`} />;
+        return (
+          <ApplyForm
+            title={component.fields.title}
+            careerTitle={component.fields.careerTitle}
+            introText={component.fields.introText}
+            privacyText={component.fields.privacyText}
+            thankYouMessage={component.fields.thankYouMessage}
+            key={`component-${i}`}
+          />
+        );
 
       case "componentServiceBlock":
         return (

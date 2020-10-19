@@ -3,7 +3,6 @@ import CollapsingSection from "./CollapsingSection";
 import RichText from "./RichText";
 
 const JobDescription = (components) => {
-  console.log(components);
   return (
     <section className="job-description">
       <div className="column left container-narrow">

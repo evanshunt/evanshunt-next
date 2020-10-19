@@ -4,7 +4,6 @@ import renderComponents from "../../components/ComponentList";
 const CMSApi = require("../../utility/cms");
 
 const CareerDetails = (content) => {
-  console.log(content)
   return (
     <Layout className="content-page career-details-page" inlineHeader={true}>
       <PageMeta
@@ -18,7 +17,6 @@ const CareerDetails = (content) => {
 };
 
 CareerDetails.getInitialProps = async ({ query }) => {
-  console.log(query)
   const api = new CMSApi();
   const json = await api.fetchCareerPageBySlug(query.slug);
 
