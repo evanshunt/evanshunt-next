@@ -45,7 +45,7 @@ const ApplyForm = ({
 
   const onFileChange = (e) => {
     if (e.target.files[0]) {
-      setResume({ selectedFile: e.target.files[0] });
+      setResume(e.target.files[0]);
       setFileName(e.target.files[0].name);
     } else {
       setResume(null);
