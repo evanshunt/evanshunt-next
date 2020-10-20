@@ -18,19 +18,19 @@ const WorkGrid = (props) => {
                 <div className="work-grid-img">
                   {page.fields.squareImage && (
                     <Link href={`/our-work/${page.fields.slug}`}>
-                      <a title={page.fields.title}>
+                      <a title={page.fields.title} className="work-grid-img-link">
                         <img src={page.fields.squareImage.fields.file.url} className="img-fluid" alt={page.fields.squareImage.fields.file.description} />
                       </a>
                     </Link>
                   )}
                   <div className="work-grid-cta">
                     <Link href={`/our-work/${page.fields.slug}`}>
-                      <a title={page.fields.title} className="btn">View Case Study</a>
+                      <a title={page.fields.title} className="btn">View case study</a>
                     </Link>
                   </div>
                 </div>
                 {page.fields.title && <h5 className="work-grid-title base-font-medium">{page.fields.title}</h5>}
-                {page.fields.servicesList && <p>{page.fields.servicesList.join(', ')}</p>}
+                {page.fields.servicesList && <p className="work-grid-services">{page.fields.servicesList.join(', ')}</p>}
               </div>
             )
           })}
