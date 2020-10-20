@@ -92,15 +92,33 @@
   font-size: 0.9rem;
   letter-spacing: 1px;
   font-weight: 500;
+  position: relative;
   
   
   &:last-of-type {
     margin-right: 0;
   }
 
+  // animated bottom border
+  &:after {
+    display: block;
+    content: '';
+    border-bottom: solid 2px currentColor;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+    position: absolute;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+  }
+
   &:hover {
-    text-decoration: line-through;
     color: $black;
+    text-decoration: none;
+    
+    &:after {
+      transform: scaleX(1);
+    }
   }
   
   &.active {
