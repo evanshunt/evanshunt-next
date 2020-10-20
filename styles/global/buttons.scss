@@ -4,10 +4,13 @@
   background: $black;
   color: $white;
   border-radius: 55px;
+  transition: background 0.1s ease-in;
   
   &:hover {
-    background: lighten(#000, 10%);
+    background: $red;
     color: $white;
+    text-decoration: none;
+    transition: background 0.1s ease-in;
   }
   
   @media (min-width: $tablet) {

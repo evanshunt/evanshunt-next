@@ -1,6 +1,15 @@
 import React from 'react'
 import classNames from 'classnames'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+
+const navLinks = [
+  {url: '/our-work', title: 'Our Work'},
+  {url: '/our-services', title: 'Our Services'},
+  {url: '/about-us', title: 'About Us'},
+  {url: '/careers', title: 'Careers'},
+  {url: '/contact', title: 'Contact'}
+]
 
 // the site-wide Header
 class Header extends React.Component {
@@ -49,11 +58,10 @@ class Header extends React.Component {
           </button>
           
           <nav className={headerNavClasses}>
-            <Link href="/our-work"><a className={"header-nav-link"} title={'Our Work'}>Our Work</a></Link>
-            <Link href="/our-services"><a className={"header-nav-link"} title={'Our Services'}>Our Services</a></Link>
-            <Link href="/about-us"><a className={"header-nav-link"} title={'About Us'}>About Us</a></Link>
-            <Link href="/careers"><a className={"header-nav-link"} title={'Careers'}>Careers</a></Link>
-            <Link href="/contact"><a className={"header-nav-link"} title={'Contact'}>Contact</a></Link>
+            {navLinks.map((navLink, i) => {
+              return <NavLink navLink={navLink} key={i} />
+            })}
+            
             <div className="header-nav-contact-box">
               <div className="header-nav-contact">
                 <h4 className="header-nav-contact-heading">Get in touch</h4>
@@ -67,6 +75,15 @@ class Header extends React.Component {
       </header>
     ) 
   }
+}
+
+// this just allows for the active class to be added
+const NavLink = ({navLink}) => {
+  const router = useRouter()
+  const classes = classNames('header-nav-link', {'active': navLink.url === router.pathname})
+  return (
+    <Link href={navLink.url}><a className={classes} title={navLink.title}>{navLink.title}</a></Link>
+  )
 }
 
 
