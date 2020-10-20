@@ -6,15 +6,17 @@ section.contact-block {
   justify-content: space-between;
   
   @media (min-width: $desktop-large) {
-    padding: 105px 207px 105px 229px;
+    padding: 169px 207px 169px 229px;
   }
 
   h1, h2 {
     font-family: $base-font-family;
     font-size: 1rem;
+    font-weight: $medium;
 
     @media (min-width: $desktop-large) {
-      font-size: 1.875rem;
+      font-size: 30px;
+      margin-bottom: 2rem;
     }
   }
 

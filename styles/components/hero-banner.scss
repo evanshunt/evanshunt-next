@@ -107,6 +107,7 @@ section.hero-banner {
     .large-text {
       margin-left: 2rem;
       font-weight: $medium;
+      max-width: 880px;
 
       @media (min-width: $desktop) {
         font-size: 90px;

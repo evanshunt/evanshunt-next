@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ReactMarkdown from "react-markdown/with-html";
 
-function encode(data) {
+const encode = (data) => {
   const formData = new FormData();
 
   for (const key of Object.keys(data)) {
@@ -38,7 +38,6 @@ const ApplyForm = ({
     
     fetch("/", {
       method: "POST",
-      // headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: data,
     })
       .then(() => {
@@ -68,7 +67,6 @@ const ApplyForm = ({
           {introText && <p className="intro">{introText}</p>}
         </div>
 
-        {/* TODO: netlify form? */}
         <div className="column right">
           {!showThanks && (
             <form
