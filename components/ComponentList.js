@@ -17,12 +17,16 @@ import OurCulture from "./OurCulture";
 import GradientBlock from "./GradientBlock";
 import JobDescription from "./JobDescription";
 import ApplyForm from "./ApplyForm";
-import InlineVideo from './InlineVideo'
-import CtaBlock from './CtaBlock'
-import LeftRightText from './LeftRightText'
-import PullQuote from './PullQuote'
-import ImagesBlock from './ImagesBlock'
-import RelatedWork from './RelatedWork'
+import InlineVideo from "./InlineVideo";
+import CtaBlock from "./CtaBlock";
+import LeftRightText from "./LeftRightText";
+import PullQuote from "./PullQuote";
+import ImagesBlock from "./ImagesBlock";
+import RelatedWork from "./RelatedWork";
+import ServicesIntro from "./ServicesIntro";
+import Accordion from "./Accordion";
+import ServicesPagination from "./ServicesPagination";
+import MediumFeed from "./MediumFeed";
 
 const renderComponents = (components) => {
   return components.map((component, i) => {
@@ -271,7 +275,7 @@ const renderComponents = (components) => {
             key={`component-${i}`}
           />
         );
-        
+
       case "componentImagesBlock":
         return (
           <ImagesBlock
@@ -287,6 +291,31 @@ const renderComponents = (components) => {
             key={`component-${i}`}
           />
         );
+
+      case "componentServicesIntro":
+        return (
+          <ServicesIntro
+            title={component.fields.title}
+            intro={component.fields.intro}
+            image={component.fields.image}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentAccordion":
+        return (
+          <Accordion
+            title={component.fields.title}
+            accordionItems={component.fields.accordionItems}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentServicesPagination":
+        return <ServicesPagination key={`component-${i}`} />;
+
+      case "componentMediumFeed":
+        return <MediumFeed key={`component-${i}`} />;
 
       default:
         return (

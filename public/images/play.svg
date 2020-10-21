@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>CTA video</title>
+    <g id="Services" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Service-Details---Strategy" transform="translate(-40.000000, -2208.000000)">
+            <g id="Video-/-Motion-piece" transform="translate(0.000000, 1860.000000)">
+                <g id="CTA-video" transform="translate(40.000000, 348.000000)">
+                    <circle id="Oval" fill="#FFFFFF" cx="50" cy="50" r="50"></circle>
+                    <path d="M42.3356076,34.0075663 C41.571454,34.0875405 40.9955268,34.7044836 41,35.4356755 L41,62.5697487 C40.9985264,63.358065 41.6696916,63.9985719 42.498337,64 C42.799799,64 43.0937619,63.9135994 43.3434803,63.7522231 L64.3408294,50.1851864 C65.0269928,49.7431867 65.2062202,48.8549028 64.7420288,48.2015429 C64.6347923,48.0515914 64.4990595,47.9216335 64.3408294,47.8202377 L43.3434803,34.2532011 C43.0487675,34.0596923 42.6918126,33.9725777 42.3356076,34.0075663" id="Path" fill="#000000"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
