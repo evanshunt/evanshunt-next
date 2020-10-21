@@ -1,20 +1,20 @@
 .btn {
   display: inline-block;
-  padding: 24px 33px;
+  padding: 21px 30px;
   background: $black;
   color: $white;
+  border: 3px solid $black;
   border-radius: 55px;
   transition: background 0.1s ease-in;
   
   &:hover {
-    background: $red;
-    color: $white;
+    background: $white;
     text-decoration: none;
     transition: background 0.1s ease-in;
   }
   
   @media (min-width: $tablet) {
-    padding: 36.5px 56.42px 39.5px;
+    padding: 33.5px 53.42px 36.5px;
   }
   
   // smaller version

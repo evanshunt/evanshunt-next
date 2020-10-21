@@ -74,6 +74,24 @@ function CMSApi() {
         return null;
       });
   };
+
+  this.fetchServicePageBySlug = async slug => {
+    return await this.client
+      .getEntries({
+        include: 3,
+        content_type: "pageService",
+        "fields.slug": slug
+      })
+      .then(async results => {
+        const page = results.items[0];
+
+        if (page) {
+          return page;
+        }
+
+        return null;
+      });
+  };
 }
 
 module.exports = CMSApi;

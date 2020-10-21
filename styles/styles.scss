@@ -52,8 +52,10 @@
 @import "components/images-block";
 @import "components/related-work";
 @import "components/apply-form";
+@import "components/services-intro";
 
 // Pages
 // Sometimes you need to override component styles on a page basis
 @import "pages/career-details";
 @import "pages/work-page-intro";
+@import "pages/service-details";

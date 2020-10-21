@@ -39,6 +39,15 @@ const next_config = withFonts({
       };
     });
 
+    const servicePages = await api.fetchContentPages("pageService");
+    servicePages.forEach((page) => {
+      console.log(page.fields.slug);
+      paths[`/our-services/${page.fields.slug}`] = {
+        page: "/our-services/[slug]",
+        query: { slug: page.fields.slug },
+      };
+    });
+
     return paths;
   },
   webpack: (config) => {
