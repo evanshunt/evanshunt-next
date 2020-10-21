@@ -2,11 +2,11 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 75px;
-  margin-top: 75px;
+  padding-bottom: 75px;
+  padding-top: 75px;
   @media (min-width: $large-phone) {
     flex-wrap: nowrap;
-    margin-top: 150px;
+    padding-top: 75px;
   }
   
   .staggered-column {

@@ -6,6 +6,10 @@
   @media (min-width: $tablet) {
     padding: 160px 15px 30px;  
   }
+
+  @media (min-width: $desktop-large) {
+    padding: 300px 15px 30px;
+  }
   
   &-list {
     display: flex;
@@ -28,6 +32,10 @@
     @media (min-width: $desktop) {
       display: none;
     }
+  }
+  
+  &-copy {
+    margin-bottom: 2rem;
   }
 }
 
