@@ -150,6 +150,7 @@ const renderComponents = (components) => {
         return (
           <DecorativeLine
             image={component.fields.image}
+            mobileImage={component.fields.mobileImage}
             key={`component-${i}`}
           />
         );

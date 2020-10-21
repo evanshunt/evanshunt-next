@@ -1,8 +1,33 @@
+import React, { useEffect, useState } from 'react'
+
 const DecorativeLine = (props) => {
-  const { image } = props
+  const { image, mobileImage } = props
+  const [lineImage, setLineImage] = useState(null)
+  
+  // mobile image is optional
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+    if (mobileImage && window.innerWidth < 720) {
+      setLineImage(mobileImage)
+    } else {
+      setLineImage(image)
+    }
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  const handleResize = () => {
+    if (mobileImage && window.innerWidth < 720) {
+      setLineImage(mobileImage)
+    } else {
+      setLineImage(image)
+    }
+  }
+  
   return (
     <div className="decorative-line">
-      <img src={image.fields.file.url} alt={image.fields.file.url} className="img-fluid" />
+      {lineImage && <img src={lineImage.fields.file.url} alt={lineImage.fields.file.url} className="img-fluid"/>}
     </div>
   )
 }

@@ -1,5 +1,13 @@
 .decorative-line {
-  padding: 75px 15px;
+  padding: 35px 15px;
+  
+  @media (min-width: $tablet) {
+    padding: 45px 15px;
+  }
+
+  @media (min-width: $desktop) {
+    padding: 75px 15px;
+  }
   
   img {
     margin: 0 auto;
