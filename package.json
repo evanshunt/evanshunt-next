@@ -25,6 +25,7 @@
     "nextjs-fonts": "^0.22.0",
     "pure-react-carousel": "^1.27.3",
     "react": "^16.13.1",
+    "react-accessible-accordion": "^3.3.3",
     "react-dom": "^16.13.1",
     "react-gtm-module": "^2.0.11",
     "react-markdown": "^4.3.1",
