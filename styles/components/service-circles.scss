@@ -25,17 +25,19 @@
   
   .btn {
     margin-bottom: 30px;
+    @media (min-width: $desktop) {
+      min-width: 220px;
+    }
   }
   
-  &-title, &-copy {
-    display: block;
+  &-title {
     @media (min-width: $desktop) {
-      display: none;
+      font-size: 70px;
     }
   }
   
   &-copy {
-    margin-bottom: 2rem;
+    margin-bottom: 50px;
   }
 }
 
@@ -95,7 +97,7 @@
   
   &-description {
     display: none;
-    font-size: 0.8rem;
+    font-size: 14px;
   }
 }
 
