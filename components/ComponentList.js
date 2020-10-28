@@ -156,6 +156,8 @@ const renderComponents = (components) => {
           <DecorativeLine
             image={component.fields.image}
             mobileImage={component.fields.mobileImage}
+            overlap={component.fields.overlap}
+            hideOnMobile={component.fields.hideOnMobile}
             key={`component-${i}`}
           />
         );

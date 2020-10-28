@@ -9,6 +9,32 @@
     padding: 75px 15px;
   }
   
+  // overlap is for tablet and above only
+  @media (min-width: $tablet) {
+    &.overlap-above {
+      padding-top: 0;
+      margin-top: -27px;
+    }
+
+    &.overlap-below {
+      padding-bottom: 0;
+      margin-bottom: -27px;
+    }
+
+    &.overlap-both {
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-top: -27px;
+      margin-bottom: -27px;
+    } 
+  }
+  
+  &.hidden-on-mobile {
+    @media (max-width: 719px) {
+      display: none !important;
+    }
+  }
+  
   img {
     margin: 0 auto;
     display: block;
