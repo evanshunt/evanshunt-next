@@ -7,6 +7,22 @@
     padding-top: 75px;
   }
   
+  // leave a little padding because it'll probably get ugly otherwise - for now at least
+  $minimum-padding: 10px;
+  
+  &.no-padding {
+    padding-top: $minimum-padding;
+    padding-bottom: $minimum-padding;
+  }
+  
+  &.no-padding-top {
+    padding-top: $minimum-padding;
+  }
+
+  &.no-padding-bottom {
+    padding-bottom: $minimum-padding;
+  }
+  
   .title {
     font-size: 1.56rem;
     text-align: center;

@@ -128,6 +128,7 @@ const renderComponents = (components) => {
           <CentreAlignedText
             title={component.fields.title}
             text={component.fields.text}
+            removePadding={component.fields.removePadding}
             key={`component-${i}`}
           />
         );
