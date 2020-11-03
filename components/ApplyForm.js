@@ -59,7 +59,7 @@ const ApplyForm = ({
   };
 
   return (
-    <section className="apply-form">
+    <section className="apply-form" id="apply-form-component">
       <div className="container-medium">
         <div className="column left">
           {title && <p className="title">{title}</p>}
