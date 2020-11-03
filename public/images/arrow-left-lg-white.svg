@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="16px" viewBox="0 0 32 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Arrow Right</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <polygon id="path-2" points="0 0 32 0 32 18 0 18"></polygon>
+    </defs>
+    <g id="Services" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Service-Details---Strategy" transform="translate(-878.000000, -3566.000000)">
+            <g id="Next-page:-Expanded" transform="translate(0.000000, 3412.000000)">
+                <g id="Arrow-Right" transform="translate(730.000000, 113.000000)" filter="url(#filter-1)">
+                    <g transform="translate(164.000000, 50.000000) scale(-1, 1) translate(-164.000000, -50.000000) translate(148.000000, 41.000000)">
+                        <mask id="mask-3" fill="white">
+                            <use xlink:href="#path-2"></use>
+                        </mask>
+                        <g id="Clip-2"></g>
+                        <path d="M31.6205293,7.1342391 L24.1481357,0 L22.1193809,1.73110214 L27.3734076,6.74101663 L-16,6.74101663 L-16,9.25898337 L27.3734076,9.25898337 L22.1193809,14.2688979 L24.1481357,16 L31.6205293,8.8657609 C31.8759918,8.62151812 32.0006873,8.33488958 32,8 C31.9866766,7.6999423 31.8493714,7.35330221 31.6205293,7.1342391 Z" id="Fill-1" fill="#000000" mask="url(#mask-3)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

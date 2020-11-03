@@ -316,6 +316,7 @@ const renderComponents = (components) => {
         return (
           <ServicesPagination
             title={component.fields.title}
+            routes={component.fields.routes}
             key={`component-${i}`}
           />
         );

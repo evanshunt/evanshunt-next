@@ -5,13 +5,11 @@ const MediumFeed = ({ title }) => {
 
   // fetch posts
   useEffect(() => {
-    // fetch(`https://api.medium.com/v1/users/@evanshunt/publications`)
     fetch(
       `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@evanshunt`
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setPosts(data.items);
       })
       .catch((error) => {

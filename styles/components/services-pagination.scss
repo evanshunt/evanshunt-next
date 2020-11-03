@@ -1,0 +1,75 @@
+section.services-pagination {
+  text-align: center;
+  padding: 7rem 0;
+
+  h3 {
+    @media (min-width: $desktop) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  .pagination {
+    border: 2px solid $black;
+    min-width: 70px;
+    height: 70px;
+    display: inline-flex;
+    border-radius: 35px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    margin: 0 0.5rem;
+
+    .page-name {
+      display: none;
+      margin-bottom: 0;
+      color: $white;
+      text-transform: capitalize;
+    }
+
+    &.prev {
+      .page-name {
+        margin-left: 1rem;
+      }
+    }
+
+    &.next {
+      .page-name {
+        margin-right: 1rem;
+      }
+    }
+
+    .white-arrow {
+      display: none;
+    }
+
+    .black-arrow {
+      display: block;
+    }
+
+    &:hover {
+      background: $black;
+      padding: 0 40px;
+      text-decoration: none;
+
+      .page-name {
+        display: block;
+      }
+
+      .white-arrow {
+        display: block;
+      }
+
+      .black-arrow {
+        display: none;
+      }
+    }
+
+    @media (min-width: $desktop) {
+      min-width: 100px;
+      height: 100px;
+      border-radius: 50px;
+    }
+  }
+
+  
+}
