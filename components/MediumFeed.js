@@ -27,7 +27,8 @@ const MediumFeed = ({ title }) => {
         </div>
 
         <div className="column right">
-          {posts.length > 0 &&
+          {posts &&
+            posts.length &&
             posts.map((post, i) => {
               return (
                 i < 3 && (
