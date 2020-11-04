@@ -43,7 +43,7 @@ class OurCulture extends React.Component {
           </div>
           <div className="our-culture-column our-culture-column-2">
             <video ref={video => (this.video = video)} className="video-fluid">
-              <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4" />
+              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4" />
               Your browser does not support video tags.
             </video>
             <div className="our-culture-play">
