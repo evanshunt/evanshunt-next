@@ -101,7 +101,7 @@
   .our-culture-play {
     position: absolute;
     width: 100%; // minus padding
-    top: 50%;
+    top: 54%;
     transform: translateY(-50%);
     text-align: center;
     @media (min-width: $tablet) {
@@ -113,6 +113,16 @@
       outline: 0;
       color: $white;
       background: transparent;
+      
+      .play-btn {
+        margin-bottom: 0;
+        transition: opacity 0.2s ease;
+        
+        &.hidden {
+          opacity: 0;
+          transition: opacity 0.2s ease;
+        }
+      }
     }
   }
 }
