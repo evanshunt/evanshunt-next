@@ -316,10 +316,18 @@ const renderComponents = (components) => {
         );
 
       case "componentServicesPagination":
-        return <ServicesPagination key={`component-${i}`} />;
+        return (
+          <ServicesPagination
+            title={component.fields.title}
+            routes={component.fields.routes}
+            key={`component-${i}`}
+          />
+        );
 
       case "componentMediumFeed":
-        return <MediumFeed key={`component-${i}`} />;
+        return (
+          <MediumFeed title={component.fields.title} key={`component-${i}`} />
+        );
 
       default:
         return (

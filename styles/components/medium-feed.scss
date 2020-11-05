@@ -1,0 +1,51 @@
+section.medium-feed {
+  background: #EBEDEE;
+  padding: 2.5rem 0;
+
+  @media (min-width: $desktop) {
+    padding: 5.5rem 0;
+  }
+
+  .title {
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
+  .post {
+    margin-bottom: 2rem;
+
+    &:last-of-type {
+      margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: $desktop) {
+      display: flex;
+      margin-bottom: 3.75rem;
+    }
+
+    .icon {
+      @media (min-width: $desktop) {
+        margin-right: 1.5rem;
+      }
+    }
+
+    h3 {
+      @media (min-width: $desktop) {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+      }
+    }
+  }
+
+  .container-medium {
+    @media (min-width: $desktop) {
+      display: flex;
+    }
+  }
+
+  .left {
+    @media (min-width: $desktop) {
+      min-width: 170px;
+    }
+  }
+}

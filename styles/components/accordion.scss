@@ -27,9 +27,11 @@ section.accordion {
     @extend h2;
     margin: 0;
     font-weight: $medium;
+    font-size: 24px;
 
     @media (min-width: $desktop) {
       padding: 2.75rem 0;
+      font-size: 32px;
     }
   }
 
@@ -50,6 +52,11 @@ section.accordion {
     padding: 20px;
     max-width: 790px;
     animation: fadein 0.35s ease-in;
+    font-size: 14px;
+
+    @media (min-width: $desktop) {
+      font-size: 1rem;
+    }
   }
 
   @keyframes fadein {
@@ -72,6 +79,7 @@ section.accordion {
 
     li {
       line-height: 1.75;
+      font-size: 1rem;
 
       @media (min-width: $desktop) {
         font-size: 20px;
