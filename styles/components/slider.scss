@@ -50,7 +50,7 @@
 .react-slider-wrap {
   padding-left: 15px;
   padding-bottom: 40px;
-  padding-top: 100px;
+  padding-top: 40px;
 
   // these help it match up with the regular container breakpoints
   // 100vw - container max-width + container 30px of padding / 2
@@ -59,6 +59,7 @@
   }
   @media (min-width: $tablet) {
     padding-left: calc((100vw - 720px + 30px )/2);
+    padding-top: 100px;
   }
   @media (min-width: $desktop) {
     padding-left: calc((100vw - 960px + 30px )/2);  
