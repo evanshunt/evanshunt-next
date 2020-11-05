@@ -101,7 +101,7 @@
   .our-culture-play {
     position: absolute;
     width: 100%; // minus padding
-    top: 54%;
+    top: 50%;
     transform: translateY(-50%);
     text-align: center;
     @media (min-width: $tablet) {
@@ -116,6 +116,10 @@
       
       .play-btn {
         margin-bottom: 0;
+        display: block;
+        width: auto;
+        height: auto;
+        object-fit: none;
         transition: opacity 0.2s ease;
         
         &.hidden {
