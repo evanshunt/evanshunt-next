@@ -8,6 +8,8 @@ gsap.registerPlugin(ScrollTrigger);
 const WorkGrid = (props) => {
   let container = useRef(null);
   let trigger = useRef(null);
+  const revealRefs = useRef([]);
+  revealRefs.current = [];
 
   useEffect(() => {
 
@@ -29,7 +31,33 @@ const WorkGrid = (props) => {
       x: 400,
       duration: 100,
     });
+
+    // Tiles that fade in
+    revealRefs.current.forEach((el, index) => {
+        
+      gsap.fromTo(el, {
+        autoAlpha: 0
+      }, {
+        duration: 1, 
+        autoAlpha: 1,
+        ease: 'power4.inOut',
+        scrollTrigger: {
+          id: `section-${index+1}`,
+          trigger: el,
+          start: 'top center+=100',
+          toggleActions: 'play none none reverse'
+        }
+      });
+
+    });
+
   }, []);
+
+  const addToRefs = el => {
+    if (el && !revealRefs.current.includes(el)) {
+        revealRefs.current.push(el);
+    }
+  };
 
   const { workPages } = props;
   if (!workPages) {
@@ -49,7 +77,7 @@ const WorkGrid = (props) => {
         <div className="work-grid-columns">
           {workPages.map((page, i) => {
             return (
-              <div className="work-grid-column" key={i}>
+              <div className="work-grid-column" key={i} ref={addToRefs}>
                 <div className="work-grid-img">
                   {page.fields.squareImage && (
                     <Link href={`/our-work/${page.fields.slug}`}>
