@@ -26,10 +26,10 @@ const WorkGrid = (props) => {
     }
 
     tl.to(container.current, {
-      x: 500,
-      duration: 20,
+      x: 400,
+      duration: 100,
     });
-  }, [container]);
+  }, []);
 
   const { workPages } = props;
   if (!workPages) {
