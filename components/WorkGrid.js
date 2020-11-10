@@ -4,30 +4,32 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-if (typeof window !== `undefined`) {
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.core.globals("ScrollTrigger", ScrollTrigger);
-}
 
 const WorkGrid = (props) => {
   let container = useRef(null);
   let trigger = useRef(null);
 
-  const tl = gsap.timeline({
-    paused: true,
-    scrollTrigger: {
-      trigger: trigger.current,
-      scrub: true,
-      markers: true,
-    },
-  });
-
   useEffect(() => {
+
+    const tl = gsap.timeline({
+      paused: true,
+      scrollTrigger: {
+        trigger: trigger.current,
+        scrub: true,
+        markers: true
+      }
+    });
+
+    if (typeof window !== `undefined`) {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.core.globals("ScrollTrigger", ScrollTrigger);
+    }
+
     tl.to(container.current, {
       x: 500,
       duration: 20,
     });
-  }, [container, tl]);
+  }, [container]);
 
   const { workPages } = props;
   if (!workPages) {
