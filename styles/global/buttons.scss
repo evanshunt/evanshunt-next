@@ -5,24 +5,42 @@
   color: $white;
   border: 3px solid $black;
   border-radius: 55px;
-  transition: background 0.1s ease-in;
-  
+  transition: all 0.25s ease-in-out;
+  line-height: 1.5;
+
   &:hover {
     background: $white;
     text-decoration: none;
-    transition: background 0.1s ease-in;
   }
   
   @media (min-width: $tablet) {
     padding: 33.5px 53.42px 36.5px;
   }
   
-  // smaller version
+  // smaller version - 67px height
+  // uses same hover state as default button
   &.btn-secondary {
     padding: 16px 37px;
+    line-height: 1.25;
 
     @media (min-width: $tablet) {
       padding: 15px 28px;
+    }
+  }
+
+  // even smaller version - 40px height
+  &.btn-tertiary {
+    padding: 15px 15px;
+    line-height: 1;
+
+    @media (min-width: $tablet) {
+      padding: 10px 10px;
+    }
+
+    &:hover {
+      color: $red;
+      border-color: $red;
+      text-decoration: none;
     }
   }
   

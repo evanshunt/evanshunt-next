@@ -16,7 +16,7 @@ const IntroBlock = ({ largeText, introText, centreAlign, cta }) => {
           <p>{introText}</p>
           {cta && (
             <Link href={cta.fields.url}>
-              <a className="btn btn-secondary btn-outline" title={cta.fields.title}>
+              <a className="btn btn-tertiary btn-outline" title={cta.fields.title}>
                 {cta.fields.title}
               </a>
             </Link>
