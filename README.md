@@ -14,12 +14,12 @@ This is the codebase for the Evans Hunt website.
 * Clone this repo
 * Copy `.env.sample` to `.env` and place the Contentful API key credentials
 * Install all dependencies:
-    `docker run --rm -it -v "$(pwd)":/usr/src/app -w /usr/src/app node:dubnium npm install`
+    `npm install`
 * Run a local webserver that auto-compiles:
-    `docker run --rm -it -p 3000:3000 -v "$(pwd)":/usr/src/app -w /usr/src/app node:dubnium npm run dev`
+    `npm run dev`
 * Export a static copy of the site to `/out`:
-    `docker run --rm -it -v "$(pwd)":/usr/src/app -w /usr/src/app node:dubnium npm run build`
-    `docker run --rm -it -v "$(pwd)":/usr/src/app -w /usr/src/app node:dubnium npm run export`
+    `npm run build`
+    `npm run export`
 * To view the static output:
     `docker run --rm -dit -p 80:80 -v "$(pwd)/out":/usr/local/apache2/htdocs/ httpd:2.4`
 
@@ -38,6 +38,7 @@ TBD
 ## Third-party integrations
 
 * Contentful is used for a headless CMS. Log in with `devs@evanshunt.com` with the credentials in LastPass.
+* Using Paid Greensock Plugins - currently on Kalen's account TODO: Needs to be swapped with devs@evanshunt.com. Instructions can be found on GSAP admin dashboard on the right side.
 
 ## Gotchas/trickies
 
@@ -45,7 +46,10 @@ TBD
 
 ## Production notes
 
-TBD
+Using Netlify for Builds and Servers.
+
+DEV Branch --> https://dev--eh-next-qa.netlify.app/
+MASTER Branch --> https://eh-next-qa.netlify.app/
 
 ## Production maintenance
 
