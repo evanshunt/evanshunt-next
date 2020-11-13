@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import classNames from 'classnames'
+import SVG from 'react-inlinesvg';
 
 const DecorativeLine = (props) => {
   const { image, mobileImage, overlap, hideOnMobile } = props
   const [lineImage, setLineImage] = useState(null)
-  
+
   // mobile image is optional
   useEffect(() => {
     window.addEventListener('resize', handleResize)
@@ -31,7 +32,7 @@ const DecorativeLine = (props) => {
   
   return (
     <div className={classes}>
-      {lineImage && <img src={lineImage.fields.file.url} alt={lineImage.fields.file.url} className="img-fluid"/>}
+      {lineImage && <SVG className="img-fluid" src={lineImage.fields.file.url} />}
     </div>
   )
 }
