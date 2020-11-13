@@ -12,25 +12,42 @@
       flex-wrap: nowrap;
     }
   }
-  
-  &-text {
-    max-width: 383px;
-    order: 1;
-    @media (min-width: $tablet) {
-      order: 0;
+
+  .text-left {
+    .service-block-text {
+      @media (min-width: $tablet) {
+        margin-left: 3rem;
+      }
+    }
+  }
+
+  .text-right {
+    .service-block-text {
+      @media (min-width: $tablet) {
+        margin-right: 3rem;
+      }
     }
   }
   
+  &-text {
+    order: 1;
+    @media (min-width: $tablet) {
+      order: 0;
+      max-width: 405px;
+    }
+  }
+
   &-title {
-    font-size: 3.125rem;
+    font-size: 26px;
     margin-bottom: 30px;
     @media (min-width: $tablet) {
-      font-size: 4.374rem;  
+      font-size: 70px;
     }
   }
   
   &-copy {
     padding-left: 15px;
+    font-size: 16px;
     @media (min-width: $tablet) {
       padding-left: 40px;
     }

@@ -59,7 +59,7 @@
   background: $pink;
   margin: 0 auto 35px;
   flex-direction: column;
-  transition: background 0.3s ease;
+  transition: background 0.5s ease-in-out, transform 0.3s ease-out;
   padding: 10px 20px;
 
   @media (min-width: $large-phone) {
@@ -75,14 +75,15 @@
   @media (min-width: $desktop) {
     &:hover {
       background: $black;
-      transition: all 0.1s ease;
       transform: scale(1.2);
 
       .service-circle-description {
-        display: block;
+        opacity: 1;
+        transform: scale(1) translate(0, 0);
       }
       .service-circle-title {
         margin-bottom: 10px;
+        transform: translate(0, 0);
       }
     } 
   }
@@ -93,11 +94,21 @@
   
   &-title {
     font-size: 1.25rem;
+    transform: translate(0, 60px);
+    transition: all 0.3s ease-in-out;
+    @media (min-width: $desktop) {
+      transform: translate(0, 50px);
+    }
   }
   
   &-description {
-    display: none;
     font-size: 14px;
+    opacity: 0;
+    transform: scale(0) translate(0, 150px);
+    transition: all 0.3s ease-in-out;
+    @media (min-width: $desktop) {
+      min-height: 105px;
+    }
   }
 }
 
