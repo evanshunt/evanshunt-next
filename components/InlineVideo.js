@@ -1,26 +1,56 @@
 import React from 'react'
+import gsap from "gsap";
+import { MorphSVGPlugin } from "gsap/dist/MorphSVGPlugin";
+gsap.registerPlugin(MorphSVGPlugin);
 
 class InlineVideo extends React.Component {
-  
+
   constructor(props) {
     super(props);
     this.state = {
       playButton: 'Play'
     }
-    
+
     this.handlePlayButton = this.handlePlayButton.bind(this)
+
+    /* Animated pieces */
+    this.play1 = null;
+    this.play2 = null;
+    this.pause1 = null;
+    this.pause2 = null;
   }
-  
+
+  componentDidMount() {
+    if (typeof window !== `undefined`) {
+      gsap.registerPlugin(MorphSVGPlugin);
+      gsap.core.globals("MorphSVGPlugin", MorphSVGPlugin)
+    }
+
+    this.tl = gsap.timeline({
+      paused: true
+    });
+
+    this.tl.to(this.play1, 0.3, {
+      morphSVG: this.pause1, ease: 'power3.inOut'
+    })
+      .to(this.play2, 0.3, {
+        morphSVG: this.pause2, ease: 'power3.inOut'
+      }, 0.05);
+
+  }
+
   // Custom Play/Pause button functionality 
   handlePlayButton() {
     if (this.video.paused || this.video.ended) {
       this.video.play();
+      this.tl.play(0);
       this.setState({
         playButton: 'Pause'
       })
     }
     else {
       this.video.pause();
+      this.tl.reverse(0);
       this.setState({
         playButton: 'Play'
       })
@@ -37,20 +67,18 @@ class InlineVideo extends React.Component {
           <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4" />
           Your browser does not support video tags.
         </video>
-
         <div className="inline-video-control">
           <button className="inline-video-play" onClick={this.handlePlayButton}>
-            {this.state.playButton == 'Play' &&
-            <svg id="play-video" data-name="play-video" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 30">
-              <path id="Path" className="cls-1" d="M1.34,0A1.45,1.45,0,0,0,0,1.44V28.57A1.47,1.47,0,0,0,1.5,30a1.56,1.56,0,0,0,.84-.25l21-13.56a1.39,1.39,0,0,0,.4-2,1.45,1.45,0,0,0-.4-.38L2.34.25a1.53,1.53,0,0,0-1-.24" transform="translate(0 0)"/>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.97 25.67" className="play-pause">
+              <g className="pause">
+                <rect ref={div => (this.pause1 = div)} className="pause-1" x="0.75" y="3.13" width="5" height="20" />
+                <rect ref={div => (this.pause2 = div)} className="pause-2" x="11.38" y="3.13" width="5" height="20" />
+              </g>
+              <g className="play">
+                <path ref={div => (this.play1 = div)} className="play-1" d="M0 0 0 25.67 8 20.79 8 4.88 0 0" />
+                <path ref={div => (this.play2 = div)} className="play-2" d="M8 4.88 8 20.79 20.97 12.83 8 4.88" />
+              </g>
             </svg>
-            }
-            {this.state.playButton == 'Pause' &&
-              <svg id="pause-video" data-name="pause-video" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 30">
-                <line id="Line-2" className="cls-1" x1="22" y1="3" x2="22" y2="27"/>
-                <line id="Line-2-2" data-name="Line-2" className="cls-1" x1="3" y1="3" x2="3" y2="27"/>
-              </svg>
-            }
           </button>
           {title && <h3 className="inline-video-title base-font">{title}</h3>}
         </div>

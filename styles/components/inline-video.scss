@@ -41,7 +41,7 @@
       width: 100px;
     }
 
-    svg {
+    svg.play-pause {
       max-width: 24px;
       width: 100%;
       height: 100%;
@@ -51,6 +51,9 @@
         stroke:$black;
         stroke-linecap:square;
         stroke-width:8px;
+      }
+      .pause-1, .pause-2 {
+        opacity: 0;
       }
     }
   }
