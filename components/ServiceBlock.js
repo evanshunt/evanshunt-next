@@ -10,12 +10,12 @@ const ServiceBlock = (props) => {
       <div className="container">
         
         {textLeftOrRight ? (
-          <div className="service-block-flex">
+          <div className="service-block-flex text-left">
             <ServiceBlockText {...props} />
             <ServiceBlockImage {...props} />
           </div>
         ) : (
-          <div className="service-block-flex">
+          <div className="service-block-flex text-right">
             <ServiceBlockImage {...props} />
             <ServiceBlockText {...props} />
           </div>
