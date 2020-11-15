@@ -13,8 +13,17 @@ section.hero-banner {
     height: 535px;
 
     @media (min-width: $desktop) {
+      height: 650px;
+    }
+
+    @media (min-width: $desktop-large) {
+      height: 700px;
+    }
+
+    @media (min-width: $desktop-extra-large) {
       height: 850px;
     }
+
   }
 
   #gradient-canvas {
