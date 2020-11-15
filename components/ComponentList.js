@@ -198,7 +198,7 @@ const renderComponents = (components) => {
         return (
           <OurCulture
             title={component.fields.title}
-            video={component.fields.video}
+            centerMedia={component.fields.centerMedia}
             images={component.fields.images}
             key={`component-${i}`}
           />
