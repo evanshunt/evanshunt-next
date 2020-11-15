@@ -1,4 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import classNames from 'classnames'
+import gsap from "gsap";
+import { MorphSVGPlugin } from "gsap/dist/MorphSVGPlugin";
+gsap.registerPlugin(MorphSVGPlugin);
 
 const HeroBanner = ({
   smallText,
@@ -891,6 +895,16 @@ const HeroBanner = ({
    * Gradient.updateFrequency(freq)
    */
 
+  // transform gradient to classname
+  const [gradientClass, setGradientClass] = useState("");
+  const [playButton, setplayButton] = useState("play");
+  const tl = useRef(gsap.timeline({ paused: true }));
+  let video = useRef(null);
+  let play1 = useRef(null);
+  let play2 = useRef(null);
+  let pause1 = useRef(null);
+  let pause2 = useRef(null);
+
   useEffect(() => {
     if (gradientHero) {
       var gradient = new Gradient();
@@ -898,9 +912,6 @@ const HeroBanner = ({
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gradientHero]);
-
-  // transform gradient to classname
-  const [gradientClass, setGradientClass] = useState("");
 
   useEffect(() => {
     if (gradientColour === "Yellow/Red") {
@@ -916,6 +927,40 @@ const HeroBanner = ({
     }
   }, [gradientColour]);
 
+  useEffect(() => {
+
+    if (typeof window !== `undefined`) {
+      gsap.registerPlugin(MorphSVGPlugin);
+      gsap.core.globals("MorphSVGPlugin", MorphSVGPlugin)
+    }
+
+    tl.current.to(MorphSVGPlugin.convertToPath(pause1.current), {
+      duration: 0.3,
+      morphSVG: play1.current, ease: 'power3.inOut'
+    })
+      .to(MorphSVGPlugin.convertToPath(pause2.current), {
+        duration: 0.3,
+        morphSVG: play2.current, ease: 'power3.inOut'
+      }, 0.05);
+
+  }, []);
+
+  // Custom Play/Pause button functionality
+  const handlePlayButton = () => {
+    if (video.current.paused || video.current.ended) {
+      video.current.play(0);
+      tl.current.reverse();
+      setplayButton('play')
+    }
+    else {
+      video.current.pause();
+      tl.current.play(0);
+      setplayButton('pause')
+    }
+  }
+
+  const videoClasses = classNames('video-control', `${playButton}`)
+
   return (
     <section className={backgroundImage || backgroundVideo ? `hero-banner tall` : `hero-banner`}>
       {gradientHero && (
@@ -923,9 +968,25 @@ const HeroBanner = ({
       )}
       {backgroundImage && <img src={backgroundImage} alt="" className="background-image" />}
       {backgroundVideo && (
-        <video autoPlay muted loop className="background-video">
-          <source src={backgroundVideo} type="video/mp4" />
-        </video>
+        <div className="hero-banner-video">
+          <video ref={video} autoPlay muted loop className="background-video">
+            <source src={backgroundVideo} type="video/mp4" />
+          </video>
+          <div className={videoClasses}>
+            <button className="video-play" onClick={handlePlayButton}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.97 25.67" className="play-pause">
+                <g className="pause">
+                  <rect ref={pause1} className="pause-1" x="0.75" y="3.13" width="5" height="20" />
+                  <rect ref={pause2} className="pause-2" x="11.38" y="3.13" width="5" height="20" />
+                </g>
+                <g className="play">
+                  <path ref={play1} className="play-1" d="M0 0 0 25.67 8 20.79 8 4.88 0 0" />
+                  <path ref={play2} className="play-2" d="M8 4.88 8 20.79 20.97 12.83 8 4.88" />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
       )}
 
       <div className="banner-text">

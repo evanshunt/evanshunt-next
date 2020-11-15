@@ -124,4 +124,52 @@ section.hero-banner {
       }
     }
   }
+
+  // Video player controls
+  .video-control {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+    z-index: 10;
+    @media (min-width: $tablet) {
+      bottom: 55px;
+      left: 40px;
+    }
+  }
+  .video-play {
+    border: none;
+    outline: none;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $black;
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    border: 1px solid $grey;
+    
+    @media (min-width: $tablet) {
+      height: 100px;
+      width: 100px;
+    }
+
+    svg.play-pause {
+      max-width: 24px;
+      width: 100%;
+      height: 100%;
+      max-height: 30px;
+      line {
+        fill:none;
+        stroke:$black;
+        stroke-linecap:square;
+        stroke-width:8px;
+      }
+      .play-1, .play-2 {
+        opacity: 0;
+      }
+    }
+  }
 }
