@@ -1,14 +1,11 @@
 section.services-intro {
   display: flex;
   flex-direction: column-reverse;
+  padding-left: 0;
+  padding-right: 0;
 
-  @media (min-width: $large-phone) {
-    max-width: none;
-  }
-  
   @media (min-width: $tablet) {
-    max-width: 720px;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding-top: 2rem;
@@ -16,35 +13,23 @@ section.services-intro {
   }
 
   @media (min-width: $desktop) {
-    max-width: 960px;
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
 
-  @media (min-width: $desktop-large) {
-    max-width: calc(1100px + 30px); // calc for padding
-  }
 
   .image-container {
     height: 285px;
     overflow: hidden;
     width: 100vw;
-    margin-left: -15px;
     padding-bottom: 0.89%;
 
     @media (min-width: $large-phone) {
       height: 400px;
     }
 
-    @media (min-width: $tablet) {
-      height: auto;
-    }
-
     @media (min-width: $desktop) {
-      height: auto;
-      width: auto;
-      flex-basis: 40%;
-      margin-left: 0;
+      height: 500px;
     }
   }
 
@@ -56,14 +41,20 @@ section.services-intro {
   }
 
   .text-container {
-    padding: 2.5rem 0;
+    padding: 2.5rem 15px;
+    max-width: 92%;
+    margin: 0 auto;
 
     @media (min-width: $tablet) {
-      padding-right: 2rem;
+      max-width: 720px;
     }
 
     @media (min-width: $desktop) {
-      flex-basis: 50%;
+      max-width: 960px;
+    }
+
+    @media (min-width: $desktop-large) {
+      max-width: calc(1100px + 30px);
     }
 
     h1 {
@@ -76,8 +67,6 @@ section.services-intro {
     }
 
     p {
-      margin-left: 1.5rem;
-      margin-right: 1.5rem;
 
       @media (min-width: $desktop) {
         font-size: 25px;
