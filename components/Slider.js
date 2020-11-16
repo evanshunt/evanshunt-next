@@ -9,7 +9,10 @@ import {
 import classNames from "classnames";
 import Link from "next/link";
 
-// Settings for both types of slider - client slide / global slide item
+// Settings for types of slider - client slide & global slide item with Square images,
+// global slide item with landscape images & video
+
+// Square ratio image slides
 const clientSlideDimensions = {
   desktopWidth: 430,
   desktopHeight: 500,
@@ -19,6 +22,7 @@ const clientSlideDimensions = {
   mobileVisibleSlides: 1.25,
 };
 
+// Landscape image slides
 const normalSlideDimensions = {
   desktopWidth: 757,
   desktopHeight: 600,
@@ -36,10 +40,13 @@ class SliderComponent extends React.Component {
     let slideType = "normal";
     if (props && props.slides) {
       // determine which settings to use based on the content type of the first item
-      if (
-        props.slides[0].sys.contentType.sys.id === "globalElementCarouselItem"
-      ) {
-        slideDimensions = normalSlideDimensions;
+      if (props.slides[0].sys.contentType.sys.id === "globalElementCarouselItem") {
+        if (props.style === 'square') {
+          slideDimensions = clientSlideDimensions;
+        } else {
+          // Assume landscape
+          slideDimensions = normalSlideDimensions;
+        }
       } else {
         slideDimensions = clientSlideDimensions;
         slideType = "client";
@@ -59,6 +66,10 @@ class SliderComponent extends React.Component {
 
   componentDidMount() {
     window.addEventListener("resize", this.onResize);
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener("resize", this.onResize);
   }
 
   onResize() {
@@ -90,6 +101,7 @@ class SliderComponent extends React.Component {
     const imagePropertyName = slideType === "normal" ? "image" : "largeImage";
 
     const titleClass = classNames(
+      'slide-title',
       { "base-font-medium": slideType === "normal" },
       { "base-font": slideType === "client" }
     );
@@ -120,41 +132,102 @@ class SliderComponent extends React.Component {
                     index={i}
                     key={i}
                   >
-                    {slide.fields.link && (
-                      <Link href={slide.fields.link}>
-                        <a>
-                          <Image
-                            src={
+                    {/* Need to adjust layout if Text sits on top of image
+                    field: textLayout
+                    options: "below-image", "on-image"
+                    */}
+
+                    {/* On Image Variant Start */}
+                    {slide.fields.textLayout === 'on-image'  ? (
+                      <div className="text-on-image">
+                        {slide.fields.link && (<Link href={slide.fields.link}><a>
+                          <div className="image-wrapper">
+                            <Image
+                              src={
                               slide.fields[`${imagePropertyName}`].fields.file
                                 .url
+                              }
+                              className="img-fluid"
+                              alt={
+                                slide.fields[`${imagePropertyName}`].fields.file
+                                .description
+                              }
+                            />
+                          </div>
+                          <div className="text-wrapper">
+                            {slide.fields.title && (
+                              <h6 className={titleClass}>{slide.fields.title}</h6>
+                            )}
+                            {slide.fields.description && (
+                              <p className="slide-description">{slide.fields.description}</p>
+                            )}
+                          </div>
+                        </a></Link>)}
+                        {!slide.fields.link && (
+                          <div>
+                            <div className="image-wrapper">
+                              <Image
+                                src={
+                                  slide.fields[`${imagePropertyName}`].fields.file
+                                  .url
+                                }
+                                className="img-fluid"
+                                alt={
+                                  slide.fields[`${imagePropertyName}`].fields.file
+                                  .description
+                                }
+                              />
+                            </div>
+                            <div className="text-wrapper">
+                              {slide.fields.title && (
+                                <h6 className={titleClass}>{slide.fields.title}</h6>
+                              )}
+                              {slide.fields.description && (
+                                <p className="slide-description">{slide.fields.description}</p>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+
+                    ) : (
+                      <div className="text-below-image">
+                        {/* Text Below Image Variant Start - assume this is default */}
+                        {slide.fields.link && (<Link href={slide.fields.link}><a>
+                          <Image
+                            src={
+                              slide.fields[`${imagePropertyName}`].fields.file.url
                             }
                             className="img-fluid"
                             alt={
                               slide.fields[`${imagePropertyName}`].fields.file
-                                .description
+                              .description
                             }
                           />
-                        </a>
-                      </Link>
+                        </a></Link>)}
+
+                        {!slide.fields.link && (
+                          <Image
+                            src={
+                              slide.fields[`${imagePropertyName}`].fields.file.url
+                            }
+                            className="img-fluid"
+                            alt={
+                              slide.fields[`${imagePropertyName}`].fields.file
+                              .description
+                            }
+                          />
+                        )}
+
+                        {slide.fields.title && (
+                          <h6 className={titleClass}>{slide.fields.title}</h6>
+                        )}
+                        {slide.fields.description && (
+                          <p className="slide-description">{slide.fields.description}</p>
+                        )}
+                      </div>
                     )}
-                    {!slide.fields.link && (
-                      <Image
-                        src={
-                          slide.fields[`${imagePropertyName}`].fields.file.url
-                        }
-                        className="img-fluid"
-                        alt={
-                          slide.fields[`${imagePropertyName}`].fields.file
-                            .description
-                        }
-                      />
-                    )}
-                    {slide.fields.title && (
-                      <h6 className={titleClass}>{slide.fields.title}</h6>
-                    )}
-                    {slide.fields.description && (
-                      <p>{slide.fields.description}</p>
-                    )}
+
                   </Slide>
                 );
               })}

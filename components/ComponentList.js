@@ -103,6 +103,7 @@ const renderComponents = (components) => {
         return (
           <Slider
             title={component.fields.title}
+            style={component.fields.style}
             slides={component.fields.slides}
             key={`component-${i}`}
           />
