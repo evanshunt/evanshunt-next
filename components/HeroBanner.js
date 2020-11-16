@@ -899,6 +899,7 @@ const HeroBanner = ({
   const [gradientClass, setGradientClass] = useState("");
   const [playButton, setplayButton] = useState("play");
   const tl = useRef(gsap.timeline({ paused: true }));
+  let playPauseAnimation = useRef(null);
   let video = useRef(null);
   let play1 = useRef(null);
   let play2 = useRef(null);
@@ -934,14 +935,17 @@ const HeroBanner = ({
       gsap.core.globals("MorphSVGPlugin", MorphSVGPlugin)
     }
 
-    tl.current.to(MorphSVGPlugin.convertToPath(pause1.current), {
-      duration: 0.3,
-      morphSVG: play1.current, ease: 'power3.inOut'
-    })
-      .to(MorphSVGPlugin.convertToPath(pause2.current), {
+    /* Check if the Animation wrapper exists */
+    if (playPauseAnimation.current != null) {
+      tl.current.to(MorphSVGPlugin.convertToPath(pause1.current), {
         duration: 0.3,
-        morphSVG: play2.current, ease: 'power3.inOut'
-      }, 0.05);
+        morphSVG: play1.current, ease: 'power3.inOut'
+      })
+        .to(MorphSVGPlugin.convertToPath(pause2.current), {
+          duration: 0.3,
+          morphSVG: play2.current, ease: 'power3.inOut'
+        }, 0.05);
+      }
 
   }, []);
 
@@ -974,7 +978,7 @@ const HeroBanner = ({
           </video>
           <div className={videoClasses}>
             <button className="video-play" onClick={handlePlayButton}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.97 25.67" className="play-pause">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.97 25.67" ref={playPauseAnimation} className="play-pause">
                 <g className="pause">
                   <rect ref={pause1} className="pause-1" x="0.75" y="3.13" width="5" height="20" />
                   <rect ref={pause2} className="pause-2" x="11.38" y="3.13" width="5" height="20" />

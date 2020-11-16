@@ -34,8 +34,6 @@ class CaseStudyMosiac extends React.Component {
 
   componentDidMount() {
 
-    console.log(this.props);
-
     if (typeof window !== `undefined`) {
       gsap.registerPlugin(ScrollTrigger);
       gsap.core.globals("ScrollTrigger", ScrollTrigger);
@@ -56,6 +54,10 @@ class CaseStudyMosiac extends React.Component {
     // this.ml.to(this.img1, { duration: 0.5, opacity: 0 }, 3)
     // this.ml.to(this.img2, { duration: 1, width: '60%', height: '60%', transform: 'translate(-50%, -50%)' }, 3)
     // this.ml.to(this.title2, { duration: 1, color: 'rgba(0, 0, 0, 0)' }, 3);
+  }
+
+  componentWillUnmount() {
+    this.ml.kill();
   }
 
   render() {

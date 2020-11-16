@@ -36,10 +36,13 @@ class InlineVideo extends React.Component {
       .to(this.play2, 0.3, {
         morphSVG: this.pause2, ease: 'power3.inOut'
       }, 0.05);
-
   }
 
-  // Custom Play/Pause button functionality 
+  componentWillUnmount() {
+    this.tl.kill();
+  }
+
+  // Custom Play/Pause button functionality
   handlePlayButton() {
     if (this.video.paused || this.video.ended) {
       this.video.play();
