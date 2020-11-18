@@ -18,7 +18,7 @@ const WorkGrid = (props) => {
       scrollTrigger: {
         trigger: trigger.current,
         scrub: true,
-        markers: true
+        markers: false
       }
     });
 
