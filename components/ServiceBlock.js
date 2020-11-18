@@ -4,11 +4,16 @@ import Link from 'next/link'
 const ServiceBlock = (props) => {
   
   const { textLeftOrRight } = props
-  
+  const serviceClass = props.title.toString().toLowerCase()
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/&/g, '-and-') // Replace & with 'and'
+    .replace(/[^\w-]+/g, '') // Remove all non-word characters
+    .replace(/--+/g, '-') // Replace multiple - with single
+
   return (
-    <section className="service-block">
+    <section className={`service-block ${serviceClass}`}>
       <div className="container">
-        
+
         {textLeftOrRight ? (
           <div className="service-block-flex text-left">
             <ServiceBlockText {...props} />
