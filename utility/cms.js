@@ -12,6 +12,7 @@ const contentfulSettings = () => {
   }
   
   // for development, use the preview api for draft content
+  console.log(process.env.CONTEXT)
   if (getEnv() === 'development') {
     settings = {
       space: process.env.CONTENTFUL_SPACE,
