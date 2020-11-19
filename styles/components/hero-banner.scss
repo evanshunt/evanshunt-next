@@ -96,20 +96,9 @@ section.hero-banner {
 
     .small-text {
       font-weight: $bold;
-      display: flex;
-      align-items: center;
-      &:before {
-        content: "";
-        display: inline-block;
-        width: 1.5rem;
-        height: 1px;
-        background-color: $white;
-        margin-right: 0.5rem;
-
-        @media (min-width: $desktop) {
-          width: 153px;
-          margin-right: 1rem;
-        }
+      margin-left: 2rem;
+      @media (min-width: $desktop) {
+        margin-left: 171px;
       }
     }
 
@@ -123,6 +112,20 @@ section.hero-banner {
         margin-left: 171px;
       }
     }
+
+    .line {
+      height: 1px;
+      background-color: #fff;
+      display: block;
+      width: 1.5rem;
+      margin-top: -30px;
+      margin-right: 0.5rem;
+      @media (min-width: $desktop) {
+        width: 153px;
+        margin-right: 1rem;
+      }
+    }
+
   }
 
   // Video player controls

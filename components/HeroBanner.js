@@ -898,6 +898,8 @@ const HeroBanner = ({
   // transform gradient to classname
   const [gradientClass, setGradientClass] = useState("");
   const [playButton, setplayButton] = useState("play");
+
+  // Variables for Play/Pause Animation
   const tl = useRef(gsap.timeline({ paused: true }));
   let playPauseAnimation = useRef(null);
   let video = useRef(null);
@@ -905,6 +907,14 @@ const HeroBanner = ({
   let play2 = useRef(null);
   let pause1 = useRef(null);
   let pause2 = useRef(null);
+
+  // Variables for Banner Text Animations
+  const tl1 = useRef(gsap.timeline({ id:"bannerText" }));
+  const masterTl =  new gsap.timeline({paused:true});
+  let bannerRef = useRef(null);
+  let aSmallText = useRef(null);
+  let aLargeText = useRef(null);
+  let aLine = useRef(null);
 
   useEffect(() => {
     if (gradientHero) {
@@ -963,6 +973,19 @@ const HeroBanner = ({
     }
   }
 
+  const animateBanner = () => {
+    const bannerLine = aLine.current
+
+    if(bannerLine) {
+      tl1.current.fromTo(aLine.current, {x: -220}, { duration: 1, delay: 1, x: 0, ease: 'power4.out' }, "lineIn")
+      .fromTo(aSmallText.current, {opacity: 0, x: 10}, { duration: 0.8, opacity: 1, x: 0, ease: 'power4.out' })
+      .fromTo(aLargeText.current, {opacity: 0, y: 20}, { duration: 0.8, opacity: 1, y: 0, ease: 'power4.out'}, "lineIn+=2.4")
+    return tl;
+    }
+  }
+
+  masterTl.add(animateBanner(bannerRef.current));
+
   const videoClasses = classNames('video-control', `${playButton}`)
 
   return (
@@ -993,9 +1016,10 @@ const HeroBanner = ({
         </div>
       )}
 
-      <div className="banner-text">
-        {smallText && <p className="small-text">{smallText}</p>}
-        {largeText && <h1 className="large-text">{largeText}</h1>}
+      <div className="banner-text" ref={bannerRef}>
+        {smallText && <p className="small-text" ref={aSmallText}>{smallText}</p>}
+        {smallText && <span className="line" id="line" ref={aLine} />}
+        {largeText && <h1 className="large-text" ref={aLargeText}>{largeText}</h1>}
       </div>
     </section>
   );
