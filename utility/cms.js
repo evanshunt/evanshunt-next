@@ -12,8 +12,8 @@ const contentfulSettings = () => {
   }
   
   // for development, use the preview api for draft content
-  console.log(process.env.CONTEXT)
-  if (getEnv() === 'development') {
+  const deployContext = process.env.CONTEXT || null
+  if (getEnv() === 'development' || (deployContext === 'branch-deploy')) {
     settings = {
       space: process.env.CONTENTFUL_SPACE,
       accessToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
