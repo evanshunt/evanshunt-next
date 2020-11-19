@@ -80,7 +80,7 @@ class Header extends React.Component {
 // this just allows for the active class to be added
 const NavLink = ({navLink}) => {
   const router = useRouter()
-  const classes = classNames('header-nav-link', {'active': navLink.url === router.pathname})
+  const classes = classNames('header-nav-link', {'active': router.pathname.indexOf(navLink.url) !== -1})
   return (
     <Link href={navLink.url}><a className={classes} title={navLink.title}>{navLink.title}</a></Link>
   )

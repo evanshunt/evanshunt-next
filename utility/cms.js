@@ -1,12 +1,33 @@
 const contentful = require("contentful");
 
+const getEnv = () => {
+  return process.env.NODE_ENV
+}
+
+const contentfulSettings = () => {
+  
+  let settings = {
+    space: process.env.CONTENTFUL_SPACE,
+    accessToken: process.env.CONTENTFUL_TOKEN
+  }
+  
+  // for development, use the preview api for draft content
+  if (getEnv() === 'development') {
+    settings = {
+      space: process.env.CONTENTFUL_SPACE,
+      accessToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
+      host: 'preview.contentful.com'
+    }
+  }
+  return settings
+}
+
 function CMSApi() {
   console.log("Accessing Contentful space " + process.env.CONTENTFUL_SPACE);
+  console.log("Environment: " + getEnv())
 
-  this.client = contentful.createClient({
-    space: process.env.CONTENTFUL_SPACE,
-    accessToken: process.env.CONTENTFUL_TOKEN,
-  });
+  const clientSettings = contentfulSettings()
+  this.client = contentful.createClient(clientSettings);
 
   this.fetchContentType = async (contentType) => {
     return await this.client
