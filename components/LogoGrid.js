@@ -11,6 +11,7 @@ const LogoGrid = (props) => {
   let logoGridTrigger = useRef(null);
   let aSmallTitle = useRef(null);
   let aLargeTitle = useRef(null);
+  let aLogoRow = useRef(null);
 
   useEffect(() => {
 
@@ -30,8 +31,9 @@ const LogoGrid = (props) => {
       const smallTitle = aSmallTitle.current
 
       if(smallTitle) {
-        tl1.fromTo(aSmallTitle.current, {opacity: 0, y: 10}, { duration: 0.8, opacity: 1, y: 0, ease: 'power4.out' }, "smallTitle")
+        tl1.fromTo(aSmallTitle.current, {opacity: 0, x: 50}, { duration: 0.8, opacity: 1, x: 0, ease: 'power4.out' }, "smallTitle")
         .fromTo(aLargeTitle.current, {opacity: 0, y: 20}, { duration: 0.8, opacity: 1, y: 0, ease: 'power4.out'}, "smallTitle+=0.5")
+        .fromTo(aLogoRow.current, {opacity: 0, y: 20}, { duration: 0.8, opacity: 1, y: 0, ease: 'power4.out'}, "smallTitle+=1")
         return tl1;
       }
     }
@@ -51,7 +53,7 @@ const LogoGrid = (props) => {
         {smallTitle && <h4 className="small-title base-font-medium" ref={aSmallTitle}>{smallTitle}</h4>}
         {largeTitle && <h1 className="large-title" ref={aLargeTitle}>{largeTitle}</h1>}
         {logos && (
-          <div className="logo-grid-logos">
+          <div className="logo-grid-logos" ref={aLogoRow}>
             {logos.map((logo, i) => {
               return (
                 <div className="logo-grid-logo" key={i}>
