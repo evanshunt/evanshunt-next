@@ -13,7 +13,7 @@ const contentfulSettings = () => {
   
   // for development, use the preview api for draft content
   const deployContext = process.env.CONTEXT || null
-  console.log('Deploy context: ', deployContext)
+  // console.log('Deploy context: ', deployContext)
   if (getEnv() === 'development' || deployContext === 'branch-deploy') {
     settings = {
       space: process.env.CONTENTFUL_SPACE,
@@ -25,11 +25,10 @@ const contentfulSettings = () => {
 }
 
 function CMSApi() {
-  console.log("Accessing Contentful space " + process.env.CONTENTFUL_SPACE);
-  console.log("Environment: " + getEnv())
+  // console.log("Accessing Contentful space " + process.env.CONTENTFUL_SPACE);
+  // console.log("Environment: " + getEnv())
 
   const clientSettings = contentfulSettings()
-  console.log('host: ', clientSettings.host)
   this.client = contentful.createClient(clientSettings);
 
   this.fetchContentType = async (contentType) => {

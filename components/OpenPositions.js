@@ -6,14 +6,14 @@ const OpenPositions = ({ title, introText, openPositions }) => {
 
       {openPositions.map((job, i) => (
         <a
-          href={job.fields.bambooLink}
+          href={job.fields.jobPostingURL}
           key={`open-position${i}`}
           className="position"
           target="_blank"
           rel="noreferrer"
         >
           <div className="job-description">
-            {job.fields.title && <p className="title">{job.fields.title}</p>}
+            {job.fields.jobTitle && <p className="title">{job.fields.jobTitle}</p>}
             {job.fields.department && <p className="department">{job.fields.department}</p>}
           </div>
 
