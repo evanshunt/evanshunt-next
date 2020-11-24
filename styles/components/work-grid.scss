@@ -9,6 +9,38 @@
       justify-content: center;
     }
   }
+  
+  .more-columns {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding-bottom: 75px;
+    
+    .work-grid-columns {
+      height: 0;  
+    }
+    
+    &.show-all {
+      transition: opacity 0.2s ease;
+      opacity: 1;
+      max-height: none;
+      overflow: visible;
+      
+      .work-grid-columns {
+        height: auto;
+      }
+    }
+  }
+  
+  .show-all-btn {
+    text-align: center;
+    opacity: 1;
+    
+    &.hidden {
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+  }
  
   &-column {
     width: 100%;
