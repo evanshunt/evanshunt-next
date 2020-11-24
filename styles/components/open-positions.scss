@@ -43,6 +43,21 @@ section.open-positions {
 
     &:hover {
       text-decoration: none;
+      
+      @media (min-width: $tablet) {
+        .open-position-btn {
+          background: $black;
+          color: $white;
+
+          .white-arrow {
+            display: inline-block;
+          }
+
+          .black-arrow {
+            display: none;
+          }
+        } 
+      }
     }
 
     &:first-of-type {
@@ -64,6 +79,25 @@ section.open-positions {
       @media (min-width: $desktop) {
         font-size: 1rem;
       }
+    }
+  }
+  
+  .open-position-btn {
+    background: transparent;
+    border-width: 0;
+    color: white;
+    
+    span {
+      display: inline-block;
+      margin-right: 15px;
+    }
+    
+    .white-arrow {
+      display: none;
+    }
+    
+    .black-arrow {
+      display: inline-block;
     }
   }
 }
