@@ -97,7 +97,7 @@ const WorkGrid = (props) => {
         </div>
         {workPages.length > initialTilesToShow && (
           <div className={classNames('show-all-btn', {'hidden': showMoreTiles})}>
-            <button className="btn btn-secondary btn-outline" onClick={() => setShowMoreTiles(true)}>View all</button>
+            <button className="btn btn-primary" onClick={() => setShowMoreTiles(true)}>View all</button>
           </div>
         )}
         {workPages.length > initialTilesToShow && (
