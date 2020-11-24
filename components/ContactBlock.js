@@ -14,7 +14,7 @@ const ContactBlock = ({
       <div className="column">
         <h1>{addressTitle}</h1>
         <ReactMarkdown source={address} />
-        <a href={directionsLink} target="_blank" rel="noreferrer">
+        <a href={directionsLink} target="_blank" rel="noreferrer" className="post-right-arrow">
           Get directions{" "}
           <img src="/images/small-right-arrow.svg" alt="Right pointing arrow" />
         </a>

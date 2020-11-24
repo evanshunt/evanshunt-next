@@ -53,5 +53,11 @@
     border: 1px solid $black;
     background: transparent;
     color: $black;
+
+    &:hover {
+      color: $red;
+      border-color: $red;
+      text-decoration: none;
+    }
   }
 }

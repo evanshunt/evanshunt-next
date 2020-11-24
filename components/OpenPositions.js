@@ -17,11 +17,11 @@ const OpenPositions = ({ title, introText, openPositions }) => {
             {job.fields.department && <p className="department">{job.fields.department}</p>}
           </div>
 
-          <a href={job.fields.jobPostingURL} className="btn btn-secondary open-position-btn">
+          <span className="btn btn-secondary open-position-btn">
             <span>View</span>
             <img src="/images/arrow-right-lg-black.svg" alt="Black arrow pointing right" className="black-arrow" />
             <img src="/images/arrow-right-lg-white.svg" alt="White arrow pointing right" className="white-arrow" />
-          </a>
+          </span>
         </a>
       ))}
     </section>
