@@ -36,11 +36,13 @@ const WorkGrid = (props) => {
     revealRefs.current.forEach((el, index) => {
         
       gsap.fromTo(el, {
-        autoAlpha: 0,
+        opacity: 0,
+        //autoAlpha: 0,
         y: 50
       }, {
-        duration: 1,
-        autoAlpha: 1,
+        duration: 1.5,
+        opacity: 1,
+        //autoAlpha: 1,
         y: 0,
         ease: 'power4.inOut',
         scrollTrigger: {

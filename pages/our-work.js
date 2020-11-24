@@ -6,7 +6,6 @@ import LogoGrid from '../components/LogoGrid'
 const CMSApi = require("../utility/cms");
 
 const OurWorkPage = (content) => {
-  console.log(content)
   return (
     <Layout className="content-page our-work-page" inlineHeader={true} >
       <PageMeta
