@@ -6,7 +6,7 @@ import HeroBanner from '../../components/HeroBanner'
 const CMSApi = require("../../utility/cms");
 
 const WorkDetails = (content) => {
-  console.log(content)
+  // console.log(content)
   
   if (!content) {
     return null
