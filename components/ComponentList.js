@@ -28,6 +28,10 @@ import Accordion from "./Accordion";
 import ServicesPagination from "./ServicesPagination";
 import MediumFeed from "./MediumFeed";
 
+// Case Study Specific Components
+import CaseStudyMosiac from "./CaseStudyMosiac";
+
+
 const renderComponents = (components) => {
   return components.map((component, i) => {
     switch (component.sys.contentType.sys.id) {
@@ -99,6 +103,7 @@ const renderComponents = (components) => {
         return (
           <Slider
             title={component.fields.title}
+            style={component.fields.style}
             slides={component.fields.slides}
             key={`component-${i}`}
           />
@@ -194,7 +199,16 @@ const renderComponents = (components) => {
         return (
           <OurCulture
             title={component.fields.title}
-            video={component.fields.video}
+            centerMedia={component.fields.centerMedia}
+            images={component.fields.images}
+            key={`component-${i}`}
+          />
+        );
+
+      case "componentCaseStudyMosiac":
+        return (
+          <CaseStudyMosiac
+            feature={component.fields.featureImage}
             images={component.fields.images}
             key={`component-${i}`}
           />

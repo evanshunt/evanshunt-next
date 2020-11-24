@@ -37,12 +37,11 @@ class OurCulture extends React.Component {
   
   render() {
     
-    const { title, video, images } = this.props
-    
+    const { title, centerMedia, images } = this.props
     const [img1,img2,img3,img4] = images // not sure how this would work with more or less than the 4 images
-    
+    const centerMediaType = centerMedia.fields.file.contentType;
     const playButtonClasses = classNames('play-btn', 'img-fluid', {'hidden': !this.state.showPlayButton})
-    
+
     return(
       <section className="our-culture">
         {title && <h6 className="our-culture-title base-font-medium">{title}</h6>}
@@ -51,16 +50,28 @@ class OurCulture extends React.Component {
             {img1 && <img src={img1.fields.file.url} alt={img1.fields.file.url} className="img-fluid" />}
             {img2 && <img src={img2.fields.file.url} alt={img2.fields.file.url} className="img-fluid" />}
           </div>
-          <div className="our-culture-column our-culture-column-2" onClick={this.handlePlayButton}>
-            <video ref={video => (this.video = video)} className="video-fluid" onEnded={this.handleVideoEnd}>
-              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4" />
-              Your browser does not support video tags.
-            </video>
-            <div className="our-culture-play">
-              <button className="our-culture-play-btn">
-                <img src="/images/instagram-play.png" alt="play button" height="100" width="100" className={playButtonClasses} />
-              </button>
-            </div>
+          <div className="our-culture-column our-culture-column-2">
+            {/* Center Media can be a video or image */}
+            {centerMediaType.indexOf('video/') !== -1 &&
+              <div className="video-wrapper" onClick={this.handlePlayButton}>
+                <video ref={video => (this.video = video)} className="video-fluid" onEnded={this.handleVideoEnd}>
+                  <source src={centerMedia.fields.file.url} type="video/mp4" />
+                  Your browser does not support video tags.
+                </video>
+                <div className="our-culture-play">
+                  <button className="our-culture-play-btn">
+                    <img src="/images/instagram-play.png" alt="play button" height="100" width="100" className={playButtonClasses} />
+                  </button>
+                </div>
+              </div>
+            }
+
+            {centerMediaType.indexOf('image/') !== -1 &&
+              <div className="image-wrapper">
+                <img src={centerMedia.fields.file.url} alt={centerMedia.fields.file.url} className="img-fluid" />
+              </div>
+            }
+
           </div>
           <div className="our-culture-column our-culture-column-3">
             {img3 && <img src={img3.fields.file.url} alt={img3.fields.file.url} className="img-fluid" />}

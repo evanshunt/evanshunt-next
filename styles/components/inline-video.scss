@@ -35,6 +35,7 @@
     height: 42px;
     width: 42px;
     border-radius: 50%;
+    border: 1px solid $grey;
     
     @media (min-width: $tablet) {
       height: 100px;

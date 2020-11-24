@@ -6,16 +6,22 @@ const OpenPositions = ({ title, introText, openPositions }) => {
 
       {openPositions.map((job, i) => (
         <a
-          href={`/careers/${job.fields.slug}`}
+          href={job.fields.jobPostingURL}
           key={`open-position${i}`}
           className="position"
+          target="_blank"
+          rel="noreferrer"
         >
           <div className="job-description">
-            <p className="title">{job.fields.title}</p>
-            <p className="department">{job.fields.department}</p>
+            {job.fields.jobTitle && <p className="title">{job.fields.jobTitle}</p>}
+            {job.fields.department && <p className="department">{job.fields.department}</p>}
           </div>
 
-          <img src="/images/right-arrow.svg" alt="Arrow pointing right"/>
+          <a href={job.fields.jobPostingURL} className="btn btn-secondary open-position-btn">
+            <span>View</span>
+            <img src="/images/arrow-right-lg-black.svg" alt="Black arrow pointing right" className="black-arrow" />
+            <img src="/images/arrow-right-lg-white.svg" alt="White arrow pointing right" className="white-arrow" />
+          </a>
         </a>
       ))}
     </section>

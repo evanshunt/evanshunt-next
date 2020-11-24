@@ -1,4 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import classNames from 'classnames'
+import gsap from "gsap";
+import { MorphSVGPlugin } from "gsap/dist/MorphSVGPlugin";
+gsap.registerPlugin(MorphSVGPlugin);
 
 const HeroBanner = ({
   smallText,
@@ -545,10 +549,10 @@ const HeroBanner = ({
         e(this, "geometry", void 0),
         e(this, "minigl", void 0),
         e(this, "scrollObserver", void 0),
-        e(this, "amp", 320),
+        e(this, "amp", 10),
         e(this, "seed", 5),
         e(this, "freqX", 14e-5),
-        e(this, "freqY", 29e-5),
+        e(this, "freqY", 14e-5),
         e(this, "freqDelta", 1e-5),
         e(this, "activeColors", [1, 1, 1, 1]),
         e(this, "isMetaKey", !1),
@@ -891,6 +895,27 @@ const HeroBanner = ({
    * Gradient.updateFrequency(freq)
    */
 
+  // transform gradient to classname
+  const [gradientClass, setGradientClass] = useState("");
+  const [playButton, setplayButton] = useState("play");
+
+  // Variables for Play/Pause Animation
+  const tl = useRef(gsap.timeline({ paused: true }));
+  let playPauseAnimation = useRef(null);
+  let video = useRef(null);
+  let play1 = useRef(null);
+  let play2 = useRef(null);
+  let pause1 = useRef(null);
+  let pause2 = useRef(null);
+
+  // Variables for Banner Text Animations
+  const tl1 = useRef(gsap.timeline({ id:"bannerText" }));
+  const masterTl =  new gsap.timeline({paused:true});
+  let bannerRef = useRef(null);
+  let aSmallText = useRef(null);
+  let aLargeText = useRef(null);
+  let aLine = useRef(null);
+
   useEffect(() => {
     if (gradientHero) {
       var gradient = new Gradient();
@@ -898,9 +923,6 @@ const HeroBanner = ({
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gradientHero]);
-
-  // transform gradient to classname
-  const [gradientClass, setGradientClass] = useState("");
 
   useEffect(() => {
     if (gradientColour === "Yellow/Red") {
@@ -916,6 +938,56 @@ const HeroBanner = ({
     }
   }, [gradientColour]);
 
+  useEffect(() => {
+
+    if (typeof window !== `undefined`) {
+      gsap.registerPlugin(MorphSVGPlugin);
+      gsap.core.globals("MorphSVGPlugin", MorphSVGPlugin)
+    }
+
+    /* Check if the Animation wrapper exists */
+    if (playPauseAnimation.current != null) {
+      tl.current.to(MorphSVGPlugin.convertToPath(pause1.current), {
+        duration: 0.3,
+        morphSVG: play1.current, ease: 'power3.inOut'
+      })
+        .to(MorphSVGPlugin.convertToPath(pause2.current), {
+          duration: 0.3,
+          morphSVG: play2.current, ease: 'power3.inOut'
+        }, 0.05);
+      }
+
+  }, []);
+
+  // Custom Play/Pause button functionality
+  const handlePlayButton = () => {
+    if (video.current.paused || video.current.ended) {
+      video.current.play(0);
+      tl.current.reverse();
+      setplayButton('play')
+    }
+    else {
+      video.current.pause();
+      tl.current.play(0);
+      setplayButton('pause')
+    }
+  }
+
+  const animateBanner = () => {
+    const bannerLine = aLine.current
+
+    if(bannerLine) {
+      tl1.current.fromTo(aLine.current, {x: -220}, { duration: 1, delay: 1, x: 0, ease: 'power4.out' }, "lineIn")
+      .fromTo(aSmallText.current, {opacity: 0, x: 10}, { duration: 0.8, opacity: 1, x: 0, ease: 'power4.out' })
+      .fromTo(aLargeText.current, {opacity: 0, y: 20}, { duration: 0.8, opacity: 1, y: 0, ease: 'power4.out'}, "lineIn+=2.4")
+    return tl;
+    }
+  }
+
+  masterTl.add(animateBanner(bannerRef.current));
+
+  const videoClasses = classNames('video-control', `${playButton}`)
+
   return (
     <section className={backgroundImage || backgroundVideo ? `hero-banner tall` : `hero-banner`}>
       {gradientHero && (
@@ -923,14 +995,31 @@ const HeroBanner = ({
       )}
       {backgroundImage && <img src={backgroundImage} alt="" className="background-image" />}
       {backgroundVideo && (
-        <video autoPlay muted loop className="background-video">
-          <source src={backgroundVideo} type="video/mp4" />
-        </video>
+        <div className="hero-banner-video">
+          <video ref={video} autoPlay muted loop className="background-video">
+            <source src={backgroundVideo} type="video/mp4" />
+          </video>
+          <div className={videoClasses}>
+            <button className="video-play" onClick={handlePlayButton}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.97 25.67" ref={playPauseAnimation} className="play-pause">
+                <g className="pause">
+                  <rect ref={pause1} className="pause-1" x="0.75" y="3.13" width="5" height="20" />
+                  <rect ref={pause2} className="pause-2" x="11.38" y="3.13" width="5" height="20" />
+                </g>
+                <g className="play">
+                  <path ref={play1} className="play-1" d="M0 0 0 25.67 8 20.79 8 4.88 0 0" />
+                  <path ref={play2} className="play-2" d="M8 4.88 8 20.79 20.97 12.83 8 4.88" />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
       )}
 
-      <div className="banner-text">
-        {smallText && <p className="small-text">{smallText}</p>}
-        {largeText && <h1 className="large-text">{largeText}</h1>}
+      <div className="banner-text" ref={bannerRef}>
+        {smallText && <p className="small-text" ref={aSmallText}>{smallText}</p>}
+        {smallText && <span className="line" id="line" ref={aLine} />}
+        {largeText && <h1 className="large-text" ref={aLargeText}>{largeText}</h1>}
       </div>
     </section>
   );

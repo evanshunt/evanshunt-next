@@ -1,15 +1,20 @@
 .react-slider {
+
   
-  &-slide {
-    
+  // &-slide {
+  // }
+
+
+  .carousel__slider-tray:hover {
+    cursor: grabbing;
   }
   
   .slide-inner {
     padding-right: 25px;
     padding-bottom: 25px;
-    
-    img {
-      margin-bottom: 15px;
+
+    a {
+      display: inline-block;
     }
   }
   
@@ -28,18 +33,69 @@
       }
     }
   }
-  
-  p {
-    max-width: 400px;
-    display: none;
-    
+
+  h6 {
+    //display: none;
     @media (min-width: $desktop) {
       display: block;
     }
   }
-  
-  h6 {
-    //display: none;
+
+  .text-on-image {
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    .image-wrapper {
+      position: relative;
+      width: 100%;
+    }
+    .text-wrapper {
+      padding: 0 40px;
+      width: 100%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      @media (min-width: $desktop) {
+        padding: 0 45px;
+      }
+      @media (min-width: $desktop-large) {
+        padding: 0 110px;
+      }
+    }
+    .slide-title {
+      font-family: $heading-font-family;
+      font-weight: $medium;
+      font-size: 30px;
+      color: $black;
+      letter-spacing: -0.29px;
+      margin-top: 0;
+      margin-bottom: 15px;
+      @media (min-width: $desktop) {
+        font-size: 45px;
+      }
+      @media (min-width: $desktop-large) {
+        font-size: 50px;
+      }
+    }
+    .slide-description {
+      margin-bottom: 0;
+      font-size: 16px;
+      @media (min-width: $tablet) {
+        font-size: 14px;
+      }
+      @media (min-width: $desktop) {
+        font-size: 16px;
+        padding-left: 45px;
+      }
+    }
+  }
+
+  .text-below-image .slide-description {
+    max-width: 400px;
+    display: none;
 
     @media (min-width: $desktop) {
       display: block;
@@ -69,9 +125,11 @@
   }
   
   // currently used for normal slide types, not clients
+  // Design review fix to make in left aligned with main container
   &.narrower {
-    @media (min-width: $desktop-large) {
-      padding-left: calc((100vw - 1110px + 15px)/2) !important;
+    padding-left: 15px;
+    @media (min-width: $tablet) {
+      padding-left: 40px !important;
     }
   }
 }

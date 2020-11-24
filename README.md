@@ -17,6 +17,8 @@ This is the codebase for the Evans Hunt website.
     `npm install`
 * Run a local webserver that auto-compiles:
     `npm run dev`
+* If you prefer to manually set the port via command line feel free to run:
+    `PORT=XXXX npm run dev2`
 * Export a static copy of the site to `/out`:
     `npm run build`
     `npm run export`

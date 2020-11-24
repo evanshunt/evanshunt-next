@@ -30,15 +30,6 @@ const next_config = withFonts({
       };
     });
 
-    const careerPages = await api.fetchContentPages("pageCareerDetails");
-    careerPages.forEach((page) => {
-      console.log(page.fields.slug);
-      paths[`/careers/${page.fields.slug}`] = {
-        page: "/careers/[slug]",
-        query: { slug: page.fields.slug },
-      };
-    });
-
     const servicePages = await api.fetchContentPages("pageService");
     servicePages.forEach((page) => {
       console.log(page.fields.slug);
