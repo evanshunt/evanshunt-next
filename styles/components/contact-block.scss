@@ -48,4 +48,23 @@ section.contact-block {
       padding: 0 1rem;
     }
   }
+  
+  
+  // add a pleasant hover state
+  .post-right-arrow {
+    
+    img {
+      transition: all 0.3s ease;
+      transform: translateX(0);
+    }
+    
+    &:hover {
+      @media (min-width: $desktop) {
+        img {
+          transform: translateX(10px);
+          transition: all 0.3s ease;
+        }
+      } 
+    }
+  }
 }
