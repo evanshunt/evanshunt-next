@@ -57,7 +57,7 @@ const ServiceCircles = ({
       </div>
 
       {primaryCta && (
-        <div>
+        <div className="service-circle-primary-link">
           <Link href={primaryCta.fields.url}>
             <a className="btn btn-secondary" title={primaryCta.fields.title}>
               {primaryCta.fields.title}
@@ -67,9 +67,12 @@ const ServiceCircles = ({
       )}
 
       {secondaryCta && (
-        <div>
+        <div className="service-circle-secondary-link">
           <Link href={secondaryCta.fields.url}>
-            <a title={secondaryCta.fields.title}>{secondaryCta.fields.title}</a>
+            <a className="cta-animate-arrow" title={secondaryCta.fields.title}>
+              {secondaryCta.fields.title}
+              <img src="/images/small-right-arrow.svg" alt="Black arrow pointing right" className="black-arrow" />
+            </a>
           </Link>
         </div>
       )}

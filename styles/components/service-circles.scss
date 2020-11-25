@@ -105,7 +105,7 @@
     font-size: 14px;
     opacity: 0;
     transform: scale(0) translate(0, 150px);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-out 0.2s;
     @media (min-width: $desktop) {
       font-size: 13px;
       min-height: 105px;
