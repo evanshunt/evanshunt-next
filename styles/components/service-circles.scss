@@ -60,7 +60,7 @@
   margin: 0 auto 35px;
   flex-direction: column;
   transition: background 0.5s ease-in-out, transform 0.3s ease-out;
-  padding: 10px 20px;
+  padding: 10px 25px;
 
   @media (min-width: $large-phone) {
     height: 180px;
@@ -107,6 +107,7 @@
     transform: scale(0) translate(0, 150px);
     transition: all 0.3s ease-in-out;
     @media (min-width: $desktop) {
+      font-size: 13px;
       min-height: 105px;
     }
   }
