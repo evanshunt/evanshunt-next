@@ -977,9 +977,9 @@ const HeroBanner = ({
     const bannerLine = aLine.current
 
     if(bannerLine) {
-      tl1.current.fromTo(aLine.current, {x: -220}, { duration: 1, delay: 1, x: 0, ease: 'power4.out' }, "lineIn")
-      .fromTo(aSmallText.current, {opacity: 0, x: 10}, { duration: 0.8, opacity: 1, x: 0, ease: 'power4.out' })
-      .fromTo(aLargeText.current, {opacity: 0, y: 20}, { duration: 0.8, opacity: 1, y: 0, ease: 'power4.out'}, "lineIn+=2.4")
+      tl1.current.fromTo(aLine.current, {x: -220}, { duration: 1, x: 0, ease: 'power4.out' }, "lineIn")
+      .fromTo(aSmallText.current, {opacity: 0, x: 10}, { duration: 0.8, opacity: 1, x: 0, ease: 'power4.out' }, "lineIn+=0.5")
+      .fromTo(aLargeText.current, {opacity: 0, y: 20}, { duration: 0.8, opacity: 1, y: 0, ease: 'power4.out'}, "lineIn+=1")
     return tl;
     }
   }
