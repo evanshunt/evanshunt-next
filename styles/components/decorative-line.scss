@@ -39,4 +39,28 @@
     margin: 0 auto;
     display: block;
   }
+
+  .svg-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    // Need to manually set widths/heights for each SVG option as they are all different sizes
+    svg.svg-curve-left-to-right {
+      height: 337px;
+    }
+    svg.svg-curve-right-to-left {
+      height: 337px;
+    }
+    svg.svg-down-left {
+      height: 50px;
+    }
+    svg.svg-down-long-left {
+      height: 356px;
+    }
+    svg.svg-down-right {
+      height: 317px;
+    }
+    svg.svg-down-short {
+      height: 192px;
+    }
+  }
 }
