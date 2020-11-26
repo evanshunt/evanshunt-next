@@ -9,7 +9,8 @@
     "build": "next build",
     "export": "next export",
     "start": "next start",
-    "postbuild": "next-sitemap --config sitemap.js && next-on-netlify"
+    "postbuild": "next-on-netlify",
+    "postexport": "next-sitemap --config sitemap.js"
   },
   "keywords": [],
   "author": "Justine Matsalla",
