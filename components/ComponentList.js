@@ -248,10 +248,13 @@ const renderComponents = (components) => {
           <ServiceBlock
             title={component.fields.title}
             introText={component.fields.introText}
+            textLeftOrRight={component.fields.textLeftOrRight}
             servicesList={component.fields.servicesList}
             link={component.fields.link}
+            imageBackground={component.fields.imageBackground}
+            imageForegroundLeft={component.fields.imageForegroundLeft}
+            imageForegroundRight={component.fields.imageForegroundRight}
             image={component.fields.image}
-            textLeftOrRight={component.fields.textLeftOrRight}
             key={`component-${i}`}
           />
         );
