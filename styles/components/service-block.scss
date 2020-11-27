@@ -78,13 +78,11 @@
 
   /* Some Service Blocks need slightly different styling */
   &.strategy {
-    border: 1px solid blue;
     .service-block-text {
       padding-top: 75px;
     }
   }
   &.digital {
-    border: 1px solid red;
     padding-top: 20px;
     @media (min-width: $tablet) {
       padding-top: 0;
