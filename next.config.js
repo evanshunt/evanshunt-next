@@ -3,6 +3,7 @@ const Dotenv = require("dotenv");
 const DotenvWebPack = require("dotenv-webpack");
 const withFonts = require("nextjs-fonts");
 const CMSApi = require("./utility/cms");
+const generateSitemap = require("./scripts/sitemap-gen");
 
 const next_config = withFonts({
   target: "serverless",
@@ -40,6 +41,12 @@ const next_config = withFonts({
       };
     });
 
+    // generate the sitemap now that we have all the paths
+    // can add more fields here if we want to customize it a bit more
+    if (process.env.NODE_ENV === 'production') {
+      generateSitemap(paths) 
+    }
+    
     return paths;
   },
   webpack: (config) => {

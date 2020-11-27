@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 
 const ServiceBlock = (props) => {
-  
+
   const { textLeftOrRight } = props
   const serviceClass = props.title.toString().toLowerCase()
     .replace(/\s+/g, '-') // Replace spaces with -
@@ -68,11 +68,27 @@ const ServiceBlockText = (props) => {
 }
 
 const ServiceBlockImage = (props) => {
-  const { image } = props
+  const { imageBackground, imageForegroundRight, imageForegroundLeft} = props
   return (
     <div className="service-block-img">
-      <img src={image.fields.file.url} className="img-fluid" alt={image.fields.file.description} />
+      {/*<img src={image.fields.file.url} className="img-fluid" alt={image.fields.file.description} />*/}
+      {imageBackground && (
+        <div className="img-background">
+          <img src={imageBackground.fields.file.url} className="img-fluid" alt={imageBackground.fields.file.description} />
+        </div>
+      )}
+      {imageForegroundRight && (
+        <div className="img-right-side">
+          <img src={imageForegroundRight.fields.file.url} className="img-fluid" alt={imageForegroundRight.fields.file.description} />
+        </div>
+      )}
+      {imageForegroundLeft && (
+        <div className="img-left-side">
+          <img src={imageForegroundLeft.fields.file.url} className="img-fluid" alt={imageForegroundLeft.fields.file.description} />
+        </div>
+      )}
     </div>
+
   )
 }
 

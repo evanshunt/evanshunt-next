@@ -159,11 +159,10 @@ const renderComponents = (components) => {
       case "componentDecorativeLine":
         return (
           <DecorativeLine
-            image={component.fields.image}
-            mobileImage={component.fields.mobileImage}
             overlap={component.fields.overlap}
             hideOnMobile={component.fields.hideOnMobile}
             desktopStyle={component.fields.desktopLineStyle}
+            additionalClass={component.fields.additionalClass}
             key={`component-${i}`}
           />
         );
@@ -249,10 +248,13 @@ const renderComponents = (components) => {
           <ServiceBlock
             title={component.fields.title}
             introText={component.fields.introText}
+            textLeftOrRight={component.fields.textLeftOrRight}
             servicesList={component.fields.servicesList}
             link={component.fields.link}
+            imageBackground={component.fields.imageBackground}
+            imageForegroundLeft={component.fields.imageForegroundLeft}
+            imageForegroundRight={component.fields.imageForegroundRight}
             image={component.fields.image}
-            textLeftOrRight={component.fields.textLeftOrRight}
             key={`component-${i}`}
           />
         );

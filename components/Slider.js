@@ -5,6 +5,8 @@ import {
   Slide,
   DotGroup,
   Image,
+  ButtonBack,
+  ButtonNext
 } from "pure-react-carousel";
 import classNames from "classnames";
 import Link from "next/link";
@@ -122,6 +124,7 @@ class SliderComponent extends React.Component {
           className="react-slider"
           isIntrinsicHeight={true}
         >
+          <div className="slider-relative">
           <Slider>
             {slides &&
               slides.map((slide, i) => {
@@ -232,7 +235,9 @@ class SliderComponent extends React.Component {
                 );
               })}
           </Slider>
-
+          <ButtonBack><img src="/images/arrow-left-lg-white.svg" alt="arrow-left-lg-white" /></ButtonBack>
+          <ButtonNext><img src="/images/arrow-right-lg-white.svg" alt="arrow-right-lg-white" /></ButtonNext>
+          </div>
           <DotGroup className="react-slider-dot-group" />
         </CarouselProvider>
       </section>

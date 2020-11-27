@@ -7,8 +7,7 @@ import { DrawSVGPlugin } from "gsap/dist/DrawSVGPlugin";
 gsap.registerPlugin(ScrollTrigger);
 
 const DecorativeLine = (props) => {
-  const { overlap, hideOnMobile, desktopStyle } = props
-  //const [lineImage, setLineImage] = useState(null)
+  const { overlap, hideOnMobile, desktopStyle, additionalClass } = props
   let lineTrigger = useRef(null);
   let lineRef = useRef(null);
 
@@ -26,14 +25,13 @@ const DecorativeLine = (props) => {
         scrollTrigger: {
           trigger: lineTrigger.current,
           scrub: true,
-          start: 'top-=100 center',
+          start: 'top-=50 center',
           toggleActions: 'play none none reverse',
           markers: false
         }
       });
 
-      //tl.fromTo(lineRef.current, {drawSVG: "10% 10%"}, {drawSVG: "100% 100%"}, 0)
-      tl.to(lineRef.current, { stroke:"red", duration: 3});
+      tl.fromTo(lineRef.current, {drawSVG: "0%"}, {drawSVG: "100%", ease: 'power4.inout'}, 0)
   }
 
   // Commenting this out for now as hoping we can always use the Desktop Style,
@@ -59,21 +57,22 @@ const DecorativeLine = (props) => {
   // }
 
   let overlapClass = getOverlapClass(overlap)
-  let classes = classNames('decorative-line', {[`${overlapClass}`]: overlapClass}, {'hidden-on-mobile': hideOnMobile})
+  let classes = classNames('decorative-line', {[`${overlapClass}`]: overlapClass}, {'hidden-on-mobile': hideOnMobile}, {[`${additionalClass}`]: additionalClass})
 
   return (
     <div ref={lineTrigger} className={classes}>
       <div className="svg-wrapper">
         {/* Ugh hate this, but need the SVG markup output here so can adjust the ref value
           inlining the SVG didn't let me modify the ref on the path element */}
+
         {desktopStyle === 'curve-left-to-right' && (
           <svg
             className="svg-curve-left-to-right"
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 560 338.91">
+            viewBox="0 0 827 339.5">
             <path
               ref={lineRef}
-              d="M2,0V.5A140.52,140.52,0,0,0,142.5,141l276-.58A140.52,140.52,0,0,1,559,281v46.51"
+              d="M2,0V.5A140.52,140.52,0,0,0,142.5,141h543A140.52,140.52,0,0,1,826,281.59V328.1"
               transform="translate(-0.5 1)"
               style={{
                 fill: "none",
