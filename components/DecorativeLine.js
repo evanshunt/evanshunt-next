@@ -32,8 +32,7 @@ const DecorativeLine = (props) => {
         }
       });
 
-      //tl.fromTo(lineRef.current, {drawSVG: "10% 10%"}, {drawSVG: "100% 100%"}, 0)
-      tl.to(lineRef.current, { stroke:"red", duration: 3});
+      tl.fromTo(lineRef.current, {drawSVG: "0%"}, {drawSVG: "100%", ease: 'power4.inout'}, 0)
   }
 
   // Commenting this out for now as hoping we can always use the Desktop Style,
