@@ -26,13 +26,14 @@ const DecorativeLine = (props) => {
         scrollTrigger: {
           trigger: lineTrigger.current,
           scrub: true,
-          start: 'top-=200 center',
+          start: 'top-=100 center',
           toggleActions: 'play none none reverse',
-          markers: false
+          markers: true
         }
       });
 
-      tl.fromTo(lineRef.current, {drawSVG: "10% 10%"}, {drawSVG: "100% 100%"}, 0)
+      //tl.fromTo(lineRef.current, {drawSVG: "10% 10%"}, {drawSVG: "100% 100%"}, 0)
+      tl.to(lineRef.current, { stroke:"red", duration: 3});
   }
 
   // Commenting this out for now as hoping we can always use the Desktop Style,
