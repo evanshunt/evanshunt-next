@@ -28,7 +28,7 @@ const DecorativeLine = (props) => {
           scrub: true,
           start: 'top-=100 center',
           toggleActions: 'play none none reverse',
-          markers: true
+          markers: false
         }
       });
 
