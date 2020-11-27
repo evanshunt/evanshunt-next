@@ -43,9 +43,7 @@ const next_config = withFonts({
 
     // generate the sitemap now that we have all the paths
     // can add more fields here if we want to customize it a bit more
-    if (process.env.NODE_ENV === 'production') {
-      generateSitemap(paths) 
-    }
+    generateSitemap(paths)
     
     return paths;
   },
