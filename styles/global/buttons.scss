@@ -62,3 +62,18 @@
     }
   }
 }
+
+/* Link that on hover animates in an icon */
+.cta-animate-arrow {
+  img {
+    opacity: 0;
+    transition: all 0.3s ease-out;
+    transform: translateX(0);
+  }
+  &:hover {
+    img {
+      opacity: 1;
+      transform: translateX(10px);
+    }
+  }
+}

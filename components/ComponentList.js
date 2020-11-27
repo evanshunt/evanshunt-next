@@ -163,6 +163,7 @@ const renderComponents = (components) => {
             mobileImage={component.fields.mobileImage}
             overlap={component.fields.overlap}
             hideOnMobile={component.fields.hideOnMobile}
+            desktopStyle={component.fields.desktopLineStyle}
             key={`component-${i}`}
           />
         );

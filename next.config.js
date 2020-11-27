@@ -5,6 +5,7 @@ const withFonts = require("nextjs-fonts");
 const CMSApi = require("./utility/cms");
 
 const next_config = withFonts({
+  target: "serverless",
   trailingSlash: true,
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
