@@ -63,4 +63,12 @@
       height: 192px;
     }
   }
+
+  /* Additional Classes - this is an optional field in Contentful */
+  &.right-side {
+    svg {
+      margin-left: auto;
+      margin-right: 10%;
+    }
+  }
 }

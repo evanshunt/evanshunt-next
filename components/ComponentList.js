@@ -159,11 +159,10 @@ const renderComponents = (components) => {
       case "componentDecorativeLine":
         return (
           <DecorativeLine
-            image={component.fields.image}
-            mobileImage={component.fields.mobileImage}
             overlap={component.fields.overlap}
             hideOnMobile={component.fields.hideOnMobile}
             desktopStyle={component.fields.desktopLineStyle}
+            additionalClass={component.fields.additionalClass}
             key={`component-${i}`}
           />
         );

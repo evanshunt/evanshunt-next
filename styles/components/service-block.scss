@@ -1,7 +1,7 @@
 .service-block {
   padding-top: 75px;
   @media (min-width: $tablet) {
-    padding-top: 100px;  
+    padding-top: 80px;
   }
   
   &-flex {
@@ -34,6 +34,7 @@
     @media (min-width: $tablet) {
       order: 0;
       max-width: 405px;
+      padding-top: 100px;
     }
   }
 
@@ -71,6 +72,32 @@
     img {
       display: block;
       margin: 0 auto;
+    }
+  }
+
+
+  /* Some Service Blocks need slightly different styling */
+  &.strategy {
+    border: 1px solid blue;
+    .service-block-text {
+      padding-top: 75px;
+    }
+  }
+  &.digital {
+    border: 1px solid red;
+    padding-top: 20px;
+    @media (min-width: $tablet) {
+      padding-top: 0;
+    }
+  }
+  &.branding {
+    margin-top: -180px;
+  }
+  &.marketing {
+    padding-top: 0;
+    margin-top: -160px;
+    .service-block-text {
+      margin-right: 10rem;
     }
   }
 }
