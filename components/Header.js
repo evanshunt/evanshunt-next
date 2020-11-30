@@ -21,12 +21,43 @@ class Header extends React.Component {
     }
     
     this.toggleMenu = this.toggleMenu.bind(this)
+    this.handleResize = this.handleResize.bind(this)
   }
   
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize)
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize)
+  }
+
   toggleMenu() {
+    const body = document.querySelector('body')
+    if (body) {
+      if (!this.state.navActive) {
+        body.classList.add('nav-open')
+      } else {
+        body.classList.remove('nav-open')
+      }
+    }
+    
     this.setState({
       navActive: !this.state.navActive
     })
+  }
+  
+  // this just handles when the nav is left open, then the window gets resized
+  handleResize() {
+    if (this.state.navActive && window.innerWidth > 991) {
+      const body = document.querySelector('body')
+      if (body) {
+        body.classList.remove('nav-open')
+      }
+      this.setState({
+        navActive: false
+      })
+    }
   }
   
   render() {
