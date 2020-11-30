@@ -69,7 +69,7 @@ class Header extends React.Component {
     return (
       <header id={`header-main`} className={headerClasses}>
         <Link href="/">
-          <a title="Home">
+          <a title="Home" className="header-logo-link">
             <svg width="202px" height="37px" viewBox="0 0 202 37" version="1.1" id="header-logo">
               <title>evanshunt logo</title>
               <g id="Symbols" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">

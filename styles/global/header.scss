@@ -34,19 +34,29 @@
 
   // Mobile - when the Nav is open
   &.nav-active {
-    background: $lightgrey;
+    z-index: 12;
 
     #header-logo #ComponentsNavLogo{
       fill: $red;
     }
 
+    .header-logo-link {
+      z-index: 2;
+    }
+    
     .header-nav-toggle {
       color: $black;
+      position: relative;
+      z-index: 2;
     }
   }
 }
 
 // EH Logo in the header
+.header-logo-link {
+  position: relative;
+}
+
 #header-logo {
   max-width: 86px;
   width: 100%;
@@ -61,12 +71,13 @@
 .header-nav {
   line-height: 1;
   position: absolute;
-  top: 70px;
+  top: 0;
   left: -100%;
   width: 100%;
   background: $lightgrey;
   height: calc(100vh - 70px);
   transition: transform 0.5s ease-in-out;
+  padding-top: 70px;
   
   &.active {
     transform: translateX(100%);
@@ -79,6 +90,7 @@
     left: auto;
     background: none;
     height: auto;
+    padding-top: 0;
   }
   
 }
