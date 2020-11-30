@@ -82,7 +82,11 @@ const NavLink = ({navLink}) => {
   const router = useRouter()
   const classes = classNames('header-nav-link', {'active': router.pathname.indexOf(navLink.url) !== -1})
   return (
-    <Link href={navLink.url}><a className={classes} title={navLink.title}>{navLink.title}</a></Link>
+    <Link href={navLink.url}>
+      <a className={classes} title={navLink.title}>
+        <span>{navLink.title}</span>
+      </a>
+    </Link>
   )
 }
 

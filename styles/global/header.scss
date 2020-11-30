@@ -113,9 +113,9 @@
   }
 
   &:hover {
+    text-decoration: none;
     @media (min-width: $desktop) {
       color: $black;
-      text-decoration: none;
 
       &:after {
         transform: scaleX(1);
@@ -124,11 +124,18 @@
   }
   
   &.active {
-
+    
     @media (min-width: $desktop) {
       &:after {
         transform: scaleX(1);
       } 
+    }
+    
+    span {
+      border-bottom: 2px solid $red;
+      @media (min-width: $desktop) {
+        border-bottom-width: 0;
+      }
     }
   }
 
