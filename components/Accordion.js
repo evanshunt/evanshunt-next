@@ -11,7 +11,7 @@ const AccordionComponent = ({ title, accordionItems }) => {
   return (
     <section className="accordion container-medium">
       {title && <p className="title">{title}</p>}
-      <Accordion preExpanded="accordion0">
+      <Accordion preExpanded={['accordion0']} allowZeroExpanded={true}>
         {accordionItems.map((accordion, i) => (
           <AccordionItem key={`accordion${i}`} uuid={`accordion${i}`}>
             <AccordionItemHeading>
