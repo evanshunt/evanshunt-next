@@ -84,8 +84,12 @@ class Header extends React.Component {
         </Link>
 
         <div className="header-nav-wrap">
-          <button className="header-nav-toggle" onClick={this.toggleMenu}>
-            {this.state.navActive ? <MenuCloseIcon /> : <HamburgerIcon />}
+          <button className={classNames('header-nav-toggle', {'active': this.state.navActive})} onClick={this.toggleMenu}>
+            <div>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+            </div>
           </button>
           
           <nav className={headerNavClasses}>
