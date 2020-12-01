@@ -126,6 +126,10 @@
 
   &:hover {
     text-decoration: none;
+
+    &:after {
+      transform: scaleX(1);
+    }
     @media (min-width: $desktop) {
       color: $black;
 

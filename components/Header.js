@@ -25,6 +25,10 @@ class Header extends React.Component {
   }
   
   componentDidMount() {
+    const body = document.querySelector('body')
+    if (body) {
+      body.classList.remove('nav-open') // ensure this doesn't get stuck on the body when navigating
+    }
     window.addEventListener('resize', this.handleResize)
   }
   
