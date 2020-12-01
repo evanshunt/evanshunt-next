@@ -102,7 +102,6 @@ class Header extends React.Component {
                 <h4 className="header-nav-contact-heading">Get in touch</h4>
                 <a target="_blank" rel="noreferrer" className={'header-nav-contact-link'} href="mailto:info@evanshunt.com">info@evanshunt.com</a>
               </div>
-              <div className="header-nav-contact-shape" />
             </div>
           </nav>
           
