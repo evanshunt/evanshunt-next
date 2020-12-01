@@ -82,7 +82,6 @@
     }
     .img-right-side {
       position: absolute;
-      bottom: 0;
       right: 0;
       img {
         margin-right: 0;
@@ -90,7 +89,6 @@
     }
     .img-left-side {
       position: absolute;
-      bottom: -15%;
       left: 0;
       img {
         margin-left: 0;
@@ -103,54 +101,147 @@
   /* The images are all over the place for size/placement so adjusting those values as well */
   &.strategy {
     .service-block-text {
-      padding-top: 75px;
+      @media (min-width: $desktop) {
+        padding-top: 75px;
+      }
     }
     .img-right-side {
       right: -15px;
+      width: 42%;
+      top: 23%;
+      @media (min-width: $tablet) {
+
+      }
     }
     .img-left-side {
-      bottom: 5%;
+      width: 31%;
+      top: 58%;
       left: 18%;
+      @media (min-width: $tablet) {
+        top: 30%;
+      }
+      @media (min-width: $desktop) {
+        top: 58%;
+      }
     }
   }
 
   &.digital {
-    padding-top: 20px;
     @media (min-width: $tablet) {
       padding-top: 0;
     }
+    .service-block-text {
+      padding-top: 50px;
+      @media (min-width: $tablet) {
+        padding-top: 0;
+      }
+    }
     .img-right-side {
-      right: -8%;
-      bottom: 4%;
+      right: -2%;
+      width: 75%;
+      top: 57%;
+      bottom: auto;
+      @media (min-width: $tablet) {
+        right: -8%;
+        width: 82%;
+        top: 25%;
+      }
+      @media (min-width: $desktop) {
+        top: 57%;
+      }
     }
     .img-left-side {
-      bottom: -8%;
-      left: -15px;
+      top: 42%;
+      left: -3%;
+      right: auto;
+      width: 40%;
+      bottom: auto;
+      @media (min-width: $tablet) {
+        width: 42%;
+        top: 21%;
+      }
+      @media (min-width: $desktop) {
+        top: 42%;
+      }
     }
   }
 
   &.branding {
-    margin-top: -180px;
+    padding-top: 0;
+    @media (min-width: $tablet) {
+      padding-top: 75px;
+    }
+    @media (min-width: $desktop) {
+      margin-top: -180px;
+    }
+    .service-block-text {
+      @media (min-width: $tablet) {
+        padding-right: 4rem;
+      }
+      @media (min-width: $desktop-large) {
+        padding-right: 0;
+      }
+    }
     .img-right-side {
       left: -8%;
       right: auto;
-      bottom: 20%;
+      top: 4%;
+      width: 100%;
     }
     .img-left-side {
-      left: -37%;
-      bottom: 0;
+      left: -10%;
+      right: auto;
+      top: 41%;
+      width: 80%;
+      @media (min-width: $tablet) {
+        left: -29%;
+        top: 26%;
+      }
+      @media (min-width: $desktop) {
+        left: -24%;
+        top: 41%;
+      }
+      @media (min-width: $desktop-large) {
+        left: -29%;
+      }
     }
   }
 
   &.marketing {
     padding-top: 0;
-    margin-top: -160px;
-    padding-bottom: 100px;
+    @media (min-width: $tablet) {
+      padding-top: 95px;
+      padding-bottom: 100px;
+    }
+    @media (min-width: $desktop) {
+      margin-top: -160px;
+    }
     .service-block-text {
-      margin-right: 10rem;
+      padding-top: 50px;
+      @media (min-width: $tablet) {
+        padding-top: 0;
+        margin-right: 10rem;
+      }
     }
     .img-right-side {
-      bottom: -13%;
+      top: 71%;
+      width: 59%;
+      @media (min-width: $tablet) {
+        top: 35%;
+      }
+      @media (min-width: $desktop) {
+        top: 71%;
+      }
+    }
+    .img-left-side {
+      width: 55%;
+      top: 64%;
+      @media (min-width: $tablet) {
+        top: 32%;
+      }
+      @media (min-width: $desktop) {
+        top: 64%;
+      }
     }
   }
 
