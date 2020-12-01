@@ -1,5 +1,5 @@
 .decorative-line {
-  padding: 35px 15px;
+  padding: 20px 15px;
   
   @media (min-width: $tablet) {
     padding: 45px 15px;
@@ -45,41 +45,62 @@
     margin: 0 auto;
     // Need to manually set widths/heights for each SVG option as they are all different sizes
     svg.svg-curve-left-to-right {
-      height: 337px;
+      height: auto;
       width: 100%;
-      @media (min-width: $desktop) {
-
+      @media (min-width: $tablet) {
+        height: 337px;
       }
     }
     svg.svg-curve-right-to-left {
-      height: 337px;
+      height: auto;
       width: 100%;
+      @media (min-width: $tablet) {
+        height: 337px;
+      }
     }
     svg.svg-down-left {
       height: 50px;
     }
     svg.svg-down-long-left {
-      height: 356px;
+      height: 200px;
+      @media (min-width: $tablet) {
+        height: 356px;
+      }
     }
     svg.svg-down-right {
-      height: 317px;
+      height: 200px;
+      @media (min-width: $tablet) {
+        height: 317px;
+      }
     }
     svg.svg-down-short {
-      height: 192px;
+        height: 192px;
     }
   }
 
   /* Additional Classes - this is an optional field in Contentful */
   &.right-side {
     svg {
-      margin-left: auto;
-      margin-right: 10%;
+      @media (min-width: $tablet) {
+        margin-left: auto;
+        margin-right: 8%;
+      }
     }
   }
   &.off-center-left {
+    .svg-wrapper {
+      @media (min-width: $tablet) {
+        width: 70%;
+      }
+      @media (min-width: $desktop) {
+        width: 100%;
+      }
+    }
     svg {
-      margin-left: -5%;
-      margin-right: auto;
+      @media (min-width: $tablet) {
+        margin-left: -5%;
+        margin-right: auto;
+      }
     }
   }
 }
