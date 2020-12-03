@@ -24,29 +24,39 @@
     
     .header-nav-link, .header-nav-toggle {
       color: $black;
-      
-      rect {
-        fill: #191717;
-      }
+    }
+
+    .header-nav-toggle .icon-bar {
+      background-color: $darkestgrey;
     }
   }
   
 
   // Mobile - when the Nav is open
   &.nav-active {
-    background: $lightgrey;
+    z-index: 12;
 
     #header-logo #ComponentsNavLogo{
       fill: $red;
     }
 
+    .header-logo-link {
+      z-index: 2;
+    }
+    
     .header-nav-toggle {
       color: $black;
+      position: relative;
+      z-index: 2;
     }
   }
 }
 
 // EH Logo in the header
+.header-logo-link {
+  position: relative;
+}
+
 #header-logo {
   max-width: 86px;
   width: 100%;
@@ -61,12 +71,13 @@
 .header-nav {
   line-height: 1;
   position: absolute;
-  top: 70px;
+  top: 0;
   left: -100%;
   width: 100%;
   background: $lightgrey;
-  height: calc(100vh - 70px);
+  height: 100vh;
   transition: transform 0.5s ease-in-out;
+  padding-top: 70px;
   
   &.active {
     transform: translateX(100%);
@@ -79,6 +90,7 @@
     left: auto;
     background: none;
     height: auto;
+    padding-top: 0;
   }
   
 }
@@ -113,9 +125,13 @@
   }
 
   &:hover {
+    text-decoration: none;
+
+    &:after {
+      transform: scaleX(1);
+    }
     @media (min-width: $desktop) {
       color: $black;
-      text-decoration: none;
 
       &:after {
         transform: scaleX(1);
@@ -124,11 +140,18 @@
   }
   
   &.active {
-
+    
     @media (min-width: $desktop) {
       &:after {
         transform: scaleX(1);
       } 
+    }
+    
+    span {
+      border-bottom: 2px solid $red;
+      @media (min-width: $desktop) {
+        border-bottom-width: 0;
+      }
     }
   }
 
@@ -154,9 +177,59 @@
   outline: none;
   background: none;
   color: $white;
+  height: 21px;
+  margin-bottom: -9px;
   
   @media (min-width: 992px) {
     display: none;
+  }
+  
+  
+  .icon-bar {
+    width: 22px;
+    height: 2px;
+    background-color: $white;
+    transform: rotate(0deg);
+    display: block;
+    
+    &:nth-of-type(2) {
+      margin-top: -8px;
+    }
+
+    &:nth-of-type(3) {
+      margin-top: 10px;
+    }
+  }
+  
+  &.active {
+    .icon-bar:nth-of-type(1) {
+      animation: dissappear 0.5s ease;
+      animation-fill-mode: forwards;
+      background-color: $darkestgrey;
+    }
+    .icon-bar:nth-of-type(2) {
+      animation: squishTop 0.5s ease;
+      animation-fill-mode: forwards;
+      background-color: $darkestgrey;
+    }
+    .icon-bar:nth-of-type(3) {
+      animation: squishBottom 0.5s ease;
+      animation-fill-mode: forwards;
+      background-color: $darkestgrey;
+    }
+  }
+
+  .icon-bar:nth-of-type(1) {
+    animation: dissappearRev 0.5s ease;
+    animation-fill-mode: forwards;
+  }
+  .icon-bar:nth-of-type(2) {
+    animation: squishTopRev 0.5s ease;
+    animation-fill-mode: forwards;
+  }
+  .icon-bar:nth-of-type(3) {
+    animation: squishBottomRev 0.5s ease;
+    animation-fill-mode: forwards;
   }
 }
 
@@ -188,4 +261,110 @@
   height: 160px;
   border-top-left-radius: 13vw;
   width: 100%;
+}
+
+
+$negValue: -1.75px;
+
+@keyframes squishBottom {
+  0% {
+    margin-top: 10px;
+    transform: rotate(0deg);
+  }
+  50% {
+    margin-top: $negValue;
+    transform: rotate(0deg);
+  }
+  75% {
+    margin-top: $negValue;
+    transform: rotate(0deg);
+  }
+  100% {
+    margin-top: $negValue;
+    transform: rotate(-135deg);
+  }
+}
+
+@keyframes squishTop {
+  0% {
+    margin-top: -8px;
+    transform: rotate(0deg);
+  }
+  50% {
+    margin-top: $negValue;
+    transform: rotate(0deg);
+  }
+  75% {
+    margin-top: $negValue;
+    transform: rotate(0deg);
+  }
+  100% {
+    margin-top: $negValue;
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes dissappear {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes squishBottomRev {
+  0% {
+    margin-top: $negValue;
+    transform: rotate(-135deg);
+  }
+  50% {
+    margin-top: $negValue;
+    transform: rotate(0deg);
+  }
+  75% {
+    margin-top: $negValue;
+    transform: rotate(0deg);
+  }
+  100% {
+    margin-top: 10px;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes squishTopRev {
+  0% {
+    margin-top: $negValue;
+    transform: rotate(-45deg);
+  }
+  50% {
+    margin-top: $negValue;
+    transform: rotate(0deg);
+  }
+  75% {
+    margin-top: $negValue;
+    transform: rotate(0deg);
+  }
+  100% {
+    margin-top: -8px;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes dissappearRev {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

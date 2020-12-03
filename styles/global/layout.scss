@@ -1,3 +1,14 @@
+html {
+  overflow-y: scroll;  
+}
+
+body {
+  
+  &.nav-open {
+    position: fixed;
+    width: 100%;
+  }
+}
 
 .container {
   padding: 0 15px;
@@ -50,4 +61,22 @@
   padding: 0 15px;
   margin: 0 auto;
   max-width: 800px;
+}
+
+.outdated-browser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  background: rgba(255,255,255, 0.96);
+  flex-direction: column;
+  text-align: center;
+  
+  svg {
+    display: block;
+    margin-bottom: 20px;
+  }
 }

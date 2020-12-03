@@ -51,7 +51,7 @@ section.accordion {
   .accordion__panel {
     padding: 20px;
     max-width: 790px;
-    animation: fadein 0.35s ease-in;
+    animation: fadein 0.5s ease-in;
     font-size: 14px;
 
     @media (min-width: $desktop) {
@@ -62,6 +62,11 @@ section.accordion {
   @keyframes fadein {
     0% {
       opacity: 0;
+      max-height: 0;
+    }
+    
+    50% {
+      max-height: 1000px; // this makes the height appear to animate
     }
 
     100% {

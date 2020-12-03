@@ -18,7 +18,7 @@ const OpenPositions = ({ title, introText, openPositions }) => {
           </div>
 
           <span className="btn btn-secondary open-position-btn">
-            <span>View</span>
+            <span className="open-position-btn-text">View</span>
             <img src="/images/arrow-right-lg-black.svg" alt="Black arrow pointing right" className="black-arrow" />
             <img src="/images/arrow-right-lg-white.svg" alt="White arrow pointing right" className="white-arrow" />
           </span>

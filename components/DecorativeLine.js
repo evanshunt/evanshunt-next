@@ -25,7 +25,7 @@ const DecorativeLine = (props) => {
         scrollTrigger: {
           trigger: lineTrigger.current,
           scrub: true,
-          start: 'top-=50 center',
+          start: 'top center',
           toggleActions: 'play none none reverse',
           markers: false
         }

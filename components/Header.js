@@ -21,12 +21,47 @@ class Header extends React.Component {
     }
     
     this.toggleMenu = this.toggleMenu.bind(this)
+    this.handleResize = this.handleResize.bind(this)
   }
   
+  componentDidMount() {
+    const body = document.querySelector('body')
+    if (body) {
+      body.classList.remove('nav-open') // ensure this doesn't get stuck on the body when navigating
+    }
+    window.addEventListener('resize', this.handleResize)
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize)
+  }
+
   toggleMenu() {
+    const body = document.querySelector('body')
+    if (body) {
+      if (!this.state.navActive) {
+        body.classList.add('nav-open')
+      } else {
+        body.classList.remove('nav-open')
+      }
+    }
+    
     this.setState({
       navActive: !this.state.navActive
     })
+  }
+  
+  // this just handles when the nav is left open, then the window gets resized
+  handleResize() {
+    if (this.state.navActive && window.innerWidth > 991) {
+      const body = document.querySelector('body')
+      if (body) {
+        body.classList.remove('nav-open')
+      }
+      this.setState({
+        navActive: false
+      })
+    }
   }
   
   render() {
@@ -38,7 +73,7 @@ class Header extends React.Component {
     return (
       <header id={`header-main`} className={headerClasses}>
         <Link href="/">
-          <a title="Home">
+          <a title="Home" className="header-logo-link">
             <svg width="202px" height="37px" viewBox="0 0 202 37" version="1.1" id="header-logo">
               <title>evanshunt logo</title>
               <g id="Symbols" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -53,8 +88,12 @@ class Header extends React.Component {
         </Link>
 
         <div className="header-nav-wrap">
-          <button className="header-nav-toggle" onClick={this.toggleMenu}>
-            {this.state.navActive ? <MenuCloseIcon /> : <HamburgerIcon />}
+          <button className={classNames('header-nav-toggle', {'active': this.state.navActive})} onClick={this.toggleMenu}>
+            <div>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+            </div>
           </button>
           
           <nav className={headerNavClasses}>
@@ -67,7 +106,6 @@ class Header extends React.Component {
                 <h4 className="header-nav-contact-heading">Get in touch</h4>
                 <a target="_blank" rel="noreferrer" className={'header-nav-contact-link'} href="mailto:info@evanshunt.com">info@evanshunt.com</a>
               </div>
-              <div className="header-nav-contact-shape" />
             </div>
           </nav>
           
@@ -82,7 +120,11 @@ const NavLink = ({navLink}) => {
   const router = useRouter()
   const classes = classNames('header-nav-link', {'active': router.pathname.indexOf(navLink.url) !== -1})
   return (
-    <Link href={navLink.url}><a className={classes} title={navLink.title}>{navLink.title}</a></Link>
+    <Link href={navLink.url}>
+      <a className={classes} title={navLink.title}>
+        <span>{navLink.title}</span>
+      </a>
+    </Link>
   )
 }
 

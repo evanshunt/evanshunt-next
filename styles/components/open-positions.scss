@@ -46,9 +46,13 @@ section.open-positions {
       
       @media (min-width: $tablet) {
         .open-position-btn {
-          background: $black;
           color: $white;
-
+          background-position: left bottom;
+          
+          .open-position-btn-text {
+            opacity: 1;  
+          }
+          
           .white-arrow {
             display: inline-block;
           }
@@ -83,13 +87,21 @@ section.open-positions {
   }
   
   .open-position-btn {
-    background: transparent;
     border-width: 0;
     color: white;
+    background: linear-gradient(to right, black 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .5s ease-out;
     
     span {
       display: inline-block;
       margin-right: 15px;
+    }
+    
+    .open-position-btn-text {
+      opacity: 0;
+      transition: all .5s ease-out;
     }
     
     .white-arrow {
