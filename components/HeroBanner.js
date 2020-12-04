@@ -910,7 +910,7 @@ const HeroBanner = ({
 
   // Variables for Banner Text Animations
   const tl1 = useRef(gsap.timeline({ id:"bannerText" }));
-  const masterTl =  new gsap.timeline({paused:true});
+  const masterTl =  new gsap.timeline({paused:true, reversed: false});
   let bannerRef = useRef(null);
   let aSmallText = useRef(null);
   let aLargeText = useRef(null);
@@ -983,8 +983,11 @@ const HeroBanner = ({
     return tl;
     }
   }
-
-  masterTl.add(animateBanner(bannerRef.current));
+  
+  // this inside the useEffect seems to help the text from disappearing once off screen
+  useEffect(() => {
+    masterTl.add(animateBanner(bannerRef.current)); 
+  }, [])
 
   const videoClasses = classNames('video-control', `${playButton}`)
 
