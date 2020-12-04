@@ -4,6 +4,7 @@ section.hero-banner {
   height: 474px;
   border-radius: 0 0 15vw 0;
   overflow: hidden;
+  z-index: 1;
 
   @media (min-width: $desktop) {
     height: 700px;
