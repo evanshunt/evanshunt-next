@@ -67,6 +67,15 @@ class SliderComponent extends React.Component {
   }
 
   componentDidMount() {
+    const { slideDimensions } = this.state;
+    // need to get this sorted initially, not just on resize (desktop vs mobile)
+    if (window.innerWidth < 768) {
+      this.setState({
+        visibleSlides: slideDimensions.mobileVisibleSlides,
+        slideWidth: slideDimensions.mobileWidth,
+        slideHeight: slideDimensions.mobileHeight,
+      });
+    }
     window.addEventListener("resize", this.onResize);
   }
 

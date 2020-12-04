@@ -60,6 +60,9 @@
 
   .carousel__back-button {
     left: 0;
+    @media (min-width: $large-phone) {
+      left: -30px;  
+    }
     @media (min-width: $tablet) {
       left: -35px;  
     }
