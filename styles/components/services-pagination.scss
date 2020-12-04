@@ -28,13 +28,19 @@ section.services-pagination {
 
     &.prev {
       .page-name {
-        margin-left: 1rem;
+        margin-left: .5rem;
+        @media (min-width: $large-phone) {
+          margin-left: 1rem;  
+        }
       }
     }
 
     &.next {
       .page-name {
-        margin-right: 1rem;
+        margin-right: .5rem;
+        @media (min-width: $large-phone) {
+          margin-right: 1rem; 
+        }
       }
     }
 
@@ -53,6 +59,7 @@ section.services-pagination {
 
       .page-name {
         display: block;
+        color: $white;
       }
 
       .white-arrow {
@@ -70,6 +77,25 @@ section.services-pagination {
       border-radius: 50px;
     }
   }
-
   
+}
+
+// pg = pagination abbreviated 
+.pg-flex {
+  display: flex;
+  
+  &-col {
+    width: 50%;
+    display: flex;
+    
+    &:first-child {
+      justify-content: flex-end;
+      padding-right: 7.5px;
+    }
+    
+    &:last-child {
+      justify-content: flex-start;
+      padding-left: 7.5px;
+    }
+  }
 }

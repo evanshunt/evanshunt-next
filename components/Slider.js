@@ -67,6 +67,15 @@ class SliderComponent extends React.Component {
   }
 
   componentDidMount() {
+    const { slideDimensions } = this.state;
+    // need to get this sorted initially, not just on resize (desktop vs mobile)
+    if (window.innerWidth < 768) {
+      this.setState({
+        visibleSlides: slideDimensions.mobileVisibleSlides,
+        slideWidth: slideDimensions.mobileWidth,
+        slideHeight: slideDimensions.mobileHeight,
+      });
+    }
     window.addEventListener("resize", this.onResize);
   }
 
@@ -107,6 +116,13 @@ class SliderComponent extends React.Component {
       { "base-font-medium": slideType === "normal" },
       { "base-font": slideType === "client" }
     );
+    
+    
+    // if there's not enough slides to make it a carousel, hide arrows and progress bar
+    let showArrows = true
+    if (slides.length < visibleSlides) {
+      showArrows = false
+    }
 
     return (
       <section
@@ -235,10 +251,10 @@ class SliderComponent extends React.Component {
                 );
               })}
           </Slider>
-          <ButtonBack><img src="/images/arrow-left-lg-white.svg" alt="arrow-left-lg-white" /></ButtonBack>
-          <ButtonNext><img src="/images/arrow-right-lg-white.svg" alt="arrow-right-lg-white" /></ButtonNext>
+          <ButtonBack className={classNames({'inactive': !showArrows})}><img src="/images/arrow-left-lg-white.svg" alt="arrow-left-lg-white" /></ButtonBack>
+          <ButtonNext className={classNames({'inactive': !showArrows})}><img src="/images/arrow-right-lg-white.svg" alt="arrow-right-lg-white" /></ButtonNext>
           </div>
-          <DotGroup className="react-slider-dot-group" />
+          <DotGroup className={classNames('react-slider-dot-group', {'inactive': !showArrows})} />
         </CarouselProvider>
       </section>
     );

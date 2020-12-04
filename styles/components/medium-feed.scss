@@ -37,6 +37,23 @@ section.medium-feed {
     }
   }
 
+  .post-right-arrow {
+    transition: all 0.3s ease;
+    transform: translateX(0);
+  }
+  
+  a {
+    
+    &:hover {
+      text-decoration: none;
+      
+      .post-right-arrow {
+        transform: translateX(10px);
+        transition: all 0.3s ease;
+      }    
+    }
+  }
+
   .container-medium {
     @media (min-width: $desktop) {
       display: flex;

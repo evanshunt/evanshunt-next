@@ -34,15 +34,11 @@ const MediumFeed = ({ title }) => {
                     <div className="icon">
                       <img src="/images/monogram.svg" alt="" />
                     </div>
-                    <div className="text">
-                      <a href={post.link} target="_blank" rel="noreferrer">
-                        <h3>{post.title}</h3>
-                      </a>
-                      <a href={post.link} target="_blank" rel="noreferrer">
-                        Read story{" "}
-                        <img src="/images/small-right-arrow.svg" alt="" />
-                      </a>
-                    </div>
+                    <a href={post.link} className="text" target="_blank" rel="noreferrer">
+                      <h3>{post.title}</h3>
+                      Read story{" "}
+                      <img src="/images/small-right-arrow.svg" alt="right arrow" className="post-right-arrow" />
+                    </a>
                   </article>
                 )
               );
