@@ -59,7 +59,10 @@
   }
 
   .carousel__back-button {
-    left: -35px;
+    left: 0;
+    @media (min-width: $tablet) {
+      left: -35px;  
+    }
   }
 
   .carousel__next-button {
@@ -131,6 +134,10 @@
     @media (min-width: $desktop) {
       display: block;
     }
+  }
+  
+  .inactive {
+    opacity: 0 !important;
   }
 }
 
