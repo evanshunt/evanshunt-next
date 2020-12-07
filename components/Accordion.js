@@ -17,6 +17,7 @@ const AccordionComponent = ({ title, accordionItems }) => {
             <AccordionItemHeading>
               <AccordionItemButton>
                 {accordion.fields.title}
+                <span className="toggle-icon" />
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
