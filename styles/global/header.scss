@@ -17,6 +17,7 @@
   // Inline version - the version that sits within the document flow, and sits atop a white background
   &.nav-inline {
     position: relative;
+    background: transparent;
     
     #header-logo #ComponentsNavLogo{
       fill: $red;
