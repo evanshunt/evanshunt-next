@@ -50,11 +50,11 @@ section.accordion {
 
     /* Vertical line */
     &:before{
-      top: 0;
+      top: -0.5px;
       left: 50%;
       width: 3px;
       height: 100%;
-      margin-left: -2px;
+      margin-left: -1px;
     }
 
     /* horizontal line */
