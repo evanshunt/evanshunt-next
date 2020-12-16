@@ -1,0 +1,17 @@
+# redirects from the old URL to the new URL, see https://docs.netlify.com/routing/redirects/#syntax-for-the-redirects-file for more information
+#####
+/redirect /our-work
+/who-we-are	/about-us
+/what-we-do	/our-services
+/cxdesign	/our-services
+/cx	/our-services
+/pursuit	/our-work/pursuit
+/dirtt	/our-work/dirtt
+/brookfield/	/our-work/brookfield
+/ikon/	/our-work/ikon-pass
+/co-op/	/our-work
+/flyover-canada/	/our-work
+/ciff/	/our-work
+/vca/	/our-work
+/secretbarrel/	/our-work
+/jusu-body/	/our-work																							
