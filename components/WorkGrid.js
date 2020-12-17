@@ -9,45 +9,25 @@ gsap.registerPlugin(ScrollTrigger);
 const WorkGrid = (props) => {
   
   const [showMoreTiles, setShowMoreTiles] = useState(false)
-  
-  // let container = useRef(null);
-  // let trigger = useRef(null);
   const revealRefs = useRef([]);
   revealRefs.current = [];
 
   useEffect(() => {
-
-    
-    // const tl = gsap.timeline({
-    //   paused: true,
-    //   scrollTrigger: {
-    //     trigger: trigger.current,
-    //     scrub: true,
-    //     markers: false
-    //   }
-    // });
 
     if (typeof window !== `undefined`) {
       gsap.registerPlugin(ScrollTrigger);
       gsap.core.globals("ScrollTrigger", ScrollTrigger);
     }
 
-    // tl.to(container.current, {
-    //   x: 400,
-    //   duration: 100,
-    // });
-
     // Tiles that fade in
     revealRefs.current.forEach((el, index) => {
-        
+
       gsap.fromTo(el, {
         opacity: 0,
-        //autoAlpha: 0,
         y: 50
       }, {
         duration: 1.5,
         opacity: 1,
-        //autoAlpha: 1,
         y: 0,
         ease: 'power4.inOut',
         scrollTrigger: {
@@ -78,12 +58,6 @@ const WorkGrid = (props) => {
   return (
     <section className="work-grid">
       <div className="container">
-        {/* <div className="trigger" ref={trigger}>
-          trigger
-        </div>
-        <div className="header" ref={container}>
-          <h1>Hello This animates as you scroll!</h1>
-        </div> */}
 
         <div className="work-grid-columns">
           {workPages.map((page, i) => {
