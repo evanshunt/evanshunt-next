@@ -1,5 +1,6 @@
 .service-block {
   padding-top: 75px;
+  overflow: hidden;
   @media (min-width: $tablet) {
     padding-top: 80px;
   }
@@ -73,7 +74,7 @@
     width: 100%;
     @media (min-width: $desktop) {
       padding: 30px;
-      width: auto;  
+      width: auto;
     }
     
     img {
