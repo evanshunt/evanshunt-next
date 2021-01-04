@@ -999,7 +999,7 @@ const HeroBanner = ({
       {backgroundImage && <img src={backgroundImage} alt="" className="background-image" />}
       {backgroundVideo && (
         <div className="hero-banner-video">
-          <video ref={video} autoPlay muted loop className="background-video">
+          <video ref={video} autoPlay muted playsinline className="background-video">
             <source src={backgroundVideo} type="video/mp4" />
           </video>
           <div className={videoClasses}>
