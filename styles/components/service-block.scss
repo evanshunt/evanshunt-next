@@ -31,8 +31,10 @@
   
   &-text {
     order: 1;
+    width: 100%;
     @media (min-width: $tablet) {
       order: 0;
+      width: auto;
     }
     @media (min-width: $desktop) {
       max-width: 405px;
@@ -68,8 +70,10 @@
   &-img {
     position: relative;
     min-width: 300px;
+    width: 100%;
     @media (min-width: $desktop) {
-      padding: 30px;  
+      padding: 30px;
+      width: auto;  
     }
     
     img {

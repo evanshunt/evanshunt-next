@@ -19,6 +19,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    overflow: hidden;
     
     @media (min-width: $tablet) {
       flex-wrap: nowrap;
