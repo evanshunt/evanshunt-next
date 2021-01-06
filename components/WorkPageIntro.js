@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const breakpointChange = 992
 
-const WorkPageIntro = ({ title, industry, introText, externalLink, servicesList }) => {
+const WorkPageIntro = ({ title, industry, introTextLong, externalLink, servicesList }) => {
   const [showAllServices, setShowAllServices] = useState(false)
   const [servicesShowing, setServicesShowing] = useState(4) // default for desktop is 4
   const [showMoreText, setShowMoreText] = useState('View all') // default for desktop is 4
@@ -43,7 +43,7 @@ const WorkPageIntro = ({ title, industry, introText, externalLink, servicesList 
           <div className="work-page-intro-flex-item">
             {title && <h1 className="title">{title}</h1>}
             {industry && <h6 className="base-font">{industry}</h6>}
-            {introText && <p className="description">{introText}</p>}
+            {introTextLong && <p className="description">{introTextLong}</p>}
             {externalLink && (
               <Link href={externalLink}>
                 <a className="work-page-external-link" title={externalLink}>{externalLink} <img className="external-link-icon" src="/images/external-link.svg" alt="external link icon"/></a>
