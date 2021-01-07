@@ -1,3 +1,6 @@
+/** Default Base Styling here
+Overrides can be specified by filling in the "AdditionalClass" field in Contentful and referencing the selector below
+**/
 .decorative-line {
   padding: 20px 15px;
   
@@ -78,7 +81,9 @@
     }
   }
 
+  /* Overrides here */
   /* Additional Classes - this is an optional field in Contentful */
+
   &.right-side {
     svg {
       @media (min-width: $tablet) {
@@ -101,6 +106,12 @@
         margin-left: -5%;
         margin-right: auto;
       }
+    }
+  }
+  /* Case Studies use this one */
+  &.half-width {
+    .svg-wrapper {
+      width: 50%;
     }
   }
 }

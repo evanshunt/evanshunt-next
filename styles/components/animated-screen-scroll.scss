@@ -11,55 +11,67 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
     background-size: 100% auto;
     width: 100%;
     min-height: 170px;
+    display: flex;
+    align-items: center;
+    border: 1px solid red;
+    @media (min-width: $large-phone) {
+      min-height: 290px;
+    }
     @media (min-width: $tablet) {
-      min-height: 530px;
+      min-height: 395px;
     }
     @media (min-width: $desktop) {
       min-height: 730px;
       background-size: cover;
     }
-  }
-
-  .wrapper {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    @media (min-width: $desktop) {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
+    @media (min-width:  $desktop-large) {}
+    @media (min-width:  $desktop-extra-large) {}
   }
 
   .device-wrapper {
-    //border: 1px solid orange;
+    border: 1px solid orange;
     margin: 0 auto;
     width: 50%;
+    overflow: hidden;
     position: relative;
   }
 
   .screen-img {
     display: inline-block;
-    //border: 1px solid green;
-    position: absolute;
-    top: 0;
+    border: 1px solid green;
     overflow: hidden;
-    max-width: 660px;
-    width: 100%;
+    @media (min-width: $tablet) {
+      position: relative;
+    }
+    @media (min-width: $desktop) {
+      max-width: 660px;
+    }
   }
 
   .device-screen {
-    width: 100%;
+    width: auto;
     max-width: 620px;
-    //border: 1px solid blue;
-    position: relative;
-    height: 100%;
     max-height: 410px;
+    border: 1px solid blue;
+    position: relative;
     overflow: hidden;
     top: 5px;
     margin: 17px;
     border-radius: 5px;
     display: none;
+    z-index: 100;
     @media (min-width: $tablet) {
+      height: 75%;
       display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    @media (min-width: $desktop) {
+      height: 100%;
+      max-height: 410px;
     }
   }
 
@@ -76,6 +88,8 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
 
   /** AFWI Case Study - screen is left aligned **/
   &.afwi-screen-scroll {
+    //background-image: linear-gradient(136deg, #D6DDE0 0%, #FFFFFF 100%, #D8D8D8 100%);
+    background-image: linear-gradient(136deg, red 0%, red 100%, red 100%);
     .background-image {
       background-position: top right;
       @media (min-width: $tablet) {
@@ -89,9 +103,9 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
       }
       @media (min-width: $desktop) {
         margin: 0 40% 0 auto;
-        top: 100px;
         width: 47%;
         max-width: 660px;
+        margin-top: -5%;
       }
     }
   }

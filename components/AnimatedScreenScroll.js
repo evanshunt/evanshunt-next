@@ -69,7 +69,7 @@ class AnimatedScreenScroll extends React.Component {
           <div ref={div => (this.wrapper = div)} className="wrapper">
             <div className="background-image" style={{backgroundImage: "url(" + background.fields.file.url + ")"}}>
             <div className="device-wrapper">
-            {screen && <img className="screen-img" src={screen.fields.file.url} alt={screen.fields.file.url} />}
+            {screen && <img className="screen-img img-fluid" src={screen.fields.file.url} alt={screen.fields.file.url} />}
               <div className="device-screen">
                 {foreground && <img ref={div => (this.img1 = div)} className="img1" src={foreground.fields.file.url} alt={foreground.fields.file.url} />}
               </div>
