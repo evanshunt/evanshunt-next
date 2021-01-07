@@ -1,16 +1,18 @@
+/** Default Base Styling here - assumes screen image is centered on screen.
+Overrides can be specified by filling in the "AdditionalClass" field in Contentful and referencing the selector below
+**/
 .animated-screen-scroll {
   width: 100%;
   overflow: hidden;
 
   .background-image {
     background-repeat: no-repeat;
-    background-position: top right;
+    background-position: 50% 50%;
     background-size: 100% auto;
     width: 100%;
     min-height: 170px;
     @media (min-width: $tablet) {
       min-height: 530px;
-      background-position: 50% 50%;
     }
     @media (min-width: $desktop) {
       min-height: 730px;
@@ -28,25 +30,15 @@
   }
 
   .device-wrapper {
-    border: 1px solid orange;
-    margin: 0 8%;
+    //border: 1px solid orange;
+    margin: 0 auto;
     width: 50%;
     position: relative;
-    @media (min-width: $tablet) {
-      margin: 0 40% 0 auto;
-      width: 50%;
-    }
-    @media (min-width: $desktop) {
-      margin: 0 40% 0 auto;
-      top: 100px;
-      width: 47%;
-      max-width: 660px;
-    }
   }
 
   .screen-img {
     display: inline-block;
-    border: 1px solid green;
+    //border: 1px solid green;
     position: absolute;
     top: 0;
     overflow: hidden;
@@ -57,24 +49,50 @@
   .device-screen {
     width: 100%;
     max-width: 620px;
-    border: 1px solid blue;
+    //border: 1px solid blue;
     position: relative;
     height: 100%;
-    max-height: 420px;
+    max-height: 410px;
     overflow: hidden;
-    top: 14px;
-    margin: 14px;
+    top: 5px;
+    margin: 17px;
+    border-radius: 5px;
     display: none;
     @media (min-width: $tablet) {
       display: inline-block;
     }
   }
 
+  /* This is the long scrolling image that animates, hide for mobile */
   .img1 {
     width: auto;
     display: none;
     @media (min-width: $tablet) {
       display: inline-block;
+    }
+  }
+
+  /* Overrides here */
+
+  /** AFWI Case Study - screen is left aligned **/
+  &.afwi-screen-scroll {
+    .background-image {
+      background-position: top right;
+      @media (min-width: $tablet) {
+        background-position: 50% 50%;
+      }
+    }
+    .device-wrapper {
+      margin: 0 8%;
+      @media (min-width: $tablet) {
+        margin: 0 40% 0 auto;
+      }
+      @media (min-width: $desktop) {
+        margin: 0 40% 0 auto;
+        top: 100px;
+        width: 47%;
+        max-width: 660px;
+      }
     }
   }
 }

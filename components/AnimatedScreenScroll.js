@@ -1,6 +1,7 @@
 import React from 'react'
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import classNames from 'classnames'
 gsap.registerPlugin(ScrollTrigger);
 
 class AnimatedScreenScroll extends React.Component {
@@ -59,10 +60,11 @@ class AnimatedScreenScroll extends React.Component {
 
   render() {
 
-    const { background, screen, foreground } = this.props
+    const { background, screen, foreground, additionalClass } = this.props
+    let classes = classNames('animated-screen-scroll', {[`${additionalClass}`]: additionalClass})
 
     return(
-      <section className="animated-screen-scroll">
+      <section className={classes}>
         <div ref={div => (this.trigger = div)} className="scroll-container">
           <div ref={div => (this.wrapper = div)} className="wrapper">
             <div className="background-image" style={{backgroundImage: "url(" + background.fields.file.url + ")"}}>

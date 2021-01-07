@@ -221,6 +221,7 @@ const renderComponents = (components) => {
               background={component.fields.backgroundImage}
               screen={component.fields.screenImage}
               foreground={component.fields.foregroundImage}
+              additionalClass={component.fields.additionalClass}
               key={`component-${i}`}
             />
           );
