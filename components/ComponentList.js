@@ -30,6 +30,7 @@ import MediumFeed from "./MediumFeed";
 
 // Case Study Specific Components
 import CaseStudyMosiac from "./CaseStudyMosiac";
+import AnimatedScreenScroll from "./AnimatedScreenScroll";
 
 
 const renderComponents = (components) => {
@@ -213,6 +214,17 @@ const renderComponents = (components) => {
             key={`component-${i}`}
           />
         );
+
+        case "componentAnimatedScreenScroll":
+          return (
+            <AnimatedScreenScroll
+              background={component.fields.backgroundImage}
+              screen={component.fields.screenImage}
+              foreground={component.fields.foregroundImage}
+              additionalClass={component.fields.additionalClass}
+              key={`component-${i}`}
+            />
+          );
 
       case "componentGradientBlock":
         return (

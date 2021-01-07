@@ -8,8 +8,6 @@
   }
   
   &-title {
-    text-align: center;
-    
     h1 {
       display: flex;
       align-items: center;
@@ -24,22 +22,12 @@
         font-size: 2.75rem;  
       }
     }
-    
-    svg {
-      display: inline-block;
-      margin: 0 25px 0 35px;
-      
-      @media (max-width: $large-phone) {
-        width: 62px;
-        height: 62px;
-        margin: 0 10px 0 15px;
-      }
-    }
   }
   
   &-intro {
     text-align: left;
     margin-bottom: 40px;
+    margin-top: 20px;
     font-size: 1rem;
     @media (min-width: $tablet) {
       text-align: center;  
@@ -49,9 +37,6 @@
   }
   
   &-leaders {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
     max-width: 1100px;
     margin: 0 auto;
     @media (min-width: $tablet) {
@@ -60,6 +45,12 @@
     @media (min-width: $desktop) {
       padding-left: 140px;  
     }
+  }
+
+  &-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   
   &-leader {
@@ -89,6 +80,24 @@
       @media (min-width: $large-phone) {
         font-size: 1rem;
       }
+    }
+  }
+
+  .our-team-svg {
+    max-width: 415px;
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    @media (min-width: $tablet) {
+      width: 100%;
+    }
+    .cls-1{
+      fill:#ec0434;
+    }
+    .cls-3,.cls-4 {
+      font-size:70px;
+      font-family:$heading-font-family;
+      font-weight:500;
     }
   }
 }

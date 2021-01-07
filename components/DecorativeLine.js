@@ -150,7 +150,6 @@ const DecorativeLine = (props) => {
             />
           </svg>
         )}
-        {/* TO DO - may need to convert this one to path element instead of line */}
         {desktopStyle === 'down-short' && (
           <svg
             className="svg-down-short"

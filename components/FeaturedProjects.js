@@ -69,7 +69,7 @@ const FeaturedProjects = ({ title, projects, cta }) => {
                 <Link href={`/our-work/${project.fields.slug}`}>
                   <a title={project.fields.title}>
                   {mediaType.indexOf('video/') !== -1 &&
-                    <video autoPlay muted loop className="video-fluid">
+                    <video autoPlay muted loop playsInline className="video-fluid">
                       <source src={mediaUrl} type="video/mp4" />
                         Your browser does not support video tags.
                     </video>

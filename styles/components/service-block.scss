@@ -1,5 +1,6 @@
 .service-block {
   padding-top: 75px;
+  overflow: hidden;
   @media (min-width: $tablet) {
     padding-top: 80px;
   }
@@ -31,8 +32,10 @@
   
   &-text {
     order: 1;
+    width: 100%;
     @media (min-width: $tablet) {
       order: 0;
+      width: auto;
     }
     @media (min-width: $desktop) {
       max-width: 405px;
@@ -68,8 +71,10 @@
   &-img {
     position: relative;
     min-width: 300px;
+    width: 100%;
     @media (min-width: $desktop) {
-      padding: 30px;  
+      padding: 30px;
+      width: auto;
     }
     
     img {
@@ -175,7 +180,9 @@
       margin-top: -180px;
     }
     .service-block-text {
+      padding-top: 50px;
       @media (min-width: $tablet) {
+        padding-top: 0;
         padding-right: 4rem;
       }
       @media (min-width: $desktop-large) {
@@ -183,10 +190,10 @@
       }
     }
     .img-right-side {
-      left: -8%;
-      right: auto;
-      top: 4%;
-      width: 100%;
+      width: 60%;
+      @media (min-width: $desktop-large) {
+        width: auto;
+      }
     }
     .img-left-side {
       left: -10%;

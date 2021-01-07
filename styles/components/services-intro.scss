@@ -69,7 +69,9 @@ section.services-intro {
     p {
 
       @media (min-width: $desktop) {
-        font-size: 25px;
+        font-size: 22px;
+        max-width: 70%;
+        margin-bottom: 3rem;
       }
     }
   }

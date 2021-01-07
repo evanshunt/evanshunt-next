@@ -996,10 +996,10 @@ const HeroBanner = ({
       {gradientHero && (
         <canvas id="gradient-canvas" className={gradientClass}></canvas>
       )}
-      {backgroundImage && <img src={backgroundImage} alt="" className="background-image" />}
+      {!backgroundVideo && backgroundImage && <img src={backgroundImage} alt="" className="background-image" />}
       {backgroundVideo && (
         <div className="hero-banner-video">
-          <video ref={video} autoPlay muted loop className="background-video">
+          <video ref={video} autoPlay muted playsInline className="background-video" poster={backgroundImage}>
             <source src={backgroundVideo} type="video/mp4" />
           </video>
           <div className={videoClasses}>
