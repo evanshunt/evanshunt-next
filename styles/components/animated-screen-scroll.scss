@@ -1,32 +1,47 @@
 .animated-screen-scroll {
   width: 100%;
+  overflow: hidden;
 
   .background-image {
     background-repeat: no-repeat;
     background-position: top right;
-    background-size: cover;
+    background-size: 100% auto;
     width: 100%;
-    min-height: 330px;
+    min-height: 170px;
     @media (min-width: $tablet) {
       min-height: 530px;
+      background-position: 50% 50%;
     }
     @media (min-width: $desktop) {
       min-height: 730px;
+      background-size: cover;
     }
   }
 
   .wrapper {
-    background-repeat: no-repeat;
-    background-position: top right;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    @media (min-width: $desktop) {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
   }
 
   .device-wrapper {
     border: 1px solid orange;
-    margin: 0 auto;
+    margin: 0 8%;
     width: 50%;
     position: relative;
+    @media (min-width: $tablet) {
+      margin: 0 40% 0 auto;
+      width: 50%;
+    }
+    @media (min-width: $desktop) {
+      margin: 0 40% 0 auto;
+      top: 100px;
+      width: 47%;
+      max-width: 660px;
+    }
   }
 
   .screen-img {
@@ -36,30 +51,30 @@
     top: 0;
     overflow: hidden;
     max-width: 660px;
+    width: 100%;
   }
 
   .device-screen {
+    width: 100%;
     max-width: 620px;
     border: 1px solid blue;
     position: relative;
-    height: 420px;
+    height: 100%;
+    max-height: 420px;
     overflow: hidden;
     top: 14px;
     margin: 14px;
+    display: none;
+    @media (min-width: $tablet) {
+      display: inline-block;
+    }
   }
 
   .img1 {
     width: auto;
     display: none;
-
     @media (min-width: $tablet) {
-
-    }
-    @media (min-width: $desktop) {
-      display: block;
-      // position: absolute;
-      // top: 0;
-      // left: 0;
+      display: inline-block;
     }
   }
 }
