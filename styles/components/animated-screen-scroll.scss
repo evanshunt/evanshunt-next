@@ -1,0 +1,65 @@
+.animated-screen-scroll {
+  width: 100%;
+
+  .background-image {
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: cover;
+    width: 100%;
+    min-height: 330px;
+    @media (min-width: $tablet) {
+      min-height: 530px;
+    }
+    @media (min-width: $desktop) {
+      min-height: 730px;
+    }
+  }
+
+  .wrapper {
+    background-repeat: no-repeat;
+    background-position: top right;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .device-wrapper {
+    border: 1px solid orange;
+    margin: 0 auto;
+    width: 50%;
+    position: relative;
+  }
+
+  .screen-img {
+    display: inline-block;
+    border: 1px solid green;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    max-width: 660px;
+  }
+
+  .device-screen {
+    max-width: 620px;
+    border: 1px solid blue;
+    position: relative;
+    height: 420px;
+    overflow: hidden;
+    top: 14px;
+    margin: 14px;
+  }
+
+  .img1 {
+    width: auto;
+    display: none;
+
+    @media (min-width: $tablet) {
+
+    }
+    @media (min-width: $desktop) {
+      display: block;
+      // position: absolute;
+      // top: 0;
+      // left: 0;
+    }
+  }
+}
