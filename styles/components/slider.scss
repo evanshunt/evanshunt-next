@@ -156,6 +156,9 @@
 
   /* Video Slide Item Styling */
   .slide-item-video {
+    &:hover {
+      cursor: pointer;
+    }
     .text-wrapper {
       top: auto;
       bottom: 0;
