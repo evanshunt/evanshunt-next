@@ -54,6 +54,13 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
         height: 337px;
       }
     }
+    svg.svg-curve-left-to-right-half-width {
+      height: auto;
+      width: 50%;
+      @media (min-width: $tablet) {
+        height: 337px;
+      }
+    }
     svg.svg-curve-right-to-left {
       height: auto;
       width: 100%;
@@ -92,6 +99,14 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
       }
     }
   }
+  &.left-side {
+    .svg-wrapper {
+      margin: 0;
+    }
+    svg {
+      margin: 0;
+    }
+  }
   &.off-center-left {
     .svg-wrapper {
       @media (min-width: $tablet) {
@@ -106,12 +121,6 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
         margin-left: -5%;
         margin-right: auto;
       }
-    }
-  }
-  /* Case Studies use this one */
-  &.half-width {
-    .svg-wrapper {
-      width: 50%;
     }
   }
 }
