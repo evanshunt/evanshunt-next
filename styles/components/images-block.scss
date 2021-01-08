@@ -1,6 +1,8 @@
-/*** This still needs styling for the different "variants"
-- Margin on Top left Image
-- Margin on Top Right Image
+/*** Images Blocks are pulled into Case Studies
+The different "variants" are:
+- default - default styling, both columns are inline with each other
+- right-side-margin - Right Column has a top margin in Desktop only
+- left-side-margin - Left Column has a top margin in Desktop only
 ***/
 
 .images-block {
@@ -48,6 +50,7 @@
       }
       @media (min-width: $desktop) {
         object-fit: none;
+        margin-bottom: 80px;
       }
     }
   }
@@ -92,4 +95,23 @@
       margin-bottom: 40px;
     }
   }
+
+  /* Variant Styling */
+  /* Assume styling above is for "Default" */
+  &.right-side-margin {
+    .images-block-column-2 {
+      @media (min-width: $tablet) {
+        margin-top: 80px;
+      }
+    }
+  }
+
+  &.left-side-margin {
+    .images-block-column-1 {
+      @media (min-width: $tablet) {
+        margin-top: 80px;
+      }
+    }
+  }
+
 }

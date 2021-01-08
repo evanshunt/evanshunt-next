@@ -313,6 +313,7 @@ const renderComponents = (components) => {
         return (
           <ImagesBlock
             images={component.fields.images}
+            style={component.fields.style}
             key={`component-${i}`}
           />
         );
