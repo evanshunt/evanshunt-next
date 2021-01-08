@@ -46,7 +46,7 @@ const WorkPageIntro = ({ title, industry, introTextLong, externalLink, servicesL
             {introTextLong && <p className="description">{introTextLong}</p>}
             {externalLink && (
               <Link href={externalLink}>
-                <a className="work-page-external-link" title={externalLink}>{externalLink} <img className="external-link-icon" src="/images/external-link.svg" alt="external link icon"/></a>
+                <a className="external-link" title={externalLink}>{externalLink} <img className="external-link-icon" src="/images/external-link.svg" alt="external link icon"/></a>
               </Link>
             )}
           </div>

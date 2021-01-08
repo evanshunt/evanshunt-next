@@ -1,7 +1,7 @@
 const LeftRightText = (props) => {
   
   const { title, text, externalLink } = props
-  
+
   return (
     <section className="left-right-text">
       <div className="container-medium">
@@ -12,7 +12,10 @@ const LeftRightText = (props) => {
           <div className="right-text">
             <p className="description">{text}</p>
             {externalLink && (
-              <a href={externalLink.fields.url} title={externalLink.fields.title} target="_blank">{externalLink.fields.title}</a>
+              <a className="external-link" href={externalLink.fields.url} title={externalLink.fields.title} target="_blank" rel="noreferrer">
+                {externalLink.fields.title}
+                  <img className="external-link-icon" src="/images/external-link.svg" alt="external link icon"/>
+              </a>
             )}
           </div>
         </div>
