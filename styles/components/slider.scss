@@ -9,9 +9,17 @@
     position: relative;
   }
 
+  /* Outlines were going crazy when video modals would be clicked */
+  .focusRing___1airF {
+    outline-color: transparent;
+    outline: 0;
+  }
+
 
   .carousel__slider-tray:hover {
-    cursor: grabbing;
+    &:hover {
+      cursor: grabbing;
+    }
   }
   
   .slide-inner {
