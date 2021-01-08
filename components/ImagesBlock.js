@@ -2,18 +2,20 @@ import { CarouselProvider, Slider, Slide, DotGroup, Image } from 'pure-react-car
 
 const ImagesBlock = (props) => {
   const { images } = props
-  
+  const [img1,img2,img3,img4] = images
+
   return (
     <section className="images-block container-medium">
-      
+
       <div className="images-block-columns">
-        {images && images.map((img, i) => {
-          return (
-            <div className="images-block-column" key={i}>
-              <img src={img.fields.file.url} alt={img.fields.file.description} className="img-fluid" />
-            </div>
-          )
-        })}
+        <div className="images-block-column images-block-column-1">
+          {img1 && <img src={img1.fields.file.url} alt={img1.fields.file.description} className="img-fluid" />}
+          {img2 && <img src={img2.fields.file.url} alt={img2.fields.file.description} className="img-fluid" />}
+        </div>
+        <div className="images-block-column images-block-column-2">
+          {img3 && <img src={img3.fields.file.url} alt={img3.fields.file.description} className="img-fluid" />}
+          {img4 && <img src={img4.fields.file.url} alt={img4.fields.file.description} className="img-fluid" />}
+        </div>
       </div>
       
       <CarouselProvider
