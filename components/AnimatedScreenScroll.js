@@ -26,7 +26,8 @@ class AnimatedScreenScroll extends React.Component {
     });
     this.ml.to(this.img1, {
       duration: 2.5,
-      yPercent: -85
+      yPercent: -85,
+      ease: 'power4.inout'
     });
   }
 
