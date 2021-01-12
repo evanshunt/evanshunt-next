@@ -20,7 +20,7 @@ class AnimatedScreenScroll extends React.Component {
         trigger: this.trigger,
         pin: this.wrapper,
         scrub: true,
-        start: "top top"
+        start: "bottom 100%"
         //end: "bottom 150px"
       }
     });
