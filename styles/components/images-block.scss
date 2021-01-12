@@ -49,7 +49,7 @@ The different "variants" are:
         margin-right: auto;
       }
       @media (min-width: $desktop) {
-        object-fit: none;
+        object-fit: fill;
         margin-bottom: 80px;
       }
     }
