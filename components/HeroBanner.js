@@ -925,13 +925,13 @@ const HeroBanner = ({
   }, [gradientHero]);
 
   useEffect(() => {
-    if (gradientColour === "Yellow/Red") {
-      setGradientClass("yellow");
+    if (gradientColour === "Pink/Orange") {
+      setGradientClass("pink");
     } else if (gradientColour === "Orange/Red") {
       setGradientClass("red");
     } else if (gradientColour === "Green/Blue") {
       setGradientClass("green");
-    } else if (gradientColour === "Purple/Orange") {
+    } else if (gradientColour === "Blue/Purple") {
       setGradientClass("purple");
     } else if (gradientColour === "Blue/Red") {
       setGradientClass("blue");

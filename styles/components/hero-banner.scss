@@ -47,18 +47,19 @@ section.hero-banner {
     }
 
     &.purple {
-      --gradient-color-1: #563af4;
-      --gradient-color-2: #5d1ee0;
+      --gradient-color-1: #4150ea;
+      --gradient-color-2: #b337f3;
       --gradient-color-3: #874bb0;
-      --gradient-color-4: #f85322;
+      --gradient-color-4: #5d1ee0;
     }
 
-    &.yellow {
-      --gradient-color-1: #ff9523;
-      --gradient-color-2: #e1160a;
-      --gradient-color-3: #c01306;
-      --gradient-color-4: #fc8d29;
+    &.pink {
+      --gradient-color-1: #E827A9;
+      --gradient-color-2: #F145BC;
+      --gradient-color-3: #E43f4D;
+      --gradient-color-4: #E75B26;
     }
+
 
     &.blue {
       --gradient-color-1: #2fcffd;
