@@ -65,9 +65,8 @@ class InlineVideo extends React.Component {
 
     return (
       <div className="inline-video">
-        {/* TODO: Hook up actual video from contentful */}
         <video ref={video => (this.video = video)} className="video-fluid" poster={image.fields.file.url}>
-          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4" />
+          <source src={video.fields.file.url} type="video/mp4" />
           Your browser does not support video tags.
         </video>
         <div className="inline-video-control">
