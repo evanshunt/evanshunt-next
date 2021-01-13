@@ -12,9 +12,9 @@
   }
   
   img {
-    @media (min-width: $desktop-large) {
-      object-fit: cover;
-    }
+    // @media (min-width: $desktop-large) {
+    //   object-fit: cover;
+    // }
   }
   
   &.with-padding {
