@@ -13,7 +13,7 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
     min-height: 170px;
     display: flex;
     align-items: center;
-    border: 1px solid red;
+    //border: 1px solid red;
     @media (min-width: $large-phone) {
       min-height: 290px;
     }
@@ -31,7 +31,7 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
   }
 
   .device-wrapper {
-    border: 1px solid orange;
+    //border: 1px solid orange;
     margin: 0 auto;
     width: 50%;
     overflow: hidden;
@@ -40,7 +40,7 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
 
   .screen-img {
     display: inline-block;
-    border: 1px solid green;
+    //border: 1px solid green;
     overflow: hidden;
     @media (min-width: $tablet) {
       position: relative;
@@ -55,7 +55,7 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
     width: auto;
     max-width: 620px;
     max-height: 410px;
-    border: 1px solid blue;
+    //border: 1px solid blue;
     position: relative;
     overflow: hidden;
     top: 5px;

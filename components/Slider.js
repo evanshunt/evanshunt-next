@@ -151,7 +151,9 @@ class SliderComponent extends React.Component {
                         >
                           <SlideItemVideo
                             title={slide.fields.title}
-                            image={slide.fields.image}
+                            image={slide.fields.image.fields}
+                            videoPreview={slide.fields.videoPreview}
+                            videoDownload={slide.fields.videoDownload}
                           />
                         </Slide>
                       );

@@ -82,6 +82,23 @@ const DecorativeLine = (props) => {
             />
           </svg>
         )}
+        {desktopStyle === 'curve-left-to-right-half-width' && (
+          <svg
+            className="svg-curve-left-to-right-half-width"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 560 338.5">
+            <path
+              ref={lineRef}
+              d="M2,0V.5A140.44,140.44,0,0,0,142.5,140.87l276-.59A140.44,140.44,0,0,1,559,280.65v46.46"
+              transform="translate(-0.5 1)"
+              style={{
+                fill: "none",
+                stroke: "#d6dde0",
+                strokeWidth: "3px"
+              }}
+            />
+          </svg>
+        )}
         {desktopStyle === 'curve-right-to-left' && (
           <svg
             className="svg-curve-right-to-left"

@@ -9,9 +9,17 @@
     position: relative;
   }
 
+  /* Outlines were going crazy when video modals would be clicked */
+  .focusRing___1airF {
+    outline-color: transparent;
+    outline: 0;
+  }
+
 
   .carousel__slider-tray:hover {
-    cursor: grabbing;
+    &:hover {
+      cursor: grabbing;
+    }
   }
   
   .slide-inner {
@@ -32,7 +40,7 @@
       border: none;
       outline: 0;
       height: 5px;
-      
+      background: rgb(239, 239, 239);
       &:disabled {
         background: $darkgrey;
       }
@@ -42,7 +50,7 @@
   /* Back/Next buttons */
   .carousel__back-button, .carousel__next-button {
     position: absolute;
-    top: 35%;
+    top: 40%;
     background-color: $black;
     border-radius: 50%;
     color: $white;
@@ -92,6 +100,7 @@
     }
   }
 
+  /* Image Slide Item Styling */
   .text-on-image {
     margin: 0;
     padding: 0;
@@ -150,6 +159,29 @@
 
     @media (min-width: $desktop) {
       display: block;
+    }
+  }
+
+  /* Video Slide Item Styling */
+  .slide-item-video {
+    &:hover {
+      cursor: pointer;
+    }
+    .text-wrapper {
+      top: auto;
+      bottom: 0;
+      transform: translate(-50%, 0%);
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      background-image: linear-gradient(179deg, rgba(238,238,238,0.00) 17%, rgba(0,0,0,0.6) 84%);
+    }
+    .slide-title {
+      color: $white;
+      font-weight: $regular;
+      font-family: $base-font-family;
+      font-size: 30px;
+      letter-spacing: 0;
+      margin-bottom: 0;
     }
   }
   

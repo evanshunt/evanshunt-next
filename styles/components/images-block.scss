@@ -1,59 +1,117 @@
+/*** Images Blocks are pulled into Case Studies
+The different "variants" are:
+- default - default styling, both columns are inline with each other
+- right-side-margin - Right Column has a top margin in Desktop only
+- left-side-margin - Left Column has a top margin in Desktop only
+***/
+
 .images-block {
   margin-bottom: 75px;
   margin-top: 75px;
   @media (min-width: $large-phone) {
     margin-top: 150px;
   }
-  
+
   &-columns {
     display: none;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     @media (min-width: $tablet) {
       display: flex;
+      flex-wrap: nowrap;
     }
     @media (min-width: $large-phone) {
       align-items: flex-start;
     }
   }
-  
+
+
   &-column {
     width: 100%;
-    margin-bottom: 20px;
-    display: block;
-
+    margin: 0 auto;
     @media (min-width: $tablet) {
-      width: calc(50% - 20px);
-      margin-bottom: 0;
-
-      &:nth-child(odd) {
-        margin-right: 20px;
-      }
-      &:nth-child(even) {
-        margin-left: 20px;
-        margin-top: 40px;
-      }
-      &:nth-child(2) {
-        margin-top: 138px;
-      }
-      &:nth-child(3) {
-        margin-top: -98px;
-      }
+      width: auto;
     }
+    
+    img {
+      margin-bottom: 10px;
+      display: inline-block;
+      width: calc(50% - 5px);
+      height: 50vw;
+      object-fit: cover;
 
-    @media (min-width: $desktop-large) {
-      width: 530px;
+      @media (min-width: $tablet) {
+        width: auto;
+        display: block;
+        height: auto;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @media (min-width: $desktop) {
+        object-fit: fill;
+        margin-bottom: 80px;
+      }
     }
   }
-  
+
+  &-column-1 {
+    order: 1;
+    @media (min-width: $tablet) {
+      order: 0;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    @media (min-width: $desktop) {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+
+  &-column-2 {
+    order: 0;
+    @media (min-width: $tablet) {
+      order: 1;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    @media (min-width: $desktop) {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+
   // slider is hidden above tablet
   .react-slider-images {
     @media (min-width: $tablet) {
       display: none;
     }
-    
+
+    .carousel__slider-tray {
+      align-items: center;
+    }
+
     .images-block-slider-img {
       margin-bottom: 40px;
     }
   }
+
+  /* Variant Styling */
+  /* Assume styling above is for "Default" */
+  &.right-side-margin {
+    .images-block-column-2 {
+      @media (min-width: $tablet) {
+        margin-top: 80px;
+      }
+    }
+  }
+
+  &.left-side-margin {
+    .images-block-column-1 {
+      @media (min-width: $tablet) {
+        margin-top: 80px;
+      }
+    }
+  }
+
 }

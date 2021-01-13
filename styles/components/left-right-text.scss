@@ -13,7 +13,19 @@
   }
   
   .description {
-    font-size: 1.25rem;
+    p {
+      font-size: 1.25rem;
+    }
+    ul {
+      font-size: 1.25rem;
+      list-style: disc;
+      list-style-position: inside;
+    }
+    ol {
+      font-size: 1.25rem;
+      list-style: decimal;
+      list-style-position: inside;
+    }
   }
   
   .left-text {
