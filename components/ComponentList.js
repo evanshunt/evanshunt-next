@@ -312,7 +312,8 @@ const renderComponents = (components) => {
       case "componentImagesBlock":
         return (
           <ImagesBlock
-            images={component.fields.images}
+            firstColumn={component.fields.firstColumn}
+            secondColumn={component.fields.secondColumn}
             style={component.fields.style}
             key={`component-${i}`}
           />

@@ -91,6 +91,11 @@ The different "variants" are:
       align-items: center;
     }
 
+    .carousel__inner-slide {
+      align-items: center;
+      display: flex;
+    }
+
     .images-block-slider-img {
       margin-bottom: 40px;
     }
