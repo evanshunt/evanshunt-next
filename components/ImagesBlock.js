@@ -5,8 +5,6 @@ const ImagesBlock = (props) => {
   const { style, firstColumn, secondColumn } = props
   let classes = classNames('images-block container-medium', {[`${style}`]: style})
   const mobileImages = [...firstColumn, ...secondColumn]
-  console.log(secondColumn);
-
 
   return (
     <section className={classes}>

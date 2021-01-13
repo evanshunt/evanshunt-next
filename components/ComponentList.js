@@ -222,6 +222,7 @@ const renderComponents = (components) => {
               screen={component.fields.screenImage}
               foreground={component.fields.foregroundImage}
               additionalClass={component.fields.additionalClass}
+              animationValue={component.fields.animationValue}
               key={`component-${i}`}
             />
           );
