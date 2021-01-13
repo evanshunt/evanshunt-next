@@ -1,3 +1,4 @@
+import ReactMarkdown from "react-markdown";
 const LeftRightText = (props) => {
   
   const { title, text, externalLink } = props
@@ -10,7 +11,7 @@ const LeftRightText = (props) => {
             <h2 className="title">{title}</h2>
           </div>
           <div className="right-text">
-            <p className="description">{text}</p>
+            <ReactMarkdown className="description" source={text} />
             {externalLink && (
               <a className="external-link" href={externalLink.fields.url} title={externalLink.fields.title} target="_blank" rel="noreferrer">
                 {externalLink.fields.title}
