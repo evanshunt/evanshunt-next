@@ -171,9 +171,14 @@ section.hero-banner {
 
     svg.play-pause {
       max-width: 24px;
-      width: 100%;
-      height: 100%;
+      width: 42px;
+      height: 42px;
       max-height: 30px;
+
+      @media(max-width: $large-phone) {
+        margin-left: 1vw;
+      }
+
       line {
         fill:none;
         stroke:$black;

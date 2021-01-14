@@ -1,0 +1,83 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js add react-modal
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  12.18.3
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: http://npm.greensock.com/@gsap%2fshockingly/-/gsap-3.6.0.tgz: Request failed "403 Forbidden"
+      at ResponseError.ExtendableBuiltin (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:696:66)
+      at new ResponseError (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:802:124)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:67058:16)
+      at Request.emit (events.js:315:20)
+      at Request.module.exports.Request.onRequestResponse (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:141626:10)
+      at ClientRequest.emit (events.js:315:20)
+      at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:596:27)
+      at HTTPParser.parserOnHeadersComplete (_http_common.js:119:17)
+      at TLSSocket.socketOnData (_http_client.js:469:22)
+      at TLSSocket.emit (events.js:315:20)
+
+npm manifest: 
+  {
+    "name": "evanshunt-next",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "dev": "next dev",
+      "dev2": "scripts/dev",
+      "build": "next build",
+      "export": "next export",
+      "start": "next start",
+      "postbuild": "next-on-netlify"
+    },
+    "keywords": [],
+    "author": "Justine Matsalla",
+    "license": "ISC",
+    "dependencies": {
+      "@contentful/rich-text-react-renderer": "^14.1.1",
+      "@evanshunt/derekstrap": "^0.1.11",
+      "@zeit/next-sass": "^1.0.1",
+      "bootstrap": "^4.5.2",
+      "breakpoint-sass": "^2.7.1",
+      "classnames": "^2.2.6",
+      "contentful": "^7.14.6",
+      "dotenv-webpack": "^2.0.0",
+      "gsap": "npm:@gsap/shockingly@^3.5.1",
+      "next": "^9.5.5",
+      "next-on-netlify": "^2.6.3",
+      "nextjs-fonts": "^0.22.0",
+      "pure-react-carousel": "^1.27.3",
+      "react": "^16.14.0",
+      "react-accessible-accordion": "^3.3.3",
+      "react-dom": "^16.14.0",
+      "react-gtm-module": "^2.0.11",
+      "react-inlinesvg": "^2.1.1",
+      "react-markdown": "^4.3.1",
+      "react-modal": "^3.12.1",
+      "sass": "^1.26.10",
+      "sass-em": "^1.0.3",
+      "sass-rem": "^2.0.1"
+    },
+    "devDependencies": {
+      "babel-eslint": "^10.1.0",
+      "eslint": "^7.7.0",
+      "eslint-plugin-react": "^7.20.6",
+      "eslint-plugin-react-hooks": "^4.1.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
