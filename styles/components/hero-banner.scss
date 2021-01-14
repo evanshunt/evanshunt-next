@@ -165,8 +165,8 @@ section.hero-banner {
     border: 1px solid $grey;
     
     @media (min-width: $tablet) {
-      height: 100px;
-      width: 100px;
+      height: 50px;
+      width: 50px;
     }
 
     svg.play-pause {
@@ -174,10 +174,6 @@ section.hero-banner {
       width: 42px;
       height: 42px;
       max-height: 30px;
-
-      @media(max-width: $large-phone) {
-        margin-left: 1vw;
-      }
 
       line {
         fill:none;
