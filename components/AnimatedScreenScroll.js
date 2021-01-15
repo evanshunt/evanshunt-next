@@ -32,7 +32,7 @@ class AnimatedScreenScroll extends React.Component {
     });
     this.ml.to(this.img1, {
       duration: 2,
-      yPercent: this.scrollAmount, // TODO - figure out how to dynamically calculate this as differnt blocks have different heights.
+      yPercent: this.scrollAmount,
       ease: 'power4.inout'
     });
   }
