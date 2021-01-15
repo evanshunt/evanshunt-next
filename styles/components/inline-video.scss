@@ -47,9 +47,12 @@
       width: 42px;
       height: 42px;
       max-height: 25px;
-      padding: 4px;
+      padding: 4px 2px 4px 5px;
       @media (min-width: $tablet) {
-        padding: 3px;
+        padding: 4px 3px 3px 6px;
+      }
+      @media (min-width: $desktop) {
+        padding: 4px 3px 3px 6px;
       }
       line {
         fill:none;
