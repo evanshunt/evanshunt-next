@@ -47,6 +47,10 @@
       width: 42px;
       height: 42px;
       max-height: 25px;
+      padding: 4px;
+      @media (min-width: $tablet) {
+        padding: 3px;
+      }
       line {
         fill:none;
         stroke:$black;

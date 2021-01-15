@@ -183,12 +183,16 @@
       color: $white;
       font-weight: $regular;
       font-family: $base-font-family;
-      font-size: 30px;
+      font-size: 18px;
       letter-spacing: 0;
       margin-bottom: 0;
+
+      @media (min-width: $desktop) {
+        font-size: 30px;
+      }
     }
     .inline-video-play {
-      margin-right: 2rem;
+      margin-right: 1rem;
     }
   }
   
