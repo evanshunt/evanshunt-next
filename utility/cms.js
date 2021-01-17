@@ -5,7 +5,7 @@ const getEnv = () => {
 }
 
 const contentfulSettings = () => {
-  
+
   let settings = {
     space: process.env.CONTENTFUL_SPACE,
     accessToken: process.env.CONTENTFUL_TOKEN
@@ -47,6 +47,24 @@ function CMSApi() {
         return null;
       });
   };
+
+  // Need to separate this out as we only need 1 level deep, not 4, otherwise run into recursion errors
+  this.fetchWorkPage = async (contentType) => {
+    return await this.client
+      .getEntries({
+        include: 2,
+        content_type: contentType,
+      })
+      .then(async (results) => {
+        const page = results.items[0];
+
+        if (page) {
+          return page;
+        }
+
+        return null;
+      });
+  }
 
   this.fetchContentPages = async (slug) => {
     return await this.client

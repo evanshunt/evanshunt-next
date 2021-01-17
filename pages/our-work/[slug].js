@@ -3,11 +3,11 @@ import PageMeta from "../../components/PageMeta";
 import renderComponents from "../../components/ComponentList";
 import WorkPageIntro from '../../components/WorkPageIntro'
 import HeroBanner from '../../components/HeroBanner'
+import RelatedWork from '../../components/RelatedWork'
 const CMSApi = require("../../utility/cms");
 
 const WorkDetails = (content) => {
-  // console.log(content)
-  
+
   if (!content) {
     return null
   }
@@ -48,7 +48,9 @@ const WorkDetails = (content) => {
       
       
       {content.fields.components && renderComponents(content.fields.components)}
-      
+
+      {content.fields.relatedProjectsBlock && <RelatedWork items={content.fields.relatedProjectsBlock} />}
+
     </Layout>
   );
 };

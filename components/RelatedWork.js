@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
 const RelatedWork = (props) => {
-  const { relatedWork } = props
-  
+  const { items } = props
+
   // still needs some responsive work - turn into carousel
   return (
     <section className="related-work">
@@ -10,11 +10,11 @@ const RelatedWork = (props) => {
         <div className="related-work-header">
           <h6 className="base-font-medium">Related Work</h6>
           <Link href="/our-work">
-            <a>See all work ></a>
+            <a>See all work &gt;</a>
           </Link>
         </div>
         <div className="related-work-flex">
-          {relatedWork && relatedWork.map((work, i) => {
+          {items && items.map((work, i) => {
             return (
               <div className="related-work-flex-item" key={i}>
                 {work.fields.squareImage && (
