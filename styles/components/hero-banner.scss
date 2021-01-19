@@ -169,6 +169,11 @@ section.hero-banner {
       width: 50px;
     }
 
+    @media (min-width: $desktop-large) {
+      height: 100px;
+      width: 100px;
+    }
+
     svg.play-pause {
       max-width: 24px;
       width: 42px;
