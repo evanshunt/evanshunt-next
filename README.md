@@ -22,29 +22,30 @@ This is the codebase for the Evans Hunt website.
 * Export a static copy of the site to `/out`:
     `npm run build`
     `npm run export`
+* If you see errors when you build out a local copy, double check that inside the next.config.js file the `target: "serverless",` line is commented out.
 * To view the static output:
     `docker run --rm -dit -p 80:80 -v "$(pwd)/out":/usr/local/apache2/htdocs/ httpd:2.4`
 
 ## Contributing, feature branch rules
 
-TBD
+* Create a feature branch for your work
+* Once work is ready for QA, open a PR into the `dev` branch
+* Once merges are done to the dev branch, a deploy is automatically triggered inside Netlify.
+* Once work looks good open a PR into Master
+* Merge into master.
 
 ## Deployment processes
-
-TBD
-
-## QA processes
 
 TBD
 
 ## Third-party integrations
 
 * Contentful is used for a headless CMS. Log in with `devs@evanshunt.com` with the credentials in LastPass.
-* Using Paid Greensock Plugins - currently on Kalen's account TODO: Needs to be swapped with devs@evanshunt.com. Instructions can be found on GSAP admin dashboard on the right side.
+* Using Paid Greensock Plugins - currently on devs@evanshunt.com account. Instructions can be found on GSAP admin dashboard on the right side. Login details for this account are in LastPass.
 
 ## Gotchas/trickies
 
-TBD
+* Some animations look weird while using your local development server. If you need to test animations your best bet is to build out the static files and then check those instead.
 
 ## Production notes
 
@@ -53,17 +54,15 @@ Using Netlify for Builds and Servers.
 DEV Branch --> https://dev--eh-next-qa.netlify.app/
 MASTER Branch --> https://eh-next-qa.netlify.app/
 
-## Production maintenance
-
-TBD
 
 ## Team, contacts
 
-* PM: Sabrina Wilson
+* PM: Sabrina Wilson / Kayla Malone
 * Clients: Dan Evans & Bill Hunt
-* Tech Lead: Derek McBurney
-* Lead Dev: Justine Matsalla
-* QA: Neetu Verma
+* Tech Lead: Derek McBurney / Kalen McConnell
+* Dev: Justine Matsalla / Matt Robinson / Kalen McConnell / Colin Cheverie
+* QA: Quent Roxas
 
 ## Changelog
 * 18 Aug 2020 Initial repo setup
+* 19 Jan 2021 - changing team members, adding details around local export
