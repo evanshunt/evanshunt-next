@@ -65,24 +65,25 @@ class InlineVideo extends React.Component {
 
     return (
       <div className="inline-video">
-        {/* TODO: Hook up actual video from contentful */}
         <video ref={video => (this.video = video)} className="video-fluid" poster={image.fields.file.url}>
-          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4" />
+          <source src={video.fields.file.url} type="video/mp4" />
           Your browser does not support video tags.
         </video>
         <div className="inline-video-control">
-          <button className="inline-video-play" onClick={this.handlePlayButton}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.97 25.67" className="play-pause">
-              <g className="pause">
-                <rect ref={div => (this.pause1 = div)} className="pause-1" x="0.75" y="3.13" width="5" height="20" />
-                <rect ref={div => (this.pause2 = div)} className="pause-2" x="11.38" y="3.13" width="5" height="20" />
-              </g>
-              <g className="play">
-                <path ref={div => (this.play1 = div)} className="play-1" d="M0 0 0 25.67 8 20.79 8 4.88 0 0" />
-                <path ref={div => (this.play2 = div)} className="play-2" d="M8 4.88 8 20.79 20.97 12.83 8 4.88" />
-              </g>
-            </svg>
-          </button>
+          <div className="inline-play-pause">
+            <button className="inline-video-play" onClick={this.handlePlayButton}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.97 25.67" className="play-pause">
+                <g className="pause">
+                  <rect ref={div => (this.pause1 = div)} className="pause-1" x="0.75" y="3.13" width="5" height="20" />
+                  <rect ref={div => (this.pause2 = div)} className="pause-2" x="11.38" y="3.13" width="5" height="20" />
+                </g>
+                <g className="play">
+                  <path ref={div => (this.play1 = div)} className="play-1" d="M0 0 0 25.67 8 20.79 8 4.88 0 0" />
+                  <path ref={div => (this.play2 = div)} className="play-2" d="M8 4.88 8 20.79 20.97 12.83 8 4.88" />
+                </g>
+              </svg>
+            </button>
+          </div>
           {title && <h3 className="inline-video-title base-font">{title}</h3>}
         </div>
       </div>

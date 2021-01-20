@@ -18,7 +18,7 @@ section.hero-banner {
     }
 
     @media (min-width: $desktop-large) {
-      height: 700px;
+      height: 850px;
     }
 
     @media (min-width: $desktop-extra-large) {
@@ -69,7 +69,15 @@ section.hero-banner {
     }
   }
 
-  .background-image, .background-video {
+  .background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    position: absolute;
+  }
+
+  .background-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -157,15 +165,21 @@ section.hero-banner {
     border: 1px solid $grey;
     
     @media (min-width: $tablet) {
+      height: 50px;
+      width: 50px;
+    }
+
+    @media (min-width: $desktop-large) {
       height: 100px;
       width: 100px;
     }
 
     svg.play-pause {
       max-width: 24px;
-      width: 100%;
-      height: 100%;
+      width: 42px;
+      height: 42px;
       max-height: 30px;
+
       line {
         fill:none;
         stroke:$black;

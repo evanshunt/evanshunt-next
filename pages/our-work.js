@@ -15,8 +15,8 @@ const OurWorkPage = (content) => {
       />
       <IntroBlock introText={content.fields.introCopy} centreAlign={true} />
       <WorkGrid workPages={content.fields.workPages} />
-      <LogoGrid 
-        smallTitle={content.fields.logoGrid.fields.smallTitle}  
+      <LogoGrid
+        smallTitle={content.fields.logoGrid.fields.smallTitle}
         largeTitle={content.fields.logoGrid.fields.largeTitle}
         logos={content.fields.logoGrid.fields.logos}
       />
@@ -26,7 +26,7 @@ const OurWorkPage = (content) => {
 
 OurWorkPage.getInitialProps = async () => {
   const api = new CMSApi();
-  const json = await api.fetchContentType("pageOurWork");
+  const json = await api.fetchWorkPage("pageOurWork");
 
   if (json) {
     return json;

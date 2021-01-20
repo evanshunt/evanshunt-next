@@ -44,16 +44,23 @@ class SlideItemVideo extends React.Component {
     return (
       <div className="slide-item-video-wrapper">
         <div className="slide-item-video">
-          <div className="text-on-image">
+          <div className="text-on-image" onClick={this.openModal}>
             <div className="image-wrapper">
               <Image
                 src={image.file.url}
                 className="img-fluid"
                 alt={image.file.description}
-                onClick={this.openModal}
               />
             </div>
             <div className="text-wrapper">
+            <div className="inline-video-play">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.97 25.67" className="play-pause">
+                <g className="play">
+                  <path className="play-1" d="M0 0 0 25.67 8 20.79 8 4.88 0 0" />
+                  <path className="play-2" d="M8 4.88 8 20.79 20.97 12.83 8 4.88" />
+                </g>
+              </svg>
+            </div>
               {title && <h6 className="slide-title">{title}</h6>}
             </div>
           </div>

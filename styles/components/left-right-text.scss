@@ -19,12 +19,14 @@
     ul {
       font-size: 1.25rem;
       list-style: disc;
-      list-style-position: inside;
+      list-style-position:outside;
+      margin: 0 0 2rem 1.5rem;
     }
     ol {
       font-size: 1.25rem;
       list-style: decimal;
-      list-style-position: inside;
+      list-style-position: outside;
+      margin: 0 0 2rem 1.5rem;
     }
   }
   

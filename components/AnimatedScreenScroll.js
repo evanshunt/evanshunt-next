@@ -11,7 +11,11 @@ class AnimatedScreenScroll extends React.Component {
     this.trigger = null;
     this.wrapper = null;
     this.img1 = null;
+    this.scrollAmount = props.animationValue;
+    console.log(this.scrollAmount);
   }
+
+
 
   startAnimations() {
     this.ml = gsap.timeline({
@@ -21,12 +25,14 @@ class AnimatedScreenScroll extends React.Component {
         pin: this.wrapper,
         scrub: true,
         start: "bottom 100%"
-        //end: "bottom 150px"
+        // onUpdate: self => {
+        //   console.log("progress:", self.progress.toFixed(3), "direction:", self.direction, "velocity", self.getVelocity());
+        // }
       }
     });
     this.ml.to(this.img1, {
-      duration: 2.5,
-      yPercent: -85,
+      duration: 2,
+      yPercent: this.scrollAmount,
       ease: 'power4.inout'
     });
   }
@@ -44,15 +50,6 @@ class AnimatedScreenScroll extends React.Component {
           this.startAnimations();
       }
     });
-
-    // this.ml.to(this.img1, { duration: 1, width: '110%', height: '110%' }, 0)
-    // this.ml.to(this.title1, { duration: 0.5, opacity: 1 }, 1)
-    // this.ml.to(this.title1, { duration: 0.5, opacity: 0 }, 2)
-    // this.ml.to(this.img1, { duration: 1, height: '100%' }, 2)
-    // this.ml.from(this.title2, { duration: 1, opacity: 0 }, 2.2)
-    // this.ml.to(this.img1, { duration: 0.5, opacity: 0 }, 3)
-    // this.ml.to(this.img2, { duration: 1, width: '60%', height: '60%', transform: 'translate(-50%, -50%)' }, 3)
-    // this.ml.to(this.title2, { duration: 1, color: 'rgba(0, 0, 0, 0)' }, 3);
   }
 
   componentWillUnmount() {

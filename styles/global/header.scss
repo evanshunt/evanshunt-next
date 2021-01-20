@@ -106,6 +106,9 @@
   letter-spacing: 1px;
   font-weight: 500;
   position: relative;
+  @media (min-width: $desktop) {
+    font-size: 15px;
+  }
   
   
   &:last-of-type {

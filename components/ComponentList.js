@@ -22,7 +22,6 @@ import CtaBlock from "./CtaBlock";
 import LeftRightText from "./LeftRightText";
 import PullQuote from "./PullQuote";
 import ImagesBlock from "./ImagesBlock";
-import RelatedWork from "./RelatedWork";
 import ServicesIntro from "./ServicesIntro";
 import Accordion from "./Accordion";
 import ServicesPagination from "./ServicesPagination";
@@ -222,6 +221,7 @@ const renderComponents = (components) => {
               screen={component.fields.screenImage}
               foreground={component.fields.foregroundImage}
               additionalClass={component.fields.additionalClass}
+              animationValue={component.fields.animationValue}
               key={`component-${i}`}
             />
           );
@@ -312,16 +312,9 @@ const renderComponents = (components) => {
       case "componentImagesBlock":
         return (
           <ImagesBlock
-            images={component.fields.images}
+            firstColumn={component.fields.firstColumn}
+            secondColumn={component.fields.secondColumn}
             style={component.fields.style}
-            key={`component-${i}`}
-          />
-        );
-
-      case "componentRelatedWork":
-        return (
-          <RelatedWork
-            relatedWork={component.fields.relatedWork}
             key={`component-${i}`}
           />
         );

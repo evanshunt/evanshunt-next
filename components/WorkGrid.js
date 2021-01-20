@@ -64,7 +64,14 @@ const WorkGrid = (props) => {
             // output the first chunk of tiles
             if (i < initialTilesToShow) {
               return (
-                <WorkGridColumn page={page} addToRefs={addToRefs} key={i} />
+                <WorkGridColumn
+                  squareImage={page.fields.tileDetails.fields.squareImage}
+                  title={page.fields.tileDetails.fields.title}
+                  slug={page.fields.slug}
+                  servicesList={page.fields.servicesList}
+                  addToRefs={addToRefs}
+                  key={i}
+                />
               ); 
             }
           })}
@@ -80,7 +87,14 @@ const WorkGrid = (props) => {
               // output the second chunk of tiles
               if (i >= initialTilesToShow) {
                 return (
-                  <WorkGridColumn page={page} addToRefs={addToRefs} key={i} />
+                  <WorkGridColumn
+                    squareImage={page.fields.tileDetails.fields.squareImage}
+                    title={page.fields.tileDetails.fields.title}
+                    slug={page.fields.slug}
+                    servicesList={page.fields.servicesList}
+                    addToRefs={addToRefs}
+                    key={i}
+                  />
                 );
               }
             })}
@@ -92,40 +106,40 @@ const WorkGrid = (props) => {
 };
 
 // so we don't need to duplicate this
-const WorkGridColumn = ({page, addToRefs}) => {
+const WorkGridColumn = ({squareImage, title, slug, servicesList, addToRefs}) => {
   return (
     <div className="work-grid-column" ref={addToRefs}>
       <div className="work-grid-img">
-        {page.fields.squareImage && (
-          <Link href={`/our-work/${page.fields.slug}`}>
+        {squareImage && (
+          <Link href={`/our-work/${slug}`}>
             <a
-              title={page.fields.title}
+              title={title}
               className="work-grid-img-link"
             >
               <img
-                src={page.fields.squareImage.fields.file.url}
+                src={squareImage.fields.file.url}
                 className="img-fluid"
-                alt={page.fields.squareImage.fields.file.description}
+                alt={squareImage.fields.file.description}
               />
             </a>
           </Link>
         )}
         <div className="work-grid-cta">
-          <Link href={`/our-work/${page.fields.slug}`}>
-            <a title={page.fields.title} className="btn">
+          <Link href={`/our-work/${slug}`}>
+            <a title={title} className="btn">
               View case study
             </a>
           </Link>
         </div>
       </div>
-      {page.fields.title && (
+      {title && (
         <h5 className="work-grid-title base-font-medium">
-          {page.fields.title}
+          {title}
         </h5>
       )}
-      {page.fields.servicesList && (
+      {servicesList && (
         <p className="work-grid-services">
-          {page.fields.servicesList.join(", ")}
+          {servicesList.join(", ")}
         </p>
       )}
     </div>

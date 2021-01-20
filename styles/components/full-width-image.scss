@@ -5,16 +5,13 @@
   }
   
   &-inner {
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
   
   img {
-    @media (min-width: $desktop-large) {
-      object-fit: cover;
-    }
+    align-self: center;
   }
   
   &.with-padding {
