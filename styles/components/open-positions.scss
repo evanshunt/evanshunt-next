@@ -41,37 +41,6 @@ section.open-positions {
       min-height: 126px;
     }
 
-    &:hover {
-      text-decoration: none;
-      
-      
-        .open-position-btn {
-          color: $white;
-          background: #000;
-          padding-left: 20px;
-          padding-right: 20px;
-
-          @media (min-width: $tablet) {
-            padding-left: 40px;
-            padding-right: 40px;
-          }
-          
-          .open-position-btn-text {
-            @media (min-width: $tablet) {
-              display: inline-block;
-            }
-          }
-          
-          .white-arrow {
-            display: inline-block;
-          }
-
-          .black-arrow {
-            display: none;
-          }
-        }
-    }
-
     &:first-of-type {
       border-top: 2px solid #D6DDE0;
     }
@@ -92,25 +61,33 @@ section.open-positions {
         font-size: 1rem;
       }
     }
-  }
-  
-  .open-position-btn {
-    border-width: 0;
-    color: #000;
-    background: #fff;
-    transition: all 0.3s ease-in-out;
-    
-    span {
-      display: none;
-      margin-right: 15px;
+
+    .svg-open-position {
+      max-width: 180px;
+      .label {
+        fill: $white;
+        isolation:isolate;
+        margin-right: 15px;
+        font-size:16px;
+        font-family:$base-font-family;
+        font-weight:500;
+        letter-spacing:0.01em;
+      }
+      .bg {
+        transform-origin: center right;
+      }
+      .arrow {
+        fill: $white;
+      }
     }
-    
-    .white-arrow {
-      display: none;
-    }
-    
-    .black-arrow {
-      display: inline-block;
+
+    &:hover {
+      text-decoration: none;
+      .svg-open-position {
+        .bg {
+          fill: $black;
+        }
+      }
     }
   }
 }
