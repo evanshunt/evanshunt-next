@@ -37,6 +37,7 @@ section.open-positions {
     border-bottom: 2px solid #D6DDE0;
     min-height: 100px;
 
+
     @media (min-width: $desktop) {
       min-height: 126px;
     }
@@ -75,9 +76,10 @@ section.open-positions {
       }
       .bg {
         transform-origin: center right;
+        fill: transparent;
       }
       .arrow {
-        fill: $white;
+        fill: $black;
       }
     }
 
