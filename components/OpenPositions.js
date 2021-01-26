@@ -47,11 +47,13 @@ const OpenPositions = ({ title, introText, openPositions }) => {
         ease: 'power4.Out'
       }, 0)
       .fromTo(buttonBg.current, {
-        xPercent: 80,
-        scale: 0
+        opacity: 0,
+        scaleX: 0,
+        xPercent: 20,
       }, {
+        opacity: 1,
+        scaleX: 1,
         xPercent: 0,
-        scale: 1,
         fill: '#000000',
         duration: 0.3,
         ease: 'power4.InOut'
