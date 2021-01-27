@@ -46,19 +46,15 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
       position: relative;
       width: 100%;
     }
-    @media (min-width: $desktop) {
-      max-width: 660px;
-    }
   }
 
   .device-screen {
     width: auto;
-    max-width: 620px;
+    // max-width: 620px;
     max-height: 410px;
     //border: 1px solid blue;
     position: relative;
     overflow: hidden;
-    top: 5px;
     margin: 17px;
     border-radius: 5px;
     display: none;
@@ -84,6 +80,7 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
     display: none;
     @media (min-width: $tablet) {
       display: inline-block;
+      max-width: 100%;
     }
   }
 
@@ -109,6 +106,24 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
         width: 47%;
         max-width: 660px;
         margin-top: -5%;
+      }
+    }
+    .screen-img {
+      @media (min-width: $desktop) {
+        max-width: 660px;
+      }
+    }
+    .device-screen {
+      max-width: 620px;
+    }
+  }
+
+  /* Larger Monitor Image - TODO - see if this image should be pulled across to the other case studies (Aside from AFWI) */
+  &.brookfield-animated-scroll {
+    .device-screen {
+      margin: 14px 16px;
+      @media (min-width: $desktop) {
+        max-height: 414px;
       }
     }
   }
