@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from 'react'
-// import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import gsap from "gsap";
 import classNames from 'classnames'
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -8,10 +7,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const DecorativeLine = (props) => {
   const { overlap, hideOnMobile, desktopStyle, additionalClass } = props
+  const [lineImage, setLineImage] = useState("")
   let lineTrigger = useRef(null);
   let lineRef = useRef(null);
 
-  // mobile image is optional
   useEffect(() => {
     if (typeof window !== `undefined`) {
       gsap.registerPlugin(ScrollTrigger);
@@ -32,29 +31,29 @@ const DecorativeLine = (props) => {
       });
 
       tl.fromTo(lineRef.current, {drawSVG: "0%"}, {drawSVG: "100%", ease: 'power4.inout'}, 0)
-  }
+    }
 
-  // Commenting this out for now as hoping we can always use the Desktop Style,
-    // window.addEventListener('resize', handleResize)
-    // if (desktopStyle && window.innerWidth < 720) {
-    //   setLineImage(getLineImage(desktopStyle, lineRef))
-    // } else {
-    //   setLineImage(getLineImage(desktopStyle, lineRef))
-    // }
-    // return () => {
-    //   window.removeEventListener('resize', handleResize)
-    // }
+    const handleResize = () => {
+      if (window.innerWidth < 720) {
+        setLineImage('down-short')
+        console.log(lineImage);
+      } else {
+        setLineImage(desktopStyle)
+        console.log(lineImage);
+      }
+    }
 
+    window.addEventListener('resize', handleResize)
+    if (window.innerWidth < 720) {
+      setLineImage('down-short')
+    } else {
+      setLineImage(desktopStyle)
+    }
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
 
-  }, [desktopStyle])
-
-  // const handleResize = () => {
-  //   if (desktopStyle && window.innerWidth < 720) {
-  //     setLineImage(getLineImage(desktopStyle, lineRef))
-  //   } else {
-  //     setLineImage(getLineImage(desktopStyle, lineRef))
-  //   }
-  // }
+  }, [desktopStyle, lineImage])
 
   let overlapClass = getOverlapClass(overlap)
   let classes = classNames('decorative-line', {[`${overlapClass}`]: overlapClass}, {'hidden-on-mobile': hideOnMobile}, {[`${additionalClass}`]: additionalClass})
@@ -65,7 +64,8 @@ const DecorativeLine = (props) => {
         {/* Ugh hate this, but need the SVG markup output here so can adjust the ref value
           inlining the SVG didn't let me modify the ref on the path element */}
 
-        {desktopStyle === 'curve-left-to-right' && (
+
+        {lineImage === 'curve-left-to-right' && (
           <svg
             className="svg-curve-left-to-right"
             xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +82,7 @@ const DecorativeLine = (props) => {
             />
           </svg>
         )}
-        {desktopStyle === 'curve-left-to-right-half-width' && (
+        {lineImage === 'curve-left-to-right-half-width' && (
           <svg
             className="svg-curve-left-to-right-half-width"
             xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +99,7 @@ const DecorativeLine = (props) => {
             />
           </svg>
         )}
-        {desktopStyle === 'curve-right-to-left' && (
+        {lineImage === 'curve-right-to-left' && (
           <svg
             className="svg-curve-right-to-left"
             xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +117,7 @@ const DecorativeLine = (props) => {
             />
           </svg>
         )}
-        {desktopStyle === 'down-left' && (
+        {lineImage === 'down-left' && (
           <svg
             className="svg-down-left"
             xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +134,7 @@ const DecorativeLine = (props) => {
             />
           </svg>
         )}
-        {desktopStyle === 'down-long-left' && (
+        {lineImage === 'down-long-left' && (
           <svg
             className="svg-down-long-left"
             xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +150,7 @@ const DecorativeLine = (props) => {
             />
           </svg>
         )}
-        {desktopStyle === 'down-right' && (
+        {lineImage === 'down-right' && (
           <svg
             className="svg-down-right"
             xmlns="http://www.w3.org/2000/svg"
@@ -167,7 +167,7 @@ const DecorativeLine = (props) => {
             />
           </svg>
         )}
-        {desktopStyle === 'down-short' && (
+        {lineImage === 'down-short' && (
           <svg
             className="svg-down-short"
             xmlns="http://www.w3.org/2000/svg"
