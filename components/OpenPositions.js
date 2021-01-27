@@ -21,7 +21,7 @@ function useHover() {
   2. Label goes from 0 to 1 opacity
   3. black pill background goes from 0 to 1 opacity, appears to "grow" with transform origin on right side
 */
-const textLinkTween = (element) => {
+const pillArrowTween = (element) => {
   var tl = gsap.timeline({
     id: "openPositionAnimation",
     paused: true,
@@ -86,9 +86,9 @@ const OpenPositions = ({ title, introText, openPositions }) => {
 
     // Initialize Animation for Buttons
     revealRefs.current.forEach((el, index) => {
-      textLinkTween(el);
+      pillArrowTween(el);
     });
-  
+
   }, []);
 
   return (
