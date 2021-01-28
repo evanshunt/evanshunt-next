@@ -8,7 +8,7 @@ The different "variants" are:
 .images-block {
   margin-bottom: 75px;
   margin-top: 75px;
-  @media (min-width: $large-phone) {
+  @media (min-width: $tablet) {
     margin-top: 150px;
   }
 
