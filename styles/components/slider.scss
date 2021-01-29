@@ -236,4 +236,17 @@
       padding-left: 40px !important;
     }
   }
+
+  // Square Client Sliders need button position adjusted slightly
+  &.client {
+    .carousel__back-button, .carousel__next-button {
+      top: 28%;
+      @media (min-width: $tablet) {
+        top: 28%;
+      }
+      @media (min-width: $desktop) {
+        top: 35%;
+      }
+    }
+  }
 }
