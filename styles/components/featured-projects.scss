@@ -28,8 +28,15 @@
   }
   .foreground-image {
     position: absolute;
-    top: 20%;
-    left: 10%;
+    top: 5%;
+    left: 5%;
+    max-width: 150px;
+    @media (min-width: $large-phone) {
+      top: 10%;
+      left: 10%;
+      max-width: 250px;
+      max-height: 175px;
+    }
 
     @media (min-width: $tablet) {
       width: 50%;
@@ -40,6 +47,7 @@
     img {
       box-shadow: -10px 30px 64px 0 rgba(0,0,0,0.32);
       object-fit: cover;
+      height: auto;
     }
 
   }
