@@ -32,7 +32,7 @@
     }
   }
 
-  &-play {
+  .inline-video-play {
     border: none;
     outline: none;
     background: white;
@@ -55,24 +55,8 @@
       width: 80px;
     }
 
+    /* Global styling is inside of global/buttons.scss */
     svg.play-pause {
-      width: 42px;
-      height: 42px;
-      max-height: 25px;
-      padding: 4px 2px 4px 4px;
-      @media (min-width: $tablet) {
-        padding: 4px 3px 3px 5px;
-      }
-      @media (min-width: $desktop-large) {
-        padding: 4px 3px 3px 6px;
-        max-height: 42px;
-      }
-      line {
-        fill:none;
-        stroke:$black;
-        stroke-linecap:square;
-        stroke-width:8px;
-      }
       .pause-1, .pause-2 {
         opacity: 0;
       }

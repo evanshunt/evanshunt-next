@@ -174,21 +174,12 @@ section.hero-banner {
       width: 100px;
     }
 
+    /* Global styling is inside of global/buttons.scss */
     svg.play-pause {
-      max-width: 24px;
-      width: 42px;
-      height: 42px;
-      max-height: 30px;
-
-      line {
-        fill:none;
-        stroke:$black;
-        stroke-linecap:square;
-        stroke-width:8px;
-      }
       .play-1, .play-2 {
         opacity: 0;
       }
     }
+
   }
 }
