@@ -146,12 +146,6 @@ section.hero-banner {
     bottom: 22px;
     left: 22px;
     z-index: 10;
-    @media (min-width: $tablet) {
-      bottom: 55px;
-      left: 40px;
-    }
-  }
-  .video-play {
     border: none;
     outline: none;
     background: white;
@@ -163,23 +157,21 @@ section.hero-banner {
     width: 42px;
     border-radius: 50%;
     border: 1px solid $grey;
-    
     @media (min-width: $tablet) {
+      bottom: 55px;
+      left: 40px;
       height: 50px;
       width: 50px;
     }
-
     @media (min-width: $desktop-large) {
       height: 100px;
       width: 100px;
     }
-
     /* Global styling is inside of global/buttons.scss */
     svg.play-pause {
       .play-1, .play-2 {
         opacity: 0;
       }
     }
-
   }
 }

@@ -1002,8 +1002,7 @@ const HeroBanner = ({
           <video ref={video} autoPlay muted playsInline className="background-video" poster={backgroundImage}>
             <source src={backgroundVideo} type="video/mp4" />
           </video>
-          <div className={videoClasses}>
-            <button className="video-play" onClick={handlePlayButton}>
+          <div className={videoClasses} onClick={handlePlayButton}>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.97 25.67" ref={playPauseAnimation} className="play-pause">
                 <g className="pause">
                   <rect ref={pause1} className="pause-1" x="0.75" y="3.13" width="5" height="20" />
@@ -1014,7 +1013,6 @@ const HeroBanner = ({
                   <path ref={play2} className="play-2" d="M8 4.88 8 20.79 20.97 12.83 8 4.88" />
                 </g>
               </svg>
-            </button>
           </div>
         </div>
       )}
