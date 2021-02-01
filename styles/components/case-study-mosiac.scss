@@ -7,12 +7,6 @@
     overflow-x: hidden;
   }
 
-  .blank {
-    width: 100%;
-    height: 60vh;
-    background-color: $white;
-  }
-
   .wrapper {
     width: 100%;
     height: 100%;
@@ -20,7 +14,7 @@
     overflow: hidden;
   }
 
-  .img1 {
+  .feature-img {
     width: 100%;
     height: 100%;
     display: none;
@@ -76,7 +70,7 @@
         width: auto;
         display: block;
         height: auto;
-        object-fit: none;
+        object-fit: fill;
         margin-bottom: 40px;
         margin-right: 0;
       }

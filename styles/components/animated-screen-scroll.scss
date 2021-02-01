@@ -50,12 +50,11 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
 
   .device-screen {
     width: auto;
-    // max-width: 620px;
     max-height: 410px;
     //border: 1px solid blue;
     position: relative;
     overflow: hidden;
-    margin: 17px;
+    margin: 14px 16px;
     border-radius: 5px;
     display: none;
     z-index: 100;
@@ -70,7 +69,7 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
     }
     @media (min-width: $desktop) {
       height: 100%;
-      max-height: 410px;
+      max-height: 417px;
     }
   }
 
@@ -89,7 +88,6 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
   /** AFWI Case Study - screen is left aligned **/
   &.afwi-screen-scroll {
     background-image: linear-gradient(136deg, #D6DDE0 0%, #FFFFFF 100%, #D8D8D8 100%);
-    //background-image: linear-gradient(136deg, red 0%, red 100%, red 100%);
     .background-image {
       background-position: top right;
       @media (min-width: $tablet) {
@@ -119,12 +117,12 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
   }
 
   /* Larger Monitor Image - TODO - see if this image should be pulled across to the other case studies (Aside from AFWI) */
-  &.brookfield-animated-scroll {
-    .device-screen {
-      margin: 14px 16px;
-      @media (min-width: $desktop) {
-        max-height: 414px;
-      }
-    }
-  }
+  // &.brookfield-animated-scroll {
+  //   .device-screen {
+  //     margin: 14px 16px;
+  //     @media (min-width: $desktop) {
+  //       max-height: 414px;
+  //     }
+  //   }
+  // }
 }

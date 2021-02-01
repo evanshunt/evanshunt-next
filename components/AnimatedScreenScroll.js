@@ -12,7 +12,6 @@ class AnimatedScreenScroll extends React.Component {
     this.wrapper = null;
     this.img1 = null;
     this.scrollAmount = props.animationValue;
-    console.log(this.scrollAmount);
   }
 
 
@@ -25,9 +24,6 @@ class AnimatedScreenScroll extends React.Component {
         pin: this.wrapper,
         scrub: true,
         start: "bottom 100%"
-        // onUpdate: self => {
-        //   console.log("progress:", self.progress.toFixed(3), "direction:", self.direction, "velocity", self.getVelocity());
-        // }
       }
     });
     this.ml.to(this.img1, {
