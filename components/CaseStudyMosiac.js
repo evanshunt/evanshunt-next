@@ -29,10 +29,11 @@ class CaseStudyMosiac extends React.Component {
     // Feature Image shrinking down from center
     this.ml.to(this.featureImg, {
       duration: 1.5,
-      scaleX: 0.4,
-      scaleY: 0.35,
+      scaleX: 0.435,
+      scaleY: 0.4,
       transformOrigin:"center top",
-      y: 30,
+      y: 53,
+      xPercent: 3.25,
       ease: "power4.Out"
     }, 'featureDone')
     .fromTo(this.img1, {
