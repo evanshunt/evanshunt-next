@@ -97,9 +97,12 @@ class Header extends React.Component {
           </button>
           
           <nav className={headerNavClasses}>
+            <div className="header-nav-links">
             {navLinks.map((navLink, i) => {
               return <NavLink navLink={navLink} key={i} />
             })}
+            </div>
+
             
             <div className="header-nav-contact-box">
               <div className="header-nav-contact">
@@ -120,11 +123,11 @@ const NavLink = ({navLink}) => {
   const router = useRouter()
   const classes = classNames('header-nav-link', {'active': router.pathname.indexOf(navLink.url) !== -1})
   return (
-    <Link href={navLink.url}>
-      <a className={classes} title={navLink.title}>
-        <span>{navLink.title}</span>
-      </a>
-    </Link>
+      <Link href={navLink.url}>
+        <a className={classes} title={navLink.title}>
+          <span>{navLink.title}</span>
+        </a>
+      </Link>
   )
 }
 
