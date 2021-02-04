@@ -76,7 +76,7 @@
   left: -100%;
   width: 100%;
   background: $lightgrey;
-  height: 100vh;
+  //height: 100vh;
   transition: transform 0.5s ease-in-out;
   display: flex;
   flex-wrap: wrap;
@@ -87,7 +87,7 @@
     top: auto;
     left: auto;
     background: none;
-    height: auto;
+    //height: auto;
     display: block;
     overflow-y: visible;
   }
@@ -101,9 +101,11 @@
 .header-nav-links {
   width: 100%;
   padding-top: 70px;
+  height: 70vh;
   @media (min-width: $desktop) {
     padding-top: 0;
     width: auto;
+    height: auto;
   }
 }
 
