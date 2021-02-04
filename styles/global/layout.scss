@@ -9,16 +9,11 @@ body {
     width: 100vw;
     header {
       overflow-y: auto;
-      height: 100vh;
       .header-nav {
-        //height: 100vh;
         overflow-y: auto;
       }
       .header-nav-links {
-        height: 83vh;
-      }
-      .header-nav-contact-box {
-        //height: 20vh;
+        overflow-y: auto;
       }
     }
   }
