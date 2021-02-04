@@ -7,6 +7,20 @@ body {
   &.nav-open {
     position: fixed;
     width: 100%;
+    header {
+      overflow-y: auto;
+      height: 100%;
+      .header-nav {
+        height: 100vh;
+        overflow-y: auto;
+      }
+      .header-nav-links {
+        //height: 80vh;
+      }
+      .header-nav-contact-box {
+        //height: 20vh;
+      }
+    }
   }
 }
 

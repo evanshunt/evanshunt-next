@@ -1,17 +1,21 @@
 #header-main {
   padding: 22px 18px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   position: absolute;
   top: 0;
   background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 55%, rgba(0,0,0,0) 100%);
   z-index: 2;
   width: 100%;
+  // height: 88vh;
+  // overflow-y: auto;
 
   @media (min-width: $desktop) {
+    height: auto;
     padding: 53px 58px;
     align-items: flex-end;
+    //overflow-y:initial;
   }
 
   // Inline version - the version that sits within the document flow, and sits atop a white background
@@ -80,7 +84,6 @@
   transition: transform 0.5s ease-in-out;
   display: flex;
   flex-wrap: wrap;
-  overflow-y: auto;
 
   @media (min-width: $desktop) {
     position: relative;
@@ -89,7 +92,6 @@
     background: none;
     //height: auto;
     display: block;
-    overflow-y: visible;
   }
   
   &.active {
@@ -101,11 +103,13 @@
 .header-nav-links {
   width: 100%;
   padding-top: 70px;
-  height: 70vh;
+  //min-height: 470px;
+  //height: 70vh;
   @media (min-width: $desktop) {
     padding-top: 0;
     width: auto;
-    height: auto;
+    //height: auto;
+    //min-height: initial;
   }
 }
 
