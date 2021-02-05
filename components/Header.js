@@ -86,16 +86,14 @@ class Header extends React.Component {
             </svg>
           </a>
         </Link>
+        <button className={classNames('header-nav-toggle', {'active': this.state.navActive})} onClick={this.toggleMenu}>
+          <div>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+          </div>
+        </button>
 
-        <div className="header-nav-wrap">
-          <button className={classNames('header-nav-toggle', {'active': this.state.navActive})} onClick={this.toggleMenu}>
-            <div>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-            </div>
-          </button>
-          
           <nav className={headerNavClasses}>
             <div className="header-nav-links">
             {navLinks.map((navLink, i) => {
@@ -111,8 +109,7 @@ class Header extends React.Component {
               </div>
             </div>
           </nav>
-          
-        </div>
+        
       </header>
     ) 
   }

@@ -15,18 +15,9 @@ const Layout = (props) => {
   return (
     <>
       <Header inlineHeader={props.inlineHeader} />
-      {/* A little help for the Netlify post-processing bots */}
-      <form name="apply-form" data-netlify="true" netlify-honeypot="bot-field" hidden>
-        <input type="text" name="first-name" />
-        <input type="text" name="last-name" />
-        <input type="email" name="email" />
-        <input type="file" name="resume" />
-        <input type="text" name="message" />
-      </form>
       { outdatedBrowser && (
         <div className="outdated-browser">
           <svg width="81px" height="80px" viewBox="0 0 81 80" version="1.1">
-            <title>Monogram</title>
             <defs>
               <filter id="filter-1">
                 <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.925490 0 0 0 0 0.015686 0 0 0 0 0.203922 0 0 0 1.000000 0"></feColorMatrix>
