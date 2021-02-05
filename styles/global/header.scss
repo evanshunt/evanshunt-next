@@ -105,6 +105,11 @@
 .header-nav-links {
   width: 100%;
   flex: 2 1 100%;
+  /* Fix for ios devices - height changes slightly between emulator and real devices */
+  @supports (-webkit-touch-callout: none) {
+    border: 1px solid red;
+    flex: 2 1 35%;
+  }
   @media (min-width: $desktop) {
     width: auto;
     height: auto;
