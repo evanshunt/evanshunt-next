@@ -2,6 +2,7 @@ import Head from "next/head";
 import { withRouter } from "next/router";
 
 const PageMeta = ({ seoTitle, metaDescription, socialMediaImage, router }) => {
+
   return (
     <Head>
       <title>{seoTitle}</title>
@@ -12,14 +13,14 @@ const PageMeta = ({ seoTitle, metaDescription, socialMediaImage, router }) => {
       />
       <meta property="og:title" content={seoTitle} />
       {socialMediaImage && (
-        <meta property="og:image" content={socialMediaImage} />
+        <meta property="og:image" content={socialMediaImage.fields.file.url} />
       )}
       {metaDescription && (
         <meta name="twitter:card" content={metaDescription} />
       )}
       <meta name="twitter:title" content={seoTitle} />
       {socialMediaImage && (
-        <meta name="twitter:image" content={socialMediaImage} />
+        <meta name="twitter:image" content={socialMediaImage.fields.file.url} />
       )}
       <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png" />
