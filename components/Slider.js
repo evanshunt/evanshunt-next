@@ -124,6 +124,7 @@ class SliderComponent extends React.Component {
       <section
         className={classNames("react-slider-wrap", {
           narrower: slideType === "normal",
+          client: slideType === "client",
         })}
       >
         {title && <h6 className="base-font-medium">{title}</h6>}

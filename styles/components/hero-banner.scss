@@ -11,7 +11,15 @@ section.hero-banner {
   }
 
   &.tall {
-    height: 535px;
+    height: 340px;
+
+    @media (min-width: $large-phone) {
+      height: 500px;
+    }
+
+    @media (min-width: $tablet) {
+      height: 535px;
+    }
 
     @media (min-width: $desktop) {
       height: 650px;
@@ -146,12 +154,6 @@ section.hero-banner {
     bottom: 22px;
     left: 22px;
     z-index: 10;
-    @media (min-width: $tablet) {
-      bottom: 55px;
-      left: 40px;
-    }
-  }
-  .video-play {
     border: none;
     outline: none;
     background: white;
@@ -163,29 +165,18 @@ section.hero-banner {
     width: 42px;
     border-radius: 50%;
     border: 1px solid $grey;
-    
     @media (min-width: $tablet) {
+      bottom: 55px;
+      left: 40px;
       height: 50px;
       width: 50px;
     }
-
     @media (min-width: $desktop-large) {
       height: 100px;
       width: 100px;
     }
-
+    /* Global styling is inside of global/buttons.scss */
     svg.play-pause {
-      max-width: 24px;
-      width: 42px;
-      height: 42px;
-      max-height: 30px;
-
-      line {
-        fill:none;
-        stroke:$black;
-        stroke-linecap:square;
-        stroke-width:8px;
-      }
       .play-1, .play-2 {
         opacity: 0;
       }

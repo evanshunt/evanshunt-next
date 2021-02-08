@@ -86,20 +86,21 @@ class Header extends React.Component {
             </svg>
           </a>
         </Link>
+        <button className={classNames('header-nav-toggle', {'active': this.state.navActive})} onClick={this.toggleMenu}>
+          <div>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+          </div>
+        </button>
 
-        <div className="header-nav-wrap">
-          <button className={classNames('header-nav-toggle', {'active': this.state.navActive})} onClick={this.toggleMenu}>
-            <div>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-            </div>
-          </button>
-          
           <nav className={headerNavClasses}>
+            <div className="header-nav-links">
             {navLinks.map((navLink, i) => {
               return <NavLink navLink={navLink} key={i} />
             })}
+            </div>
+
             
             <div className="header-nav-contact-box">
               <div className="header-nav-contact">
@@ -108,8 +109,7 @@ class Header extends React.Component {
               </div>
             </div>
           </nav>
-          
-        </div>
+        
       </header>
     ) 
   }
@@ -120,11 +120,11 @@ const NavLink = ({navLink}) => {
   const router = useRouter()
   const classes = classNames('header-nav-link', {'active': router.pathname.indexOf(navLink.url) !== -1})
   return (
-    <Link href={navLink.url}>
-      <a className={classes} title={navLink.title}>
-        <span>{navLink.title}</span>
-      </a>
-    </Link>
+      <Link href={navLink.url}>
+        <a className={classes} title={navLink.title}>
+          <span>{navLink.title}</span>
+        </a>
+      </Link>
   )
 }
 

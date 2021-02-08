@@ -9,7 +9,11 @@ class CaseStudyMosiac extends React.Component {
     super(props);
     this.trigger = null;
     this.wrapper = null;
+    this.featureImg = null;
     this.img1 = null;
+    this.img2 = null;
+    this.img3 = null;
+    this.img4 = null;
   }
 
   startAnimations() {
@@ -19,17 +23,51 @@ class CaseStudyMosiac extends React.Component {
         trigger: this.trigger,
         pin: this.wrapper,
         scrub: true,
-        start: "45% center"
+        start: "35% center"
       }
     });
-    //this.ml.set(this.img1, { width: '100%', height: '100%', transformOrigin: 'center center' });
-    this.ml.to(this.img1, {
+    // Feature Image shrinking down from center
+    this.ml.to(this.featureImg, {
       duration: 1.5,
-      scaleX: 0.4,
-      scaleY: 0.35,
+      scaleX: 0.435,
+      scaleY: 0.4,
       transformOrigin:"center top",
-      y: 30
-    });
+      y: 53,
+      xPercent: 3.25,
+      ease: "power4.Out"
+    }, 'featureDone')
+    .fromTo(this.img1, {
+      xPercent: -130,
+    },
+    {
+      duration: 1.5,
+      xPercent: 0,
+      ease: "power4.Out",
+    }, 'featureDone')
+    .fromTo(this.img2, {
+      xPercent: -130,
+    },
+    {
+      duration: 1.5,
+      xPercent: 0,
+      ease: "power4.Out",
+    }, 'featureDone')
+    .fromTo(this.img3, {
+      yPercent: 130,
+    },
+    {
+      duration: 1.5,
+      yPercent: 0,
+      ease: "power4.Out",
+    }, 'featureDone')
+    .fromTo(this.img4, {
+      xPercent: 130,
+    },
+    {
+      duration: 1.5,
+      xPercent: 0,
+      ease: "power4.Out",
+    }, 'featureDone');
   }
 
   componentDidMount() {
@@ -72,18 +110,18 @@ class CaseStudyMosiac extends React.Component {
           <div ref={div => (this.wrapper = div)} className="wrapper">
             <div className="case-study-mosiac-columns">
               <div className="case-study-mosiac-column case-study-mosiac-column-1">
-                {img1 && <img src={img1.fields.file.url} alt={img1.fields.file.url} className="img-fluid" />}
-                {img2 && <img src={img2.fields.file.url} alt={img2.fields.file.url} className="img-fluid" />}
+                {img1 && <img ref={div => (this.img1 = div)} src={img1.fields.file.url} alt={img1.fields.file.url} className="img-fluid" />}
+                {img2 && <img ref={div => (this.img2 = div)} src={img2.fields.file.url} alt={img2.fields.file.url} className="img-fluid" />}
               </div>
               <div className="case-study-mosiac-column case-study-mosiac-column-2">
                 {feature && <img src={feature.fields.file.url} alt={feature.fields.file.url} className="img-fluid mobile-feature-image" />}
-                {img3 && <img src={img3.fields.file.url} alt={img3.fields.file.url} className="img-fluid" />}
+                {img3 && <img ref={div => (this.img3 = div)} src={img3.fields.file.url} alt={img3.fields.file.url} className="img-fluid" />}
               </div>
               <div className="case-study-mosiac-column case-study-mosiac-column-3">
-                {img4 && <img src={img4.fields.file.url} alt={img4.fields.file.url} className="img-fluid" />}
+                {img4 && <img ref={div => (this.img4 = div)} src={img4.fields.file.url} alt={img4.fields.file.url} className="img-fluid" />}
               </div>
             </div>
-            {feature && <img ref={div => (this.img1 = div)} className="img1" src={feature.fields.file.url} alt={feature.fields.file.url} />}
+            {feature && <img ref={div => (this.featureImg = div)} className="feature-img" src={feature.fields.file.url} alt={feature.fields.file.url} />}
           </div>
           <div className="blank" />
         </div>

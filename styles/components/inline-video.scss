@@ -6,25 +6,33 @@
   @media (min-width: $tablet) {
     margin-top: 135px;
   }
-  
-  &-control {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    bottom: 22px;
-    left: 22px;
-    @media (min-width: $tablet) {
-      bottom: 55px;
-      left: 40px;      
-    }
-  }
-  
+
   video {
     object-fit: cover;
     max-height: 700px;
   }
-  
-  &-play {
+
+  .text-wrapper {
+    top: auto;
+    bottom: 8px;
+    position: absolute;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-image: linear-gradient(179deg, rgba(238,238,238,0.00) 17%, rgba(0,0,0,0.4) 84%);
+    display: flex;
+    align-items: center;
+    @media (min-width: $desktop) {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .inline-video-play {
     border: none;
     outline: none;
     background: white;
@@ -47,32 +55,23 @@
       width: 80px;
     }
 
+    /* Global styling is inside of global/buttons.scss */
     svg.play-pause {
-      width: 42px;
-      height: 42px;
-      max-height: 25px;
-      padding: 4px 2px 4px 4px;
-      @media (min-width: $tablet) {
-        padding: 4px 3px 3px 5px;
-      }
-      @media (min-width: $desktop-large) {
-        padding: 4px 3px 3px 6px;
-        max-height: 42px;
-      }
-      line {
-        fill:none;
-        stroke:$black;
-        stroke-linecap:square;
-        stroke-width:8px;
-      }
       .pause-1, .pause-2 {
         opacity: 0;
       }
     }
   }
-  
+
   &-title {
     color: $white;
     margin-left: 20px;
+    font-weight: $regular;
+    font-family: $base-font-family;
+    font-size: 18px;
+    letter-spacing: 0;
+    @media (min-width: $desktop) {
+      font-size: 30px;
+    }
   }
 }

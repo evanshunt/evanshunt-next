@@ -8,48 +8,38 @@ section.services-pagination {
     }
   }
 
+  svg.svg-arrow-right, svg.svg-arrow-left {
+    max-width: 32px;
+    width: 100%;
+    .arrow {
+      transition: fill 0.3s ease-in-out;
+      fill: $black;
+    }
+  }
+
   .pagination {
     border: 2px solid $black;
     min-width: 70px;
     height: 70px;
     display: inline-flex;
+    flex-wrap: nowrap;
     border-radius: 35px;
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease-in-out;
     margin: 0 0.5rem;
+    @media (min-width: $desktop) {
+      min-width: 100px;
+      height: 100px;
+      border-radius: 50px;
+    }
 
     .page-name {
-      display: none;
       margin-bottom: 0;
       color: $white;
+      font-weight: 500;
       text-transform: capitalize;
-    }
-
-    &.prev {
-      .page-name {
-        margin-left: .5rem;
-        @media (min-width: $large-phone) {
-          margin-left: 1rem;  
-        }
-      }
-    }
-
-    &.next {
-      .page-name {
-        margin-right: .5rem;
-        @media (min-width: $large-phone) {
-          margin-right: 1rem; 
-        }
-      }
-    }
-
-    .white-arrow {
       display: none;
-    }
-
-    .black-arrow {
-      display: block;
     }
 
     &:hover {
@@ -57,27 +47,33 @@ section.services-pagination {
       padding: 0 40px;
       text-decoration: none;
 
+      &.prev {
+        .page-name {
+          margin-left: .5rem;
+          @media (min-width: $large-phone) {
+            margin-left: 1rem;
+          }
+        }
+      }
+
+      &.next {
+        .page-name {
+          margin-right: .5rem;
+          @media (min-width: $large-phone) {
+            margin-right: 1rem;
+          }
+        }
+      }
+
       .page-name {
         display: block;
-        color: $white;
       }
 
-      .white-arrow {
-        display: block;
+      .arrow {
+        fill: $white;
       }
-
-      .black-arrow {
-        display: none;
-      }
-    }
-
-    @media (min-width: $desktop) {
-      min-width: 100px;
-      height: 100px;
-      border-radius: 50px;
     }
   }
-  
 }
 
 // pg = pagination abbreviated 

@@ -1,7 +1,11 @@
 .left-right-text-flex {
   display: flex;
   flex-wrap: wrap;
-  margin: 75px 0;
+  margin: 40px 0;
+
+  @media (min-width: $large-phone) {
+    margin: 75px 0;
+  }
   
   @media (min-width: $desktop) {
     flex-wrap: nowrap;
@@ -14,7 +18,10 @@
   
   .description {
     p {
-      font-size: 1.25rem;
+      font-size: 18px;
+      @media (min-width: $desktop) {
+        font-size: 20px;
+      }
     }
     ul {
       font-size: 1.25rem;
@@ -32,9 +39,11 @@
   
   .left-text {
     width: 100%;
-
     @media (min-width: $desktop) {
-      width: 22%;
+      width: 32%;
+    }
+    .title {
+      font-size: 32px;
     }
   }
   
@@ -42,7 +51,6 @@
     width: 100%;
 
     @media (min-width: $desktop) {
-      
       padding-left: 80px;
     }
   }

@@ -101,10 +101,28 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
   }
   &.left-side {
     .svg-wrapper {
-      margin: 0;
+      @media (min-width: $large-phone) {
+        max-width: 92%;
+        margin: 0 auto;
+      }
+  
+      @media (min-width: $tablet) {
+        max-width: 720px;
+      }
+  
+      @media (min-width: $desktop) {
+        max-width: 960px;
+      }
+  
+      @media (min-width: $desktop-large) {
+        max-width: calc(1100px + 30px); // calc for padding
+      }
     }
     svg {
-      margin: 0;
+      @media (min-width: $tablet) {
+        margin: 0;
+      }
+
     }
   }
   &.off-center-left {

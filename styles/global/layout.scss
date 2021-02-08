@@ -6,7 +6,17 @@ body {
   
   &.nav-open {
     position: fixed;
-    width: 100%;
+    width: 100vw;
+    #header-main {
+      //overflow-y: auto;
+      //height: 100vh;
+      .header-nav {
+        //overflow-y: auto;
+      }
+      .header-nav-links {
+        //overflow-y: auto;
+      }
+    }
   }
 }
 
