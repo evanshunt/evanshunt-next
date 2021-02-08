@@ -1017,11 +1017,13 @@ const HeroBanner = ({
         </div>
       )}
 
+      {largeText && smallText &&
       <div className="banner-text" ref={bannerRef}>
         {smallText && <p className="small-text" ref={aSmallText}>{smallText}</p>}
         {smallText && <span className="line" id="line" ref={aLine} />}
         {largeText && <h1 className="large-text" ref={aLargeText}>{largeText}</h1>}
       </div>
+      }
     </section>
   );
 };

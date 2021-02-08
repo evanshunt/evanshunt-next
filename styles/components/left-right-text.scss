@@ -1,7 +1,11 @@
 .left-right-text-flex {
   display: flex;
   flex-wrap: wrap;
-  margin: 75px 0;
+  margin: 40px 0;
+
+  @media (min-width: $large-phone) {
+    margin: 75px 0;
+  }
   
   @media (min-width: $desktop) {
     flex-wrap: nowrap;
