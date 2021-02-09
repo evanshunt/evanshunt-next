@@ -27,7 +27,6 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
     @media (min-width:  $desktop-large) {
       min-height: 730px;
     }
-    @media (min-width:  $desktop-extra-large) {}
   }
 
   .device-wrapper {
@@ -86,7 +85,8 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
   /* Overrides here */
 
   /** AFWI Case Study - screen is left aligned **/
-  &.afwi-screen-scroll {
+  &.afwi-screen-scroll,
+  &.left-aligned {
     background-image: linear-gradient(136deg, #D6DDE0 0%, #FFFFFF 100%, #D8D8D8 100%);
     .background-image {
       background-position: top right;
@@ -116,13 +116,34 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
     }
   }
 
-  /* Larger Monitor Image - TODO - see if this image should be pulled across to the other case studies (Aside from AFWI) */
-  // &.brookfield-animated-scroll {
-  //   .device-screen {
-  //     margin: 14px 16px;
-  //     @media (min-width: $desktop) {
-  //       max-height: 414px;
-  //     }
-  //   }
-  // }
+  /* Used for People's Choice - mobile device and sizing */
+  &.mobile {
+    .background-image {
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .device-wrapper {
+      width: 39%;
+      @media (min-width: $tablet) {
+        max-width: 422px;
+      }
+    }
+    .screen-img {
+      border: 1px solid green;
+      width: auto;
+    }
+    .device-screen {
+      border-radius: 35px 35px 0 0;
+      border: 1px solid blue;
+      margin: 36px 56px 0 58px;
+      max-height: 410px;
+      @media (min-width: $tablet) {
+        height: 75%;
+      }
+      @media (min-width: $desktop) {
+        height: 100%;
+        max-height: 600px;
+      }
+    }
+  }
 }
