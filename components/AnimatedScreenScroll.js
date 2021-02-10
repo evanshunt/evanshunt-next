@@ -14,12 +14,11 @@ class AnimatedScreenScroll extends React.Component {
     this.scrollAmount = props.animationValue;
   }
 
-
-
   startAnimations() {
     this.ml = gsap.timeline({
       paused: true,
       scrollTrigger: {
+        id: "animated-screen-st",
         trigger: this.trigger,
         pin: this.wrapper,
         scrub: true,
@@ -44,12 +43,15 @@ class AnimatedScreenScroll extends React.Component {
       /* Only play animation on desktop sizes */
       '(min-width: 992px)': () => {
           this.startAnimations();
+          ScrollTrigger.refresh();
       }
     });
   }
 
   componentWillUnmount() {
-    this.ml.kill();
+    //this.ml.kill();
+    //this.ml.scrollTrigger.kill();
+    ScrollTrigger.getById("animated-screen-st").kill();
   }
 
   render() {
