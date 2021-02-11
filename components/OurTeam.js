@@ -20,26 +20,30 @@ const OurTeam = (props) => {
 
     // animate logo rows
     aLeaderRow.current.forEach((el, index) => {
-      gsap.fromTo(
-        el,
-        {
-          opacity: 0,
-          y: 10,
+      gsap.fromTo(el, {
+        opacity: 0,
+        y: 10,
+      },
+      {
+        duration: 1.25,
+        opacity: 1,
+        y: 0,
+        ease: "power4.inOut",
+        scrollTrigger: {
+          id: `team-${index+1}`,
+          trigger: el,
+          start: "top center-=20px",
+          scrub: 1,
+          toggleActions: 'play none none reverse'
         },
-        {
-          duration: 1.5,
-          opacity: 1,
-          y: 0,
-          ease: "power4.inOut",
-          scrollTrigger: {
-            id: `section-${index + 1}`,
-            trigger: el,
-            start: "top bottom",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
+      });
     });
+
+    return () => {
+      aLeaderRow.current.forEach((el, index) => {
+        ScrollTrigger.getById(`team-${index+1}`).kill();
+      })
+    }
   }, []);
 
   const addToRefs = (el) => {
