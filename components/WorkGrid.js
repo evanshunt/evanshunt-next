@@ -40,6 +40,13 @@ const WorkGrid = (props) => {
 
     });
 
+    return () => {
+      revealRefs.current.forEach((el, index) => {
+        console.log("in unmount?");
+        ScrollTrigger.getById(`section-${index+1}`).kill();
+      })
+    }
+
   }, []);
 
   const addToRefs = el => {

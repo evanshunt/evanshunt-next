@@ -22,6 +22,7 @@ class OurCulture extends React.Component {
     this.ml = gsap.timeline({
       paused: true,
       scrollTrigger: {
+        id: "our-culture-st",
         trigger: this.trigger,
         scrub: false,
         start: "20% center",
@@ -87,6 +88,8 @@ class OurCulture extends React.Component {
 
     // Lets Play the Animation at all breakpoints for now
     this.startAnimations();
+
+    // Leaving this in just in case we need this animation to only play for certain sizes
     // ScrollTrigger.matchMedia({
     //   /* Only play animation on desktop sizes */
     //   '(min-width: 992px)': () => {
@@ -96,7 +99,7 @@ class OurCulture extends React.Component {
   }
 
   componentWillUnmount() {
-    this.ml.kill();
+    ScrollTrigger.getById("our-culture-st").kill();
   }
   
   render() {

@@ -38,10 +38,8 @@ const DecorativeLine = (props) => {
     const handleResize = () => {
       if (window.innerWidth < 720) {
         setLineImage('down-short')
-        console.log(lineImage);
       } else {
         setLineImage(desktopStyle)
-        console.log(lineImage);
       }
     }
 

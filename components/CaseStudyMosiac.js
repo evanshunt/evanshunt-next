@@ -20,6 +20,7 @@ class CaseStudyMosiac extends React.Component {
     this.ml = gsap.timeline({
       paused: true,
       scrollTrigger: {
+        id: "mosiac-st",
         trigger: this.trigger,
         pin: this.wrapper,
         scrub: true,
@@ -83,19 +84,10 @@ class CaseStudyMosiac extends React.Component {
           this.startAnimations();
       }
     });
-
-    // this.ml.to(this.img1, { duration: 1, width: '110%', height: '110%' }, 0)
-    // this.ml.to(this.title1, { duration: 0.5, opacity: 1 }, 1)
-    // this.ml.to(this.title1, { duration: 0.5, opacity: 0 }, 2)
-    // this.ml.to(this.img1, { duration: 1, height: '100%' }, 2)
-    // this.ml.from(this.title2, { duration: 1, opacity: 0 }, 2.2)
-    // this.ml.to(this.img1, { duration: 0.5, opacity: 0 }, 3)
-    // this.ml.to(this.img2, { duration: 1, width: '60%', height: '60%', transform: 'translate(-50%, -50%)' }, 3)
-    // this.ml.to(this.title2, { duration: 1, color: 'rgba(0, 0, 0, 0)' }, 3);
   }
 
   componentWillUnmount() {
-    this.ml.kill();
+    ScrollTrigger.getById("mosiac-st").kill();
   }
 
   render() {
