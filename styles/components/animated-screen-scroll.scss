@@ -129,20 +129,20 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
       }
     }
     .screen-img {
-      border: 1px solid green;
       width: auto;
     }
     .device-screen {
-      border-radius: 35px 35px 0 0;
-      border: 1px solid blue;
-      margin: 36px 56px 0 58px;
-      max-height: 410px;
-      @media (min-width: $tablet) {
-        height: 75%;
-      }
+      display: none;
       @media (min-width: $desktop) {
+        display: block;
+        border-radius: 32px 32px 0 0;
+        margin: 35px 46px 0 54px;
         height: 100%;
         max-height: 600px;
+      }
+      @media (min-width: $desktop-large) {
+        border-radius: 35px 35px 0 0;
+        margin: 38px 49px 0 57px;
       }
     }
   }
