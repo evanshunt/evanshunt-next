@@ -15,9 +15,9 @@ const StaggeredImagesWithText = (props) => {
       gsap.registerPlugin(ScrollTrigger);
       gsap.core.globals("ScrollTrigger", ScrollTrigger);
     }
+
      // Tiles that fade in
      revealRefs.current.forEach((el, index) => {
-
       gsap.fromTo(el, {
         opacity: 0,
         y: 50
@@ -35,6 +35,12 @@ const StaggeredImagesWithText = (props) => {
       });
 
     });
+
+    return () => {
+      revealRefs.current.forEach((el, index) => {
+        ScrollTrigger.getById(`section-${index+1}`).kill();
+      })
+    }
 
   }, []);
 

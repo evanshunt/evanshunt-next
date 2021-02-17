@@ -53,7 +53,7 @@ class SlideItemVideo extends React.Component {
               />
             </div>
             <div className="text-wrapper">
-            <div className="inline-video-play">
+            <div className="video-control">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.97 25.67" className="play-pause">
                 <g className="play">
                   <path className="play-1" d="M0 0 0 25.67 8 20.79 8 4.88 0 0" />

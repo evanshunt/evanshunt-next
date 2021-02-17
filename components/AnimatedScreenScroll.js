@@ -14,25 +14,6 @@ class AnimatedScreenScroll extends React.Component {
     this.scrollAmount = props.animationValue;
   }
 
-
-
-  startAnimations() {
-    this.ml = gsap.timeline({
-      paused: true,
-      scrollTrigger: {
-        trigger: this.trigger,
-        pin: this.wrapper,
-        scrub: true,
-        start: "bottom 100%"
-      }
-    });
-    this.ml.to(this.img1, {
-      duration: 2,
-      yPercent: this.scrollAmount,
-      ease: 'power4.inout'
-    });
-  }
-
   componentDidMount() {
 
     if (typeof window !== `undefined`) {
@@ -40,16 +21,32 @@ class AnimatedScreenScroll extends React.Component {
       gsap.core.globals("ScrollTrigger", ScrollTrigger);
     }
 
-    ScrollTrigger.matchMedia({
-      /* Only play animation on desktop sizes */
+    // component #1 animations
+    let c1 = ScrollTrigger.matchMedia({
       '(min-width: 992px)': () => {
-          this.startAnimations();
+        c1 = gsap.timeline({
+          paused: true,
+          scrollTrigger: {
+            id: "animated-screen-st",
+            trigger: this.trigger,
+            pin: this.wrapper,
+            scrub: true,
+            start: "bottom 100%"
+          }
+        }),
+        c1.to(this.img1, {
+          duration: 2,
+          yPercent: this.scrollAmount,
+          ease: 'power4.inout'
+        });
       }
     });
   }
 
   componentWillUnmount() {
-    this.ml.kill();
+    //this.ml.kill();
+    //this.ml.scrollTrigger.kill();
+    ScrollTrigger.getById("animated-screen-st").kill();
   }
 
   render() {

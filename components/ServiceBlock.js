@@ -75,6 +75,7 @@ const ServiceBlockImage = (props) => {
   let imgBg = useRef(null);
   let imgLeft = useRef(null);
   let imgRight = useRef(null);
+  const tl = React.useRef();
 
   useEffect(() => {
     if (typeof window !== `undefined`) {
@@ -83,7 +84,7 @@ const ServiceBlockImage = (props) => {
     }
 
     if (imgTrigger.current != null) {
-      const tl = gsap.timeline({defaults: {duration: 10, ease:'none' },
+      tl.current = gsap.timeline({defaults: {duration: 10, ease:'none' },
         paused: true,
         scrollTrigger: {
           trigger: imgTrigger.current,
@@ -94,9 +95,13 @@ const ServiceBlockImage = (props) => {
         }
       });
 
-      tl.fromTo(imgBg.current, {opacity: 0, y: 50}, { duration: 1, opacity: 1, y: 0, ease: 'power4.out' }, "bgIn")
+      tl.current.fromTo(imgBg.current, {opacity: 0, y: 50}, { duration: 1, opacity: 1, y: 0, ease: 'power4.out' }, "bgIn")
         .fromTo(imgRight.current, {opacity: 0, x: 50}, { duration: 0.8, opacity: 1, x: 0, ease: 'power4.out' }, "bgIn+=0.5")
         .fromTo(imgLeft.current, {opacity: 0, x: -50}, { duration: 0.8, opacity: 1, x: 0, ease: 'power4.out'}, "bgIn+=1");
+    }
+
+    return () => {
+      tl.current && tl.current.kill();
     }
 
   }, [])

@@ -10,6 +10,7 @@ const DecorativeLine = (props) => {
   const [lineImage, setLineImage] = useState("")
   let lineTrigger = useRef(null);
   let lineRef = useRef(null);
+  const tlLine = React.useRef();
 
   useEffect(() => {
     if (typeof window !== `undefined`) {
@@ -19,9 +20,10 @@ const DecorativeLine = (props) => {
     }
 
     if (lineRef.current != null) {
-      const tl = gsap.timeline({defaults: {duration: 10, ease:'none' },
+      tlLine.current = gsap.timeline({defaults: {duration: 10, ease:'none' },
         paused: true,
         scrollTrigger: {
+          id: "line-st",
           trigger: lineTrigger.current,
           scrub: true,
           start: 'top center',
@@ -30,16 +32,14 @@ const DecorativeLine = (props) => {
         }
       });
 
-      tl.fromTo(lineRef.current, {drawSVG: "0%"}, {drawSVG: "100%", ease: 'power4.inout'}, 0)
+      tlLine.current.fromTo(lineRef.current, {drawSVG: "0%"}, {drawSVG: "100%", ease: 'power4.inout'}, 0)
     }
 
     const handleResize = () => {
       if (window.innerWidth < 720) {
         setLineImage('down-short')
-        console.log(lineImage);
       } else {
         setLineImage(desktopStyle)
-        console.log(lineImage);
       }
     }
 
@@ -51,6 +51,8 @@ const DecorativeLine = (props) => {
     }
     return () => {
       window.removeEventListener('resize', handleResize)
+      // on unmount we should remove our timeline to prevent SSR weirdness
+      tlLine.current && tlLine.current.kill();
     }
 
   }, [desktopStyle, lineImage])

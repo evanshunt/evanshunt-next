@@ -40,6 +40,12 @@ const WorkGrid = (props) => {
 
     });
 
+    return () => {
+      revealRefs.current.forEach((el, index) => {
+        ScrollTrigger.getById(`section-${index+1}`).kill();
+      })
+    }
+
   }, []);
 
   const addToRefs = el => {

@@ -20,11 +20,11 @@ const LogoGrid = (props) => {
       gsap.registerPlugin(ScrollTrigger);
       gsap.core.globals("ScrollTrigger", ScrollTrigger);
     }
-    
-    
+
     const masterTl = gsap.timeline({
       paused: true,
       scrollTrigger: {
+        id: "logo-grid-st",
         trigger: logoGridTrigger.current,
         scrub: false,
         markers: false,
@@ -46,7 +46,7 @@ const LogoGrid = (props) => {
         y: 0,
         ease: 'power4.inOut',
         scrollTrigger: {
-          id: `section-${index+1}`,
+          id: `logo-${index+1}`,
           trigger: el,
           start: 'top bottom',
           toggleActions: 'play none none reverse'
@@ -66,6 +66,12 @@ const LogoGrid = (props) => {
     }
 
     masterTl.add(animateLogoGrid());
+
+    return () => {
+      aLogoRow.current.forEach((el, index) => {
+        ScrollTrigger.getById(`logo-${index+1}`).kill();
+      })
+    }
 
   }, []);
 
