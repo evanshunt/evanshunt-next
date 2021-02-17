@@ -197,8 +197,32 @@
         font-size: 30px;
       }
     }
-    .inline-video-play {
+    .video-control {
+      display: flex;
+      align-items: center;
+      z-index: 10;
+      border: none;
+      outline: none;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-right: 1rem;
+      color: $black;
+      height: 42px;
+      width: 42px;
+      border-radius: 50%;
+      border: 1px solid $grey;
+      @media (min-width: $tablet) {
+        height: 50px;
+        width: 50px;
+      }
+      svg.play-pause {
+        max-height: 25px;
+        @media (min-width: $desktop-large) {
+          max-height: 32px;
+        }
+      }
     }
   }
   
