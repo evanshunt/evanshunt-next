@@ -53,5 +53,10 @@
     @media (min-width: $desktop) {
       padding-left: 80px;
     }
+    .description {
+      @media (min-width: $desktop) {
+        max-width: 700px;
+      }
+    }
   }
 }
