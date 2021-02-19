@@ -16,61 +16,6 @@ class CaseStudyMosiac extends React.Component {
     this.img4 = null;
   }
 
-  startAnimations() {
-    this.ml = gsap.timeline({
-      paused: true,
-      scrollTrigger: {
-        id: "mosiac-st",
-        trigger: this.trigger,
-        pin: this.wrapper,
-        scrub: true,
-        start: "35% center"
-      }
-    });
-    // Feature Image shrinking down from center
-    this.ml.to(this.featureImg, {
-      duration: 1.5,
-      scaleX: 0.435,
-      scaleY: 0.4,
-      transformOrigin:"center top",
-      y: 53,
-      xPercent: 3.25,
-      ease: "power4.Out"
-    }, 'featureDone')
-    .fromTo(this.img1, {
-      xPercent: -130,
-    },
-    {
-      duration: 1.5,
-      xPercent: 0,
-      ease: "power4.Out",
-    }, 'featureDone')
-    .fromTo(this.img2, {
-      xPercent: -130,
-    },
-    {
-      duration: 1.5,
-      xPercent: 0,
-      ease: "power4.Out",
-    }, 'featureDone')
-    .fromTo(this.img3, {
-      yPercent: 130,
-    },
-    {
-      duration: 1.5,
-      yPercent: 0,
-      ease: "power4.Out",
-    }, 'featureDone')
-    .fromTo(this.img4, {
-      xPercent: 130,
-    },
-    {
-      duration: 1.5,
-      xPercent: 0,
-      ease: "power4.Out",
-    }, 'featureDone');
-  }
-
   componentDidMount() {
 
     if (typeof window !== `undefined`) {
@@ -78,12 +23,66 @@ class CaseStudyMosiac extends React.Component {
       gsap.core.globals("ScrollTrigger", ScrollTrigger);
     }
 
-    ScrollTrigger.matchMedia({
-      /* Only play animation on desktop sizes */
+    // Mosiac Animation
+    let c1 = ScrollTrigger.matchMedia({
       '(min-width: 992px)': () => {
-          this.startAnimations();
+        c1 = gsap.timeline({
+          paused: true,
+          scrollTrigger: {
+            id: "mosiac-st",
+            trigger: this.trigger,
+            pin: this.wrapper,
+            scrub: 1,
+            start: "35% center",
+            markers: true,
+            invalidateOnRefresh: true
+          }
+        }),
+        // Feature Image shrinking down from center
+        c1.to(this.featureImg, {
+          duration: 1.5,
+          scaleX: 0.435,
+          scaleY: 0.4,
+          transformOrigin:"center top",
+          y: 53,
+          xPercent: 3.25,
+          ease: "power4.Out"
+        }, 'featureDone')
+        .fromTo(this.img1, {
+          xPercent: -130,
+        },
+        {
+          duration: 1.5,
+          xPercent: 0,
+          ease: "power4.Out",
+        }, 'featureDone')
+        .fromTo(this.img2, {
+          xPercent: -130,
+        },
+        {
+          duration: 1.5,
+          xPercent: 0,
+          ease: "power4.Out",
+        }, 'featureDone')
+        .fromTo(this.img3, {
+          yPercent: 130,
+        },
+        {
+          duration: 1.5,
+          yPercent: 0,
+          ease: "power4.Out",
+        }, 'featureDone')
+        .fromTo(this.img4, {
+          xPercent: 130,
+        },
+        {
+          duration: 1.5,
+          xPercent: 0,
+          ease: "power4.Out",
+        }, 'featureDone');
       }
     });
+    ScrollTrigger.refresh();
   }
 
   componentWillUnmount() {
@@ -98,7 +97,6 @@ class CaseStudyMosiac extends React.Component {
     return(
       <section className="case-study-mosiac">
         <div ref={div => (this.trigger = div)} className="scroll-container">
-          <div className="blank" />
           <div ref={div => (this.wrapper = div)} className="wrapper">
             <div className="case-study-mosiac-columns">
               <div className="case-study-mosiac-column case-study-mosiac-column-1">
@@ -115,7 +113,6 @@ class CaseStudyMosiac extends React.Component {
             </div>
             {feature && <img ref={div => (this.featureImg = div)} className="feature-img" src={feature.fields.file.url} alt={feature.fields.file.url} />}
           </div>
-          <div className="blank" />
         </div>
       </section>
     )

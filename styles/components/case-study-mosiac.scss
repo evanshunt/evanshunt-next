@@ -1,6 +1,9 @@
 .case-study-mosiac {
   position: relative;
   margin-bottom: 45px;
+  @media (min-width: $desktop) {
+    min-height: 780px;
+  }
 
   .scroll-container {
     width: 100%;
@@ -12,6 +15,9 @@
     height: 100%;
     position: relative;
     overflow: hidden;
+    @media (min-width: $desktop) {
+      min-height: 700px;
+    }
   }
 
   .feature-img {
@@ -23,6 +29,7 @@
       position: absolute;
       top: 0;
       left: 0;
+      min-height: 700px;
     }
   }
 

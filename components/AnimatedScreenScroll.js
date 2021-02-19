@@ -25,13 +25,15 @@ class AnimatedScreenScroll extends React.Component {
     let c1 = ScrollTrigger.matchMedia({
       '(min-width: 992px)': () => {
         c1 = gsap.timeline({
-          paused: true,
           scrollTrigger: {
             id: "animated-screen-st",
             trigger: this.trigger,
             pin: this.wrapper,
-            scrub: true,
-            start: "bottom 100%"
+            scrub: 1,
+            markers: true,
+            invalidateOnRefresh: true,
+            start: "top top",
+            toggleActions: 'play none none reverse'
           }
         }),
         c1.to(this.img1, {
@@ -41,6 +43,7 @@ class AnimatedScreenScroll extends React.Component {
         });
       }
     });
+    ScrollTrigger.refresh();
   }
 
   componentWillUnmount() {
