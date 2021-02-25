@@ -12,6 +12,7 @@ class AnimatedScreenScroll extends React.Component {
     this.wrapper = null;
     this.img1 = null;
     this.scrollAmount = props.animationValue;
+    this.afterLoad = this.afterLoad.bind(this);
   }
 
   componentDidMount() {
@@ -43,13 +44,16 @@ class AnimatedScreenScroll extends React.Component {
         });
       }
     });
-    ScrollTrigger.refresh();
+    window.addEventListener('load', this.afterLoad);
   }
 
   componentWillUnmount() {
-    //this.ml.kill();
-    //this.ml.scrollTrigger.kill();
+    window.removeEventListener('load', this.handleLoad)
     ScrollTrigger.getById("animated-screen-st").kill();
+  }
+
+  afterLoad() {
+    ScrollTrigger.getById("animated-screen-st").refresh();
   }
 
   render() {
