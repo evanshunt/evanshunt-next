@@ -37,13 +37,21 @@ const ImagesBlock = (props) => {
               id: `images-block-item-${index+1}`,
               trigger: el,
               start: 'top center+=150',
+              end: "+=800",
               markers: true,
+              invalidateOnRefresh: true,
+              refreshPriority: 2,
               toggleActions: 'play none none reverse'
             }
           });
         });
       }
     });
+
+    revealRefs.current.forEach((el, index) => {
+      ScrollTrigger.getById(`images-block-item-${index+1}`).refresh();
+    })
+
 
     return () => {
       revealRefs.current.forEach((el, index) => {
@@ -55,7 +63,7 @@ const ImagesBlock = (props) => {
 
   const addToRefs = el => {
     if (el && !revealRefs.current.includes(el)) {
-        revealRefs.current.push(el);
+      revealRefs.current.push(el);
     }
   };
 
