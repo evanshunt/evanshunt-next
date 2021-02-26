@@ -10,7 +10,9 @@ const RelatedWork = (props) => {
         <div className="related-work-header">
           <h6 className="base-font-medium">Related Work</h6>
           <Link href="/our-work">
-            <a>See all work &gt;</a>
+            <a className="cta-animate-arrow">See all work
+            <img src="/images/small-right-arrow.svg" alt="Black arrow pointing right" className="black-arrow" />
+            </a>
           </Link>
         </div>
         <div className="related-work-flex">
