@@ -20,9 +20,9 @@ const ImagesBlock = (props) => {
       gsap.core.globals("ScrollTrigger", ScrollTrigger);
     }
 
-    ScrollTrigger.matchMedia({
+    //ScrollTrigger.matchMedia({
       /* Only play animation on desktop sizes */
-      '(min-width: 992px)': () => {
+      //'(min-width: 992px)': () => {
         // Tiles that fade in
         revealRefs.current.forEach((el, index) => {
           gsap.fromTo(el, {
@@ -45,8 +45,8 @@ const ImagesBlock = (props) => {
             }
           });
         });
-      }
-    });
+      //}
+    //});
 
     revealRefs.current.forEach((el, index) => {
       ScrollTrigger.getById(`images-block-item-${index+1}`).refresh();
