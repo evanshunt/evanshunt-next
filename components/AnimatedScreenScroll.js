@@ -48,7 +48,7 @@ class AnimatedScreenScroll extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('load', this.handleLoad)
+    window.removeEventListener('load', this.afterLoad)
     ScrollTrigger.getById("animated-screen-st").kill();
   }
 
