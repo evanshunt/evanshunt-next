@@ -20,15 +20,18 @@ const WorkDetails = (content) => {
     });
   }
 
-  // This is a fix for this issue:
-  // https://greensock.com/forums/topic/27307-scrolltrigger-marker-positions-shift-position-animation-sometimes-starts-off-screen/
-  // We need to re-run ScrollTrigger.refresh AFTER our components have loaded, otherwise the trigger positions are misaligned
+  /* This is a fix for this issue:
+    https://greensock.com/forums/topic/27307-scrolltrigger-marker-positions-shift-position-animation-sometimes-starts-off-screen/
+    We need to re-run ScrollTrigger.refresh AFTER all our components have loaded on the page, otherwise the trigger
+    positions are misaligned as you navigate back and forth between Case Study pages.
+    This solution is pretty jank, please feel free to adjust/change as needed!
+  */
   useEffect(() => {
     if (typeof window !== `undefined`) {
       gsap.registerPlugin(ScrollTrigger);
       gsap.core.globals("ScrollTrigger", ScrollTrigger);
     }
-    
+
     afterLoaded()
     .then(() => {
       console.log('Content loaded!');
