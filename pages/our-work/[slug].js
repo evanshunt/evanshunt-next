@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Layout from "../../layouts/Page";
 import PageMeta from "../../components/PageMeta";
 import renderComponents from "../../components/ComponentList";
@@ -10,28 +10,34 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-if (typeof window !== `undefined`) {
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.core.globals("ScrollTrigger", ScrollTrigger);
-}
-
 const WorkDetails = (content) => {
 
-  const [data, dataSet] = useState(null);
-
+  function afterLoaded() {
+    return new Promise((resolve, reject) => {
+      setTimeout(function() {
+        content ? resolve() : reject();
+      }, 2000);
+    });
+  }
 
   // This is a fix for this issue:
   // https://greensock.com/forums/topic/27307-scrolltrigger-marker-positions-shift-position-animation-sometimes-starts-off-screen/
   // We need to re-run ScrollTrigger.refresh AFTER our components have loaded, otherwise the trigger positions are misaligned
   useEffect(() => {
-    const fetchData = async () => {
-      let response = await content;
-      dataSet(response);
+    if (typeof window !== `undefined`) {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.core.globals("ScrollTrigger", ScrollTrigger);
+    }
+    
+    afterLoaded()
+    .then(() => {
+      console.log('Content loaded!');
       ScrollTrigger.refresh();
-    };
-    fetchData();
+    })
+    .catch(() => {
+      console.error('Content loading failed!');
+    });
   }, []);
-
 
 
   if (!content) {

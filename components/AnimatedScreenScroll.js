@@ -17,7 +17,7 @@ const AnimatedScreenScroll = (props) => {
     // '(min-width: 992px)': () => {
     let c1 = gsap.timeline({
       scrollTrigger: {
-        id: "screen",
+        id: "animated-screen-st",
         trigger: trigger.current,
         pin: wrapper.current,
         scrub: 1,
@@ -34,11 +34,14 @@ const AnimatedScreenScroll = (props) => {
     // }
     // });
 
+
+
     // unmount
     return () => {
-      c1.kill();
+      ScrollTrigger.getById("animated-screen-st").kill();
+      //c1.kill();
     };
-  }, []);
+  }, [scrollAmount]);
 
 
   return (
