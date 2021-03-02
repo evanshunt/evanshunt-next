@@ -5,11 +5,12 @@ import classNames from 'classnames'
 gsap.registerPlugin(ScrollTrigger);
 
 const AnimatedScreenScroll = (props) => {
-  const { background, screen, foreground, additionalClass } = props;
+  const { background, screen, foreground, additionalClass, animationValue } = props;
   let classes = classNames('animated-screen-scroll', {[`${additionalClass}`]: additionalClass})
   let trigger = useRef(null);
   let wrapper = useRef(null);
   let img1 = useRef(null);
+  let scrollAmount = animationValue;
 
   useEffect(() => {
     // component #1 animations
@@ -28,7 +29,7 @@ const AnimatedScreenScroll = (props) => {
 
     c1.to(img1.current, {
       duration: 2,
-      yPercent: -70,
+      yPercent: scrollAmount,
       ease: "power4.inOut"
     });
     // }
