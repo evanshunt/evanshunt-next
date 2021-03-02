@@ -18,11 +18,6 @@ class CaseStudyMosiac extends React.Component {
 
   componentDidMount() {
 
-    if (typeof window !== `undefined`) {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.core.globals("ScrollTrigger", ScrollTrigger);
-    }
-
     // Mosiac Animation
     let c1 = ScrollTrigger.matchMedia({
       '(min-width: 992px)': () => {
@@ -82,7 +77,6 @@ class CaseStudyMosiac extends React.Component {
         }, 'featureDone');
       }
     });
-    ScrollTrigger.refresh();
   }
 
   componentWillUnmount() {

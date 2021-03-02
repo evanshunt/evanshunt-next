@@ -13,7 +13,6 @@ const AnimatedScreenScroll = (props) => {
   let scrollAmount = animationValue;
 
   useEffect(() => {
-    // component #1 animations
     // let c1 = ScrollTrigger.matchMedia({
     // '(min-width: 992px)': () => {
     let c1 = gsap.timeline({
@@ -29,37 +28,34 @@ const AnimatedScreenScroll = (props) => {
 
     c1.to(img1.current, {
       duration: 2,
-      yPercent: scrollAmount,
+      yPercent: scrollAmount, // grabbed from Contentful, images are different heights
       ease: "power4.inOut"
     });
     // }
     // });
-    //     window.addEventListener('load', this.afterLoad);
-    // }
 
     // unmount
     return () => {
-      //  window.removeEventListener('load', this.afterLoad)
       c1.kill();
     };
   }, []);
 
 
   return (
-      <section className={classes}>
-        <div ref={trigger} className="scroll-container">
-          <div ref={wrapper} className="wrapper">
-            <div className="background-image" style={{backgroundImage: "url(" + background.fields.file.url + ")"}}>
+    <section className={classes}>
+      <div ref={trigger} className="scroll-container">
+        <div ref={wrapper} className="wrapper">
+          <div className="background-image" style={{backgroundImage: "url(" + background.fields.file.url + ")"}}>
             <div className="device-wrapper">
-            {screen && <img className="screen-img img-fluid" src={screen.fields.file.url} alt={screen.fields.file.url} />}
+              {screen && <img className="screen-img img-fluid" src={screen.fields.file.url} alt={screen.fields.file.url} />}
               <div className="device-screen">
                 {foreground && <img ref={img1} className="img1" src={foreground.fields.file.url} alt={foreground.fields.file.url} />}
               </div>
             </div>
           </div>
-          </div>
         </div>
-      </section>
+      </div>
+    </section>
   );
 };
 

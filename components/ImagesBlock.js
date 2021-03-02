@@ -37,11 +37,6 @@ const ImagesBlock = (props) => {
       //}
     //});
 
-    // revealRefs.current.forEach((el, index) => {
-    //   ScrollTrigger.getById(`images-block-item-${index+1}`).refresh();
-    // })
-
-
     return () => {
       revealRefs.current.forEach((el, index) => {
         ScrollTrigger.getById(`images-block-item-${index+1}`).kill();
