@@ -11,7 +11,7 @@ const RelatedWork = (props) => {
           <h6 className="base-font-medium">Related Work</h6>
           <Link href="/our-work">
             <a className="cta-animate-arrow">See all work
-            <img src="/images/small-right-arrow.svg" alt="Black arrow pointing right" className="black-arrow" />
+              <img src="/images/small-right-arrow.svg" alt="Black arrow pointing right" className="black-arrow" />
             </a>
           </Link>
         </div>
@@ -24,11 +24,11 @@ const RelatedWork = (props) => {
                     {work.fields.squareImage && (
                       <img src={work.fields.squareImage.fields.file.url} alt={work.fields.squareImage.fields.file.description} className="img-fluid" />
                     )}
-                    {work.fields.title && (
-                      <h6 className="base-font-medium related-work-title">{work.fields.title}</h6>
-                    )}
                   </a>
                 </Link>
+                {work.fields.title && (
+                  <h6 className="base-font-medium related-work-title">{work.fields.title}</h6>
+                )}
               </div>
             )
           })}

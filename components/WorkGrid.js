@@ -55,12 +55,12 @@ const WorkGrid = (props) => {
   };
 
   const { workPages } = props;
+  const initialTilesToShow = 12;
+
   if (!workPages) {
     return null;
   }
   
-  const initialTilesToShow = 12
-
   return (
     <section className="work-grid">
       <div className="container">
