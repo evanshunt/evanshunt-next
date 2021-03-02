@@ -49,6 +49,8 @@ The different "variants" are:
       width: calc(50% - 5px);
       height: 50vw;
       object-fit: cover;
+      opacity: 0;
+      transform: translateY(50px);
 
       @media (min-width: $tablet) {
         width: auto;

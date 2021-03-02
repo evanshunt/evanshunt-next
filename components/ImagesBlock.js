@@ -15,42 +15,31 @@ const ImagesBlock = (props) => {
 
   useEffect(() => {
 
-    if (typeof window !== `undefined`) {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.core.globals("ScrollTrigger", ScrollTrigger);
-    }
-
     //ScrollTrigger.matchMedia({
       /* Only play animation on desktop sizes */
       //'(min-width: 992px)': () => {
         // Tiles that fade in
         revealRefs.current.forEach((el, index) => {
-          gsap.fromTo(el, {
-            opacity: 0,
-            y: 50
-          }, {
+          gsap.to(el, {
             duration: 1.5,
             opacity: 1,
             y: 0,
-            ease: 'power4.inOut',
+            ease: "power4.inOut",
             scrollTrigger: {
-              id: `images-block-item-${index+1}`,
+              id: `images-block-item-${index + 1}`,
               trigger: el,
-              start: 'top center+=150',
-              end: "+=800",
+              start: "top center+=150",
               markers: true,
-              invalidateOnRefresh: true,
-              refreshPriority: 2,
-              toggleActions: 'play none none reverse'
+              toggleActions: "play none none reverse"
             }
           });
         });
       //}
     //});
 
-    revealRefs.current.forEach((el, index) => {
-      ScrollTrigger.getById(`images-block-item-${index+1}`).refresh();
-    })
+    // revealRefs.current.forEach((el, index) => {
+    //   ScrollTrigger.getById(`images-block-item-${index+1}`).refresh();
+    // })
 
 
     return () => {
