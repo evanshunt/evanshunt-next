@@ -13,9 +13,9 @@ const AnimatedScreenScroll = (props) => {
   let scrollAmount = animationValue;
 
   useEffect(() => {
-    // let c1 = ScrollTrigger.matchMedia({
-    // '(min-width: 992px)': () => {
-    let c1 = gsap.timeline({
+    let c1 = ScrollTrigger.matchMedia({
+    '(min-width: 992px)': () => {
+    c1 = gsap.timeline({
       scrollTrigger: {
         id: "animated-screen-st",
         trigger: trigger.current,
@@ -31,10 +31,8 @@ const AnimatedScreenScroll = (props) => {
       yPercent: scrollAmount, // grabbed from Contentful, images are different heights
       ease: "power4.inOut"
     });
-    // }
-    // });
-
-
+    }
+  });
 
     // unmount
     return () => {
