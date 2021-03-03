@@ -79,15 +79,41 @@ const ImagesBlock = (props) => {
       <div className="images-block-columns">
       {firstColumn && <div className="images-block-column images-block-column-1">
         {firstColumn.map((img, i) => {
+          let mediaType = img.fields.file.contentType
           return (
-            <img key={i} ref={addToRefs} src={img.fields.file.url} alt={img.fields.file.description} className="img-fluid" />
+            <div className="item" key={i} ref={addToRefs}>
+            {/* Media can be a video or image */}
+              {mediaType.indexOf('video/') !== -1 &&
+                <video autoPlay muted loop playsInline className="video-fluid">
+                  <source src={img.fields.file.url} type="video/mp4" />
+                  Your browser does not support video tags.
+                </video>
+              }
+
+              {mediaType.indexOf('image/') !== -1 &&
+                <img src={img.fields.file.url} alt={img.fields.file.description} className="img-fluid" />
+              }
+            </div>
           )
         })}
         </div>}
         {secondColumn &&<div className="images-block-column images-block-column-2">
         {secondColumn.map((img, i) => {
+          let mediaType = img.fields.file.contentType
           return (
-            <img key={i} ref={addToRefs} src={img.fields.file.url} alt={img.fields.file.description} className="img-fluid" />
+            <div className="item" key={i} ref={addToRefs}>
+            {/* Media can be a video or image */}
+              {mediaType.indexOf('video/') !== -1 &&
+                <video autoPlay muted loop playsInline className="video-fluid">
+                  <source src={img.fields.file.url} type="video/mp4" />
+                  Your browser does not support video tags.
+                </video>
+              }
+
+              {mediaType.indexOf('image/') !== -1 &&
+                <img src={img.fields.file.url} alt={img.fields.file.description} className="img-fluid" />
+              }
+            </div>
           )
         })}
         </div>}
