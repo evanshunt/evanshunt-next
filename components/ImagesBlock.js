@@ -13,19 +13,6 @@ const ImagesBlock = (props) => {
   const mobileImages = [...firstColumn, ...secondColumn]
   revealRefs.current = [];
 
-  /* This is a fix for this issue:
-    https://greensock.com/forums/topic/27307-scrolltrigger-marker-positions-shift-position-animation-sometimes-starts-off-screen/
-    We need to re-run ScrollTrigger.refresh AFTER all our components have loaded on the page, otherwise the trigger
-    positions are misaligned as you navigate back and forth between Case Study pages.
-    This solution is pretty jank, please feel free to adjust/change as needed!
-  */
-  function afterLoaded() {
-    return new Promise((resolve, reject) => {
-      setTimeout(function() {
-        props ? resolve() : reject();
-      }, 3000);
-    });
-  }
 
   useEffect(() => {
 
@@ -51,6 +38,20 @@ const ImagesBlock = (props) => {
       }
     });
 
+  /* This is a fix for this issue:
+    https://greensock.com/forums/topic/27307-scrolltrigger-marker-positions-shift-position-animation-sometimes-starts-off-screen/
+    We need to re-run ScrollTrigger.refresh AFTER all our components have loaded on the page, otherwise the trigger
+    positions are misaligned as you navigate back and forth between Case Study pages.
+    This solution is pretty jank, please feel free to adjust/change as needed!
+  */
+  function afterLoaded() {
+    return new Promise((resolve, reject) => {
+      setTimeout(function() {
+        props ? resolve() : reject();
+      }, 3000);
+    });
+  }
+
     afterLoaded()
     .then(() => {
       console.log('Images Block loaded!');
@@ -66,7 +67,7 @@ const ImagesBlock = (props) => {
       })
     }
 
-  }, [afterLoaded]);
+  }, [props]);
 
   const addToRefs = el => {
     if (el && !revealRefs.current.includes(el)) {
