@@ -117,8 +117,8 @@ const ImagesBlock = (props) => {
             </div>
           )
         })}
-        </div>}
-      </div>
+      </div>}
+    </div>
       
       <CarouselProvider
         naturalSlideWidth={260}

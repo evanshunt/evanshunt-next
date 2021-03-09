@@ -43,9 +43,15 @@ The different "variants" are:
       width: auto;
     }
 
+    // Animations kick in at > 992px ($desktop)
     .item {
-      opacity: 0;
-      transform: translateY(50px);
+      @media (max-width: 991px) {
+        opacity: 1 !important;
+      }
+      @media (min-width: $desktop) {
+        opacity: 0;
+        transform: translateY(50px);
+      }
     }
     
     img, video {
