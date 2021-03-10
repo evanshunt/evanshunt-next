@@ -58,7 +58,7 @@ const WorkDetails = (content) => {
         />
       )}
       
-      {/* A bit weird to have the hero here too, but for now it will do */}
+      {/* Hero Banner for Case Studies - can have video */}
       {content.fields.heroBanner && (
         <HeroBanner
           gradientHero={content.fields.heroBanner.fields.gradientHero}
@@ -71,8 +71,8 @@ const WorkDetails = (content) => {
             content.fields.heroBanner.fields.backgroundImage.fields.file.url
           }
           backgroundVideo={
-            content.fields.heroBanner.fields.backgroundVideo &&
-            content.fields.heroBanner.fields.backgroundVideo.fields.file.url
+            content.fields.heroBanner.fields.video &&
+            content.fields.heroBanner.fields.video.fields.file.url
           }
           smallText={content.fields.heroBanner.fields.smallText}
           largeText={content.fields.heroBanner.fields.largeText}
