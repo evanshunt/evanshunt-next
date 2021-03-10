@@ -10,9 +10,13 @@ const AnimatedScreenScroll = (props) => {
   let trigger = useRef(null);
   let wrapper = useRef(null);
   let img1 = useRef(null);
+
+  // TODO: If we end up having more then one case study needing to animate horizontally, move this config into Contentful
+  let orientation = additionalClass === `horizontal` ? `horizontal` : `vertical`;
   let scrollAmount = animationValue;
 
   useEffect(() => {
+
     let c1 = ScrollTrigger.matchMedia({
     '(min-width: 992px)': () => {
     c1 = gsap.timeline({
@@ -26,11 +30,21 @@ const AnimatedScreenScroll = (props) => {
       }
     });
 
-    c1.to(img1.current, {
-      duration: 2,
-      yPercent: scrollAmount, // grabbed from Contentful, images are different heights
-      ease: "power4.inOut"
-    });
+
+    if (orientation ===  `horizontal`) {
+      c1.to(img1.current, {
+        duration: 2,
+        xPercent: scrollAmount, // grabbed from Contentful, images are different widths
+        ease: "power4.inOut"
+      });
+    } else {
+      c1.to(img1.current, {
+        duration: 2,
+        yPercent: scrollAmount, // grabbed from Contentful, images are different heights
+        ease: "power4.inOut"
+      });
+    }
+
     }
   });
 

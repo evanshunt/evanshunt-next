@@ -100,6 +100,16 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
     }
   }
 
+  /** DIRTT Case Study - screen animated horizontally not vertically **/
+  &.horizontal {
+    .img1 {
+      @media (min-width: $desktop) {
+        max-width: initial;
+        height: 100%;
+      }
+    }
+  }
+
   /* Used for People's Choice - mobile device and sizing */
   &.mobile {
     .background-image {
