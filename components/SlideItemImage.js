@@ -2,6 +2,7 @@ import React from "react";
 import { Image } from "pure-react-carousel";
 import classNames from "classnames";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 
 class SlideItemImage extends React.Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class SlideItemImage extends React.Component {
                   <div className="text-wrapper">
                     {title && <h6 className={titleClass}>{title}</h6>}
                     {description && (
-                      <p className="slide-description">{description}</p>
+                      <ReactMarkdown className="slide-description" source={description} />
                     )}
                   </div>
                 </a>
@@ -57,7 +58,7 @@ class SlideItemImage extends React.Component {
                 <div className="text-wrapper">
                   {title && <h6 className={titleClass}>{title}</h6>}
                   {description && (
-                    <p className="slide-description">{description}</p>
+                    <ReactMarkdown className="slide-description" source={description} />
                   )}
                 </div>
               </div>
@@ -87,7 +88,7 @@ class SlideItemImage extends React.Component {
             )}
 
             {title && <h6 className={titleClass}>{title}</h6>}
-            {description && <p className="slide-description">{description}</p>}
+            {description && <ReactMarkdown className="slide-description" source={description} />}
           </div>
         )}
       </div>

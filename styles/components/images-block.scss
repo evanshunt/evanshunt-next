@@ -42,8 +42,19 @@ The different "variants" are:
     @media (min-width: $tablet) {
       width: auto;
     }
+
+    // Animations kick in at > 992px ($desktop)
+    .item {
+      @media (max-width: 991px) {
+        opacity: 1 !important;
+      }
+      @media (min-width: $desktop) {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+    }
     
-    img {
+    img, video {
       margin-bottom: 10px;
       display: inline-block;
       width: calc(50% - 5px);

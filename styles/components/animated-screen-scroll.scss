@@ -49,7 +49,6 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
 
   .device-screen {
     width: auto;
-    max-height: 410px;
     //border: 1px solid blue;
     position: relative;
     overflow: hidden;
@@ -67,8 +66,11 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
       bottom: 0;
     }
     @media (min-width: $desktop) {
-      height: 100%;
-      max-height: 417px;
+      margin: 8px 11px;
+      height: 80%;
+    }
+    @media (min-width: $desktop-large) {
+      margin: 13px 14px;
     }
   }
 
@@ -76,7 +78,7 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
   .img1 {
     width: auto;
     display: none;
-    @media (min-width: $tablet) {
+    @media (min-width: $desktop) {
       display: inline-block;
       max-width: 100%;
     }
@@ -87,13 +89,6 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
   /** AFWI Case Study - screen is left aligned **/
   &.afwi-screen-scroll,
   &.left-aligned {
-    background-image: linear-gradient(136deg, #D6DDE0 0%, #FFFFFF 100%, #D8D8D8 100%);
-    .background-image {
-      background-position: top right;
-      @media (min-width: $tablet) {
-        background-position: 50% 50%;
-      }
-    }
     .device-wrapper {
       margin: 0 8%;
       @media (min-width: $tablet) {
@@ -101,18 +96,17 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
       }
       @media (min-width: $desktop) {
         margin: 0 40% 0 auto;
-        width: 47%;
-        max-width: 660px;
-        margin-top: -5%;
       }
     }
-    .screen-img {
+  }
+
+  /** DIRTT Case Study - screen animated horizontally not vertically **/
+  &.horizontal {
+    .img1 {
       @media (min-width: $desktop) {
-        max-width: 660px;
+        max-width: initial;
+        height: 100%;
       }
-    }
-    .device-screen {
-      max-width: 620px;
     }
   }
 

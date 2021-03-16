@@ -61,7 +61,7 @@ class InlineVideo extends React.Component {
   }
 
   render() {
-    const { title = 'How we work', image, video } = this.props
+    const { title, image, video } = this.props
 
     return (
       <div className="inline-video">

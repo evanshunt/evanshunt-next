@@ -10,7 +10,7 @@ const DecorativeLine = (props) => {
   const [lineImage, setLineImage] = useState("")
   let lineTrigger = useRef(null);
   let lineRef = useRef(null);
-  const tlLine = React.useRef();
+  const tlLine = useRef(null);
 
   useEffect(() => {
     if (typeof window !== `undefined`) {
@@ -28,7 +28,8 @@ const DecorativeLine = (props) => {
           scrub: true,
           start: 'top center',
           toggleActions: 'play none none reverse',
-          markers: false
+          markers: false,
+          invalidateOnRefresh: true
         }
       });
 
