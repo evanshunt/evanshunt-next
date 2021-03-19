@@ -60,7 +60,7 @@ const WorkGrid = (props) => {
   if (!workPages) {
     return null;
   }
-  
+
   return (
     <section className="work-grid">
       <div className="container">
@@ -123,7 +123,7 @@ const WorkGridColumn = ({squareImage, title, slug, servicesList, addToRefs}) => 
               className="work-grid-img-link"
             >
               <img
-                src={squareImage.fields.file.url}
+                src={`${squareImage.fields.file.url}?fm=webp`}
                 className="img-fluid"
                 alt={squareImage.fields.file.description}
               />
