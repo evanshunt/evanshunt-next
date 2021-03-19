@@ -124,7 +124,8 @@ const WorkGridColumn = ({squareImage, title, slug, servicesList, addToRefs}) => 
             >
               <picture>
                 <source srcSet={`${squareImage.fields.file.url}?fm=webp`} />
-                <img className="img-fluid" src={squareImage.fields.file.url} alt={squareImage.fields.file.description} />
+                <source srcSet={`${squareImage.fields.file.url}?fm=jpg`} />
+                <img className="img-fluid" src={squareImage.fields.file.url} alt={squareImage.fields.file.description} width="520" height="570" />
               </picture>
               {/* <img
                 src={`${squareImage.fields.file.url}?fm=webp`}
