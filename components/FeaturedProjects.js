@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import classNames from 'classnames'
 import Link from 'next/link'
 
 const FeaturedProjects = ({ title, projects, cta }) => {
 
   const [ isMobile, setIsMobile ] = useState(false)
-  let hasCustomAnimation = useRef(null);
-  
+
   useEffect(() => {
     window.addEventListener('resize', handleResize)
     if (window && window.innerWidth < 720) {
@@ -65,9 +64,10 @@ const FeaturedProjects = ({ title, projects, cta }) => {
            let classes = classNames('featured-project-item', {[`${customAnimationClass}`]: customAnimationClass})
 
             return (
-              <div className={classes} key={i} ref={hasCustomAnimation}>
+              <div className={classes} key={i}>
                 <Link href={`/our-work/${project.fields.slug}`}>
                   <a title={project.fields.title}>
+                  {/* Checking for video */}
                   {mediaType.indexOf('video/') !== -1 &&
                     <video autoPlay muted loop playsInline className="video-fluid">
                       <source src={mediaUrl} type="video/mp4" />
@@ -76,19 +76,20 @@ const FeaturedProjects = ({ title, projects, cta }) => {
                   }
                   {foregroundImage && foregroundImage.fields.file.url && (
                     <div className="foreground-image">
-                      <img
-                        src={foregroundImage.fields.file.url}
-                        alt={foregroundDesc}
-                        className="img-fluid"
-                      />
+                      <picture>
+                        <source srcSet={`${foregroundImage.fields.file.url}?fm=webp`} type="image/webp" />
+                        <source srcSet={`${foregroundImage.fields.file.url}?fm=jpg`} type="image/jpeg" />
+                        <img className="img-fluid" src={foregroundImage.fields.file.url} alt={foregroundDesc} />
+                      </picture>
                     </div>
                   )}
+                  {/* Checking for image */}
                   {mediaType.indexOf('image/') !== -1 &&
-                    <img
-                      src={mediaUrl}
-                      alt={mediaDesc}
-                      className="img-fluid"
-                    />
+                    <picture>
+                      <source srcSet={`${mediaUrl}?fm=webp`} type="image/webp" />
+                      <source srcSet={`${mediaUrl}?fm=jpg`} type="image/jpeg" />
+                      <img className="img-fluid" src={mediaUrl} alt={mediaDesc} />
+                    </picture>
                   }
                   </a>
                 </Link>

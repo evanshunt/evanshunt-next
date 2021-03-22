@@ -8,10 +8,11 @@ const ServicesIntro = ({ title, intro, image }) => {
 
       {image && (
         <div className="image-container">
-          <img
-            src={image.fields.file.url}
-            alt={image.fields.file.description}
-          />
+          <picture>
+            <source srcSet={`${image.fields.file.url}?fm=webp`} type="image/webp" />
+            <source srcSet={`${image.fields.file.url}?fm=jpg`} type="image/jpeg" />
+            <img src={image.fields.file.url} alt={image.fields.file.description} />
+          </picture>
         </div>
       )}
     </section>
