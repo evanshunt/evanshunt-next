@@ -22,7 +22,11 @@ const RelatedWork = (props) => {
                 <Link href={`${work.fields.link}`}>
                   <a title={work.fields.title} className="related-work-link">
                     {work.fields.squareImage && (
-                      <img src={work.fields.squareImage.fields.file.url} alt={work.fields.squareImage.fields.file.description} className="img-fluid" />
+                      <picture>
+                        <source srcSet={`${work.fields.squareImage.fields.file.url}?fm=webp`} type="image/webp" />
+                        <source srcSet={`${work.fields.squareImage.fields.file.url}?fm=jpg`} type="image/jpeg" />
+                        <img className="img-fluid" src={work.fields.squareImage.fields.file.url} alt={work.fields.squareImage.fields.file.description} />
+                      </picture>
                     )}
                   </a>
                 </Link>
@@ -48,7 +52,7 @@ const RelatedWork = (props) => {
                 <Link href={`${work.fields.link}`}>
                   <a title={work.fields.title} className="related-work-link">
                     {work.fields.squareImage && (
-                      <Image src={work.fields.squareImage.fields.file.url} alt={work.fields.squareImage.fields.file.description}  className="img-fluid images-block-slider-img" />
+                      <Image src={`${work.fields.squareImage.fields.file.url}?fm=webp`} alt={work.fields.squareImage.fields.file.description}  className="img-fluid images-block-slider-img" />
                     )}
                     {work.fields.title && (
                       <h6 className="base-font-medium related-work-title">{work.fields.title}</h6>
