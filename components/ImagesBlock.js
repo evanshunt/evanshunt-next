@@ -30,7 +30,7 @@ const ImagesBlock = (props) => {
               id: `images-block-item-${index + 1}`,
               trigger: el,
               start: "top center+=150",
-              markers: true,
+              markers: false,
               toggleActions: "play none none reverse"
             }
           });

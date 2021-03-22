@@ -29,7 +29,7 @@ class CaseStudyMosiac extends React.Component {
             pin: this.wrapper,
             scrub: 1,
             start: "35% center",
-            markers: true,
+            markers: false,
             invalidateOnRefresh: true
           }
         }),

@@ -25,7 +25,7 @@ const AnimatedScreenScroll = (props) => {
         trigger: trigger.current,
         pin: wrapper.current,
         scrub: 1,
-        markers: true,
+        markers: false,
         start: "top top"
       }
     });
