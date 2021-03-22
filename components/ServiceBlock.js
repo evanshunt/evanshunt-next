@@ -111,17 +111,32 @@ const ServiceBlockImage = (props) => {
     <div ref={imgTrigger} className="service-block-img">
       {imageBackground && (
         <div className="img-background">
-          <img ref={imgBg} src={imageBackground.fields.file.url} className="img-fluid" alt={imageBackground.fields.file.description} />
+          <picture>
+            <source srcSet={`${imageBackground.fields.file.url}?fm=webp`} type="image/webp" />
+            <source srcSet={`${imageBackground.fields.file.url}`} type="image/jpeg" />
+            <img ref={imgBg} className="img-fluid" src={imageBackground.fields.file.url} alt={imageBackground.fields.file.description} />
+          </picture>
+          {/* <img ref={imgBg} src={imageBackground.fields.file.url} className="img-fluid" alt={imageBackground.fields.file.description} /> */}
         </div>
       )}
       {imageForegroundRight && (
         <div className="img-right-side">
-          <img ref={imgRight} src={imageForegroundRight.fields.file.url} className="img-fluid" alt={imageForegroundRight.fields.file.description} />
+          <picture>
+            <source srcSet={`${imageForegroundRight.fields.file.url}?fm=webp`} type="image/webp" />
+            <source srcSet={`${imageForegroundRight.fields.file.url}`} type="image/jpeg" />
+            <img ref={imgRight} className="img-fluid" src={imageForegroundRight.fields.file.url} alt={imageForegroundRight.fields.file.description} />
+          </picture>
+          {/* <img ref={imgRight} src={imageForegroundRight.fields.file.url} className="img-fluid" alt={imageForegroundRight.fields.file.description} /> */}
         </div>
       )}
       {imageForegroundLeft && (
         <div className="img-left-side">
-          <img ref={imgLeft} src={imageForegroundLeft.fields.file.url} className="img-fluid" alt={imageForegroundLeft.fields.file.description} />
+          <picture>
+            <source srcSet={`${imageForegroundLeft.fields.file.url}?fm=webp`} type="image/webp" />
+            <source srcSet={`${imageForegroundLeft.fields.file.url}`} type="image/jpeg" />
+            <img ref={imgLeft} className="img-fluid" src={imageForegroundLeft.fields.file.url} alt={imageForegroundLeft.fields.file.description} />
+          </picture>
+          {/* <img ref={imgLeft} src={imageForegroundLeft.fields.file.url} className="img-fluid" alt={imageForegroundLeft.fields.file.description} /> */}
         </div>
       )}
     </div>

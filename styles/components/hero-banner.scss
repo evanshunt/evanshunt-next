@@ -102,9 +102,13 @@ section.hero-banner {
     justify-content: center;
 
     @media (min-width: $desktop) {
-      padding-right: 250px;
+      padding-right: 50px;
       padding-left: 58px;
       height: 700px;
+    }
+
+    @media (min-width: $desktop-large) {
+      padding-right: 200px;
     }
 
     .small-text,
@@ -126,8 +130,11 @@ section.hero-banner {
       max-width: 880px;
 
       @media (min-width: $desktop) {
-        font-size: 90px;
+        font-size: 70px;
         margin-left: 171px;
+      }
+      @media (min-width: $desktop-large) {
+        font-size: 90px;
       }
     }
 

@@ -25,7 +25,7 @@ const AnimatedScreenScroll = (props) => {
         trigger: trigger.current,
         pin: wrapper.current,
         scrub: 1,
-        markers: true,
+        markers: false,
         start: "top top"
       }
     });
@@ -50,8 +50,9 @@ const AnimatedScreenScroll = (props) => {
 
     // unmount
     return () => {
-      ScrollTrigger.getById("animated-screen-st").kill();
-      //c1.kill();
+      if (ScrollTrigger.getById("animated-screen-st") !== undefined) {
+        ScrollTrigger.getById("animated-screen-st").kill();
+      }
     };
   }, [scrollAmount]);
 

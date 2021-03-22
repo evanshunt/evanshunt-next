@@ -266,7 +266,6 @@ const renderComponents = (components) => {
             imageBackground={component.fields.imageBackground}
             imageForegroundLeft={component.fields.imageForegroundLeft}
             imageForegroundRight={component.fields.imageForegroundRight}
-            image={component.fields.image}
             key={`component-${i}`}
           />
         );

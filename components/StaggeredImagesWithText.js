@@ -55,7 +55,11 @@ const StaggeredImagesWithText = (props) => {
       {imageAndTextBlocks && imageAndTextBlocks.map((block, i) => {
         return (
           <div className="staggered-column" key={i} ref={addToRefs}>
-            <img className="img-fluid" src={block.fields.image.fields.file.url} alt={block.fields.image.fields.description} />
+            <picture>
+              <source srcSet={`${block.fields.image.fields.file.url}?fm=webp`} type="image/webp" />
+              <source srcSet={`${block.fields.image.fields.file.url}?fm=jpg`} type="image/jpeg" />
+              <img className="img-fluid" src={block.fields.image.fields.file.url} alt={block.fields.image.fields.description} />
+            </picture>
             {block.fields.title && <h2 className="title">{block.fields.title}</h2>}
             {block.fields.text && <p className="text">{block.fields.text}</p>}
           </div>

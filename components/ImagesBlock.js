@@ -30,7 +30,7 @@ const ImagesBlock = (props) => {
               id: `images-block-item-${index + 1}`,
               trigger: el,
               start: "top center+=150",
-              markers: true,
+              markers: false,
               toggleActions: "play none none reverse"
             }
           });
@@ -62,8 +62,11 @@ const ImagesBlock = (props) => {
     });
 
     return () => {
+
       revealRefs.current.forEach((el, index) => {
-        ScrollTrigger.getById(`images-block-item-${index+1}`).kill();
+        if (ScrollTrigger.getById(`images-block-item-${index+1}`) !== undefined) {
+          ScrollTrigger.getById(`images-block-item-${index+1}`).kill();
+        }
       })
     }
 
