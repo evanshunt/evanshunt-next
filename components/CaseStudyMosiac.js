@@ -80,7 +80,9 @@ class CaseStudyMosiac extends React.Component {
   }
 
   componentWillUnmount() {
-    ScrollTrigger.getById("mosiac-st").kill();
+    if (ScrollTrigger.getById("mosiac-st") !== undefined) {
+      ScrollTrigger.getById("mosiac-st").kill();
+    }
   }
 
   render() {

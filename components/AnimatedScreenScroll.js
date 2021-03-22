@@ -50,8 +50,9 @@ const AnimatedScreenScroll = (props) => {
 
     // unmount
     return () => {
-      ScrollTrigger.getById("animated-screen-st").kill();
-      //c1.kill();
+      if (ScrollTrigger.getById("animated-screen-st") !== undefined) {
+        ScrollTrigger.getById("animated-screen-st").kill();
+      }
     };
   }, [scrollAmount]);
 
