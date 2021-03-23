@@ -63,7 +63,7 @@ const FeaturedProjects = ({ title, projects, cta }) => {
                   <a title={project.fields.title}>
                   {/* Checking for video */}
                   {mediaType.indexOf('video/') !== -1 &&
-                    <video autoPlay muted loop playsInline className="video-fluid">
+                    <video autoPlay muted loop playsInline className="video-fluid" poster={mediaUrl}>
                       <source src={mediaUrl} type="video/mp4" />
                         Your browser does not support video tags.
                     </video>
