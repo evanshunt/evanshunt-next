@@ -33,24 +33,18 @@ const FeaturedProjects = ({ title, projects, cta }) => {
             // Add in variables for foreground/background images, custom animation field.
             let mediaType = project.fields.featuredProjectImage.fields.file.contentType
             let mediaUrl = project.fields.featuredProjectImage.fields.file.url
-            let mediaDesc = project.fields.featuredProjectImage.fields.file.description
+            let mediaDesc = project.fields.featuredProjectImage.fields.description
             let foregroundImage = null;
             let foregroundDesc = null;
             let customAnimationClass = null;
 
             if (project.fields.featuredProjectImageForeground) {
               foregroundImage = project.fields.featuredProjectImageForeground
-              foregroundDesc = project.fields.featuredProjectImageForeground.fields.file.description
+              foregroundDesc = project.fields.featuredProjectImageForeground.fields.title
             }
 
             if (project.fields.featuredProjectAnimationClass) {
               customAnimationClass = project.fields.featuredProjectAnimationClass
-            }
-
-            // if there is a mobile specific image, switch to it
-            if (isMobile && project.fields.featuredProjectMobileImage) {
-              mediaUrl = project.fields.featuredProjectMobileImage.fields.file.url
-              mediaDesc = project.fields.featuredProjectMobileImage.fields.file.description
             }
 
             /*

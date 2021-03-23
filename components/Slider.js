@@ -136,15 +136,19 @@ class SliderComponent extends React.Component {
           visibleSlides={visibleSlides}
           className="react-slider"
           isIntrinsicHeight={true}
+          aria-label="carousel-provider"
+          role="listbox"
         >
-          <div className="slider-relative">
-            <Slider>
+          <div className="slider-relative" role="option">
+            <Slider aria-label="slider" trayTag="div">
               {slides &&
                 slides.map((slide, i) => {
                   switch (slide.sys.contentType.sys.id) {
                     case "globalElementSliderVideoItem":
                       return (
                         <Slide
+                          tag="div"
+                          ariaLabel="slide"
                           className="react-slider-slide"
                           innerClassName="slide-inner"
                           index={i}
@@ -162,6 +166,8 @@ class SliderComponent extends React.Component {
                     case "globalElementClient":
                       return (
                         <Slide
+                          tag="div"
+                          ariaLabel="slide"
                           className="react-slider-slide"
                           innerClassName="slide-inner"
                           index={i}
