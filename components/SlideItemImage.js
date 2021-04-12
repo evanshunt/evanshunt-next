@@ -29,12 +29,12 @@ class SlideItemImage extends React.Component {
           <div className="text-on-image">
             {link && (
               <Link href={link}>
-                <a>
+                <a aria-label={image.title}>
                   <div className="image-wrapper">
                     <Image
                       src={image.file.url}
                       className="img-fluid"
-                      alt={image.file.description}
+                      alt={image.description}
                     />
                   </div>
                   <div className="text-wrapper">
@@ -52,7 +52,7 @@ class SlideItemImage extends React.Component {
                   <Image
                     src={image.file.url}
                     className="img-fluid"
-                    alt={image.file.description}
+                    alt={image.description}
                   />
                 </div>
                 <div className="text-wrapper">
@@ -69,11 +69,11 @@ class SlideItemImage extends React.Component {
             {/* Text Below Image Variant Start - assume this is default */}
             {link && (
               <Link href={link}>
-                <a>
+                <a aria-label={image.title}>
                   <Image
                     src={image.file.url}
                     className="img-fluid"
-                    alt={image.file.description}
+                    alt={image.description}
                   />
                 </a>
               </Link>
