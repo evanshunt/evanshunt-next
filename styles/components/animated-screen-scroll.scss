@@ -115,6 +115,7 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
     .background-image {
       align-items: flex-end;
       justify-content: center;
+      padding-top: 10%;
     }
     .device-wrapper {
       width: 23%;
@@ -126,7 +127,7 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
       }
     }
     .screen-img {
-      width: auto;
+      width: 100%;
     }
     .device-screen {
       display: none;
