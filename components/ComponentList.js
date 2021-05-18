@@ -26,7 +26,7 @@ import ServicesIntro from "./ServicesIntro";
 import Accordion from "./Accordion";
 import ServicesPagination from "./ServicesPagination";
 import MediumFeed from "./MediumFeed";
-import LogoGrid from '../components/LogoGrid'
+import LogoGrid from './LogoGrid'
 
 // Case Study Specific Components
 import CaseStudyMosiac from "./CaseStudyMosiac";
