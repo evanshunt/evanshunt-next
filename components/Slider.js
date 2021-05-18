@@ -104,7 +104,7 @@ class SliderComponent extends React.Component {
 
   render() {
     const { title, slides } = this.props;
-    const { visibleSlides, slideWidth, slideHeight, slideType } = this.state;
+    var { visibleSlides, slideWidth, slideHeight, slideType } = this.state;
 
     if (!slides) {
       return null;
@@ -119,6 +119,7 @@ class SliderComponent extends React.Component {
     if (slides.length < visibleSlides) {
       showArrows = false;
     }
+    visibleSlides = Math.ceil(visibleSlides);
 
     return (
       <section
@@ -148,7 +149,7 @@ class SliderComponent extends React.Component {
                       return (
                         <Slide
                           tag="div"
-                          ariaLabel="slide"
+                          aria-label="slide"
                           className="react-slider-slide"
                           innerClassName="slide-inner"
                           index={i}
@@ -167,7 +168,7 @@ class SliderComponent extends React.Component {
                       return (
                         <Slide
                           tag="div"
-                          ariaLabel="slide"
+                          aria-label="slide"
                           className="react-slider-slide"
                           innerClassName="slide-inner"
                           index={i}

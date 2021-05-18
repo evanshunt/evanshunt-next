@@ -32,16 +32,19 @@ const OurTeam = (props) => {
         scrollTrigger: {
           id: `team-${index+1}`,
           trigger: el,
-          start: "top center-=20px",
+          start: "top center+=850px",
           scrub: 1,
-          toggleActions: 'play none none reverse'
+          toggleActions: 'play none none none',
+          once: true
         },
       });
     });
 
     return () => {
       aLeaderRow.current.forEach((el, index) => {
-        ScrollTrigger.getById(`team-${index+1}`).kill();
+        if (ScrollTrigger.getById(`team-${index+1}`) !== undefined) {
+          ScrollTrigger.getById(`team-${index+1}`).kill();
+        }
       })
     }
   }, []);

@@ -21,6 +21,26 @@
   background: #fff;
   overflow-y: auto;
 
+  .close {
+    float: right;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 10px;
+
+    svg {
+      height: 50px;
+      width: 50px;
+    }
+
+    &:hover,
+    &:focus {
+      svg path {
+        stroke: $red
+      }
+    }
+  }
+
   .embed-responsive {
     position: relative;
     display: block;
@@ -53,6 +73,28 @@
       border: 0;
     }
   }
+
+  .slide-title {
+    float: left;
+  }
+
+  .external-link {
+    float: right;
+    margin-top: 6px;
+    &:hover,
+    &:focus {
+      .link-download {
+        circle {
+          fill: #000;
+        }
+
+        g path,
+        rect {
+          fill: #fff;
+        }
+      }
+    }
+  }
 }
 
 .ReactModal__Overlay {
@@ -79,4 +121,9 @@
   .ReactModal__Content {
     transform: translateY(-100px);
   }
+}
+
+.link-download {
+  width: 30px;
+  margin-left: 0.7rem;
 }

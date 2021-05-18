@@ -69,7 +69,9 @@ const LogoGrid = (props) => {
 
     return () => {
       aLogoRow.current.forEach((el, index) => {
-        ScrollTrigger.getById(`logo-${index+1}`).kill();
+        if (ScrollTrigger.getById(`logo-${index+1}`) !== undefined) {
+          ScrollTrigger.getById(`logo-${index+1}`).kill();
+        }
       })
     }
 
