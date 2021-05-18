@@ -26,6 +26,7 @@ import ServicesIntro from "./ServicesIntro";
 import Accordion from "./Accordion";
 import ServicesPagination from "./ServicesPagination";
 import MediumFeed from "./MediumFeed";
+import LogoGrid from './LogoGrid'
 
 // Case Study Specific Components
 import CaseStudyMosiac from "./CaseStudyMosiac";
@@ -349,6 +350,15 @@ const renderComponents = (components) => {
       case "componentMediumFeed":
         return (
           <MediumFeed title={component.fields.title} key={`component-${i}`} />
+        );
+
+      case "componentLogoGrid":
+        return (
+          <LogoGrid
+            smallTitle={component.fields.smallTitle}
+            largeTitle={component.fields.largeTitle}
+            logos={component.fields.logos}
+          />
         );
 
       default:
