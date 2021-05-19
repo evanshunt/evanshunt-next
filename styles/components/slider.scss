@@ -23,7 +23,7 @@
   }
   
   .slide-inner {
-    padding-right: 25px;
+    //padding-right: 25px;
     padding-bottom: 25px;
 
     a {
@@ -105,7 +105,7 @@
   }
 
   .carousel__next-button {
-    right: 15px;
+    right: -35px;
   }
 
   h6 {
@@ -246,35 +246,37 @@
 }
 
 .react-slider-wrap {
-  padding-left: 15px;
+  //padding-left: 15px;
   padding-bottom: 40px;
   padding-top: 40px;
+  width: calc(100% - 90px);
+  margin: 0 auto;
 
   // these help it match up with the regular container breakpoints
   // 100vw - container max-width + container 30px of padding / 2
-  @media (min-width: $large-phone) {
-    padding-left: calc((100vw - 92% + 30px)/2);
-  }
-  @media (min-width: $tablet) {
-    padding-left: calc((100vw - 720px + 30px )/2);
-    padding-top: 100px;
-  }
-  @media (min-width: $desktop) {
-    min-height: 670px;
-    padding-left: calc((100vw - 960px + 30px )/2);  
-  }
-  @media (min-width: $desktop-large) {
-    padding-left: calc((100vw - 1325px + 30px)/2);
-  }
+  // @media (min-width: $large-phone) {
+  //   padding-left: calc((100vw - 92% + 30px)/2);
+  // }
+  // @media (min-width: $tablet) {
+  //   padding-left: calc((100vw - 720px + 30px )/2);
+  //   padding-top: 100px;
+  // }
+  // @media (min-width: $desktop) {
+  //   min-height: 670px;
+  //   padding-left: calc((100vw - 960px + 30px )/2);  
+  // }
+  // @media (min-width: $desktop-large) {
+  //   padding-left: calc((100vw - 1325px + 30px)/2);
+  // }
   
   // currently used for normal slide types, not clients
   // Design review fix to make in left aligned with main container
-  &.narrower {
-    padding-left: 15px;
-    @media (min-width: $tablet) {
-      padding-left: 40px !important;
-    }
-  }
+  // &.narrower {
+  //   padding-left: 15px;
+  //   @media (min-width: $tablet) {
+  //     padding-left: 40px !important;
+  //   }
+  // }
 
   // Square Client Sliders need button position adjusted slightly
   &.client {
