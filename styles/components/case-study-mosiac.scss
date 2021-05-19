@@ -110,8 +110,9 @@
     }
     
     video, img {
-      object-fit: cover;
+      //object-fit: cover;
       width: 100vw;
+      height: auto;
 
       @media (min-width: $tablet) {
         width: 50vw;
