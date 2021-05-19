@@ -57,8 +57,9 @@
     }
 
     &-no-padding {
-      margin: 0 15px 60px;
-      width: calc(50% - 30px);
+      // margin: 0 15px 60px;
+      // width: calc(50% - 30px);
+      width: 50%;
 
       @media (min-width: $tablet) {
         margin: 0;
@@ -78,16 +79,17 @@
     max-width: 140px;
 
     &-no-padding {
-      margin: 0 auto;
       display: block;
-      max-width: 140px;
+      max-width: 100%;
+      width: 100%;
       
       @media (min-width: $tablet) {
         max-width: 170px;
       }
 
       @media (min-width: $desktop) {
-        max-width: 235px;
+        max-width: none;
+        width: 100%;
       }
     }
   }
