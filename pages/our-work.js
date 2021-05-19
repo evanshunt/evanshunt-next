@@ -18,6 +18,7 @@ const OurWorkPage = (content) => {
       <LogoGrid
         smallTitle={content.fields.logoGrid.fields.smallTitle}
         largeTitle={content.fields.logoGrid.fields.largeTitle}
+        addPadding={content.fields.logoGrid.fields.addPadding}
         logos={content.fields.logoGrid.fields.logos}
       />
     </Layout>

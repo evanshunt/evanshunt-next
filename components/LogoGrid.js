@@ -5,7 +5,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const LogoGrid = (props) => {
 
-  const { smallTitle = 'Our Clients', largeTitle = 'We keep good company.', logos } = props
+  const { smallTitle, largeTitle, addPadding, logos } = props
 
   // Variables for Logo Grid Animation
   let logoGridTrigger = useRef(null);
@@ -91,10 +91,15 @@ const LogoGrid = (props) => {
     tempArray = logos.slice(i, i+logosPerRow);
     logoRows.push(tempArray)
   }
-  
+
+  // Add padding? In contentful if nothing is selected - default is no. No in contentful is true. Yes is false. Weird logic at first -RB
+  let shouldAddPadding = addPadding ? "logo-grid-logo" : "logo-grid-logo-no-padding"
+  let imageSizeNoPadding = addPadding ? "logo-grid-img" : "logo-grid-img-no-padding"
+  let logoGridContainer = addPadding ? "container" : "container-no-padding"
+
   return (
     <section className="logo-grid" ref={logoGridTrigger}>
-      <div className="container">
+      <div className={logoGridContainer}>
         {smallTitle && <h4 className="small-title base-font-medium" ref={aSmallTitle}>{smallTitle}</h4>}
         {largeTitle && <h1 className="large-title" ref={aLargeTitle}>{largeTitle}</h1>}
         {logoRows && logoRows.map((row, i) => {
@@ -102,8 +107,8 @@ const LogoGrid = (props) => {
             <div className="logo-grid-logos" key={i} ref={addToRefs}>
               {row.map((logo, j) => {
                 return (
-                  <div className="logo-grid-logo" key={j}>
-                    <img src={logo.fields.logo.fields.file.url} alt={logo.fields.logo.fields.file.description} className="logo-grid-img" />
+                  <div className={shouldAddPadding} key={j}>
+                    <img src={logo.fields.logo.fields.file.url} alt={logo.fields.logo.fields.file.description} className={imageSizeNoPadding} />
                   </div>
                 )
               })}
