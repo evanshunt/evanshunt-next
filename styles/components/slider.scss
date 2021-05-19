@@ -23,8 +23,7 @@
   }
   
   .slide-inner {
-    //padding-right: 25px;
-    padding-bottom: 25px;
+    padding: 0 12px 25px;
 
     a {
       display: inline-block;
@@ -249,7 +248,7 @@
   //padding-left: 15px;
   padding-bottom: 40px;
   padding-top: 40px;
-  width: calc(100% - 90px);
+  width: calc(100% - 80px);
   margin: 0 auto;
 
   // these help it match up with the regular container breakpoints
