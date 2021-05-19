@@ -357,6 +357,7 @@ const renderComponents = (components) => {
           <LogoGrid
             smallTitle={component.fields.smallTitle}
             largeTitle={component.fields.largeTitle}
+            addPadding={component.fields.addPadding}
             logos={component.fields.logos}
           />
         );
