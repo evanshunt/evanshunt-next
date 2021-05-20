@@ -109,6 +109,8 @@ section.hero-banner {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    top: 0;
+    left: 0;
 
     @media (min-width: $desktop) {
       padding-right: 50px;
