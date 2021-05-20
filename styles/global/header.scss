@@ -67,6 +67,11 @@
   @media (min-width: $desktop) {
     max-width: none;
   }
+
+  & > g {
+    stroke-width: 1px;
+    stroke: rgba(0,0,0,.2);
+  }
 }
 
 
