@@ -41,6 +41,8 @@ section.hero-banner {
     position: absolute;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
 
     &.red {
       --gradient-color-1: #FFA139;
