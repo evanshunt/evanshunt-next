@@ -2,7 +2,14 @@ import Layout from "../layouts/Page";
 import PageMeta from "../components/PageMeta";
 import renderComponents from "../components/ComponentList";
 const CMSApi = require("../utility/cms");
+import React, { useEffect } from "react";
 const Careers = (content) => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.setAttribute("src", "//evanshunt.bamboohr.com/js/embed.js");
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <Layout className="content-page contact-page">
       
@@ -14,7 +21,10 @@ const Careers = (content) => {
       {content.fields.components && renderComponents(content.fields.components)}
       
       <div id="BambooHR" data-domain="//evanshunt.bamboohr.com" data-nopudgy="true"></div>
+      {/* 
+      <!-- using `useEffect` instead as the script seems to load in a flaky manner if doing it like this -->
       <script type="text/javascript" src="//evanshunt.bamboohr.com/js/embed.js" async="async"></script>
+      */}
 
     </Layout>
   );
