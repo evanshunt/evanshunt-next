@@ -44,11 +44,13 @@ section.open-positions,
     }
 
     .BambooHR-ATS-Department-Item {
-      position: relative;
       display: flex;
       flex-direction: column-reverse;
       border-bottom: 2px solid #D6DDE0;
+      border-top: 2px solid #D6DDE0;
       padding: 1.5rem 0;
+      position: relative;
+      margin-top: -2px !important;
 
       .BambooHR-ATS-Jobs-List {
         padding: 0 !important;
@@ -66,28 +68,79 @@ section.open-positions,
         }
       }
 
-      .BambooHR-ATS-Jobs-Item{
+      .BambooHR-ATS-Jobs-Item {
+        display: flex;
+        position: relative;
+
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0;
+          width: 0;
+          max-width: 180px;
+          height: 70px;
+          background: #000;
+          border-radius: 40px;
+          opacity: 0;
+          transition: .3s ease-in-out 0s;
+          z-index: 10;
+        }
+
         & > a {
           font-size: 18px;
           font-weight: $medium;
           margin-bottom: 0;
           text-decoration: none;
           max-width: 100%;
-          display: flex;
           font-family: $base-font-family;
-          // width: 80%;
+          width: 100%;
+          position: relative;
+          padding-right: 200px;
+          z-index: 20;
 
           @media (min-width: $desktop) {
             font-size: 30px;
           }
 
+          &:before {
+            display: inline-block;
+            content: url("/images/arrow-right-lg-black.svg");
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: .3s ease-in-out 0s;
+          }
+
           &:after {
-            content: '';
+            display: inline-block;
+            content: "View";
+            font-size: .9rem;
+            position: absolute;
+            right: 90px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+          }
+
+          &:hover:before {
+            content: url("/images/arrow-right-lg-white.svg");
+            right: 1.8rem;
           }
         }
 
         .BambooHR-ATS-Location {
           display: none;
+        }
+
+        &:hover {
+          &:after {
+            opacity: 1;
+            width: 220px;
+          }
         }
       }
     }
