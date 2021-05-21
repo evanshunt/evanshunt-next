@@ -1,4 +1,5 @@
-section.open-positions {
+section.open-positions,
+#BambooHR {
   padding: 3rem 1rem;
 
   @media (min-width: $desktop) {
@@ -9,11 +10,13 @@ section.open-positions {
     padding: 9rem 19rem;
   }
 
-  h1, .intro-text {
+  h1, .intro-text,
+  .BambooHR-ATS-board > h2 {
     text-align: center;
   }
 
-  h1 {
+  h1,
+  .BambooHR-ATS-board > h2 {
     font-size: 34px;
     @media (min-width: $desktop) {
       font-size: 70px;
@@ -21,7 +24,81 @@ section.open-positions {
     }
   }
 
-  .intro-text {
+  /* specific overrides */
+  .BambooHR-ATS-board {
+    & > h2 {
+      color: #000 !important;
+      border: none !important;
+
+      @media (min-width: $desktop) {
+        font-size: 70px;
+      }
+
+      &:after {
+        content: 'Let’s work together';
+        display: block;
+        margin-top: 2rem;
+        font-family: $base-font-family;
+        font-weight: normal;
+      }
+    }
+
+    .BambooHR-ATS-Department-Item {
+      position: relative;
+      display: flex;
+      flex-direction: column-reverse;
+      border-bottom: 2px solid #D6DDE0;
+      padding: 1.5rem 0;
+
+      .BambooHR-ATS-Jobs-List {
+        padding: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+      }
+
+      .BambooHR-ATS-Department-Header {
+        margin-bottom: 0;
+        font-size: 13px;
+        color: #000;
+        
+        @media (min-width: $desktop) {
+          font-size: 1rem;
+        }
+      }
+
+      .BambooHR-ATS-Jobs-Item{
+        & > a {
+          font-size: 18px;
+          font-weight: $medium;
+          margin-bottom: 0;
+          text-decoration: none;
+          max-width: 100%;
+          display: flex;
+          font-family: $base-font-family;
+          // width: 80%;
+
+          @media (min-width: $desktop) {
+            font-size: 30px;
+          }
+
+          &:after {
+            content: '';
+          }
+        }
+
+        .BambooHR-ATS-Location {
+          display: none;
+        }
+      }
+    }
+  }
+
+  & > div:not(#BambooHR-ATS){
+    display: none;
+  }
+
+  .intro-text,
+  .BambooHR-ATS-board > h2:after {
     font-size: 13px;
     margin-bottom: 3rem;
     @media (min-width: $desktop) {

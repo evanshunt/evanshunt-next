@@ -1,0 +1,17 @@
+<svg
+  className={`svg-open-position item-${i}`}
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 180 70"
+>
+  <path
+    className={`bg`}
+    d="M35,0H145a35,35,0,0,1,35,35h0a35,35,0,0,1-35,35H35A35,35,0,0,1,0,35H0A35,35,0,0,1,35,0Z"
+  />
+  <text className={`label`} transform="translate(49.08 41)">
+    View
+  </text>
+  <path
+    className={`arrow`}
+    d="M145.62,35.13,138.15,28l-2,1.73,5.25,5H114v2.52h27.37l-5.25,5,2,1.73,7.47-7.13A1.16,1.16,0,0,0,146,36,1.33,1.33,0,0,0,145.62,35.13Z"
+  />
+</svg>
