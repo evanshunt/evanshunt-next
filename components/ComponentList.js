@@ -177,15 +177,14 @@ const renderComponents = (components) => {
         );
 
       case "componentOpenPositions":
-        return false;
-        // (
-        //   <OpenPositions
-        //     title={component.fields.title}
-        //     introText={component.fields.introText}
-        //     openPositions={component.fields.openPositions}
-        //     key={`component-${i}`}
-        //   />
-        // );
+        return (
+          <OpenPositions
+            title={component.fields.title}
+            introText={component.fields.introText}
+            openPositions={component.fields.openPositions}
+            key={`component-${i}`}
+          />
+        );
 
       case "componentOurTeam":
         return (
