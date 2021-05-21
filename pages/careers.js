@@ -14,7 +14,7 @@ const Careers = (content) => {
       {content.fields.components && renderComponents(content.fields.components)}
       
       <div id="BambooHR" data-domain="//evanshunt.bamboohr.com" data-nopudgy="true"></div>
-      <script type="text/javascript" src="//evanshunt.bamboohr.com/js/embed.js" defer async="async"></script>
+      <script type="text/javascript" src="//evanshunt.bamboohr.com/js/embed.js" async="async"></script>
 
     </Layout>
   );
