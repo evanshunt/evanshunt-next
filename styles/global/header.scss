@@ -21,7 +21,7 @@
     position: relative;
     background: transparent;
     
-    #header-logo #ComponentsNavLogo{
+    #header-logo .ComponentsNavLogo{
       fill: $red;
     }
     
@@ -39,7 +39,7 @@
   &.nav-active {
     z-index: 12;
 
-    #header-logo #ComponentsNavLogo{
+    #header-logo .ComponentsNavLogo{
       fill: $red;
     }
 
