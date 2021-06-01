@@ -1,7 +1,6 @@
 import Layout from "../layouts/Page";
 import PageMeta from "../components/PageMeta";
 import renderComponents from "../components/ComponentList";
-import OpenPositionsBamboo from "../components/OpenPositionsBamboo";
 const CMSApi = require("../utility/cms");
 
 const Careers = (content) => {
@@ -15,8 +14,6 @@ const Careers = (content) => {
         socialMediaImage={content.fields.pageMeta.fields.socialMediaImage}
       />
       {content.fields.components && renderComponents(content.fields.components)}
-
-      <OpenPositionsBamboo />
 
     </Layout>
   );

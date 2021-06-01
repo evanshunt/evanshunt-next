@@ -1,5 +1,4 @@
-section.open-positions,
-#BambooHR {
+section.open-positions {
   padding: 3rem 1rem;
 
   @media (min-width: $desktop) {
@@ -10,13 +9,11 @@ section.open-positions,
     padding: 9rem 19rem;
   }
 
-  h1, .intro-text,
-  .BambooHR-ATS-board > h2 {
+  h1, .intro-text {
     text-align: center;
   }
 
-  h1,
-  .BambooHR-ATS-board > h2 {
+  h1 {
     font-size: 34px;
     @media (min-width: $desktop) {
       font-size: 70px;
@@ -24,134 +21,7 @@ section.open-positions,
     }
   }
 
-  /* specific overrides */
-  .BambooHR-ATS-board {
-    & > h2 {
-      color: #000 !important;
-      border: none !important;
-
-      @media (min-width: $desktop) {
-        font-size: 70px;
-      }
-
-      &:after {
-        content: 'Let’s work together';
-        display: block;
-        margin-top: 2rem;
-        font-family: $base-font-family;
-        font-weight: normal;
-      }
-    }
-
-    .BambooHR-ATS-Department-Item {
-      display: flex;
-      flex-direction: column-reverse;
-      border-bottom: 2px solid #D6DDE0;
-      border-top: 2px solid #D6DDE0;
-      padding: 1.5rem 0;
-      position: relative;
-      margin-top: -2px !important;
-
-      .BambooHR-ATS-Jobs-List {
-        padding: 0 !important;
-        padding: 0 !important;
-        border: none !important;
-      }
-
-      .BambooHR-ATS-Department-Header {
-        margin-bottom: 0;
-        font-size: 13px;
-        color: #000;
-        
-        @media (min-width: $desktop) {
-          font-size: 1rem;
-        }
-      }
-
-      .BambooHR-ATS-Jobs-Item {
-        display: flex;
-        position: relative;
-
-        &:after {
-          content: '';
-          display: block;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          right: 0;
-          width: 0;
-          max-width: 180px;
-          height: 70px;
-          background: #000;
-          border-radius: 40px;
-          opacity: 0;
-          transition: .3s ease-in-out 0s;
-          z-index: 10;
-        }
-
-        & > a {
-          font-size: 18px;
-          font-weight: $medium;
-          margin-bottom: 0;
-          text-decoration: none;
-          max-width: 100%;
-          font-family: $base-font-family;
-          width: 100%;
-          position: relative;
-          padding-right: 200px;
-          z-index: 20;
-
-          @media (min-width: $desktop) {
-            font-size: 30px;
-          }
-
-          &:before {
-            display: inline-block;
-            content: url("/images/arrow-right-lg-black.svg");
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: .3s ease-in-out 0s;
-          }
-
-          &:after {
-            display: inline-block;
-            content: "View";
-            font-size: .9rem;
-            position: absolute;
-            right: 90px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #fff;
-          }
-
-          &:hover:before {
-            content: url("/images/arrow-right-lg-white.svg");
-            right: 1.8rem;
-          }
-        }
-
-        .BambooHR-ATS-Location {
-          display: none;
-        }
-
-        &:hover {
-          &:after {
-            opacity: 1;
-            width: 220px;
-          }
-        }
-      }
-    }
-  }
-
-  & > div:not(#BambooHR-ATS){
-    display: none;
-  }
-
-  .intro-text,
-  .BambooHR-ATS-board > h2:after {
+  .intro-text:after {
     font-size: 13px;
     margin-bottom: 3rem;
     @media (min-width: $desktop) {
