@@ -6,12 +6,16 @@ const ServiceCircles = ({
   smallText,
   circle1Title,
   circle1Description,
+  circle1Cta,
   circle2Title,
   circle2Description,
+  circle2Cta,
   circle3Title,
   circle3Description,
+  circle3Cta,
   circle4Title,
   circle4Description,
+  circle4Cta,
   primaryCta,
   secondaryCta,
 }) => {
@@ -22,37 +26,37 @@ const ServiceCircles = ({
 
       <div className="service-circles-list">
         <div className="service-circle-column">
-          <div className="service-circle service-circle-1">
+          <a href={circle1Cta} className="service-circle service-circle-1">
             <span className="service-circle-title">{circle1Title}</span>
             <span className="service-circle-description">
               {circle1Description}
             </span>
-          </div>
+          </a>
         </div>
 
         <div className="service-circle-column">
-          <div className="service-circle service-circle-2">
+          <a href={circle2Cta} className="service-circle service-circle-2">
             <span className="service-circle-title">{circle2Title}</span>
             <span className="service-circle-description">
               {circle2Description}
             </span>
-          </div>
+          </a>
         </div>
         <div className="service-circle-column">
-          <div className="service-circle service-circle-3">
+          <a href={circle3Cta} className="service-circle service-circle-3">
             <span className="service-circle-title">{circle3Title}</span>
             <span className="service-circle-description">
               {circle3Description}
             </span>
-          </div>
+          </a>
         </div>
         <div className="service-circle-column">
-          <div className="service-circle service-circle-4">
+          <a href={circle4Cta} className="service-circle service-circle-4">
             <span className="service-circle-title">{circle4Title}</span>
             <span className="service-circle-description">
               {circle4Description}
             </span>
-          </div>
+          </a>
         </div>
       </div>
 
