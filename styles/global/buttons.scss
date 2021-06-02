@@ -61,6 +61,18 @@
       text-decoration: none;
     }
   }
+
+  &.btn-outline-alt {
+    border: 3px solid $black;
+    background: transparent;
+    color: $black;
+
+    &:hover {
+      color: $white;
+      background: $black;
+      text-decoration: none;
+    }
+  }
 }
 
 /* Link that on hover animates in an icon */
