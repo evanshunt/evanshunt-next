@@ -26,37 +26,45 @@ const ServiceCircles = ({
 
       <div className="service-circles-list">
         <div className="service-circle-column">
-          <a href={circle1Cta} className="service-circle service-circle-1">
-            <span className="service-circle-title">{circle1Title}</span>
-            <span className="service-circle-description">
-              {circle1Description}
-            </span>
-          </a>
+          <Link href={circle1Cta}>
+            <div className="service-circle service-circle-1">
+              <span className="service-circle-title">{circle1Title}</span>
+              <span className="service-circle-description">
+                {circle1Description}
+              </span>
+            </div>
+          </Link>
         </div>
 
         <div className="service-circle-column">
-          <a href={circle2Cta} className="service-circle service-circle-2">
-            <span className="service-circle-title">{circle2Title}</span>
-            <span className="service-circle-description">
-              {circle2Description}
-            </span>
-          </a>
+          <Link href={circle2Cta}>
+            <div className="service-circle service-circle-2">
+              <span className="service-circle-title">{circle2Title}</span>
+              <span className="service-circle-description">
+                {circle2Description}
+              </span>
+            </div>
+          </Link>
         </div>
         <div className="service-circle-column">
-          <a href={circle3Cta} className="service-circle service-circle-3">
-            <span className="service-circle-title">{circle3Title}</span>
-            <span className="service-circle-description">
-              {circle3Description}
-            </span>
-          </a>
+          <Link href={circle3Cta}>
+            <div className="service-circle service-circle-3">
+              <span className="service-circle-title">{circle3Title}</span>
+              <span className="service-circle-description">
+                {circle3Description}
+              </span>
+            </div>
+          </Link>
         </div>
         <div className="service-circle-column">
-          <a href={circle4Cta} className="service-circle service-circle-4">
-            <span className="service-circle-title">{circle4Title}</span>
-            <span className="service-circle-description">
-              {circle4Description}
-            </span>
-          </a>
+          <Link href={circle4Cta}>
+            <div className="service-circle service-circle-4">
+              <span className="service-circle-title">{circle4Title}</span>
+              <span className="service-circle-description">
+                {circle4Description}
+              </span>
+            </div>
+          </Link>
         </div>
       </div>
 
