@@ -84,22 +84,8 @@ The different "variants" are:
       padding-right: 20px;
     }
     @media (min-width: $desktop) {
-      // padding-left: 40px;
+      padding-left: 40px;
       padding-right: 40px;
-      .item {
-        > img {
-          width: 100%;
-        }
-      }
-    }
-    @media (min-width: $desktop-large) {
-      margin-left: -18%;
-      margin-top: -3rem;
-      .item {
-        > img {
-          margin-left: 5rem;
-        }
-      }
     }
   }
 
@@ -111,24 +97,8 @@ The different "variants" are:
       padding-right: 20px;
     }
     @media (min-width: $desktop) {
-      // padding-left: 40px;
-      margin-left: -11%;
-      margin-top: 8rem;
+      padding-left: 40px;
       padding-right: 40px;
-      .item {
-        > img {
-          margin-left: 3.25rem;
-          width: 100%;
-        }
-      }
-    }
-    @media (min-width: $desktop-large) {
-      margin-left: -11%;
-      .item {
-        > img {
-          margin-left: 8.5rem;
-        }
-      }
     }
   }
 
