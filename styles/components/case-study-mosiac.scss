@@ -1,13 +1,19 @@
 .case-study-mosiac {
   position: relative;
-  margin-bottom: 45px;
+  width: 100%;
   @media (min-width: $desktop) {
     min-height: 780px;
+    margin-bottom: 45px;
   }
 
   .scroll-container {
+    padding: 0 30px;
     width: 100%;
-    overflow-x: hidden;
+    @media (min-width: $desktop) {
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+    }
   }
 
   .wrapper {
@@ -15,6 +21,7 @@
     height: 100%;
     position: relative;
     overflow: hidden;
+    margin: 0 auto;
     @media (min-width: $desktop) {
       min-height: 700px;
     }
@@ -22,14 +29,17 @@
 
   .feature-img {
     width: 100%;
+    max-width: 100%;
     height: auto;
     display: none;
+    padding: 0;
     @media (min-width: $desktop) {
       display: block;
       position: absolute;
       top: 0;
       left: 0;
       min-height: 700px;
+      margin-top: 30px;
     }
   }
 
@@ -40,103 +50,62 @@
     }
   }
 
-  &-columns {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  .img-fluid {
+    max-width: 100%;
+    width: auto;
+  }
 
-    @media (min-width: $tablet) {
-      flex-wrap: nowrap;
-      padding: 0 15px;
-      margin: 0 auto 75px;
-      max-width: 1325px;
+  img {
+    display: block;
+    margin: 0 auto 30px auto;
+    padding: 10px;
+
+    @media (max-width: $large-phone) {
+      max-height: 200px;
+    }
+
+    @media (max-width: 992px) {
+      transform: translate(0%, 0%) !important;
+    }
+
+    @media (min-width: $desktop) {
+      padding: 30px;
     }
   }
 
-  &-column {
-    width: 100%;
-    @media (min-width: $tablet) {
-      width: auto;
+  &-columns {
+
+    @media (min-width: $large-phone) {
+      display: flex;
+      justify-content: center;
     }
-    
-    img {
 
-      margin-bottom: 20px;
-      display: inline-block;
-      height: 50vw;
-      width: auto;
+    @media (min-width: $desktop) {
+      margin: 0 auto 75px;
+      max-width: 1325px;
+    }
 
-      @media (max-width: 992px) {
-        transform: translate(0%, 0%) !important;
-      }
-
-      @media (min-width: $tablet) {
-        display: block;
-        height: auto;
-        margin-bottom: 40px;
-      }
+    @media (min-width: $desktop-extra-large) {
+      max-width: 1920px;
+      margin: 0 auto;
     }
   }
 
   &-column-1 {
-    order: 1;
-    @media (min-width: $tablet) {
-      order: 0;
-      padding: 54px 0 0 40px;
-    }
-
-    img {
-      margin-left: 20px;
-      margin-right: 20px;
-
-      @media (min-width: $tablet) {
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      &:last-child {
-        margin-left: auto;
-      }
+    @media (min-width: $large-phone) {
+      width: 25%;
     }
   }
 
   &-column-2 {
-    padding-bottom: 10px;
-    order: 0;
-    position: relative;
-    @media (min-width: $tablet) {
-      padding: 54px 40px 0 40px;
-      order: 1;
-    }
-    
-    video, img {
-      //object-fit: cover;
-      width: 100vw;
-      height: auto;
-
-      @media (min-width: $tablet) {
-        width: 50vw;
-      }
-      @media (min-width: 1600px) {
-        width: 640px;
-      }
+    @media (min-width: $large-phone) {
+      width: 50%;
     }
   }
 
   &-column-3 {
-    order: 2;
-    text-align: center;
-    @media (min-width: $tablet) {
-      padding: 147px 40px 0 0;
-      text-align: left;
-    }
-    img {
-      width: auto;
-      height: 50vw;
-      @media (min-width: $tablet) {
-        width: auto;
-        height: auto;
-      }
+    @media (min-width: $large-phone) {
+      width: 25%;
     }
   }
 }
