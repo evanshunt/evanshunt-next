@@ -76,11 +76,13 @@
 
   .slide-title {
     float: left;
+    padding-top: 14px;
   }
 
   .external-link {
     float: right;
     margin-top: 6px;
+    padding-top: 14px;
     &:hover,
     &:focus {
       .link-download {
@@ -113,6 +115,8 @@
   opacity: 1;
   .ReactModal__Content {
     transform: translateY(0);
+    outline: none;
+    padding-bottom: 7px;
   }
 }
 
