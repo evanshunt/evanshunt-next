@@ -138,11 +138,11 @@ class SliderComponent extends React.Component {
           visibleSlides={visibleSlides}
           className="react-slider"
           isIntrinsicHeight={true}
-          ariaLabel="carousel-provider"
+          aria-label="carousel-provider"
           role="listbox"
         >
           <div className="slider-relative" role="option">
-            <Slider ariaLabel="slider" trayTag="div">
+            <Slider aria-label="slider" trayTag="div">
               {slides &&
                 slides.map((slide, i) => {
                   switch (slide.sys.contentType.sys.id) {
@@ -150,7 +150,7 @@ class SliderComponent extends React.Component {
                       return (
                         <Slide
                           tag="div"
-                          ariaLabel="slide"
+                          aria-label="slide"
                           className="react-slider-slide"
                           innerClassName="slide-inner"
                           index={i}
@@ -169,7 +169,7 @@ class SliderComponent extends React.Component {
                       return (
                         <Slide
                           tag="div"
-                          ariaLabel="slide"
+                          aria-label="slide"
                           className="react-slider-slide"
                           innerClassName="slide-inner"
                           index={i}
