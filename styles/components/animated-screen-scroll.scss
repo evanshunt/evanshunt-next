@@ -35,6 +35,9 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
     width: 50%;
     overflow: hidden;
     position: relative;
+    @media (min-width:  $desktop-large) {
+      max-width: 840px;
+    }
   }
 
   .screen-img {
