@@ -11,7 +11,7 @@ section.hero-banner {
   }
 
   &.tall {
-    height: 340px;
+    height: 300px;
 
     @media (min-width: $large-phone) {
       height: 500px;
