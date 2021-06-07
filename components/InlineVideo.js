@@ -12,6 +12,7 @@ class InlineVideo extends React.Component {
     }
 
     this.handlePlayButton = this.handlePlayButton.bind(this)
+    this.handleVideoEnd = this.handleVideoEnd.bind(this)
 
     /* Animated pieces */
     this.play1 = null;
@@ -60,13 +61,21 @@ class InlineVideo extends React.Component {
     }
   }
 
+  // When video ends, animate the play/pause icon
+  handleVideoEnd() {
+    this.tl.reverse(0);
+    this.setState({
+      playButton: 'Play'
+    })
+  }
+
   render() {
     const { title, image, video } = this.props
 
     return (
       <div className="inline-video">
         <div className="video-wrapper">
-          <video ref={video => (this.video = video)} muted playsInline className="video-fluid" poster={image.fields.file.url}>
+          <video ref={video => (this.video = video)} muted playsInline className="video-fluid" poster={image.fields.file.url} onEnded={this.handleVideoEnd}>
             <source src={video.fields.file.url} type="video/mp4" />
               Your browser does not support video tags.
             </video>
