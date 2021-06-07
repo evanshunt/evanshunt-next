@@ -58,7 +58,7 @@ class SliderComponent extends React.Component {
     }
 
     this.state = {
-      visibleSlides: slideDimensions.visibleSlides,
+      visibleSlides: Math.ceil(slideDimensions.visibleSlides), // This removes the empty space in desktop carousels
       slideWidth: slideDimensions.desktopWidth,
       slideHeight: slideDimensions.desktopHeight,
       slideDimensions: slideDimensions,
@@ -104,7 +104,7 @@ class SliderComponent extends React.Component {
 
   render() {
     const { title, slides } = this.props;
-    var { visibleSlides, slideWidth, slideHeight, slideType } = this.state;
+    const { visibleSlides, slideWidth, slideHeight, slideType } = this.state;
 
     if (!slides) {
       return null;
@@ -119,7 +119,8 @@ class SliderComponent extends React.Component {
     if (slides.length < visibleSlides) {
       showArrows = false;
     }
-    visibleSlides = Math.ceil(visibleSlides);
+    // Should only be firing this for desktop
+    //visibleSlides = Math.ceil(visibleSlides);
 
     return (
       <section
@@ -137,11 +138,11 @@ class SliderComponent extends React.Component {
           visibleSlides={visibleSlides}
           className="react-slider"
           isIntrinsicHeight={true}
-          aria-label="carousel-provider"
+          ariaLabel="carousel-provider"
           role="listbox"
         >
           <div className="slider-relative" role="option">
-            <Slider aria-label="slider" trayTag="div">
+            <Slider ariaLabel="slider" trayTag="div">
               {slides &&
                 slides.map((slide, i) => {
                   switch (slide.sys.contentType.sys.id) {
@@ -149,7 +150,7 @@ class SliderComponent extends React.Component {
                       return (
                         <Slide
                           tag="div"
-                          aria-label="slide"
+                          ariaLabel="slide"
                           className="react-slider-slide"
                           innerClassName="slide-inner"
                           index={i}
@@ -168,7 +169,7 @@ class SliderComponent extends React.Component {
                       return (
                         <Slide
                           tag="div"
-                          aria-label="slide"
+                          ariaLabel="slide"
                           className="react-slider-slide"
                           innerClassName="slide-inner"
                           index={i}
