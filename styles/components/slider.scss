@@ -34,6 +34,12 @@
   &-dot-group {
     display: flex;
     justify-content: center;
+    margin: 0 30px 0 auto;
+
+    @media (min-width: $tablet) {
+      max-width: 80%;
+      margin: 0 auto;
+    }
     
     button {
       width: 10%;
@@ -157,6 +163,10 @@
     .slide-description {
       margin-bottom: 0;
       font-size: 16px;
+      display: none;
+      @media (min-width: $large-phone) {
+        display: block;
+      }
       @media (min-width: $tablet) {
         font-size: 14px;
       }
@@ -249,6 +259,7 @@
   padding-left: 15px;
   padding-bottom: 40px;
   padding-top: 40px;
+
 
   // these help it match up with the regular container breakpoints
   // 100vw - container max-width + container 30px of padding / 2

@@ -3,6 +3,7 @@ html {
 }
 
 body {
+  overflow-x: hidden;
   
   &.nav-open {
     position: fixed;

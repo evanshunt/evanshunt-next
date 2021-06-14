@@ -28,7 +28,7 @@ class CaseStudyMosiac extends React.Component {
             trigger: this.trigger,
             pin: this.wrapper,
             scrub: 1,
-            start: "35% center",
+            start: "38% center",
             markers: false,
             invalidateOnRefresh: true
           }
@@ -36,11 +36,9 @@ class CaseStudyMosiac extends React.Component {
         // Feature Image shrinking down from center
         c1.to(this.featureImg, {
           duration: 1.5,
-          scaleX: 0.435,
+          scaleX: 0.44,
           scaleY: 0.4,
           transformOrigin:"center top",
-          y: 53,
-          xPercent: 3.25,
           ease: "power4.Out"
         }, 'featureDone')
         .fromTo(this.img1, {
@@ -91,8 +89,8 @@ class CaseStudyMosiac extends React.Component {
     const [img1,img2,img3,img4] = images // not sure how this would work with more or less than the 4 images
 
     return(
-      <section className="case-study-mosiac">
-        <div ref={div => (this.trigger = div)} className="scroll-container">
+      <section className="case-study-mosiac" ref={div => (this.trigger = div)}>
+        <div className="scroll-container">
           <div ref={div => (this.wrapper = div)} className="wrapper">
             <div className="case-study-mosiac-columns">
               <div className="case-study-mosiac-column case-study-mosiac-column-1">

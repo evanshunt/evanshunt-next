@@ -58,7 +58,7 @@ class SliderComponent extends React.Component {
     }
 
     this.state = {
-      visibleSlides: slideDimensions.visibleSlides,
+      visibleSlides: Math.ceil(slideDimensions.visibleSlides), // This removes the empty space in desktop carousels
       slideWidth: slideDimensions.desktopWidth,
       slideHeight: slideDimensions.desktopHeight,
       slideDimensions: slideDimensions,
@@ -119,6 +119,8 @@ class SliderComponent extends React.Component {
     if (slides.length < visibleSlides) {
       showArrows = false;
     }
+    // Should only be firing this for desktop
+    //visibleSlides = Math.ceil(visibleSlides);
 
     return (
       <section
@@ -148,7 +150,7 @@ class SliderComponent extends React.Component {
                       return (
                         <Slide
                           tag="div"
-                          ariaLabel="slide"
+                          aria-label="slide"
                           className="react-slider-slide"
                           innerClassName="slide-inner"
                           index={i}
@@ -167,7 +169,7 @@ class SliderComponent extends React.Component {
                       return (
                         <Slide
                           tag="div"
-                          ariaLabel="slide"
+                          aria-label="slide"
                           className="react-slider-slide"
                           innerClassName="slide-inner"
                           index={i}

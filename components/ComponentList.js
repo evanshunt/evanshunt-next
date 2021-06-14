@@ -26,6 +26,7 @@ import ServicesIntro from "./ServicesIntro";
 import Accordion from "./Accordion";
 import ServicesPagination from "./ServicesPagination";
 import MediumFeed from "./MediumFeed";
+import LogoGrid from './LogoGrid'
 
 // Case Study Specific Components
 import CaseStudyMosiac from "./CaseStudyMosiac";
@@ -116,12 +117,16 @@ const renderComponents = (components) => {
             smallText={component.fields.smallText}
             circle1Title={component.fields.circle1Title}
             circle1Description={component.fields.circle1Description}
+            circle1Cta={component.fields.circle1Cta}
             circle2Title={component.fields.circle2Title}
             circle2Description={component.fields.circle2Description}
+            circle2Cta={component.fields.circle2Cta}
             circle3Title={component.fields.circle3Title}
             circle3Description={component.fields.circle3Description}
+            circle3Cta={component.fields.circle3Cta}
             circle4Title={component.fields.circle4Title}
             circle4Description={component.fields.circle4Description}
+            circle4Cta={component.fields.circle4Cta}
             primaryCta={component.fields.primaryCta}
             secondaryCta={component.fields.secondaryCta}
             key={`component-${i}`}
@@ -349,6 +354,16 @@ const renderComponents = (components) => {
       case "componentMediumFeed":
         return (
           <MediumFeed title={component.fields.title} key={`component-${i}`} />
+        );
+
+      case "componentLogoGrid":
+        return (
+          <LogoGrid
+            smallTitle={component.fields.smallTitle}
+            largeTitle={component.fields.largeTitle}
+            addPadding={component.fields.addPadding}
+            logos={component.fields.logos}
+          />
         );
 
       default:

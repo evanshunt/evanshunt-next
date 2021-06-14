@@ -973,6 +973,12 @@ const HeroBanner = ({
     }
   }
 
+  // When video ends, animate the play/pause icon
+  const handleRestart = () => {
+    tl.current.play(0);
+    setplayButton('pause')
+  }
+
   const animateBanner = () => {
     const bannerLine = aLine.current
 
@@ -999,7 +1005,7 @@ const HeroBanner = ({
       {!backgroundVideo && backgroundImage && <img src={backgroundImage} alt="" className="background-image" />}
       {backgroundVideo && (
         <div className="hero-banner-video">
-          <video ref={video} autoPlay muted playsInline className="background-video" poster={backgroundImage}>
+          <video ref={video} autoPlay muted playsInline className="background-video" poster={backgroundImage} onEnded={handleRestart}>
             <source src={backgroundVideo} type="video/mp4" />
           </video>
           <div className={videoClasses} onClick={handlePlayButton}>

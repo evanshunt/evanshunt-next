@@ -61,7 +61,7 @@ const ServiceBlockText = (props) => {
         )}
         {link && (
           <Link href={link.fields.url}>
-            <a className="btn btn-secondary btn-outline" title={link.fields.title}>{link.fields.title}</a>
+            <a className="btn btn-secondary btn-outline-alt" title={link.fields.title}>{link.fields.title}</a>
           </Link>
         )}
       </div>

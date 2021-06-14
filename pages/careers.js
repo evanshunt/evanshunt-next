@@ -4,14 +4,17 @@ import renderComponents from "../components/ComponentList";
 const CMSApi = require("../utility/cms");
 
 const Careers = (content) => {
+
   return (
     <Layout className="content-page contact-page">
+      
       <PageMeta
         seoTitle={content.fields.pageMeta.fields.seoTitle}
         metaDescription={content.fields.pageMeta.fields.metaDescription}
         socialMediaImage={content.fields.pageMeta.fields.socialMediaImage}
       />
       {content.fields.components && renderComponents(content.fields.components)}
+
     </Layout>
   );
 };
