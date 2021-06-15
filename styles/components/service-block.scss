@@ -1,6 +1,8 @@
 .service-block {
   padding-top: 75px;
-  overflow: hidden;
+  @media (max-width: $tablet) {
+    overflow: hidden;
+  }
   @media (min-width: $tablet) {
     padding-top: 80px;
   }
