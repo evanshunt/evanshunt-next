@@ -28,7 +28,7 @@ const Footer = () => {
               </g>
             </g>
           </svg>
-          <h3>Strategy. Creative. Technology</h3>
+          <h3 className="footer-tagline">Strategy. Creative. Technology.</h3>
         </div>
         
         <div className="footer-right footer-links">
