@@ -133,9 +133,20 @@ const ImagesBlock = (props) => {
       >
         <Slider>
           {mobileImages && mobileImages.map((img, i) => {
+            let mediaType = img.fields.file.contentType
             return (
               <Slide key={i}>
-                <Image src={img.fields.file.url} alt={img.fields.file.description} className="img-fluid images-block-slider-img" />
+                {/* Media can be a video or image */}
+                {mediaType.indexOf('video/') !== -1 &&
+                  <video autoPlay muted loop playsInline className="video-fluid">
+                    <source src={img.fields.file.url} type="video/mp4" />
+                    Your browser does not support video tags.
+                  </video>
+                }
+
+                {mediaType.indexOf('image/') !== -1 &&
+                  <Image src={img.fields.file.url} alt={img.fields.file.description} className="img-fluid images-block-slider-img" />
+                }
               </Slide>
             )
           })}
