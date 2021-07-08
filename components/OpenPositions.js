@@ -1,4 +1,6 @@
 import { useCallback, useRef, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
+import RichText from "./RichText";
 import gsap from "gsap";
 
 function useHover() {
@@ -97,43 +99,60 @@ const OpenPositions = ({ title, introText, openPositions }) => {
       {introText && <p className="intro-text">{introText}</p>}
 
       {openPositions.map((job, i) => (
-        <a
-          href={job.fields.jobPostingURL}
-          key={`open-position${i}`}
-          className="position"
-          target="_blank"
-          rel="noreferrer"
-          ref={addToRefs}
-          onMouseOver={mouseOver}
-          onMouseOut={mouseOut}
-        >
-          <div className="job-description">
-            {job.fields.jobTitle && (
-              <p className="title">{job.fields.jobTitle}</p>
-            )}
-            {job.fields.department && (
-              <p className="department">{job.fields.department}</p>
-            )}
-          </div>
+        <div className="content-wrapper" key={`open-position${i}`}>
 
-          <svg
-            className={`svg-open-position item-${i}`}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 180 70"
+          {/* If child is markdown field - like if there aren't any job posts to show */}
+          {job.sys.contentType.sys.id === "globalElementMarkdown" && (
+            <ReactMarkdown className="markdown" source={job.fields.markdown} />
+          )}
+
+          {/* If child is richtext field - like if there aren't any job posts to show */}
+          {job.sys.contentType.sys.id === "globalElementRichText" && (
+            <RichText content={job.fields.richText} />
+          )}
+
+          {job.sys.contentType.sys.id === "globalElementOpenPosition" && (
+          <a
+            href={job.fields.jobPostingURL}
+            className="position"
+            target="_blank"
+            rel="noreferrer"
+            ref={addToRefs}
+            onMouseOver={mouseOver}
+            onMouseOut={mouseOut}
           >
-            <path
-              className={`bg`}
-              d="M35,0H145a35,35,0,0,1,35,35h0a35,35,0,0,1-35,35H35A35,35,0,0,1,0,35H0A35,35,0,0,1,35,0Z"
-            />
-            <text className={`label`} transform="translate(49.08 41)">
-              View
-            </text>
-            <path
-              className={`arrow`}
-              d="M145.62,35.13,138.15,28l-2,1.73,5.25,5H114v2.52h27.37l-5.25,5,2,1.73,7.47-7.13A1.16,1.16,0,0,0,146,36,1.33,1.33,0,0,0,145.62,35.13Z"
-            />
-          </svg>
-        </a>
+
+            <div className="job-description">
+              {job.fields.jobTitle && (
+                <p className="title">{job.fields.jobTitle}</p>
+              )}
+              {job.fields.department && (
+                <p className="department">{job.fields.department}</p>
+              )}
+            </div>
+
+            <svg
+              className={`svg-open-position item-${i}`}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 180 70"
+            >
+              <path
+                className={`bg`}
+                d="M35,0H145a35,35,0,0,1,35,35h0a35,35,0,0,1-35,35H35A35,35,0,0,1,0,35H0A35,35,0,0,1,35,0Z"
+              />
+              <text className={`label`} transform="translate(49.08 41)">
+                View
+              </text>
+              <path
+                className={`arrow`}
+                d="M145.62,35.13,138.15,28l-2,1.73,5.25,5H114v2.52h27.37l-5.25,5,2,1.73,7.47-7.13A1.16,1.16,0,0,0,146,36,1.33,1.33,0,0,0,145.62,35.13Z"
+              />
+            </svg>
+          </a>
+        )}
+
+
+        </div>
       ))}
     </section>
   );
