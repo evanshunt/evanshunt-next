@@ -36,7 +36,13 @@ This is the codebase for the Evans Hunt website.
 
 ## Deployment processes
 
-TBD
+Netlify handles all deploys. The dev branch is using Next.js Preview Mode (details here: https://www.netlify.com/blog/2020/10/27/preview-mode-for-next.js-now-fully-supported-on-netlify/)
+
+When code is pushed into origin/dev it automatically deploys to our QA instance.
+
+When code is pushed into origin/master is automatically deploys to production
+
+When content inside of Contentful CMS is published we have a webhook to trigger a build deploy to production. To preview content on our QA instance leave as "draft" or "changed" within Contentful.
 
 ## Third-party integrations
 
@@ -52,17 +58,19 @@ TBD
 Using Netlify for Builds and Servers.
 
 DEV Branch --> https://dev--eh-next-qa.netlify.app/
+
 MASTER Branch --> https://eh-next-qa.netlify.app/
 
 
 ## Team, contacts
 
-* PM: Sabrina Wilson / Kayla Malone
+* PM: Sabrina Wilson / Kayla Malone / Becky Chittik
 * Clients: Dan Evans & Bill Hunt
 * Tech Lead: Derek McBurney / Kalen McConnell
-* Dev: Justine Matsalla / Matt Robinson / Kalen McConnell / Colin Cheverie
+* Dev: Justine Matsalla / Matt Robinson / Kalen McConnell / Rainer Brieger
 * QA: Quent Roxas
 
 ## Changelog
 * 18 Aug 2020 Initial repo setup
 * 19 Jan 2021 - changing team members, adding details around local export
+* 8 July 2021 - changing team members, adding deployment details, LAUNCH
