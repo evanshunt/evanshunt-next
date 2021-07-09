@@ -30,6 +30,18 @@ section.open-positions {
     }
   }
 
+  .content-wrapper {
+
+    .markdown, .rich-text {
+      padding: 2rem 0;
+      text-align: center;
+      a {
+        text-decoration: underline;
+        font-weight: 500;
+      }
+    }
+  }
+
   .position {
     display: flex;
     justify-content: space-between;
