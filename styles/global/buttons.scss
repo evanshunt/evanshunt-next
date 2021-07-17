@@ -13,6 +13,17 @@
     text-decoration: none;
     color: $black;
   }
+
+  @media (prefers-color-scheme: dark) {
+    background: $white;
+    color: $black;
+    border: 3px solid $white;
+
+    &:hover {
+      background: $black;
+      color: $white;
+    }
+  }
   
   @media (min-width: $tablet) {
     padding: 33.5px 53.42px 36.5px;
@@ -117,5 +128,11 @@ svg.play-pause {
     stroke:$black;
     stroke-linecap:square;
     stroke-width:8px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  button {
+    color: $white;
   }
 }

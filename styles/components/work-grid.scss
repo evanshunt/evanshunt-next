@@ -77,6 +77,11 @@
           a:hover {
             background: $black;
             text-decoration: none;
+
+            @media (min-width: $desktop) {
+              color: $black;
+              background: $white;
+            }
           }
         }
       }

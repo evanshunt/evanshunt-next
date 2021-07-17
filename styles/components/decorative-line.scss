@@ -86,6 +86,12 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
     svg.svg-down-short {
         height: 192px;
     }
+
+    @media (prefers-color-scheme: dark) {
+      svg path {
+        stroke: $darkestgrey !important;
+      }
+    }
   }
 
   /* Overrides here */

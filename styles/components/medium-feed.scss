@@ -1,6 +1,10 @@
 section.medium-feed {
-  background: #EBEDEE;
+  background: $lightestgrey;
   padding: 2.5rem 0;
+
+  @media (prefers-color-scheme: dark) {
+    background: $darkestgrey;
+  }
 
   @media (min-width: $desktop) {
     padding: 5.5rem 0;

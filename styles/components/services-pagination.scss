@@ -14,6 +14,10 @@ section.services-pagination {
     .arrow {
       transition: fill 0.3s ease-in-out;
       fill: $black;
+
+      @media (prefers-color-scheme: dark) {
+        fill: $white;
+      }
     }
   }
 
@@ -28,6 +32,11 @@ section.services-pagination {
     align-items: center;
     transition: all 0.3s ease-in-out;
     margin: 0 0.5rem;
+
+    @media (prefers-color-scheme: dark) {
+      border-color: $white;
+    }
+
     @media (min-width: $desktop) {
       min-width: 100px;
       height: 100px;
@@ -40,6 +49,10 @@ section.services-pagination {
       font-weight: 500;
       text-transform: capitalize;
       display: none;
+
+      @media (prefers-color-scheme: dark) {
+        color: $black;
+      }
     }
 
     &:hover {
@@ -71,6 +84,14 @@ section.services-pagination {
 
       .arrow {
         fill: $white;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        background: $white;
+
+        .arrow {
+          fill: $black;
+        }
       }
     }
   }
