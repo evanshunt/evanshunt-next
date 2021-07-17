@@ -13,6 +13,14 @@ section.accordion {
     &:last-of-type {
       border-bottom: 1px solid #D6DDE0;
     }
+
+    @media (prefers-color-scheme: dark) {
+      border-color: $darkgrey;
+
+      &:last-of-type {
+        border-color: $darkgrey;
+      }
+    }
   }
 
   .accordion__button {

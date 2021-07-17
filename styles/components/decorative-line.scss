@@ -88,7 +88,7 @@ Overrides can be specified by filling in the "AdditionalClass" field in Contentf
     }
 
     @media (prefers-color-scheme: dark) {
-      svg path {
+      svg path, svg line {
         stroke: $darkestgrey !important;
       }
     }

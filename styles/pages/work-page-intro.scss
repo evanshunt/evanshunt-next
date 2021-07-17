@@ -92,6 +92,11 @@
       font-size: 0.9rem;
       font-weight:  500;
       margin-top: 15px;
+
+      @media (prefers-color-scheme: dark) {
+        border-color: $darkgrey;
+      }
+      
       @media (min-width: 992px) {
         padding: 20px 0 0;  
       }
