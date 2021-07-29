@@ -42,7 +42,7 @@ const Footer = () => {
       
       <div className="footer-legal">
         <span>&copy; {currentYear} All Rights Reserved.</span>
-        <span><a href="https://www.evanshunt.com/EvansHunt_Web_PrivacyPolicy_08-2017.pdf" target="_blank" rel="noreferrer">Privacy Policy</a></span>
+        <span><a href="https://assets.ctfassets.net/e7zdud06ixb9/paoadM9w6T4t65ZJJHunc/ad72ebac5baca8e7523c4cda800b9446/EvansHunt_Web_PrivacyPolicy_08-2017.pdf" target="_blank" rel="noreferrer">Privacy Policy</a></span>
       </div>
     </footer>
   )
