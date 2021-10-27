@@ -81,6 +81,11 @@
             @media (min-width: $desktop) {
               color: $black;
               background: $white;
+
+              @media (prefers-color-scheme: dark) {
+                color: $white;
+                background: $black;
+              }
             }
           }
         }

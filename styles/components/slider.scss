@@ -50,6 +50,14 @@
       &:disabled {
         background: $darkgrey;
       }
+
+      @media (prefers-color-scheme: dark) {
+        background: $darkgrey;
+
+        &:disabled {
+          background: rgb(239, 239, 239);
+        }
+      }
     }
   }
 
@@ -98,6 +106,11 @@
         max-height: 16px;
       }
     }
+
+    @media (prefers-color-scheme: dark) {
+      background-color: $white;
+      color: $black;
+    }
   }
 
   .carousel__back-button {
@@ -127,6 +140,11 @@
     display: block;
     position: relative;
     overflow: hidden;
+
+    @media (prefers-color-scheme: dark) {
+      color: $black;
+    }
+
     .image-wrapper {
       position: relative;
       width: 100%;
