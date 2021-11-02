@@ -48,7 +48,8 @@ const WorkPageIntro = ({ title, industry, introTextLong, externalLink, servicesL
               <Link href={externalLink} >
                 <a className="external-link" title={externalLink} target="_blank" rel="noreferrer">
                   {externalLink}
-                  <img className="external-link-icon" src="/images/external-link.svg" alt="external link icon"/>
+                  <img className="external-link-icon external-link-icon-dark" src="/images/external-link.svg" alt="external link icon"/>
+                  <img className="external-link-icon external-link-icon-light" src="/images/external-link-white.svg" alt="external link icon"/>
                 </a>
               </Link>
             )}

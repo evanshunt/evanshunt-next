@@ -83,7 +83,8 @@ const ServiceCircles = ({
           <Link href={secondaryCta.fields.url}>
             <a className="cta-animate-arrow" title={secondaryCta.fields.title}>
               {secondaryCta.fields.title}
-              <img src="/images/small-right-arrow.svg" alt="Black arrow pointing right" className="black-arrow" />
+              <img className="dark-arrow" src="/images/small-right-arrow.svg" alt="Right pointing arrow" />
+              <img className="light-arrow" src="/images/small-right-arrow-white.svg" alt="Right pointing arrow" />
             </a>
           </Link>
         </div>
