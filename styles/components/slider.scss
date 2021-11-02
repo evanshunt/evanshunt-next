@@ -73,6 +73,21 @@
     height: 42px;
     outline: none;
     border: none;
+
+    .dark-arrow {
+      display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .light-arrow {
+        display: none;
+      }
+
+      .dark-arrow {
+        display: inline;
+      }
+    }
+
     @media (min-width: $large-phone) {
       width: 70px;
       height: 70px;

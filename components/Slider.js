@@ -196,14 +196,26 @@ class SliderComponent extends React.Component {
             </Slider>
             <ButtonBack className={classNames({ inactive: !showArrows })}>
               <img
+                className="light-arrow"
                 src="/images/arrow-left-lg-white.svg"
                 alt="arrow-left-lg-white"
+              />
+              <img
+                className="dark-arrow"
+                src="/images/arrow-left-lg-black.svg"
+                alt="arrow-left-lg-black"
               />
             </ButtonBack>
             <ButtonNext className={classNames({ inactive: !showArrows })}>
               <img
+                className="light-arrow"
                 src="/images/arrow-right-lg-white.svg"
                 alt="arrow-right-lg-white"
+              />
+              <img
+                className="dark-arrow"
+                src="/images/arrow-right-lg-black.svg"
+                alt="arrow-right-lg-black"
               />
             </ButtonNext>
           </div>
