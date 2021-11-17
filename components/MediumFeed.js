@@ -37,7 +37,8 @@ const MediumFeed = ({ title }) => {
                     <a href={post.link} className="text" target="_blank" rel="noreferrer">
                       <h3>{post.title}</h3>
                       Read story{" "}
-                      <img src="/images/small-right-arrow.svg" alt="right arrow" className="post-right-arrow" />
+                      <img className="dark-arrow" src="/images/small-right-arrow.svg" alt="Right pointing arrow" />
+                      <img className="light-arrow" src="/images/small-right-arrow-white.svg" alt="Right pointing arrow" />
                     </a>
                   </article>
                 )

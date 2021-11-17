@@ -13,6 +13,17 @@
     text-decoration: none;
     color: $black;
   }
+
+  @media (prefers-color-scheme: dark) {
+    background: $white;
+    color: $black;
+    border: 3px solid $white;
+
+    &:hover {
+      background: $black;
+      color: $white;
+    }
+  }
   
   @media (min-width: $tablet) {
     padding: 33.5px 53.42px 36.5px;
@@ -72,11 +83,26 @@
       background: $black;
       text-decoration: none;
     }
+
+    @media (prefers-color-scheme: dark) {
+      border: 3px solid $white;
+      color: $white;
+
+      &:hover {
+        color: $black;
+        background: $white;
+      }
+    }
   }
 }
 
 /* Link that on hover animates in an icon */
 .cta-animate-arrow {
+
+  .light-arrow {
+    display: none;
+  }
+
   img {
     opacity: 0;
     transition: all 0.3s ease-out;
@@ -88,6 +114,16 @@
       transform: translateX(10px);
     }
   }
+
+  @media (prefers-color-scheme: dark) {
+    .dark-arrow {
+      display: none;
+    }
+
+    .light-arrow {
+      display: inline;
+    }
+  }
 }
 
 /* Small bold links that usually link outside of the evanshunt.com domain */
@@ -96,6 +132,10 @@
   font-weight: 500;
   padding-bottom: 10px;
   display: block;
+
+  .light-arrow {
+    display: none;
+  }
 }
 
 
@@ -117,5 +157,11 @@ svg.play-pause {
     stroke:$black;
     stroke-linecap:square;
     stroke-width:8px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  button {
+    color: $white;
   }
 }

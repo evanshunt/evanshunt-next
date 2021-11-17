@@ -27,10 +27,18 @@
     
     .header-nav-link, .header-nav-toggle {
       color: $black;
+      
+      @media (prefers-color-scheme: dark) {
+        color: $white;
+      }
     }
 
     .header-nav-toggle .icon-bar {
       background-color: $darkestgrey;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: $lightestgrey;
+      }
     }
   }
   
@@ -51,6 +59,10 @@
       color: $black;
       position: relative;
       z-index: 2;
+
+      @media (prefers-color-scheme: dark) {
+        color: $white;
+      }
     }
   }
 }
@@ -89,6 +101,10 @@
   overflow-y: auto;
   flex-direction: column;
   padding-top: 70px;
+
+  @media (prefers-color-scheme: dark) {
+    background: $darkestgrey;
+  }
 
   @media (min-width: $desktop) {
     position: relative;
@@ -135,6 +151,11 @@
   letter-spacing: 1px;
   font-weight: 500;
   position: relative;
+
+  @media (prefers-color-scheme: dark) {
+    color: $white;
+  }
+
   @media (min-width: $desktop) {
     font-size: 15px;
     &:last-of-type {
@@ -248,6 +269,18 @@
       animation-fill-mode: forwards;
       background-color: $darkestgrey;
     }
+
+    @media (prefers-color-scheme: dark) {
+      .icon-bar:nth-of-type(1) {
+        background-color: $lightgrey;
+      }
+      .icon-bar:nth-of-type(2) {
+        background-color: $lightgrey;
+      }
+      .icon-bar:nth-of-type(3) {
+        background-color: $lightgrey;
+      }
+    }
   }
 
   .icon-bar:nth-of-type(1) {
@@ -287,6 +320,10 @@
   &-link {
     color: $black;
     text-transform: none;
+
+    @media (prefers-color-scheme: dark) {
+      color: $white;
+    }
   }
 }
 

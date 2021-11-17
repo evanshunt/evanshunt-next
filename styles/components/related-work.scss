@@ -1,6 +1,10 @@
 .related-work {
-  background: #EBEDEE;
+  background: $lightestgrey;
   padding: 65px 0;
+
+  @media (prefers-color-scheme: dark) {
+    background: $darkestgrey;
+  }
   
   &-header {
     display: flex;

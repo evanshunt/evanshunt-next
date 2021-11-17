@@ -49,13 +49,20 @@ section.open-positions {
     border-bottom: 2px solid #D6DDE0;
     min-height: 100px;
 
-
     @media (min-width: $desktop) {
       min-height: 126px;
     }
 
     &:first-of-type {
       border-top: 2px solid #D6DDE0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      border-color: $darkgrey;
+
+      &:first-of-type {
+        border-color: $darkgrey;
+      }
     }
 
     .title {

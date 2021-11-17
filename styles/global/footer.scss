@@ -61,6 +61,10 @@
     font-weight: 500;
     letter-spacing: 1px;
 
+    @media (prefers-color-scheme: dark) {
+      color: $white;
+    }
+
     @media (min-width: $tablet) {
       font-size: 13px;
     }
