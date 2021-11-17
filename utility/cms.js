@@ -8,7 +8,8 @@ const contentfulSettings = () => {
 
   let settings = {
     space: process.env.CONTENTFUL_SPACE,
-    accessToken: process.env.CONTENTFUL_TOKEN
+    accessToken: process.env.CONTENTFUL_TOKEN,
+    environment: process.env.CONTENTFUL_ENVIRONMENT || "master", 
   }
   
   // for development, use the preview api for draft content
@@ -18,6 +19,7 @@ const contentfulSettings = () => {
     settings = {
       space: process.env.CONTENTFUL_SPACE,
       accessToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
+      environment: process.env.CONTENTFUL_ENVIRONMENT || "master", 
       host: 'preview.contentful.com'
     }
   }
