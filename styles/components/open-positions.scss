@@ -92,13 +92,25 @@ section.open-positions {
         font-family:$base-font-family;
         font-weight:500;
         letter-spacing:0.01em;
+
+        @media (prefers-color-scheme: dark) {
+          fill: $black;
+        }
       }
       .bg {
         transform-origin: center right;
         fill: transparent;
+
+        @media (prefers-color-scheme: dark) {
+          fill: $white !important;
+        }
       }
       .arrow {
         fill: $black;
+
+        @media (prefers-color-scheme: dark) {
+          fill: $white !important;
+        }
       }
     }
 
@@ -107,6 +119,12 @@ section.open-positions {
       .svg-open-position {
         .bg {
           fill: $black;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          .arrow {  
+            fill: $black !important;
+          }
         }
       }
     }
