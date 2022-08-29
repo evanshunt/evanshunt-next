@@ -3,7 +3,7 @@ import { withRouter } from "next/router";
 
 const PageMeta = ({ seoTitle, metaDescription, socialMediaImage, router }) => {
 
-  var ogImageURL = 'https:' + socialMediaImage.fields.file.url;
+  const ogImageURL = 'https:' + socialMediaImage.fields.file.url;
 
   return (
     <Head>
