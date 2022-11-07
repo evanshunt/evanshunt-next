@@ -1,6 +1,6 @@
 import Layout from '../layouts/Page'
 import PageMeta from "../components/PageMeta";
-import IntroBlock from '../components/IntroBlock'
+import renderComponents from "../components/ComponentList";
 const CMSApi = require("../utility/cms");
 
 const DeiReportPage = (content) => {
