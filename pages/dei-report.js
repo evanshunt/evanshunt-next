@@ -1,6 +1,6 @@
 import Layout from '../layouts/Page'
 import PageMeta from "../components/PageMeta";
-import renderComponents from "../components/ComponentList";
+import HeroBanner from "../components/HeroBanner";
 const CMSApi = require("../utility/cms");
 
 const DeiReportPage = (content) => {
@@ -11,14 +11,18 @@ const DeiReportPage = (content) => {
         metaDescription={content.fields.pageMeta.fields.metaDescription}
         socialMediaImage={content.fields.pageMeta.fields.socialMediaImage}
       />
-      {content.fields.components && renderComponents(content.fields.components)}
+      <HeroBanner
+        smallText="Report"
+        largeText="Diversity, equity and inclusion"
+        flatHero="true"
+      />
     </Layout>
   );
 }
 
 DeiReportPage.getInitialProps = async () => {
   const api = new CMSApi();
-  const json = await api.fetchWorkPage("pageDeiReport");
+  const json = await api.fetchContentType("pageDeiReport");
 
   if (json) {
     return json;

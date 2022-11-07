@@ -9,6 +9,7 @@ const HeroBanner = ({
   largeText,
   gradientHero,
   gradientColour,
+  flatHero,
   backgroundImage,
   backgroundVideo,
 }) => {
@@ -1020,6 +1021,10 @@ const HeroBanner = ({
                 </g>
               </svg>
           </div>
+        </div>
+      )}
+      {flatHero && (
+        <div className="hero-banner-flat">
         </div>
       )}
 

@@ -92,6 +92,15 @@ section.hero-banner {
     object-position: center center;
     position: absolute;
   }
+  
+  .hero-banner-flat {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    position: absolute;
+    background-color: #F72954;
+  }
 
   .banner-text {
     padding-right: 4rem;
