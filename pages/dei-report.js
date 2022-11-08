@@ -1,6 +1,8 @@
 import Layout from '../layouts/Page'
 import PageMeta from "../components/PageMeta";
 import HeroBanner from "../components/HeroBanner";
+import IntroBlock from "../components/IntroBlock";
+import DEIYear from "../components/DEIYear";
 const CMSApi = require("../utility/cms");
 
 const DeiReportPage = (content) => {
@@ -15,6 +17,11 @@ const DeiReportPage = (content) => {
         smallText="Report"
         largeText="Diversity, equity and inclusion"
         flatHero="true"
+      />
+      <IntroBlock
+        introText={content.fields.introText}
+      />
+      <DEIYear
       />
     </Layout>
   );
