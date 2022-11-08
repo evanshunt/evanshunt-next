@@ -1,7 +1,8 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
-const DEIYear = ({ fields }) => {
+const DEIYear = ({ fields, selected }) => {
+  console.log(selected);
   return (
     <section className="dei-report-year">
       <h2>{fields.year} DEI Report</h2>
@@ -9,7 +10,6 @@ const DEIYear = ({ fields }) => {
         <ReactMarkdown source={fields.summary} />
       </div>
       {fields.categoriesAndQuestions.map((item, i) => {
-        console.log(item);
         if (item.sys.contentType.sys.id == "deiReportCategory") {
           return (
             <div className="category">
@@ -25,7 +25,6 @@ const DEIYear = ({ fields }) => {
                 {item.fields.tooltip && <button className="tooltip">i</button>}
               </h4>
               <div className={item.fields.barChart ? `results barchart` : `results circle`}>
-
               </div>
               <span>See results from</span>
               <button>2021</button>

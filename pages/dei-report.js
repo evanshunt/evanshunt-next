@@ -6,6 +6,11 @@ import DEIYear from "../components/DEIYear";
 const CMSApi = require("../utility/cms");
 
 const DeiReportPage = ({ page, reportYears }) => {
+  const [selectedYear, setSelectedYear] = React.useState(reportYears[0].fields.year);
+  const handleChange = (e) => {
+    setSelectedYear(e.target.value);
+  }
+
   return (
     <Layout className="content-page dei-report-page">
       <PageMeta
@@ -21,16 +26,17 @@ const DeiReportPage = ({ page, reportYears }) => {
       <IntroBlock
         introText={page.fields.introText}
       />
-      <select>
-      {reportYears.map((year, i) => {
-        return (
-          <option key={i}>{year.fields.year}</option>
-        )
-      })}
+      <select onChange={(e) => handleChange(e)}>
+        <option value={reportYears[0].fields.year} >View past reports</option>  
+        {reportYears.map((year, i) => {
+          return (
+            <option key={i}>{year.fields.year}</option>
+          )
+        })}
       </select>
       {reportYears.map((year, i) => {
         return (
-          <DEIYear key={`reportYear-${i}`}  {...year} />
+          <DEIYear key={`reportYear-${i}`}  {...year} selected={selectedYear == year.fields.year ? "selected" : "not-selected"} />
         )
       })}
     </Layout>
@@ -41,6 +47,7 @@ DeiReportPage.getInitialProps = async () => {
   const api = new CMSApi();
   const page = await api.fetchUniquePageType("pageDeiReport");
   const reportYears = await api.fetchContentType("deiReportYear");
+  reportYears.sort((a, b) => a.fields.year < b.fields.year ? 1 : -1)
   if (page && reportYears) {
     return { page, reportYears }
   } else {
