@@ -33,17 +33,34 @@ function CMSApi() {
   const clientSettings = contentfulSettings()
   this.client = contentful.createClient(clientSettings);
 
-  this.fetchUniquePageType = async (contentType) => {
+  this.fetchUniquePageType = async (uniquePageType) => {
     return await this.client
       .getEntries({
         include: 4,
-        content_type: contentType,
+        content_type: uniquePageType,
       })
       .then(async (results) => {
         const page = results.items[0];
 
         if (page) {
           return page;
+        }
+
+        return null;
+      });
+  };
+
+  this.fetchContentType = async (contentType) => {
+    return await this.client
+      .getEntries({
+        include: 4,
+        content_type: contentType,
+      })
+      .then(async (results) => {
+        const items = results.items;
+
+        if (items) {
+          return items;
         }
 
         return null;

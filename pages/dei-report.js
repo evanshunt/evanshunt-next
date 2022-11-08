@@ -5,13 +5,13 @@ import IntroBlock from "../components/IntroBlock";
 import DEIYear from "../components/DEIYear";
 const CMSApi = require("../utility/cms");
 
-const DeiReportPage = (content) => {
+const DeiReportPage = ({ page, reportYears }) => {
   return (
     <Layout className="content-page dei-report-page">
       <PageMeta
-        seoTitle={content.fields.pageMeta.fields.seoTitle}
-        metaDescription={content.fields.pageMeta.fields.metaDescription}
-        socialMediaImage={content.fields.pageMeta.fields.socialMediaImage}
+        seoTitle={page.fields.pageMeta.fields.seoTitle}
+        metaDescription={page.fields.pageMeta.fields.metaDescription}
+        socialMediaImage={page.fields.pageMeta.fields.socialMediaImage}
       />
       <HeroBanner
         smallText="Report"
@@ -19,20 +19,30 @@ const DeiReportPage = (content) => {
         flatHero="true"
       />
       <IntroBlock
-        introText={content.fields.introText}
+        introText={page.fields.introText}
       />
-      <DEIYear
-      />
+      <select>
+      {reportYears.map((year, i) => {
+        return (
+          <option key={i}>{year.fields.year}</option>
+        )
+      })}
+      </select>
+      {reportYears.map((year, i) => {
+        return (
+          <DEIYear key={`reportYear-${i}`}  {...year} />
+        )
+      })}
     </Layout>
   );
 }
 
 DeiReportPage.getInitialProps = async () => {
   const api = new CMSApi();
-  const json = await api.fetchUniquePageType("pageDeiReport");
-
-  if (json) {
-    return json;
+  const page = await api.fetchUniquePageType("pageDeiReport");
+  const reportYears = await api.fetchContentType("deiReportYear");
+  if (page && reportYears) {
+    return { page, reportYears }
   } else {
     return { errorCode: 404 };
   }

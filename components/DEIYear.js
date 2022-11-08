@@ -1,33 +1,39 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 
-const DEIYear = () => {
+const DEIYear = ({ fields }) => {
   return (
     <section className="dei-report-year">
-      <h2>2021 DEI Report</h2>
-      <select>
-        <option>View past reports</option>
-        <option>2020</option>
-      </select>
+      <h2>{fields.year} DEI Report</h2>
       <div className="summary">
-        <strong>Our initiatives</strong>
-        <p></p>
+        <ReactMarkdown source={fields.summary} />
       </div>
-      <div className="category">
-        <h3>Identity and lived experience</h3>
-        <p>Summary</p>
-        <ul>
-          <li>
-            <h4>Gender Identity <button className="tooltip">i</button></h4>
-            <p>In 2021</p>
-            <div className="results">
-
+      {fields.categoriesAndQuestions.map((item, i) => {
+        console.log(item);
+        if (item.sys.contentType.sys.id == "deiReportCategory") {
+          return (
+            <div className="category">
+              <h3>{item.fields.title}</h3>
+              {item.fields.summary && <ReactMarkdown source={item.fields.summary} />}
             </div>
-            <span>See results from</span>
-            <button>2021</button>
-            <button>2020</button>
-          </li>
-        </ul>
-      </div>
+          )
+        }
+        else {
+          return (
+            <div className="question">
+              <h4>{item.fields.title} 
+                {item.fields.tooltip && <button className="tooltip">i</button>}
+              </h4>
+              <div className={item.fields.barChart ? `results barchart` : `results circle`}>
+
+              </div>
+              <span>See results from</span>
+              <button>2021</button>
+              <button>2020</button>
+            </div>
+          )
+        }
+      })}
     </section>
   );
 };
