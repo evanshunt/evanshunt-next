@@ -33,7 +33,7 @@ function CMSApi() {
   const clientSettings = contentfulSettings()
   this.client = contentful.createClient(clientSettings);
 
-  this.fetchContentType = async (contentType) => {
+  this.fetchUniquePageType = async (contentType) => {
     return await this.client
       .getEntries({
         include: 4,

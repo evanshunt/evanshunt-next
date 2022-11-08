@@ -29,7 +29,7 @@ const DeiReportPage = (content) => {
 
 DeiReportPage.getInitialProps = async () => {
   const api = new CMSApi();
-  const json = await api.fetchContentType("pageDeiReport");
+  const json = await api.fetchUniquePageType("pageDeiReport");
 
   if (json) {
     return json;
