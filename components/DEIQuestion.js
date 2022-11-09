@@ -2,13 +2,13 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import DEIResult from "../components/DEIResult";
 
-const DEIQuestion = ({ title, toolTip, barChart, results, currentYear }) => {
+const DEIQuestion = ({ title, toolTip, barChart, results, summaries, activeYear, latestYear }) => {
   // Massage results table into a workable object
   const resultHeaders = results.tableData[0];
   let resultYears = [];
   let formattedResults = [];
   for (let i=1; i<resultHeaders.length; i++) {
-    if (resultHeaders[i] <= currentYear) {
+    if (resultHeaders[i] <= latestYear) {
       resultYears.push(resultHeaders[i]);
     }
   }
@@ -17,7 +17,7 @@ const DEIQuestion = ({ title, toolTip, barChart, results, currentYear }) => {
     let questionLabel = questionResults[0];
     let yearResults = {};
     for (let j=1; j<questionResults.length; j++) {
-      if (questionResults[j] != null && questionResults[j] != "") {
+      if (questionResults[0] != null && questionResults[0] != "" && questionResults[j] != null && questionResults[j] != "") {
         yearResults[resultYears[j-1]] = questionResults[j];
       }
     }
@@ -25,7 +25,8 @@ const DEIQuestion = ({ title, toolTip, barChart, results, currentYear }) => {
   }
 
   const [toolTipIsOpen, setToolTipIsOpen] = React.useState(false);
-  const [activeYear, setActiveYear] = React.useState(currentYear);
+  const [activeResultYear, setActiveResultYear] = React.useState(activeYear);
+  console.log(summaries);
 
   return (
     <div className="question">
@@ -34,14 +35,21 @@ const DEIQuestion = ({ title, toolTip, barChart, results, currentYear }) => {
       {toolTip && 
       <div className={`tooltip ${toolTipIsOpen ? `open` : `closed`}`}>
           <button onClick={() => setToolTipIsOpen(false)} className="tooltipClosed">x</button>
-          <ReactMarkdown source={toolTip} />
+          <p>{toolTip}</p>
         </div>
-      }
+      } 
+      {summaries.map((item, i) => {
+        return (
+          <div className={`summary ${activeResultYear == item.fields.year ? `selected` : `not-selected`}`} key={i}>
+            <ReactMarkdown source={item.fields.summary} />
+          </div>
+        )
+      })}
       <div className={barChart ? `results barchart` : `results circle`}>
         <ul>
           {formattedResults.map((item, i) => {
             return( 
-              <DEIResult key={i} {...item} activeYear={activeYear} />
+              <DEIResult key={i} {...item} activeResultYear={activeResultYear} />
             )
           })}
         </ul>
@@ -49,7 +57,7 @@ const DEIQuestion = ({ title, toolTip, barChart, results, currentYear }) => {
       {resultYears.length > 1 && 
         <div className="results-year-toggle"><span>See results from</span>
           {resultYears.map((item, i) => {
-            return <button key={i} onClick={() => setActiveYear(item)}>{item}</button>
+            return <button key={i} onClick={() => setActiveResultYear(item)}>{item}</button>
           })}
         </div> 
       }

@@ -13,6 +13,14 @@
         display: block;
       }
     }
+
+    .summary {
+      display: none;
+
+      &.selected {
+        display: block;
+      }
+    }
   }
 }
 

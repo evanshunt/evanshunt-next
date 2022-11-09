@@ -6,9 +6,10 @@ import DEIYear from "../components/DEIYear";
 const CMSApi = require("../utility/cms");
 
 const DeiReportPage = ({ page, reportYears }) => {
-  const [selectedYear, setSelectedYear] = React.useState(reportYears[0].fields.year);
+  const latestYear = reportYears[0].fields.year;
+  const [activeYear, setActiveYear] = React.useState(latestYear);
   const handleChange = (e) => {
-    setSelectedYear(e.target.value);
+    setActiveYear(e.target.value);
   }
 
   return (
@@ -36,7 +37,7 @@ const DeiReportPage = ({ page, reportYears }) => {
       </select>
       {reportYears.map((year, i) => {
         return (
-          <DEIYear key={`reportYear-${i}`}  {...year} currentYear={reportYears[0].fields.year} selected={selectedYear == year.fields.year ? "selected" : "not-selected"} />
+          <DEIYear key={`reportYear-${i}`}  {...year} activeYear={activeYear} latestYear={latestYear} />
         )
       })}
     </Layout>

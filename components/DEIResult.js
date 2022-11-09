@@ -1,13 +1,13 @@
 import React from "react";
 
-const DEIResult = ({ question, results, activeYear }) => {
-  if (results[activeYear]) {
+const DEIResult = ({ question, results, activeResultYear }) => {
+  if (results[activeResultYear]) {
     return (
       <li>
         <span>{question}</span>
-        <div className="valueVisual" data-value={results[activeYear]}>
+        <div className="valueVisual" data-value={results[activeResultYear]}>
           <span className="value">
-            {results[activeYear]}
+            {results[activeResultYear]}
           </span>
         </div>
       </li>

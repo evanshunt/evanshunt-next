@@ -2,9 +2,10 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import DEIQuestion from "../components/DEIQuestion";
 
-const DEIYear = ({ fields, selected, currentYear }) => {
+const DEIYear = ({ fields, activeYear, latestYear }) => {
+
   return (
-    <section className={`dei-report-year ${selected}`}>
+    <section className={`dei-report-year ${activeYear == fields.year ? `selected` : `not-selected`}`}>
       <h2>{fields.year} DEI Report</h2>
       <div className="summary">
         <ReactMarkdown source={fields.summary} />
@@ -20,7 +21,7 @@ const DEIYear = ({ fields, selected, currentYear }) => {
         }
         else {
           return (
-            <DEIQuestion key={`question-${i}`} {...item.fields} currentYear={currentYear} />
+            <DEIQuestion key={`question-${i}`} {...item.fields} activeYear={activeYear} latestYear={latestYear} />
           )
         }
       })}
