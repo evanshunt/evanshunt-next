@@ -1,0 +1,18 @@
+.dei-report-year {
+  display: none;
+
+  &.selected {
+    display: block;
+  }
+
+  .question {
+    .tooltip {
+      display: none;
+      
+      &.open {
+        display: block;
+      }
+    }
+  }
+}
+

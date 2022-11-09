@@ -1,10 +1,10 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import DEIQuestion from "../components/DEIQuestion";
 
 const DEIYear = ({ fields, selected }) => {
-  console.log(selected);
   return (
-    <section className="dei-report-year">
+    <section className={`dei-report-year ${selected}`}>
       <h2>{fields.year} DEI Report</h2>
       <div className="summary">
         <ReactMarkdown source={fields.summary} />
@@ -20,16 +20,7 @@ const DEIYear = ({ fields, selected }) => {
         }
         else {
           return (
-            <div className="question">
-              <h4>{item.fields.title} 
-                {item.fields.tooltip && <button className="tooltip">i</button>}
-              </h4>
-              <div className={item.fields.barChart ? `results barchart` : `results circle`}>
-              </div>
-              <span>See results from</span>
-              <button>2021</button>
-              <button>2020</button>
-            </div>
+            <DEIQuestion key={`question-${i}`} {...item.fields} />
           )
         }
       })}
