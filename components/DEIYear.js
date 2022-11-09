@@ -2,7 +2,7 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import DEIQuestion from "../components/DEIQuestion";
 
-const DEIYear = ({ fields, selected }) => {
+const DEIYear = ({ fields, selected, currentYear }) => {
   return (
     <section className={`dei-report-year ${selected}`}>
       <h2>{fields.year} DEI Report</h2>
@@ -12,7 +12,7 @@ const DEIYear = ({ fields, selected }) => {
       {fields.categoriesAndQuestions.map((item, i) => {
         if (item.sys.contentType.sys.id == "deiReportCategory") {
           return (
-            <div className="category">
+            <div key={`category-${i}`} className="category">
               <h3>{item.fields.title}</h3>
               {item.fields.summary && <ReactMarkdown source={item.fields.summary} />}
             </div>
@@ -20,7 +20,7 @@ const DEIYear = ({ fields, selected }) => {
         }
         else {
           return (
-            <DEIQuestion key={`question-${i}`} {...item.fields} />
+            <DEIQuestion key={`question-${i}`} {...item.fields} currentYear={currentYear} />
           )
         }
       })}

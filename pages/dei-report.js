@@ -36,7 +36,7 @@ const DeiReportPage = ({ page, reportYears }) => {
       </select>
       {reportYears.map((year, i) => {
         return (
-          <DEIYear key={`reportYear-${i}`}  {...year} selected={selectedYear == year.fields.year ? "selected" : "not-selected"} />
+          <DEIYear key={`reportYear-${i}`}  {...year} currentYear={reportYears[0].fields.year} selected={selectedYear == year.fields.year ? "selected" : "not-selected"} />
         )
       })}
     </Layout>
