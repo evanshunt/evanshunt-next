@@ -45,11 +45,11 @@ const DEIQuestion = ({ title, toolTip, barChart, results, summaries, activeYear,
           </div>
         )
       })}
-      <div className={barChart ? `results barchart` : `results circle`}>
+      <div className={`results ${barChart ? `results barchart` : `results circle`}`}>
         <ul>
           {formattedResults.map((item, i) => {
             return( 
-              <DEIResult key={i} {...item} activeResultYear={activeResultYear} />
+              <DEIResult key={i} {...item} activeResultYear={activeResultYear} barChart={barChart} />
             )
           })}
         </ul>
