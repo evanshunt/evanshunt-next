@@ -45,7 +45,7 @@ const DEIQuestion = ({ title, toolTip, barChart, results, summaries, activeYear,
           </div>
         )
       })}
-      <div className={`results ${barChart ? `results barchart` : `results circle`}`}>
+      <div className={`results ${barChart ? `barchart` : `circle`}`}>
         <ul>
           {formattedResults.map((item, i) => {
             return( 

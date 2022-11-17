@@ -21,6 +21,41 @@
         display: block;
       }
     }
+
+    .results.barchart {
+      li {
+        p {
+          font-weight: 500;
+        }
+
+        .value-visual {
+          display: flex;
+          width: 100%;
+
+          .quantity {
+            height: 2em;
+            background-color: $hot-pink;
+            margin-right: 1em;
+            transition: width 0.6s;
+          }
+
+          .value {
+            font-family: $heading-font-family;
+            font-weight: 500;
+          }
+        }
+
+        @media (min-width: $tablet) {
+          display:flex;
+
+          p {
+            width: 25%;
+            margin-right: 2em;
+            flex-shrink: 0;
+          }
+        }
+      }
+    }
   }
 }
 

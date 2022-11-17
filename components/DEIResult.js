@@ -6,9 +6,10 @@ const DEIResult = ({ question, results, activeResultYear, barChart }) => {
       <li>
         {!barChart && <strong>Yes</strong>}
         <p>{question}</p>
-        <div className="valueVisual" data-value={results[activeResultYear]}>
+        <div className="value-visual">
+          <div className="quantity" style={{width: `${results[activeResultYear]}%`}}></div>
           <span className="value">
-            {results[activeResultYear]}
+            {results[activeResultYear]}%
           </span>
         </div>
       </li>
