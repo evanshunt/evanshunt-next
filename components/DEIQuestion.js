@@ -8,7 +8,7 @@ const DEIQuestion = ({ title, toolTip, barChart, results, summaries, activeYear,
   let resultYears = [];
   let formattedResults = [];
   for (let i=1; i<resultHeaders.length; i++) {
-    if (resultHeaders[i] <= latestYear) {
+    if (resultHeaders[i] != null && resultHeaders[i] != "" && resultHeaders[i] <= latestYear) {
       resultYears.push(resultHeaders[i]);
     }
   }
