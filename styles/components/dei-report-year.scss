@@ -1,11 +1,54 @@
 .dei-report-year {
   display: none;
+  padding: 0 15px;
+
+  .rich-text {
+    max-width: 805px;
+
+    strong {
+      color: $hot-pink;
+    }
+  }
+
+  .category {
+    padding: 3em 0 2em 0;
+  }
+
+  h4 {
+    font-family: $base-font-family;
+  }
+  
+  section:nth-of-type(3n+1) {
+    .quantity {
+      background-color: $hot-pink;
+    }
+  }
+
+  section:nth-of-type(3n+2) {
+    .quantity {
+      background-color: blue;
+    }
+  }
+
+  section:nth-of-type(3n+3) {
+    .quantity {
+      background-color: purple;
+    }
+  }
+
+  @media (min-width: $tablet) {
+    margin: 0 auto 75px;
+    max-width: 1325px;
+  }
 
   &.selected {
     display: block;
   }
 
   .question {
+    padding: 2em 0 1em 0;
+    border-bottom: 3px solid #D8D8D8;
+
     .tooltip {
       display: none;
       
@@ -16,10 +59,15 @@
 
     .summary {
       display: none;
+      padding-bottom: 2em;
 
       &.selected {
         display: block;
       }
+    }
+
+    .results {
+      padding-bottom: 2em;
     }
 
     .results.barchart {
@@ -34,7 +82,6 @@
 
           .quantity {
             height: 2em;
-            background-color: $hot-pink;
             margin-right: 1em;
             transition: width 0.6s;
           }
@@ -60,7 +107,7 @@
     .results.circle {
       li {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         margin-bottom: 3em;
 
         p {
@@ -74,7 +121,7 @@
 
         .value-visual {
           aspect-ratio: 1;
-          width: 10em;
+          width: 13em;
           position: relative;
 
           .quantity {
@@ -82,11 +129,9 @@
             height: 100%;
             fill: transparent;
             border-radius: 100%;
-            background-color: $hot-pink;
             stroke: #E9E9E9;
-            stroke-width: 20px;
-            stroke-dasharray: 284;
-            stroke-dashoffset: 180;
+            stroke-width: 16px;
+            stroke-dasharray: 264;
             transform: rotate(-90deg);
             transition: stroke-dashoffset 0.6s;
           }
@@ -97,10 +142,10 @@
             justify-content:center;
             text-align: center;
             aspect-ratio: 1;
-            width: 82%;
+            width: 70%;
             position: absolute;
-            left: 9%;
-            top: 9%;
+            left: 15%;
+            top: 15%;
             background-color: white;
             border-radius: 100%;
             font-family: $heading-font-family;

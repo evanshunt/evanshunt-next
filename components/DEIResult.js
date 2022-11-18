@@ -7,8 +7,8 @@ const DEIResult = ({ question, results, activeResultYear, barChart }) => {
         <li>
           <p><strong>Yes</strong>{question}</p>
           <div className="value-visual">
-            <svg className="quantity" viewBox='0 0 100 100' style={{strokeDashoffset: `${Math.round(2.84 * results[activeResultYear])}`}}>
-              <circle cx='50' cy='50' r='45'/>
+            <svg className="quantity" viewBox='0 0 100 100' style={{strokeDashoffset: `${Math.round(2.64 * results[activeResultYear])}`}}>
+              <circle cx='50' cy='50' r='42'/>
             </svg>
             <span className="value">
               {results[activeResultYear]}%

@@ -29,7 +29,7 @@ const DEIQuestion = ({ title, toolTip, barChart, results, summaries, activeYear,
   console.log(summaries);
 
   return (
-    <div className="question">
+    <section className="question">
       <h4>{title}</h4>
       {toolTip && <button onClick={() => setToolTipIsOpen(!toolTipIsOpen)} className="tooltipOpen">i</button>}
       {toolTip && 
@@ -40,7 +40,7 @@ const DEIQuestion = ({ title, toolTip, barChart, results, summaries, activeYear,
       } 
       {summaries.map((item, i) => {
         return (
-          <div className={`summary ${activeResultYear == item.fields.year ? `selected` : `not-selected`}`} key={i}>
+          <div className={`summary rich-text ${activeResultYear == item.fields.year ? `selected` : `not-selected`}`} key={i}>
             <ReactMarkdown source={item.fields.summary} />
           </div>
         )
@@ -61,7 +61,7 @@ const DEIQuestion = ({ title, toolTip, barChart, results, summaries, activeYear,
           })}
         </div> 
       }
-    </div>
+    </section>
   );
 };
 
