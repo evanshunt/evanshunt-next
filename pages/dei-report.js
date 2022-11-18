@@ -27,14 +27,19 @@ const DeiReportPage = ({ page, reportYears }) => {
       <IntroBlock
         introText={page.fields.introText}
       />
-      <select onChange={(e) => handleChange(e)}>
-        <option value={reportYears[0].fields.year} >View past reports</option>  
-        {reportYears.map((year, i) => {
-          return (
-            <option key={i}>{year.fields.year}</option>
-          )
-        })}
-      </select>
+      <div id="reportSelector">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" className="svg-arrow">
+          <path className="arrow-left arrow" d="M0,8a1.16,1.16,0,0,0,.38.87L7.85,16l2-1.73-5.25-5H32V6.74H4.63l5.25-5L7.85,0,.38,7.13A1.33,1.33,0,0,0,0,8Z" transform="translate(0 0)"/>
+        </svg>
+        <select onChange={(e) => handleChange(e)}>
+          <option value={reportYears[0].fields.year} >View past reports</option>  
+          {reportYears.map((year, i) => {
+            return (
+              <option key={i}>{year.fields.year}</option>
+            )
+          })}
+        </select>
+      </div>
       {reportYears.map((year, i) => {
         return (
           <DEIYear key={`reportYear-${i}`}  {...year} activeYear={activeYear} latestYear={latestYear} />

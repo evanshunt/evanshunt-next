@@ -2,6 +2,11 @@
   display: none;
   padding: 0 15px;
 
+  @media (min-width: $tablet) {
+    margin: 0 auto 75px;
+    max-width: 1325px;
+  }
+
   .rich-text {
     max-width: 805px;
 
@@ -19,26 +24,33 @@
   }
   
   section:nth-of-type(3n+1) {
-    .quantity {
+    .results.barchart .quantity {
       background-color: $hot-pink;
+    }
+
+    .results.circle .quantity {
+      background-image: radial-gradient($hot-pink 70.2%, white 70.2%);
     }
   }
 
   section:nth-of-type(3n+2) {
-    .quantity {
-      background-color: blue;
+    .results.barchart .quantity {
+      background-color: $blue;
+    }
+
+    .results.circle .quantity {
+      background-image: radial-gradient($blue 70.2%, white 70.2%);
     }
   }
 
   section:nth-of-type(3n+3) {
-    .quantity {
-      background-color: purple;
+    .results.barchart .quantity {
+      background-color: $purple;
     }
-  }
 
-  @media (min-width: $tablet) {
-    margin: 0 auto 75px;
-    max-width: 1325px;
+    .results.circle .quantity {
+      background-image: radial-gradient($purple 70.2%, white 70.2%);
+    }
   }
 
   &.selected {
@@ -131,7 +143,7 @@
             border-radius: 100%;
             stroke: #E9E9E9;
             stroke-width: 16px;
-            stroke-dasharray: 264;
+            stroke-dasharray: 264; // 264 is the perimeter of a 42 radius circle
             transform: rotate(-90deg);
             transition: stroke-dashoffset 0.6s;
           }
