@@ -33,7 +33,7 @@ const DEIQuestion = ({ title, toolTip, barChart, results, summaries, activeYear,
       <h4>{title}</h4>
       {toolTip && <button onClick={() => setToolTipIsOpen(!toolTipIsOpen)} className="tooltipOpen">i</button>}
       {toolTip && 
-      <div className={`tooltip ${toolTipIsOpen ? `open` : `closed`}`}>
+      <div className={`tooltip rich-text ${toolTipIsOpen ? `open` : `closed`}`}>
           <button onClick={() => setToolTipIsOpen(false)} className="tooltipClosed">x</button>
           <p>{toolTip}</p>
         </div>
@@ -57,7 +57,10 @@ const DEIQuestion = ({ title, toolTip, barChart, results, summaries, activeYear,
       {resultYears.length > 1 && 
         <div className="results-year-toggle"><span>See results from</span>
           {resultYears.map((item, i) => {
-            return <button key={i} onClick={() => setActiveResultYear(item)}>{item}</button>
+             if (activeResultYear == item) {
+              return <button className="yearToggle btn btn-secondary btn-outline-alt" disabled key={i} onClick={() => setActiveResultYear(item)}>{item}</button>
+            }
+            return <button className="yearToggle btn btn-secondary btn-outline-alt" key={i} onClick={() => setActiveResultYear(item)}>{item}</button>
           })}
         </div> 
       }

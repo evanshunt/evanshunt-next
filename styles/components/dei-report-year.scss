@@ -21,6 +21,7 @@
 
   h4 {
     font-family: $base-font-family;
+    display: inline;
   }
   
   section:nth-of-type(3n+1) {
@@ -61,8 +62,22 @@
     padding: 2em 0 1em 0;
     border-bottom: 3px solid #D8D8D8;
 
+    button.yearToggle {
+      margin-left: 1rem;
+    }
+
     .tooltip {
       display: none;
+      background-color: black;
+      color: white;
+      padding: 1em 3em;
+      position: relative;
+
+      button {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+      }
       
       &.open {
         display: block;
@@ -71,7 +86,7 @@
 
     .summary {
       display: none;
-      padding-bottom: 2em;
+      padding-top: 1.5em;
 
       &.selected {
         display: block;
@@ -79,6 +94,7 @@
     }
 
     .results {
+      padding-top: 2em;
       padding-bottom: 2em;
     }
 

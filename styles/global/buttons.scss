@@ -78,7 +78,7 @@
     background: transparent;
     color: $black;
 
-    &:hover {
+    &:hover, &:disabled {
       color: $white;
       background: $black;
       text-decoration: none;
@@ -88,7 +88,7 @@
       border: 3px solid $white;
       color: $white;
 
-      &:hover {
+      &:hover, &:disabled {
         color: $black;
         background: $white;
       }
