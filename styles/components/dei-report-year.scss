@@ -10,6 +10,10 @@
   .rich-text {
     max-width: 805px;
 
+    p:last-child {
+      margin-bottom: 0;
+    }
+
     strong {
       color: $hot-pink;
     }
@@ -62,7 +66,7 @@
     padding: 2em 0 1em 0;
     border-bottom: 3px solid #D8D8D8;
 
-    button.yearToggle {
+    button.yearToggle, button.btn-tooltip {
       margin-left: 1rem;
     }
 
@@ -70,7 +74,8 @@
       display: none;
       background-color: black;
       color: white;
-      padding: 1em 3em;
+      padding: 1em 2em;
+      margin-top: 1em;
       position: relative;
 
       button {
@@ -81,6 +86,10 @@
       
       &.open {
         display: block;
+      }
+
+      @media (min-width: $tablet) {
+        padding: 2em 4em;
       }
     }
 
