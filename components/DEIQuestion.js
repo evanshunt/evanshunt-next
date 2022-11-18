@@ -34,7 +34,10 @@ const DEIQuestion = ({ title, toolTip, barChart, results, summaries, activeYear,
       {toolTip && <button onClick={() => setToolTipIsOpen(!toolTipIsOpen)} className="btn btn-outline-alt btn-tooltip" ariaLabel="Toggle tool tip">i</button>}
       {toolTip && 
       <div className={`tooltip rich-text ${toolTipIsOpen ? `open` : `closed`}`}>
-          <button onClick={() => setToolTipIsOpen(false)} className="tooltipClosed">x</button>
+          <button onClick={() => setToolTipIsOpen(false)} className="btn-close" ariaLabel="Close tool tip">
+            <div></div>
+            <div></div>
+          </button>
           <p>{toolTip}</p>
         </div>
       } 
