@@ -7,7 +7,9 @@ const DEIResult = ({ question, results, activeResultYear, barChart }) => {
         <li>
           <p><strong>Yes</strong>{question}</p>
           <div className="value-visual">
-            <div className="quantity" style={{background: `conic-gradient(white ${100-results[activeResultYear]}%, red ${100-results[activeResultYear]}%)`}}></div>
+            <svg className="quantity" viewBox='0 0 100 100' style={{strokeDashoffset: `${Math.round(2.84 * results[activeResultYear])}`}}>
+              <circle cx='50' cy='50' r='45'/>
+            </svg>
             <span className="value">
               {results[activeResultYear]}%
             </span>
