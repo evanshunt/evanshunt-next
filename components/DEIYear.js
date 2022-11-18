@@ -23,7 +23,7 @@ const DEIYear = ({ fields, activeYear, latestYear }) => {
         }
         else {
           return (
-            <DEIQuestion key={`question-${i}`} {...item.fields} activeYear={activeYear} latestYear={latestYear} />
+            <DEIQuestion key={`question-${i}`} {...item.fields} activeYear={fields.year} latestYear={latestYear} />
           )
         }
       })}
