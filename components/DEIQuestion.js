@@ -29,10 +29,10 @@ const DEIQuestion = ({ title, toolTip, barChart, results, summaries, activeYear,
   console.log(summaries);
 
   const changeYear = (item) => {
-    alert(document.documentElement.scrollHeight);
+    // alert(document.documentElement.scrollHeight);
     // window.scrollTo(0, 20);
     setActiveResultYear(item);
-    alert(document.documentElement.scrollHeight);
+    // alert(document.documentElement.scrollHeight);
   }
 
   return (
