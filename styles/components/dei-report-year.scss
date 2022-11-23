@@ -20,7 +20,17 @@
   }
 
   .category {
-    padding: 3em 0 2em 0;
+    padding: 3em 0 0 0;
+
+    .summary {
+      padding-top: 2em;
+    }
+
+    @media (min-width: $desktop) {
+      .summary {
+        font-size: 1.2em;
+      }
+    }
   }
 
   h4 {

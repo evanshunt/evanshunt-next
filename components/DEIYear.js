@@ -15,7 +15,7 @@ const DEIYear = ({ fields, activeYear, latestYear }) => {
           return (
             <div key={`category-${i}`} className="category">
               <h3>{item.fields.title}</h3>
-              {item.fields.summary && <div className="rich-text">
+              {item.fields.summary && <div className="rich-text summary">
                 <ReactMarkdown source={item.fields.summary} />
               </div>}
             </div>
