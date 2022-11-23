@@ -28,6 +28,13 @@ const DEIQuestion = ({ title, toolTip, barChart, results, summaries, activeYear,
   const [activeResultYear, setActiveResultYear] = React.useState(activeYear);
   console.log(summaries);
 
+  const changeYear = (item) => {
+    alert(document.documentElement.scrollHeight);
+    // window.scrollTo(0, 20);
+    setActiveResultYear(item);
+    alert(document.documentElement.scrollHeight);
+  }
+
   return (
     <section className="question">
       <h4>{title}</h4>
@@ -61,9 +68,9 @@ const DEIQuestion = ({ title, toolTip, barChart, results, summaries, activeYear,
         <div className="results-year-toggle"><span>See results from</span>
           {resultYears.map((item, i) => {
              if (activeResultYear == item) {
-              return <button className="yearToggle btn btn-secondary btn-outline-alt" disabled key={i} onClick={() => setActiveResultYear(item)}>{item}</button>
+              return <button className="yearToggle btn btn-secondary btn-outline-alt" disabled key={i}>{item}</button>
             }
-            return <button className="yearToggle btn btn-secondary btn-outline-alt" key={i} onClick={() => setActiveResultYear(item)}>{item}</button>
+            return <button className="yearToggle btn btn-secondary btn-outline-alt" key={i} onClick={() => changeYear(item)}>{item}</button>
           })}
         </div> 
       }
