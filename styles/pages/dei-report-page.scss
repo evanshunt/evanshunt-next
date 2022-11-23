@@ -1,4 +1,47 @@
 .dei-report-page{
+  // section.intro-block {
+  //   margin: 0 15px;
+  //   padding: 5em 15px;
+
+  .intro-block-text {
+    padding: 0;
+  }
+
+  //   @media (min-width: $tablet) {
+  //     margin: 0 auto 75px;
+  //     max-width: 1325px;
+  //   }
+  // }
+
+  @media (min-width: $tablet) {
+    section.intro-block {
+      margin: 0;
+      padding: 2em 15px;
+    }
+
+    .intro-block-text {
+      max-width: none;
+    }
+  }
+
+  @media (min-width: $desktop) {
+    section.intro-block {
+      margin: 0 auto;
+      padding: 4em 15px;
+      max-width: 1325px;
+    }
+
+    .intro-block-text {
+      font-size: 1.5em;
+    }
+  }
+
+  @media (min-width: $desktop-large) {
+    .intro-block-text {
+      font-size: 2em;
+    }
+  }
+
   #reportSelector {
     margin: 0 15px;
     position: relative;

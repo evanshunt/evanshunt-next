@@ -78,7 +78,7 @@
     padding: 2em 0 1em 0;
     border-bottom: 3px solid #D8D8D8;
 
-    button.yearToggle, button.btn-tooltip {
+    button.btn-tooltip {
       margin-left: 1rem;
     }
 
@@ -117,22 +117,31 @@
       &.selected {
         display: block;
       }
+
+      @media (min-width: $desktop) {
+        font-size: 1.2em;
+      }
     }
 
     .results {
       padding-top: 2em;
       padding-bottom: 2em;
+      max-width: 1024px;
     }
 
     .results.barchart {
       li {
+        margin-bottom: 1.5rem;
+
         p {
           font-weight: 500;
+          margin-bottom: 0;
         }
 
         .value-visual {
           display: flex;
           width: 100%;
+          align-items: center;
 
           .quantity {
             height: 2em;
@@ -143,22 +152,33 @@
           .value {
             font-family: $heading-font-family;
             font-weight: 500;
+            font-size: 2em;
+            line-height: 1;
           }
         }
 
         @media (min-width: $tablet) {
           display:flex;
+          align-items: center;
 
           p {
             width: 40%;
             margin-right: 2em;
             flex-shrink: 0;
           }
+
         }
 
         @media (min-width: $desktop) {
           p {
             width: 25%;
+            font-size: 1.2em;
+          }
+
+          .value-visual {
+            .quantity {
+              height: 2.5em;
+            }
           }
         }
       }
@@ -177,6 +197,7 @@
 
         strong {
           display: block;
+          font-size: 1.2em;
         }
 
         .value-visual {
@@ -256,6 +277,36 @@
       @media (min-width: $desktop) {
         li {
           width: 33%;
+        }
+      }
+    }
+
+    .results-year-toggle {
+      span {
+        display: block;
+        margin-bottom: 1em;
+      }
+
+      button.yearToggle {
+        padding: 8px 16px;
+        margin-left: 0.5em;
+
+        &:first-of-type {
+          margin-left: 0;
+        }
+      }
+
+      @media (min-width: $desktop) {
+        span {
+          display: inline;
+        }
+
+        button.yearToggle {
+          margin-left: 1em;
+  
+          &:first-of-type {
+            margin-left: 1em;
+          }
         }
       }
     }
