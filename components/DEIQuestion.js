@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useLayoutEffect} from "react";
 import ReactMarkdown from "react-markdown";
 import DEIResult from "../components/DEIResult";
 
@@ -26,14 +26,22 @@ const DEIQuestion = ({ title, toolTip, barChart, results, summaries, activeYear,
 
   const [toolTipIsOpen, setToolTipIsOpen] = React.useState(false);
   const [activeResultYear, setActiveResultYear] = React.useState(activeYear);
-  console.log(summaries);
+  const [pageHeight, setPageHeight] = React.useState(0);
+  const [currentScrollPosition, setCurrentScrollPosition] = React.useState(0);
 
   const changeYear = (item) => {
-    // alert(document.documentElement.scrollHeight);
-    // window.scrollTo(0, 20);
+    setPageHeight(document.documentElement.scrollHeight);
+    setCurrentScrollPosition(window.scrollY);
     setActiveResultYear(item);
-    // alert(document.documentElement.scrollHeight);
   }
+
+  useLayoutEffect(() => {
+    if (currentScrollPosition) {
+      const newPageHeight = document.documentElement.scrollHeight;
+      window.scrollTo(0, currentScrollPosition - (pageHeight - newPageHeight));
+      setCurrentScrollPosition(0);
+    }
+  });
 
   return (
     <section className="question">
