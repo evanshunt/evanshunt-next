@@ -1,4 +1,4 @@
-import React, {useLayoutEffect} from "react";
+import React, {useLayoutEffect, useEffect} from "react";
 import ReactMarkdown from "react-markdown";
 import DEIResult from "../components/DEIResult";
 
@@ -34,8 +34,10 @@ const DEIQuestion = ({ title, toolTip, barChart, results, summaries, activeYear,
     setCurrentScrollPosition(window.scrollY);
     setActiveResultYear(item);
   }
+  const useIsomorphicLayoutEffect =
+    typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (currentScrollPosition) {
       const newPageHeight = document.documentElement.scrollHeight;
       window.scrollTo(0, currentScrollPosition - (pageHeight - newPageHeight));
