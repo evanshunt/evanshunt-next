@@ -15,7 +15,7 @@
     }
 
     strong {
-      color: $hot-pink;
+      color: $red;
     }
   }
 
@@ -40,14 +40,14 @@
   
   section:nth-of-type(3n+1) {
     .results.barchart .quantity {
-      background-color: $hot-pink;
+      background-color: $red;
     }
 
     .results.circle .quantity {
-      background-image: radial-gradient($hot-pink 70.2%, $white 70.2%);
+      background-image: radial-gradient($red 70.2%, $white 70.2%);
 
       @media (prefers-color-scheme: dark) {
-        background-image: radial-gradient($hot-pink 70.2%, $black 70.2%);
+        background-image: radial-gradient($red 70.2%, $black 70.2%);
       }
     }
   }
