@@ -64,7 +64,7 @@ MASTER Branch --> https://eh-next-qa.netlify.app/
 
 ## Team, contacts
 
-* PM: Sabrina Wilson / Kayla Malone / Becky Chittik
+* PM: Sabrina Wilson / Kayla Malone / Becky Chittick
 * Clients: Dan Evans & Bill Hunt
 * Tech Lead: Derek McBurney / Kalen McConnell
 * Dev: Justine Matsalla / Matt Robinson / Kalen McConnell / Rainer Brieger

@@ -1,0 +1,29 @@
+# redirects from the old URL to the new URL, see https://docs.netlify.com/routing/redirects/#syntax-for-the-redirects-file for more information
+#####
+/redirect /our-work
+/who-we-are	/about-us
+/what-we-do	/our-services
+/cxdesign	/our-services
+/cx	/our-services
+/pursuit	/our-work/pursuit
+/dirtt	/our-work/dirtt
+/brookfield	/our-work/brookfield
+/ikon	/our-work/ikon-pass
+/co-op	/our-work
+/flyover-canada	/our-work
+/ciff	/our-work
+/vca	/our-work
+/secretbarrel	/our-work
+/jusu-body	/our-work
+/pronouns	https://www.cultureamp.com/blog/sharing-gender-pronouns-at-work/
+/pwa /
+# Next-on-Netlify Redirects
+/  /.netlify/functions/next_index  200
+/about-us  /.netlify/functions/next_aboutus  200
+/careers  /.netlify/functions/next_careers  200
+/contact  /.netlify/functions/next_contact  200
+/our-services  /.netlify/functions/next_ourservices  200
+/our-work  /.netlify/functions/next_ourwork  200
+/_next/image*  url=:url w=:width q=:quality  /.netlify/functions/next_image?url=:url&w=:width&q=:quality  200
+/our-services/:slug  /.netlify/functions/next_ourservices_slug  200
+/our-work/:slug  /.netlify/functions/next_ourwork_slug  200
