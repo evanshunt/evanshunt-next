@@ -86,7 +86,7 @@ class Header extends React.Component {
             </svg>
           </a>
         </Link>
-        <button className={classNames('header-nav-toggle', {'active': this.state.navActive})} onClick={this.toggleMenu}>
+        <button className={classNames('header-nav-toggle', {'active': this.state.navActive})} onClick={this.toggleMenu} aria-label="Toggle navigation">
           <div>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>

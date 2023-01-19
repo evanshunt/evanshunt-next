@@ -1,7 +1,8 @@
 node_modules
 .next
 .env
-out
+out_*
 .DS_Store
 .idea/
 /npm-debug.log
+.npm

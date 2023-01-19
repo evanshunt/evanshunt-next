@@ -21,7 +21,7 @@ const Careers = (content) => {
 
 Careers.getInitialProps = async () => {
   const api = new CMSApi();
-  const json = await api.fetchContentType("pageCareers");
+  const json = await api.fetchUniquePageType("pageCareers");
 
   if (json) {
     return json;

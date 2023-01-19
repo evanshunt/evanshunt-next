@@ -53,7 +53,7 @@ const AboutUsPage = (content) => {
 
 AboutUsPage.getInitialProps = async () => {
   const api = new CMSApi();
-  const json = await api.fetchContentType("pageAboutUs");
+  const json = await api.fetchUniquePageType("pageAboutUs");
 
   if (json) {
     return json;

@@ -8,7 +8,8 @@ const contentfulSettings = () => {
 
   let settings = {
     space: process.env.CONTENTFUL_SPACE,
-    accessToken: process.env.CONTENTFUL_TOKEN
+    accessToken: process.env.CONTENTFUL_TOKEN,
+    environment: process.env.CONTENTFUL_ENVIRONMENT || "master", 
   }
   
   // for development, use the preview api for draft content
@@ -18,6 +19,7 @@ const contentfulSettings = () => {
     settings = {
       space: process.env.CONTENTFUL_SPACE,
       accessToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
+      environment: process.env.CONTENTFUL_ENVIRONMENT || "master", 
       host: 'preview.contentful.com'
     }
   }
@@ -31,6 +33,23 @@ function CMSApi() {
   const clientSettings = contentfulSettings()
   this.client = contentful.createClient(clientSettings);
 
+  this.fetchUniquePageType = async (uniquePageType) => {
+    return await this.client
+      .getEntries({
+        include: 4,
+        content_type: uniquePageType,
+      })
+      .then(async (results) => {
+        const page = results.items[0];
+
+        if (page) {
+          return page;
+        }
+
+        return null;
+      });
+  };
+
   this.fetchContentType = async (contentType) => {
     return await this.client
       .getEntries({
@@ -38,10 +57,10 @@ function CMSApi() {
         content_type: contentType,
       })
       .then(async (results) => {
-        const page = results.items[0];
+        const items = results.items;
 
-        if (page) {
-          return page;
+        if (items) {
+          return items;
         }
 
         return null;

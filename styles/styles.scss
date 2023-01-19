@@ -57,12 +57,13 @@
 @import "components/accordion";
 @import "components/medium-feed";
 @import "components/services-pagination";
-
 @import "components/case-study-mosiac";
 @import "components/animated-screen-scroll";
+@import "components/dei-report-year";
 
 // Pages
 // Sometimes you need to override component styles on a page basis
 @import "pages/career-details";
 @import "pages/work-page-intro";
 @import "pages/service-details";
+@import "pages/dei-report-page";

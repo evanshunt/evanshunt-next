@@ -55,6 +55,19 @@
       text-decoration: none;
     }
   }
+
+  // tool tip
+  &.btn-tooltip {
+    width: 1.75em;
+    height: 1.75em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    vertical-align: bottom;
+    font-family: $heading-font-family;
+    font-weight: 500;
+  }
   
   
   &.btn-pink {
@@ -78,7 +91,7 @@
     background: transparent;
     color: $black;
 
-    &:hover {
+    &:hover, &:disabled {
       color: $white;
       background: $black;
       text-decoration: none;
@@ -88,7 +101,7 @@
       border: 3px solid $white;
       color: $white;
 
-      &:hover {
+      &:hover, &:disabled {
         color: $black;
         background: $white;
       }
@@ -159,6 +172,41 @@ svg.play-pause {
     stroke-width:8px;
   }
 }
+
+.btn-close {
+  position: relative;
+  display: inline-block;
+  background-color: transparent;
+  border: 0;
+  height: 2em;
+  width: 2em;
+  
+  div {
+    display: block;
+    height: 0.15em;
+    width: 100%;
+    background-color: $white;
+    border-radius: 0.25em;
+    position: absolute;
+    top: 0.825em;
+    right: 0;
+
+    &:first-child {
+      transform: rotate(45deg);
+    }
+
+    &:last-child {
+      transform: rotate(-45deg);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      background-color: $black;
+    }
+  }
+}
+
+
+
 
 @media (prefers-color-scheme: dark) {
   button {
