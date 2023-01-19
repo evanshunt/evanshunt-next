@@ -5,8 +5,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const StaggeredImagesWithText = (props) => {
-  
-  const { imageAndTextBlocks } = props
+  const { imageAndTextBlocks, id } = props;
   const revealRefs = useRef([]);
   revealRefs.current = [];
 
@@ -27,7 +26,7 @@ const StaggeredImagesWithText = (props) => {
         y: 0,
         ease: 'power4.inOut',
         scrollTrigger: {
-          id: `section-${index+1}`,
+          id: `section-${id}-${index+1}`,
           trigger: el,
           start: 'top center+=100',
           toggleActions: 'play none none reverse'
@@ -38,7 +37,7 @@ const StaggeredImagesWithText = (props) => {
 
     return () => {
       revealRefs.current.forEach((el, index) => {
-        ScrollTrigger.getById(`section-${index+1}`).kill();
+        ScrollTrigger.getById(`section-${id}-${index+1}`).kill();
       })
     }
 

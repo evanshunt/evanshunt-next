@@ -147,6 +147,7 @@ const renderComponents = (components) => {
         return (
           <StaggeredImagesWithText
             imageAndTextBlocks={component.fields.imageAndTextBlocks}
+            id={i}
             key={`component-${i}`}
           />
         );
