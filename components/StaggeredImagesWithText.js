@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Link from 'next/link';
 gsap.registerPlugin(ScrollTrigger);
 
 const StaggeredImagesWithText = (props) => {
@@ -61,6 +62,11 @@ const StaggeredImagesWithText = (props) => {
             </picture>
             {block.fields.title && <h2 className="title">{block.fields.title}</h2>}
             {block.fields.text && <p className="text">{block.fields.text}</p>}
+            {block.fields.link && (
+            <Link href={block.fields.link.fields.url}>
+              <a className="btn btn-secondary btn-outline-alt" title={block.fields.link.fields.title}>{block.fields.link.fields.title}</a>
+            </Link>
+            )}
           </div>
         )
       })}
