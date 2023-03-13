@@ -23,7 +23,7 @@
     "classnames": "^2.2.6",
     "contentful": "^7.15.2",
     "dotenv-webpack": "^2.0.0",
-    "gsap": "npm:@gsap/shockingly@^3.6.0",
+    "gsap": "file:gsap-bonus.tgz",
     "next": "^9.5.5",
     "next-on-netlify": "^2.9.0",
     "nextjs-fonts": "^0.22.0",
