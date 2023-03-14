@@ -6,3 +6,5 @@ out_*
 .idea/
 /npm-debug.log
 .npm
+/out_functions
+/out_publish
