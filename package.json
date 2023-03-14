@@ -8,8 +8,7 @@
     "dev2": "scripts/dev",
     "build": "next build",
     "export": "next export",
-    "start": "next start",
-    "postbuild": "next-on-netlify"
+    "start": "next start"
   },
   "keywords": [],
   "author": "Justine Matsalla",
@@ -25,7 +24,6 @@
     "dotenv-webpack": "^2.0.0",
     "gsap": "file:gsap-bonus.tgz",
     "next": "^9.5.5",
-    "next-on-netlify": "^2.9.0",
     "nextjs-fonts": "^0.22.0",
     "pure-react-carousel": "^1.27.6",
     "react": "^16.14.0",
@@ -40,6 +38,7 @@
     "sass-rem": "^2.0.1"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "2.0.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.20.0",
     "eslint-plugin-react": "^7.22.0",
