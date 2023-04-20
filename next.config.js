@@ -1,6 +1,6 @@
 const path = require("path");
-const Dotenv = require("dotenv");
-const DotenvWebPack = require("dotenv-webpack");
+// const Dotenv = require("dotenv");
+// const DotenvWebPack = require("dotenv-webpack");
 const CMSApi = require("./utility/cms");
 const generateSitemap = require("./scripts/sitemap-gen");
 
@@ -49,14 +49,21 @@ const next_config = {
   webpack: (config) => {
     config.plugins = config.plugins || [];
 
-    config.plugins = [
-      ...config.plugins,
-      // Read the .env file
-      new DotenvWebPack({
-        path: path.join(__dirname, ".env"),
-        systemvars: true,
-      }),
-    ];
+    // config.plugins.push(
+    //   new DotenvWebPack({
+    //     path: path.join(__dirname, ".env"),
+    //     systemvars: true,
+    //   })
+    // );
+
+    // config.plugins = [
+    //   // Read the .env file
+    //   new DotenvWebPack({
+    //     path: path.join(__dirname, ".env"),
+    //     systemvars: true,
+    //   }),
+    //   ...config.plugins,
+    // ];
 
     return config;
   },

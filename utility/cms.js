@@ -1,36 +1,35 @@
 const contentful = require("contentful");
 
 const getEnv = () => {
-  return process.env.NODE_ENV
-}
+  return process.env.NODE_ENV;
+};
 
 const contentfulSettings = () => {
-
   let settings = {
-    space: process.env.CONTENTFUL_SPACE,
-    accessToken: process.env.CONTENTFUL_TOKEN,
-    environment: process.env.CONTENTFUL_ENVIRONMENT || "master", 
-  }
-  
+    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
+    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_TOKEN,
+    environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT || "master",
+  };
+
   // for development, use the preview api for draft content
-  const deployContext = process.env.CONTEXT || null
+  const deployContext = process.env.NEXT_PUBLIC_CONTEXT || null;
   // console.log('Deploy context: ', deployContext)
-  if (getEnv() === 'development' || deployContext === 'branch-deploy') {
+  if (getEnv() === "development" || deployContext === "branch-deploy") {
     settings = {
-      space: process.env.CONTENTFUL_SPACE,
-      accessToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
-      environment: process.env.CONTENTFUL_ENVIRONMENT || "master", 
-      host: 'preview.contentful.com'
-    }
+      space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
+      accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_TOKEN,
+      environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT || "master",
+      host: "preview.contentful.com",
+    };
   }
-  return settings
-}
+  return settings;
+};
 
 function CMSApi() {
   // console.log("Accessing Contentful space " + process.env.CONTENTFUL_SPACE);
   // console.log("Environment: " + getEnv())
 
-  const clientSettings = contentfulSettings()
+  const clientSettings = contentfulSettings();
   this.client = contentful.createClient(clientSettings);
 
   this.fetchUniquePageType = async (uniquePageType) => {
@@ -83,7 +82,7 @@ function CMSApi() {
 
         return null;
       });
-  }
+  };
 
   this.fetchContentPages = async (slug) => {
     return await this.client
@@ -99,14 +98,14 @@ function CMSApi() {
       });
   };
 
-  this.fetchCareerPageBySlug = async slug => {
+  this.fetchCareerPageBySlug = async (slug) => {
     return await this.client
       .getEntries({
         include: 3,
         content_type: "pageCareerDetails",
-        "fields.slug": slug
+        "fields.slug": slug,
       })
-      .then(async results => {
+      .then(async (results) => {
         const page = results.items[0];
 
         if (page) {
@@ -117,14 +116,14 @@ function CMSApi() {
       });
   };
 
-  this.fetchWorkPageBySlug = async slug => {
+  this.fetchWorkPageBySlug = async (slug) => {
     return await this.client
       .getEntries({
         include: 3,
         content_type: "pageWork",
-        "fields.slug": slug
+        "fields.slug": slug,
       })
-      .then(async results => {
+      .then(async (results) => {
         const page = results.items[0];
 
         if (page) {
@@ -135,14 +134,14 @@ function CMSApi() {
       });
   };
 
-  this.fetchServicePageBySlug = async slug => {
+  this.fetchServicePageBySlug = async (slug) => {
     return await this.client
       .getEntries({
         include: 3,
         content_type: "pageService",
-        "fields.slug": slug
+        "fields.slug": slug,
       })
-      .then(async results => {
+      .then(async (results) => {
         const page = results.items[0];
 
         if (page) {
