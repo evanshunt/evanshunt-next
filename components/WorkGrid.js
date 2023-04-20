@@ -1,19 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
-import classNames from 'classnames'
+import classNames from "classnames";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-
 const WorkGrid = (props) => {
-  
-  const [showMoreTiles, setShowMoreTiles] = useState(false)
+  const [showMoreTiles, setShowMoreTiles] = useState(false);
   const revealRefs = useRef([]);
   revealRefs.current = [];
 
   useEffect(() => {
-
     if (typeof window !== `undefined`) {
       gsap.registerPlugin(ScrollTrigger);
       gsap.core.globals("ScrollTrigger", ScrollTrigger);
@@ -21,36 +18,37 @@ const WorkGrid = (props) => {
 
     // Tiles that fade in
     revealRefs.current.forEach((el, index) => {
-
-      gsap.fromTo(el, {
-        opacity: 0,
-        y: 50
-      }, {
-        duration: 1.5,
-        opacity: 1,
-        y: 0,
-        ease: 'power4.inOut',
-        scrollTrigger: {
-          id: `section-${index+1}`,
-          trigger: el,
-          //start: 'top center+=100',
-          toggleActions: 'play none none reverse'
+      gsap.fromTo(
+        el,
+        {
+          opacity: 0,
+          y: 50,
+        },
+        {
+          duration: 1.5,
+          opacity: 1,
+          y: 0,
+          ease: "power4.inOut",
+          scrollTrigger: {
+            id: `section-${index + 1}`,
+            trigger: el,
+            //start: 'top center+=100',
+            toggleActions: "play none none reverse",
+          },
         }
-      });
-
+      );
     });
 
     return () => {
       revealRefs.current.forEach((el, index) => {
-        ScrollTrigger.getById(`section-${index+1}`).kill();
-      })
-    }
-
+        ScrollTrigger.getById(`section-${index + 1}`).kill();
+      });
+    };
   }, []);
 
-  const addToRefs = el => {
+  const addToRefs = (el) => {
     if (el && !revealRefs.current.includes(el)) {
-        revealRefs.current.push(el);
+      revealRefs.current.push(el);
     }
   };
 
@@ -64,7 +62,6 @@ const WorkGrid = (props) => {
   return (
     <section className="work-grid">
       <div className="container">
-
         <div className="work-grid-columns">
           {workPages.map((page, i) => {
             // output the first chunk of tiles
@@ -78,17 +75,28 @@ const WorkGrid = (props) => {
                   addToRefs={addToRefs}
                   key={i}
                 />
-              ); 
+              );
             }
           })}
         </div>
         {workPages.length > initialTilesToShow && (
-          <div className={classNames('show-all-btn', {'hidden': showMoreTiles})}>
-            <button className="btn btn-primary" onClick={() => setShowMoreTiles(true)}>View all</button>
+          <div
+            className={classNames("show-all-btn", { hidden: showMoreTiles })}
+          >
+            <button
+              className="btn btn-primary"
+              onClick={() => setShowMoreTiles(true)}
+            >
+              View all
+            </button>
           </div>
         )}
         {workPages.length > initialTilesToShow && (
-          <div className={classNames('work-grid-columns', 'more-columns', {'show-all': showMoreTiles})}>
+          <div
+            className={classNames("work-grid-columns", "more-columns", {
+              "show-all": showMoreTiles,
+            })}
+          >
             {workPages.map((page, i) => {
               // output the second chunk of tiles
               if (i >= initialTilesToShow) {
@@ -112,44 +120,53 @@ const WorkGrid = (props) => {
 };
 
 // so we don't need to duplicate this
-const WorkGridColumn = ({squareImage, title, slug, servicesList, addToRefs}) => {
+const WorkGridColumn = ({
+  squareImage,
+  title,
+  slug,
+  servicesList,
+  addToRefs,
+}) => {
   return (
     <div className="work-grid-column" ref={addToRefs}>
       <div className="work-grid-img">
         {squareImage && (
-          <Link href={`/our-work/${slug}`}>
-            <a
-              title={title}
-              className="work-grid-img-link"
-            >
+          <Link href={`/our-work/${slug}`} legacyBehavior>
+            <a title={title} className="work-grid-img-link">
               <picture>
-                <source srcSet={`${squareImage.fields.file.url}?fm=webp`} type="image/webp" />
-                <source srcSet={`${squareImage.fields.file.url}?fm=jpg`} type="image/jpeg" />
-                <img className="img-fluid" src={squareImage.fields.file.url} alt={squareImage.fields.file.description} width="520" height="570" />
+                <source
+                  srcSet={`${squareImage.fields.file.url}?fm=webp`}
+                  type="image/webp"
+                />
+                <source
+                  srcSet={`${squareImage.fields.file.url}?fm=jpg`}
+                  type="image/jpeg"
+                />
+                <img
+                  className="img-fluid"
+                  src={squareImage.fields.file.url}
+                  alt={squareImage.fields.file.description}
+                  width="520"
+                  height="570"
+                />
               </picture>
             </a>
           </Link>
         )}
         <div className="work-grid-cta">
-          <Link href={`/our-work/${slug}`}>
+          <Link href={`/our-work/${slug}`} legacyBehavior>
             <a title={title} className="btn">
               View case study
             </a>
           </Link>
         </div>
       </div>
-      {title && (
-        <h5 className="work-grid-title base-font-medium">
-          {title}
-        </h5>
-      )}
+      {title && <h5 className="work-grid-title base-font-medium">{title}</h5>}
       {servicesList && (
-        <p className="work-grid-services">
-          {servicesList.join(", ")}
-        </p>
+        <p className="work-grid-services">{servicesList.join(", ")}</p>
       )}
     </div>
-  )
-}
+  );
+};
 
 export default WorkGrid;

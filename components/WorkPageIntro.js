@@ -1,41 +1,47 @@
-import React, { useEffect, useState } from 'react'
-import Link from 'next/link'
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
-const breakpointChange = 992
+const breakpointChange = 992;
 
-const WorkPageIntro = ({ title, industry, introTextLong, externalLink, servicesList }) => {
-  const [showAllServices, setShowAllServices] = useState(false)
-  const [servicesShowing, setServicesShowing] = useState(4) // default for desktop is 4
-  const [showMoreText, setShowMoreText] = useState('View all') // default for desktop is 4
-  
+const WorkPageIntro = ({
+  title,
+  industry,
+  introTextLong,
+  externalLink,
+  servicesList,
+}) => {
+  const [showAllServices, setShowAllServices] = useState(false);
+  const [servicesShowing, setServicesShowing] = useState(4); // default for desktop is 4
+  const [showMoreText, setShowMoreText] = useState("View all"); // default for desktop is 4
+
   useEffect(() => {
-    window.addEventListener('resize', handleResize)
-    
+    window.addEventListener("resize", handleResize);
+
     if (window && window.innerWidth < breakpointChange) {
-      setServicesShowing(0)
-      setShowMoreText('View related services')
+      setServicesShowing(0);
+      setShowMoreText("View related services");
     }
-    
+
     return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleServiceToggle = () => {
     document.activeElement.blur(); // prevent chrome from scrolling oddly with new content
-    setShowAllServices(!showAllServices)
-  }
-  
+    setShowAllServices(!showAllServices);
+  };
+
   const handleResize = () => {
     if (window.innerWidth < breakpointChange) {
-      setServicesShowing(0)
-      setShowMoreText('View related services')
+      setServicesShowing(0);
+      setShowMoreText("View related services");
     } else {
-      setServicesShowing(4)
-      setShowMoreText('View all')
+      setServicesShowing(4);
+      setShowMoreText("View all");
     }
-  }
-  
+  };
+
   return (
     <section className="work-page-intro">
       <div className="container-medium">
@@ -45,19 +51,33 @@ const WorkPageIntro = ({ title, industry, introTextLong, externalLink, servicesL
             {industry && <h6 className="base-font">{industry}</h6>}
             {introTextLong && <p className="description">{introTextLong}</p>}
             {externalLink && (
-              <Link href={externalLink} >
-                <a className="external-link" title={externalLink} target="_blank" rel="noreferrer">
+              <Link href={externalLink} legacyBehavior>
+                <a
+                  className="external-link"
+                  title={externalLink}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   {externalLink}
-                  <img className="external-link-icon external-link-icon-dark" src="/images/external-link.svg" alt="external link icon"/>
-                  <img className="external-link-icon external-link-icon-light" src="/images/external-link-white.svg" alt="external link icon"/>
+                  <img
+                    className="external-link-icon external-link-icon-dark"
+                    src="/images/external-link.svg"
+                    alt="external link icon"
+                  />
+                  <img
+                    className="external-link-icon external-link-icon-light"
+                    src="/images/external-link-white.svg"
+                    alt="external link icon"
+                  />
                 </a>
               </Link>
             )}
           </div>
 
           <div className="work-page-intro-flex-item">
-            <h6 className="service-list-title base-font-medium">Key Services</h6>
-
+            <h6 className="service-list-title base-font-medium">
+              Key Services
+            </h6>
 
             {/* This is an odd set up, but its an odd area */}
             {servicesList && (
@@ -66,19 +86,27 @@ const WorkPageIntro = ({ title, industry, introTextLong, externalLink, servicesL
                 {servicesList.map((service, i) => {
                   if (i < servicesShowing) {
                     return (
-                      <div className="service-list-item" key={i}>{service}</div>
-                    )
+                      <div className="service-list-item" key={i}>
+                        {service}
+                      </div>
+                    );
                   }
                 })}
 
                 {/* the rest of the services, if more than 4 */}
                 {servicesList.length > servicesShowing && (
-                  <div className={`service-list-more ${showAllServices ? 'active' : ''}`}>
+                  <div
+                    className={`service-list-more ${
+                      showAllServices ? "active" : ""
+                    }`}
+                  >
                     {servicesList.map((service, i) => {
                       if (i >= servicesShowing) {
                         return (
-                          <div className="service-list-item" key={i}>{service}</div>
-                        )
+                          <div className="service-list-item" key={i}>
+                            {service}
+                          </div>
+                        );
                       }
                     })}
                   </div>
@@ -87,20 +115,26 @@ const WorkPageIntro = ({ title, industry, introTextLong, externalLink, servicesL
             )}
 
             {servicesList && servicesList.length > servicesShowing && (
-              <button className="service-list-toggle" onClick={handleServiceToggle}>
+              <button
+                className="service-list-toggle"
+                onClick={handleServiceToggle}
+              >
                 {showAllServices ? (
-                  <span><img src="/images/red-minus.svg" alt=""/> View less</span>
+                  <span>
+                    <img src="/images/red-minus.svg" alt="" /> View less
+                  </span>
                 ) : (
-                  <span><img src="/images/red-plus.svg" alt=""/> {showMoreText}</span>
+                  <span>
+                    <img src="/images/red-plus.svg" alt="" /> {showMoreText}
+                  </span>
                 )}
               </button>
             )}
           </div>
         </div>
-
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default WorkPageIntro
+export default WorkPageIntro;
