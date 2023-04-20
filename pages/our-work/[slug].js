@@ -1,20 +1,19 @@
-import { useEffect } from 'react'
+import { useEffect } from "react";
 import Layout from "../../layouts/Page";
 import PageMeta from "../../components/PageMeta";
 import renderComponents from "../../components/ComponentList";
-import WorkPageIntro from '../../components/WorkPageIntro'
-import HeroBanner from '../../components/HeroBanner'
-import RelatedWork from '../../components/RelatedWork'
+import WorkPageIntro from "../../components/WorkPageIntro";
+import HeroBanner from "../../components/HeroBanner";
+import RelatedWork from "../../components/RelatedWork";
 const CMSApi = require("../../utility/cms");
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const WorkDetails = (content) => {
-
   function afterLoaded() {
     return new Promise((resolve, reject) => {
-      setTimeout(function() {
+      setTimeout(function () {
         content ? resolve() : reject();
       }, 2000);
     });
@@ -33,31 +32,29 @@ const WorkDetails = (content) => {
     }
 
     afterLoaded()
-    .then(() => {
-      console.log('Content loaded!');
-      ScrollTrigger.refresh();
-    })
-    .catch(() => {
-      console.error('Content loading failed!');
-    });
+      .then(() => {
+        console.log("Content loaded!");
+        ScrollTrigger.refresh();
+      })
+      .catch(() => {
+        console.error("Content loading failed!");
+      });
   }, []);
 
-
   if (!content) {
-    return null
+    return null;
   }
 
   return (
     <Layout className="content-page work-details-page">
-      
-      {content.fields.pageMeta && (
+      {content.fields?.pageMeta && (
         <PageMeta
           seoTitle={content.fields.pageMeta.fields.seoTitle}
           metaDescription={content.fields.pageMeta.fields.metaDescription}
           socialMediaImage={content.fields.pageMeta.fields.socialMediaImage}
         />
       )}
-      
+
       {/* Hero Banner for Case Studies - can have video */}
       {content.fields.heroBanner && (
         <HeroBanner
@@ -67,7 +64,7 @@ const WorkDetails = (content) => {
             content.fields.heroBanner.fields.gradientColour[0]
           }
           backgroundImage={
-            content.fields.heroBanner.fields.backgroundImage && 
+            content.fields.heroBanner.fields.backgroundImage &&
             content.fields.heroBanner.fields.backgroundImage.fields.file.url
           }
           backgroundVideo={
@@ -78,14 +75,14 @@ const WorkDetails = (content) => {
           largeText={content.fields.heroBanner.fields.largeText}
         />
       )}
-      
+
       <WorkPageIntro {...content.fields} />
-      
-      
+
       {content.fields.components && renderComponents(content.fields.components)}
 
-      {content.fields.relatedProjectsBlock && <RelatedWork items={content.fields.relatedProjectsBlock} />}
-
+      {content.fields.relatedProjectsBlock && (
+        <RelatedWork items={content.fields.relatedProjectsBlock} />
+      )}
     </Layout>
   );
 };
