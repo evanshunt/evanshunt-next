@@ -20,7 +20,6 @@
     "breakpoint-sass": "^2.7.1",
     "classnames": "^2.3.2",
     "contentful": "^7.15.2",
-    "dotenv-webpack": "^2.0.0",
     "eslint-config-next": "^13.3.0",
     "gsap": "file:gsap-bonus.tgz",
     "next": "^13.3.0",
@@ -37,7 +36,6 @@
     "sass-rem": "^2.0.1"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "2.0.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
     "eslint-plugin-react": "^7.32.2",
