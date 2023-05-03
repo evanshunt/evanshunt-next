@@ -45,6 +45,8 @@ const WorkDetails = (content) => {
     return null;
   }
 
+  console.log(content);
+
   return (
     <Layout className="content-page work-details-page">
       {content.fields?.pageMeta && (
@@ -56,7 +58,7 @@ const WorkDetails = (content) => {
       )}
 
       {/* Hero Banner for Case Studies - can have video */}
-      {content.fields.heroBanner && (
+      {content.fields?.heroBanner && (
         <HeroBanner
           gradientHero={content.fields.heroBanner.fields.gradientHero}
           gradientColour={
@@ -78,9 +80,10 @@ const WorkDetails = (content) => {
 
       <WorkPageIntro {...content.fields} />
 
-      {content.fields.components && renderComponents(content.fields.components)}
+      {content.fields?.components &&
+        renderComponents(content.fields.components)}
 
-      {content.fields.relatedProjectsBlock && (
+      {content.fields?.relatedProjectsBlock && (
         <RelatedWork items={content.fields.relatedProjectsBlock} />
       )}
     </Layout>

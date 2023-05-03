@@ -20,33 +20,36 @@ const OurTeam = (props) => {
 
     // animate logo rows
     aLeaderRow.current.forEach((el, index) => {
-      gsap.fromTo(el, {
-        opacity: 0,
-        y: 10,
-      },
-      {
-        duration: 1.25,
-        opacity: 1,
-        y: 0,
-        ease: "power4.inOut",
-        scrollTrigger: {
-          id: `team-${index+1}`,
-          trigger: el,
-          start: "top center+=850px",
-          scrub: 1,
-          toggleActions: 'play none none none',
-          once: true
+      gsap.fromTo(
+        el,
+        {
+          opacity: 0,
+          y: 10,
         },
-      });
+        {
+          duration: 1.25,
+          opacity: 1,
+          y: 0,
+          ease: "power4.inOut",
+          scrollTrigger: {
+            id: `team-${index + 1}`,
+            trigger: el,
+            start: "top center+=850px",
+            scrub: 1,
+            toggleActions: "play none none none",
+            once: true,
+          },
+        }
+      );
     });
 
     return () => {
       aLeaderRow.current.forEach((el, index) => {
-        if (ScrollTrigger.getById(`team-${index+1}`) !== undefined) {
-          ScrollTrigger.getById(`team-${index+1}`).kill();
+        if (ScrollTrigger.getById(`team-${index + 1}`) !== undefined) {
+          ScrollTrigger.getById(`team-${index + 1}`).kill();
         }
-      })
-    }
+      });
+    };
   }, []);
 
   const addToRefs = (el) => {
@@ -76,7 +79,7 @@ const OurTeam = (props) => {
                 {row.map((leader, j) => {
                   return (
                     <div className="our-team-leader" key={j}>
-                      <ReactMarkdown source={leader.fields.markdown} />
+                      <ReactMarkdown>{leader.fields.markdown}</ReactMarkdown>
                     </div>
                   );
                 })}

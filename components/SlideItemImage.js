@@ -41,10 +41,9 @@ class SlideItemImage extends React.Component {
                   <div className="text-wrapper">
                     {title && <h6 className={titleClass}>{title}</h6>}
                     {description && (
-                      <ReactMarkdown
-                        className="slide-description"
-                        source={description}
-                      />
+                      <ReactMarkdown className="slide-description">
+                        {description}
+                      </ReactMarkdown>
                     )}
                   </div>
                 </a>
@@ -62,10 +61,9 @@ class SlideItemImage extends React.Component {
                 <div className="text-wrapper">
                   {title && <h6 className={titleClass}>{title}</h6>}
                   {description && (
-                    <ReactMarkdown
-                      className="slide-description"
-                      source={description}
-                    />
+                    <ReactMarkdown className="slide-description">
+                      {description}
+                    </ReactMarkdown>
                   )}
                 </div>
               </div>
@@ -96,10 +94,9 @@ class SlideItemImage extends React.Component {
 
             {title && <h6 className={titleClass}>{title}</h6>}
             {description && (
-              <ReactMarkdown
-                className="slide-description"
-                source={description}
-              />
+              <ReactMarkdown className="slide-description">
+                {description}
+              </ReactMarkdown>
             )}
           </div>
         )}
