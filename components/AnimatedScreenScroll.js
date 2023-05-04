@@ -49,35 +49,6 @@ const AnimatedScreenScroll = (props) => {
       }
     });
 
-    // let c1 = ScrollTrigger.matchMedia({
-    //   "(min-width: 992px)": () => {
-    //     c1 = gsap.timeline({
-    //       scrollTrigger: {
-    //         id: "animated-screen-st",
-    //         trigger: trigger.current,
-    //         pin: wrapper.current,
-    //         scrub: 1,
-    //         markers: false,
-    //         start: "top top",
-    //       },
-    //     });
-
-    // if (orientation === `horizontal`) {
-    //   c1.to(img1.current, {
-    //     duration: 2,
-    //     xPercent: scrollAmount, // grabbed from Contentful, images are different widths
-    //     ease: "power4.inOut",
-    //   });
-    // } else {
-    //   c1.to(img1.current, {
-    //     duration: 2,
-    //     yPercent: scrollAmount, // grabbed from Contentful, images are different heights
-    //     ease: "power4.inOut",
-    //   });
-    // }
-    //   },
-    // });
-
     // unmount
     return () => {
       if (ScrollTrigger.getById("animated-screen-st") !== undefined) {
