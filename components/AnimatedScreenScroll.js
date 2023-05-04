@@ -20,34 +20,63 @@ const AnimatedScreenScroll = (props) => {
   let scrollAmount = animationValue;
 
   useEffect(() => {
-    ScrollTrigger.matchMedia({
-      "(min-width: 992px)": () => {
-        const c1 = gsap.timeline({
-          scrollTrigger: {
-            id: "animated-screen-st",
-            trigger: trigger.current,
-            pin: wrapper.current,
-            scrub: 1,
-            markers: false,
-            start: "top top",
-          },
-        });
+    let c1 = gsap.matchMedia();
 
-        if (orientation === `horizontal`) {
-          c1.to(img1.current, {
-            duration: 2,
-            xPercent: scrollAmount, // grabbed from Contentful, images are different widths
-            ease: "power4.inOut",
-          });
-        } else {
-          c1.to(img1.current, {
-            duration: 2,
-            yPercent: scrollAmount, // grabbed from Contentful, images are different heights
-            ease: "power4.inOut",
-          });
-        }
-      },
+    c1.add("(min-width: 992px)", () => {
+      c1 = gsap.timeline({
+        scrollTrigger: {
+          id: "animated-screen-st",
+          trigger: trigger.current,
+          pin: wrapper.current,
+          scrub: 1,
+          markers: false,
+          start: "top top",
+        },
+      });
+
+      if (orientation === `horizontal`) {
+        c1.to(img1.current, {
+          duration: 2,
+          xPercent: scrollAmount, // grabbed from Contentful, images are different widths
+          ease: "power4.inOut",
+        });
+      } else {
+        c1.to(img1.current, {
+          duration: 2,
+          yPercent: scrollAmount, // grabbed from Contentful, images are different heights
+          ease: "power4.inOut",
+        });
+      }
     });
+
+    // let c1 = ScrollTrigger.matchMedia({
+    //   "(min-width: 992px)": () => {
+    //     c1 = gsap.timeline({
+    //       scrollTrigger: {
+    //         id: "animated-screen-st",
+    //         trigger: trigger.current,
+    //         pin: wrapper.current,
+    //         scrub: 1,
+    //         markers: false,
+    //         start: "top top",
+    //       },
+    //     });
+
+    // if (orientation === `horizontal`) {
+    //   c1.to(img1.current, {
+    //     duration: 2,
+    //     xPercent: scrollAmount, // grabbed from Contentful, images are different widths
+    //     ease: "power4.inOut",
+    //   });
+    // } else {
+    //   c1.to(img1.current, {
+    //     duration: 2,
+    //     yPercent: scrollAmount, // grabbed from Contentful, images are different heights
+    //     ease: "power4.inOut",
+    //   });
+    // }
+    //   },
+    // });
 
     // unmount
     return () => {

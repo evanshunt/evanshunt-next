@@ -45,8 +45,6 @@ const WorkDetails = (content) => {
     return null;
   }
 
-  console.log(content);
-
   return (
     <Layout className="content-page work-details-page">
       {content.fields?.pageMeta && (
