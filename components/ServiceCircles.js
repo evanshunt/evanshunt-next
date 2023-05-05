@@ -26,8 +26,8 @@ const ServiceCircles = ({
 
       <div className="service-circles-list">
         <div className="service-circle-column">
-          <Link href={circle1Cta} legacyBehavior>
-            <div className="service-circle service-circle-1">
+          <Link href={circle1Cta} className="service-circle service-circle-1">
+            <div>
               <span className="service-circle-title">{circle1Title}</span>
               <span className="service-circle-description">
                 {circle1Description}
@@ -37,8 +37,8 @@ const ServiceCircles = ({
         </div>
 
         <div className="service-circle-column">
-          <Link href={circle2Cta} legacyBehavior>
-            <div className="service-circle service-circle-2">
+          <Link href={circle2Cta} className="service-circle service-circle-2">
+            <div>
               <span className="service-circle-title">{circle2Title}</span>
               <span className="service-circle-description">
                 {circle2Description}
@@ -47,8 +47,8 @@ const ServiceCircles = ({
           </Link>
         </div>
         <div className="service-circle-column">
-          <Link href={circle3Cta} legacyBehavior>
-            <div className="service-circle service-circle-3">
+          <Link href={circle3Cta} className="service-circle  service-circle-3">
+            <div>
               <span className="service-circle-title">{circle3Title}</span>
               <span className="service-circle-description">
                 {circle3Description}
@@ -57,8 +57,8 @@ const ServiceCircles = ({
           </Link>
         </div>
         <div className="service-circle-column">
-          <Link href={circle4Cta} legacyBehavior>
-            <div className="service-circle service-circle-4">
+          <Link href={circle4Cta} className="service-circle service-circle-4">
+            <div>
               <span className="service-circle-title">{circle4Title}</span>
               <span className="service-circle-description">
                 {circle4Description}
