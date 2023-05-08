@@ -10,6 +10,8 @@ import {
 const RelatedWork = (props) => {
   const { items } = props;
 
+  console.log(items);
+
   return (
     <section className="related-work">
       <div className="container">
@@ -51,9 +53,7 @@ const RelatedWork = (props) => {
                           <img
                             className="img-fluid"
                             src={work.fields.squareImage.fields.file.url}
-                            alt={
-                              work.fields.squareImage.fields.file.description
-                            }
+                            alt={work.fields.squareImage.fields.description}
                           />
                         </picture>
                       )}
