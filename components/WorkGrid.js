@@ -44,7 +44,7 @@ const WorkGrid = (props) => {
         ScrollTrigger.getById(`section-${index + 1}`).kill();
       });
     };
-  }, []);
+  }, [revealRefs]);
 
   const addToRefs = (el) => {
     if (el && !revealRefs.current.includes(el)) {
@@ -74,18 +74,20 @@ const WorkGrid = (props) => {
                   servicesList={page.fields.servicesList}
                   addToRefs={addToRefs}
                   key={i}
+                  isHidden={false}
                 />
               );
             }
           })}
         </div>
-        {workPages.length > initialTilesToShow && (
+        {workPages.length > initialTilesToShow && !showMoreTiles && (
           <div
             className={classNames("show-all-btn", { hidden: showMoreTiles })}
           >
             <button
               className="btn btn-primary"
               onClick={() => setShowMoreTiles(true)}
+              tabIndex={0}
             >
               View all
             </button>
@@ -108,6 +110,7 @@ const WorkGrid = (props) => {
                     servicesList={page.fields.servicesList}
                     addToRefs={addToRefs}
                     key={i}
+                    isHidden={!showMoreTiles}
                   />
                 );
               }
@@ -126,40 +129,45 @@ const WorkGridColumn = ({
   slug,
   servicesList,
   addToRefs,
+  isHidden,
 }) => {
   return (
-    <div className="work-grid-column" ref={addToRefs}>
+    <div
+      className="work-grid-column"
+      ref={addToRefs}
+      tabIndex={isHidden ? -1 : 0}
+      aria-label={title + " Case Study"}
+    >
       <div className="work-grid-img">
         {squareImage && (
-          <Link href={`/our-work/${slug}`} legacyBehavior>
-            <a title={title} className="work-grid-img-link">
-              <picture>
-                <source
-                  srcSet={`${squareImage.fields.file.url}?fm=webp`}
-                  type="image/webp"
-                />
-                <source
-                  srcSet={`${squareImage.fields.file.url}?fm=jpg`}
-                  type="image/jpeg"
-                />
-                <img
-                  className="img-fluid"
-                  src={squareImage.fields.file.url}
-                  alt={squareImage.fields.file.description}
-                  width="520"
-                  height="570"
-                />
-              </picture>
-            </a>
+          <Link
+            href={`/our-work/${slug}`}
+            title={title}
+            className="work-grid-img-link"
+            tabIndex={isHidden ? -1 : 0}
+          >
+            <picture>
+              <source
+                srcSet={`${squareImage.fields.file.url}?fm=webp`}
+                type="image/webp"
+              />
+              <source
+                srcSet={`${squareImage.fields.file.url}?fm=jpg`}
+                type="image/jpeg"
+              />
+              <img
+                className="img-fluid"
+                src={squareImage.fields.file.url}
+                alt={squareImage.fields.description}
+                width="520"
+                height="570"
+              />
+            </picture>
+            <div className="work-grid-cta">
+              <span className="btn">View case study</span>
+            </div>
           </Link>
         )}
-        <div className="work-grid-cta">
-          <Link href={`/our-work/${slug}`} legacyBehavior>
-            <a title={title} className="btn">
-              View case study
-            </a>
-          </Link>
-        </div>
       </div>
       {title && <h5 className="work-grid-title base-font-medium">{title}</h5>}
       {servicesList && (
