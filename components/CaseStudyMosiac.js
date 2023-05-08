@@ -105,8 +105,6 @@ class CaseStudyMosiac extends React.Component {
     const { feature, images } = this.props;
     const [img1, img2, img3, img4] = images; // not sure how this would work with more or less than the 4 images
 
-    console.log(img3);
-
     return (
       <section
         className="case-study-mosiac"
