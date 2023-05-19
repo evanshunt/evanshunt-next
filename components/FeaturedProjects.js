@@ -1,27 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import classNames from "classnames";
 import Link from "next/link";
 
 const FeaturedProjects = ({ title, projects, cta }) => {
-  const [isMobile, setIsMobile] = useState(false);
+  // const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    if (window && window.innerWidth < 720) {
-      setIsMobile(true);
-    }
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("resize", handleResize);
+  //   if (window && window.innerWidth < 720) {
+  //     setIsMobile(true);
+  //   }
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
-  const handleResize = () => {
-    if (window.innerWidth < 720) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  };
+  // const handleResize = () => {
+  //   if (window.innerWidth < 720) {
+  //     setIsMobile(true);
+  //   } else {
+  //     setIsMobile(false);
+  //   }
+  // };
 
   return (
     <section className="featured-projects">
