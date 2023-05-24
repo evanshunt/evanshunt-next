@@ -97,7 +97,7 @@ const OpenPositions = ({ title, introText, openPositions }) => {
 
   useEffect(() => {
     // Initialize Animation for Buttons
-    revealRefs.current.forEach((el, index) => {
+    revealRefs.current.forEach((el) => {
       pillArrowTween(el);
     });
   }, []);
