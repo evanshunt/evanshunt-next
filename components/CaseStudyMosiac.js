@@ -118,7 +118,7 @@ class CaseStudyMosiac extends React.Component {
                   <img
                     ref={(div) => (this.img1 = div)}
                     src={img1.fields.file.url}
-                    alt={img1.fields.file.url}
+                    alt={img1.fields.description}
                     className="img-fluid"
                   />
                 )}
@@ -126,7 +126,7 @@ class CaseStudyMosiac extends React.Component {
                   <img
                     ref={(div) => (this.img2 = div)}
                     src={img2.fields.file.url}
-                    alt={img2.fields.file.url}
+                    alt={img2.fields.description}
                     className="img-fluid"
                   />
                 )}
@@ -135,7 +135,7 @@ class CaseStudyMosiac extends React.Component {
                 {feature && (
                   <img
                     src={feature.fields.file.url}
-                    alt={feature.fields.file.url}
+                    alt={feature.fields.description}
                     className="img-fluid mobile-feature-image"
                   />
                 )}
@@ -143,7 +143,7 @@ class CaseStudyMosiac extends React.Component {
                   <img
                     ref={(div) => (this.img3 = div)}
                     src={img3.fields.file.url}
-                    alt={img3.fields.file.url}
+                    alt={img3.fields.description}
                     className="img-fluid"
                   />
                 )}
@@ -153,7 +153,7 @@ class CaseStudyMosiac extends React.Component {
                   <img
                     ref={(div) => (this.img4 = div)}
                     src={img4.fields.file.url}
-                    alt={img4.fields.file.url}
+                    alt={img4.fields.description}
                     className="img-fluid"
                   />
                 )}
@@ -164,7 +164,7 @@ class CaseStudyMosiac extends React.Component {
                 ref={(div) => (this.featureImg = div)}
                 className="feature-img"
                 src={feature.fields.file.url}
-                alt={feature.fields.file.url}
+                alt={feature.fields.description}
               />
             )}
           </div>
