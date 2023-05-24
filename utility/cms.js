@@ -6,19 +6,19 @@ const getEnv = () => {
 
 const contentfulSettings = () => {
   let settings = {
-    space: process.env.CONTENTFUL_SPACE,
-    accessToken: process.env.CONTENTFUL_TOKEN,
-    environment: process.env.CONTENTFUL_ENVIRONMENT || "master",
+    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
+    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_TOKEN,
+    environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT || "master",
   };
 
   // for development, use the preview api for draft content
-  const deployContext = process.env.CONTEXT || null;
+  const deployContext = process.env.NEXT_PUBLIC_CONTEXT || null;
   // console.log('Deploy context: ', deployContext)
   if (getEnv() === "development" || deployContext === "branch-deploy") {
     settings = {
-      space: process.env.CONTENTFUL_SPACE,
-      accessToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
-      environment: process.env.CONTENTFUL_ENVIRONMENT || "master",
+      space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
+      accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_TOKEN,
+      environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT || "master",
       host: "preview.contentful.com",
     };
   }
