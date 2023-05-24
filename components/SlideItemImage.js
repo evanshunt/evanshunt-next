@@ -29,24 +29,22 @@ class SlideItemImage extends React.Component {
         {textLayout === "on-image" ? (
           <div className="text-on-image">
             {link && (
-              <Link href={link} legacyBehavior>
-                <a aria-label={image.title}>
-                  <div className="image-wrapper">
-                    <Image
-                      src={image.file.url}
-                      className="img-fluid"
-                      alt={image.description}
-                    />
-                  </div>
-                  <div className="text-wrapper">
-                    {title && <h6 className={titleClass}>{title}</h6>}
-                    {description && (
-                      <ReactMarkdown className="slide-description">
-                        {description}
-                      </ReactMarkdown>
-                    )}
-                  </div>
-                </a>
+              <Link href={link} aria-label={image.title}>
+                <div className="image-wrapper">
+                  <Image
+                    src={image.file.url}
+                    className="img-fluid"
+                    alt={image.description}
+                  />
+                </div>
+                <div className="text-wrapper">
+                  {title && <h6 className={titleClass}>{title}</h6>}
+                  {description && (
+                    <ReactMarkdown className="slide-description">
+                      {description}
+                    </ReactMarkdown>
+                  )}
+                </div>
               </Link>
             )}
             {!link && (

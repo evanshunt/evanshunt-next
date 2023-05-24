@@ -42,14 +42,19 @@ class SliderComponent extends React.Component {
     let slideType = "normal";
     if (props && props.slides) {
       // determine which settings to use based on the content type of the first item
-      if (props.slides[0].sys.contentType.sys.id === "globalElementCarouselItem") {
+      if (
+        props.slides[0].sys.contentType.sys.id === "globalElementCarouselItem"
+      ) {
         if (props.style === "square") {
           slideDimensions = clientSlideDimensions;
         } else {
           // Assume landscape
           slideDimensions = normalSlideDimensions;
         }
-      } else if (props.slides[0].sys.contentType.sys.id === "globalElementSliderVideoItem") {
+      } else if (
+        props.slides[0].sys.contentType.sys.id ===
+        "globalElementSliderVideoItem"
+      ) {
         slideDimensions = normalSlideDimensions;
       } else {
         slideDimensions = clientSlideDimensions;
@@ -142,6 +147,36 @@ class SliderComponent extends React.Component {
           role="listbox"
         >
           <div className="slider-relative" role="option">
+            <ButtonBack
+              className={classNames({ inactive: !showArrows })}
+              tabIndex={0}
+            >
+              <img
+                className="light-arrow"
+                src="/images/arrow-left-lg-white.svg"
+                alt="arrow-left-lg-white"
+              />
+              <img
+                className="dark-arrow"
+                src="/images/arrow-left-lg-black.svg"
+                alt="arrow-left-lg-black"
+              />
+            </ButtonBack>
+            <ButtonNext
+              className={classNames({ inactive: !showArrows })}
+              tabIndex={0}
+            >
+              <img
+                className="light-arrow"
+                src="/images/arrow-right-lg-white.svg"
+                alt="arrow-right-lg-white"
+              />
+              <img
+                className="dark-arrow"
+                src="/images/arrow-right-lg-black.svg"
+                alt="arrow-right-lg-black"
+              />
+            </ButtonNext>
             <Slider aria-label="slider" trayTag="div">
               {slides &&
                 slides.map((slide, i) => {
@@ -194,30 +229,6 @@ class SliderComponent extends React.Component {
                   }
                 })}
             </Slider>
-            <ButtonBack className={classNames({ inactive: !showArrows })}>
-              <img
-                className="light-arrow"
-                src="/images/arrow-left-lg-white.svg"
-                alt="arrow-left-lg-white"
-              />
-              <img
-                className="dark-arrow"
-                src="/images/arrow-left-lg-black.svg"
-                alt="arrow-left-lg-black"
-              />
-            </ButtonBack>
-            <ButtonNext className={classNames({ inactive: !showArrows })}>
-              <img
-                className="light-arrow"
-                src="/images/arrow-right-lg-white.svg"
-                alt="arrow-right-lg-white"
-              />
-              <img
-                className="dark-arrow"
-                src="/images/arrow-right-lg-black.svg"
-                alt="arrow-right-lg-black"
-              />
-            </ButtonNext>
           </div>
           <DotGroup
             className={classNames("react-slider-dot-group", {

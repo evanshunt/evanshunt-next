@@ -51,7 +51,7 @@ class SlideItemVideo extends React.Component {
               />
             </div>
             <div className="text-wrapper">
-              <div className="video-control">
+              <button className="video-control">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20.97 25.67"
@@ -68,7 +68,7 @@ class SlideItemVideo extends React.Component {
                     />
                   </g>
                 </svg>
-              </div>
+              </button>
               {title && <h6 className="slide-title">{title}</h6>}
             </div>
           </div>
