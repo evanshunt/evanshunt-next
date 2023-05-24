@@ -83,7 +83,7 @@ class SlideItemVideo extends React.Component {
           overlayClassName="modal-overlay"
         >
           <div className="modal-content">
-            <button onClick={this.closeModal} class="close">
+            <button onClick={this.closeModal} className="close">
               <svg
                 width="68"
                 height="68"
@@ -94,14 +94,14 @@ class SlideItemVideo extends React.Component {
                 <path
                   d="M16.7593 18.0067L49.9933 51.2407"
                   stroke="black"
-                  stroke-width="3"
-                  stroke-linecap="square"
+                  strokeWidth="3"
+                  strokeLinecap="square"
                 />
                 <path
                   d="M51.655 18.0067L18.4209 51.2407"
                   stroke="black"
-                  stroke-width="3"
-                  stroke-linecap="square"
+                  strokeWidth="3"
+                  strokeLinecap="square"
                 />
               </svg>
             </button>
@@ -129,7 +129,7 @@ class SlideItemVideo extends React.Component {
                     viewBox="0 0 44 44"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    class="link-download"
+                    className="link-download"
                   >
                     <circle
                       cx="22"
@@ -137,11 +137,10 @@ class SlideItemVideo extends React.Component {
                       r="21"
                       fill="white"
                       stroke="black"
-                      stroke-width="2"
+                      strokeWidth="2"
                     />
                     <mask
                       id="mask0"
-                      mask-type="alpha"
                       maskUnits="userSpaceOnUse"
                       x="15"
                       y="13"
@@ -149,16 +148,16 @@ class SlideItemVideo extends React.Component {
                       height="17"
                     >
                       <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
                         d="M27.25 13.25V29.25H15.25L15.25 13.25H27.25Z"
                         fill="black"
                       />
                     </mask>
                     <g mask="url(#mask0)">
                       <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
                         d="M22.3452 28.9417L27.25 22.8704L26.0599 21.222L22.6156 25.4909V-9.75H20.8844V25.4909L17.4401 21.222L16.25 22.8704L21.1548 28.9417C21.3227 29.1492 21.5198 29.2506 21.75 29.2498C21.9563 29.2392 22.1946 29.1276 22.3452 28.9417Z"
                         fill="black"
                       />
