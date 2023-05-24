@@ -43,7 +43,7 @@ const StaggeredImagesWithText = (props) => {
         ScrollTrigger.getById(`section-${id}-${index + 1}`).kill();
       });
     };
-  }, []);
+  }, [id]);
 
   const addToRefs = (el) => {
     if (el && !revealRefs.current.includes(el)) {

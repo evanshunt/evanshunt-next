@@ -55,7 +55,7 @@ const AnimatedScreenScroll = (props) => {
         ScrollTrigger.getById("animated-screen-st").kill();
       }
     };
-  }, [scrollAmount]);
+  }, [orientation, scrollAmount]);
 
   return (
     <section className={classes}>
