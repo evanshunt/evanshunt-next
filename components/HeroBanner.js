@@ -1044,11 +1044,7 @@ const HeroBanner = ({
           >
             <source src={backgroundVideo} type="video/mp4" />
           </video>
-<<<<<<< HEAD
           <button className={videoClasses} onClick={handlePlayButton}>
-=======
-          <div className={videoClasses} onClick={handlePlayButton}>
->>>>>>> next-update
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20.97 25.67"
@@ -1086,7 +1082,6 @@ const HeroBanner = ({
                 />
               </g>
             </svg>
-<<<<<<< HEAD
           </button>
         </div>
       )}
@@ -1107,28 +1102,6 @@ const HeroBanner = ({
           )}
         </div>
       )}
-=======
-          </div>
-        </div>
-      )}
-      {flatHero && <div className="hero-banner-flat"></div>}
-
-      {largeText && smallText && (
-        <div className="banner-text" ref={bannerRef}>
-          {smallText && (
-            <p className="small-text" ref={aSmallText}>
-              {smallText}
-            </p>
-          )}
-          {smallText && <span className="line" id="line" ref={aLine} />}
-          {largeText && (
-            <h1 className="large-text" ref={aLargeText}>
-              {largeText}
-            </h1>
-          )}
-        </div>
-      )}
->>>>>>> next-update
     </section>
   );
 };
