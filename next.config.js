@@ -10,6 +10,7 @@ const next_config = {
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
+  distDir: "out_publish",
   exportPathMap: async function () {
     const paths = {
       "/": { page: "/" },

@@ -39,6 +39,7 @@ const WorkDetails = (content) => {
       .catch(() => {
         console.error("Content loading failed!");
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!content) {
