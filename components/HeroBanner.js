@@ -1044,7 +1044,7 @@ const HeroBanner = ({
           >
             <source src={backgroundVideo} type="video/mp4" />
           </video>
-          <div className={videoClasses} onClick={handlePlayButton}>
+          <button className={videoClasses} onClick={handlePlayButton}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20.97 25.67"
@@ -1082,7 +1082,7 @@ const HeroBanner = ({
                 />
               </g>
             </svg>
-          </div>
+          </button>
         </div>
       )}
       {flatHero && <div className="hero-banner-flat"></div>}
