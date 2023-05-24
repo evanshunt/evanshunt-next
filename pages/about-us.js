@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect } from "react";
 import Layout from "../layouts/Page";
 import PageMeta from "../components/PageMeta";
 import renderComponents from "../components/ComponentList";
@@ -8,36 +8,36 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutUsPage = (content) => {
-
   function afterLoaded() {
     return new Promise((resolve, reject) => {
-      setTimeout(function() {
+      setTimeout(function () {
         content ? resolve() : reject();
       }, 2000);
     });
   }
 
-    /* This is a fix for this issue:
+  /* This is a fix for this issue:
     https://greensock.com/forums/topic/27307-scrolltrigger-marker-positions-shift-position-animation-sometimes-starts-off-screen/
     We need to re-run ScrollTrigger.refresh AFTER all our components have loaded on the page, otherwise the trigger
     positions are misaligned as you navigate back and forth between Case Study pages.
     This solution is pretty jank, please feel free to adjust/change as needed!
   */
-    useEffect(() => {
-      if (typeof window !== `undefined`) {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.core.globals("ScrollTrigger", ScrollTrigger);
-      }
-  
-      afterLoaded()
+  useEffect(() => {
+    if (typeof window !== `undefined`) {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.core.globals("ScrollTrigger", ScrollTrigger);
+    }
+
+    afterLoaded()
       .then(() => {
-        console.log('Content loaded!');
+        console.log("Content loaded!");
         ScrollTrigger.refresh();
       })
       .catch(() => {
-        console.error('Content loading failed!');
+        console.error("Content loading failed!");
       });
-    }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Layout className="content-page about-us-page">
@@ -49,7 +49,7 @@ const AboutUsPage = (content) => {
       {content.fields.components && renderComponents(content.fields.components)}
     </Layout>
   );
-}
+};
 
 AboutUsPage.getInitialProps = async () => {
   const api = new CMSApi();
