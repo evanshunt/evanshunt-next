@@ -138,7 +138,7 @@ const ServiceBlockImage = (props) => {
               ref={imgBg}
               className="img-fluid"
               src={imageBackground.fields.file.url}
-              alt={imageBackground.fields.file.description}
+              alt={imageBackground.fields.description}
             />
           </picture>
           {/* <img ref={imgBg} src={imageBackground.fields.file.url} className="img-fluid" alt={imageBackground.fields.file.description} /> */}
@@ -159,7 +159,7 @@ const ServiceBlockImage = (props) => {
               ref={imgRight}
               className="img-fluid"
               src={imageForegroundRight.fields.file.url}
-              alt={imageForegroundRight.fields.file.description}
+              alt={imageForegroundRight.fields.description}
             />
           </picture>
           {/* <img ref={imgRight} src={imageForegroundRight.fields.file.url} className="img-fluid" alt={imageForegroundRight.fields.file.description} /> */}
@@ -180,7 +180,7 @@ const ServiceBlockImage = (props) => {
               ref={imgLeft}
               className="img-fluid"
               src={imageForegroundLeft.fields.file.url}
-              alt={imageForegroundLeft.fields.file.description}
+              alt={imageForegroundLeft.fields.description}
             />
           </picture>
           {/* <img ref={imgLeft} src={imageForegroundLeft.fields.file.url} className="img-fluid" alt={imageForegroundLeft.fields.file.description} /> */}

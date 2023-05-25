@@ -72,7 +72,7 @@ const AnimatedScreenScroll = (props) => {
                 <img
                   className="screen-img img-fluid"
                   src={screen.fields.file.url}
-                  alt={screen.fields.file.url}
+                  alt={screen.fields.file.description}
                 />
               )}
               <div className="device-screen">
@@ -81,7 +81,7 @@ const AnimatedScreenScroll = (props) => {
                     ref={img1}
                     className="img1"
                     src={foreground.fields.file.url}
-                    alt={foreground.fields.file.url}
+                    alt={foreground.fields.description}
                   />
                 )}
               </div>
