@@ -141,7 +141,11 @@ const ImagesBlock = (props) => {
                   {mediaType.indexOf("image/") !== -1 && (
                     <img
                       src={img.fields.file.url}
+<<<<<<< HEAD
                       alt={img.fields.file.description}
+=======
+                      alt={img.fields.description}
+>>>>>>> origin/next-update
                       className="img-fluid"
                     />
                   )}
@@ -183,7 +187,11 @@ const ImagesBlock = (props) => {
                   {mediaType.indexOf("image/") !== -1 && (
                     <Image
                       src={img.fields.file.url}
+<<<<<<< HEAD
                       alt={img.fields.file.description}
+=======
+                      alt={img.fields.description}
+>>>>>>> origin/next-update
                       className="img-fluid images-block-slider-img"
                     />
                   )}
