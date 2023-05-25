@@ -133,7 +133,7 @@ const LogoGrid = (props) => {
                     <div className={shouldAddPadding} key={j}>
                       <img
                         src={logo.fields.logo.fields.file.url}
-                        alt={logo.fields.logo.fields.description}
+                        alt={logo.fields.description}
                         className={imageSizeNoPadding}
                       />
                     </div>
