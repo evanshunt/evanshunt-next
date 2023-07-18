@@ -135,7 +135,6 @@ const WorkGridColumn = ({
     <div
       className="work-grid-column"
       ref={addToRefs}
-      tabIndex={isHidden ? -1 : 0}
       aria-label={title + " Case Study"}
     >
       <div className="work-grid-img">
@@ -163,7 +162,7 @@ const WorkGridColumn = ({
                 height="570"
               />
             </picture>
-            <div className="work-grid-cta">
+            <div className="work-grid-cta" tabIndex={-1} aria-hidden={true}>
               <span className="btn">View case study</span>
             </div>
           </Link>
