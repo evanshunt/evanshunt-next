@@ -1044,7 +1044,11 @@ const HeroBanner = ({
           >
             <source src={backgroundVideo} type="video/mp4" />
           </video>
-          <button className={videoClasses} onClick={handlePlayButton}>
+          <button
+            className={videoClasses}
+            onClick={handlePlayButton}
+            aria-label="Play/Pause"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20.97 25.67"
