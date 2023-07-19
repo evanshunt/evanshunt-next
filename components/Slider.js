@@ -144,9 +144,8 @@ class SliderComponent extends React.Component {
           className="react-slider"
           isIntrinsicHeight={true}
           aria-label="carousel-provider"
-          role="listbox"
         >
-          <div className="slider-relative" role="option">
+          <div className="slider-relative">
             <ButtonBack
               className={classNames({ inactive: !showArrows })}
               tabIndex={0}
@@ -177,59 +176,59 @@ class SliderComponent extends React.Component {
                 alt="arrow-right-lg-black"
               />
             </ButtonNext>
-            <Slider aria-label="slider" trayTag="div">
-              {slides &&
-                slides.map((slide, i) => {
-                  switch (slide.sys.contentType.sys.id) {
-                    case "globalElementSliderVideoItem":
-                      return (
-                        <Slide
-                          tag="div"
-                          aria-label="slide"
-                          className="react-slider-slide"
-                          innerClassName="slide-inner"
-                          index={i}
-                          key={i}
-                        >
-                          <SlideItemVideo
-                            title={slide.fields.title}
-                            image={slide.fields.image.fields}
-                            videoPreview={slide.fields.videoPreview}
-                            videoDownload={slide.fields.videoDownload}
-                          />
-                        </Slide>
-                      );
-                    case "globalElementCarouselItem":
-                    case "globalElementClient":
-                      return (
-                        <Slide
-                          tag="div"
-                          aria-label="slide"
-                          className="react-slider-slide"
-                          innerClassName="slide-inner"
-                          index={i}
-                          key={i}
-                        >
-                          <SlideItemImage
-                            title={slide.fields.title}
-                            description={slide.fields.description}
-                            textLayout={slide.fields.textLayout}
-                            image={slide.fields[`${imagePropertyName}`].fields}
-                            link={slide.fields.link}
-                            slideType={slideType}
-                          />
-                        </Slide>
-                      );
-                    default:
-                      return (
-                        <p key={`slide-${i}`}>
-                          {slide.sys.contentType.sys.id} not defined in code
-                        </p>
-                      );
-                  }
-                })}
-            </Slider>
           </div>
+          <Slider aria-label="slider" trayTag="div">
+            {slides &&
+              slides.map((slide, i) => {
+                switch (slide.sys.contentType.sys.id) {
+                  case "globalElementSliderVideoItem":
+                    return (
+                      <Slide
+                        tag="div"
+                        aria-label="slide"
+                        className="react-slider-slide"
+                        innerClassName="slide-inner"
+                        index={i}
+                        key={i}
+                      >
+                        <SlideItemVideo
+                          title={slide.fields.title}
+                          image={slide.fields.image.fields}
+                          videoPreview={slide.fields.videoPreview}
+                          videoDownload={slide.fields.videoDownload}
+                        />
+                      </Slide>
+                    );
+                  case "globalElementCarouselItem":
+                  case "globalElementClient":
+                    return (
+                      <Slide
+                        tag="div"
+                        aria-label="slide"
+                        className="react-slider-slide"
+                        innerClassName="slide-inner"
+                        index={i}
+                        key={i}
+                      >
+                        <SlideItemImage
+                          title={slide.fields.title}
+                          description={slide.fields.description}
+                          textLayout={slide.fields.textLayout}
+                          image={slide.fields[`${imagePropertyName}`].fields}
+                          link={slide.fields.link}
+                          slideType={slideType}
+                        />
+                      </Slide>
+                    );
+                  default:
+                    return (
+                      <p key={`slide-${i}`}>
+                        {slide.sys.contentType.sys.id} not defined in code
+                      </p>
+                    );
+                }
+              })}
+          </Slider>
           <DotGroup
             className={classNames("react-slider-dot-group", {
               inactive: !showArrows,

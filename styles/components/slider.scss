@@ -1,4 +1,5 @@
 .react-slider {
+  position: relative;
 
   
   &-slide {
@@ -6,7 +7,9 @@
   }
 
   .slider-relative {
-    position: relative;
+    position: absolute;
+    height: 100%;
+    width: 100%;
   }
 
   // /* Outlines were going crazy when video modals would be clicked */

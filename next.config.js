@@ -10,6 +10,10 @@ const next_config = {
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
   distDir: "out_publish",
   exportPathMap: async function () {
     const paths = {

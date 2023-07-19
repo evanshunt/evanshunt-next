@@ -51,7 +51,7 @@ class SlideItemVideo extends React.Component {
               />
             </div>
             <div className="text-wrapper">
-              <button className="video-control">
+              <button className="video-control" aria-label="Play/Pause">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20.97 25.67"
