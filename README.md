@@ -31,16 +31,16 @@ This is the codebase for the Evans Hunt website.
 * Create a feature branch for your work
 * Once work is ready for QA, open a PR into the `dev` branch
 * Once merges are done to the dev branch, a deploy is automatically triggered inside Netlify.
-* Once work looks good open a PR into Master
-* Merge into master.
+* Once work looks good open a PR into Main
+* Merge into main.
 
 ## Deployment processes
 
 Netlify handles all deploys. The dev branch is using Next.js Preview Mode (details here: https://www.netlify.com/blog/2020/10/27/preview-mode-for-next.js-now-fully-supported-on-netlify/)
 
-When code is pushed into origin/dev it automatically deploys to our QA instance.
+When code is pushed into origin/dev, a branch doply is automaitcally generated in Netlify and published to https://dev--evanshunt-com.netlify.app/.
 
-When code is pushed into origin/master is automatically deploys to production
+When code is pushed into origin/master is automatically deploys to production.
 
 When content inside of Contentful CMS is published we have a webhook to trigger a build deploy to production. To preview content on our QA instance leave as "draft" or "changed" within Contentful.
 
@@ -57,10 +57,12 @@ When content inside of Contentful CMS is published we have a webhook to trigger 
 
 Using Netlify for Builds and Servers.
 
-DEV Branch --> https://dev--eh-next-qa.netlify.app/
+DEV Branch 
+Netlify Branch Preview --> https://dev--evanshunt-com.netlify.app/
 
-MASTER Branch --> https://eh-next-qa.netlify.app/
-
+MASTER Branch
+Contentful Preview/Staging Site --> https://preview.evanshunt.com (Using preview.contentful.com to pull draft AND published content)
+Production Stie --> https://evanshunt.com
 
 ## Team, contacts
 
