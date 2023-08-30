@@ -1,4 +1,5 @@
 .react-slider {
+  position: relative;
 
   
   &-slide {
@@ -6,14 +7,16 @@
   }
 
   .slider-relative {
-    position: relative;
+    position: absolute;
+    height: 100%;
+    width: 100%;
   }
 
-  /* Outlines were going crazy when video modals would be clicked */
-  .focusRing___1airF {
-    outline-color: transparent;
-    outline: 0;
-  }
+  // /* Outlines were going crazy when video modals would be clicked */
+  // .focusRing___1airF {
+  //   outline-color: transparent;
+  //   outline: 0;
+  // }
 
 
   .carousel__slider-tray:hover {
@@ -71,8 +74,12 @@
     transition: opacity 0.3s ease-out;
     width: 42px;
     height: 42px;
-    outline: none;
-    border: none;
+    z-index: 9999;
+
+    &:not(:focus-visible) {
+      outline: none;
+      border: none;      
+    }
 
     .dark-arrow {
       display: none;
@@ -258,8 +265,6 @@
       display: flex;
       align-items: center;
       z-index: 10;
-      border: none;
-      outline: none;
       background: white;
       display: flex;
       align-items: center;
@@ -270,6 +275,12 @@
       width: 42px;
       border-radius: 50%;
       border: 1px solid $grey;
+
+      &:not(:focus-visible) {
+        outline: none;
+        border: none;      
+      }
+
       @media (min-width: $tablet) {
         height: 50px;
         width: 50px;

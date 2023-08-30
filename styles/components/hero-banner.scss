@@ -181,6 +181,12 @@ section.hero-banner {
     width: 42px;
     border-radius: 50%;
     border: 1px solid $grey;
+
+    &:focus-visible {
+      outline: 5px auto  Highlight;
+      outline: 5px auto -webkit-focus-ring-color;
+    }
+
     @media (min-width: $tablet) {
       bottom: 55px;
       left: 40px;

@@ -10,7 +10,8 @@ class SlideItemImage extends React.Component {
   }
 
   render() {
-    const {title, description, textLayout, image, link, slideType} = this.props;
+    const { title, description, textLayout, image, link, slideType } =
+      this.props;
     const titleClass = classNames(
       "slide-title",
       { "base-font-medium": slideType === "normal" },
@@ -28,22 +29,22 @@ class SlideItemImage extends React.Component {
         {textLayout === "on-image" ? (
           <div className="text-on-image">
             {link && (
-              <Link href={link}>
-                <a aria-label={image.title}>
-                  <div className="image-wrapper">
-                    <Image
-                      src={image.file.url}
-                      className="img-fluid"
-                      alt={image.description}
-                    />
-                  </div>
-                  <div className="text-wrapper">
-                    {title && <h6 className={titleClass}>{title}</h6>}
-                    {description && (
-                      <ReactMarkdown className="slide-description" source={description} />
-                    )}
-                  </div>
-                </a>
+              <Link href={link} aria-label={image.title}>
+                <div className="image-wrapper">
+                  <Image
+                    src={image.file.url}
+                    className="img-fluid"
+                    alt={image.description}
+                  />
+                </div>
+                <div className="text-wrapper">
+                  {title && <h6 className={titleClass}>{title}</h6>}
+                  {description && (
+                    <ReactMarkdown className="slide-description">
+                      {description}
+                    </ReactMarkdown>
+                  )}
+                </div>
               </Link>
             )}
             {!link && (
@@ -58,7 +59,9 @@ class SlideItemImage extends React.Component {
                 <div className="text-wrapper">
                   {title && <h6 className={titleClass}>{title}</h6>}
                   {description && (
-                    <ReactMarkdown className="slide-description" source={description} />
+                    <ReactMarkdown className="slide-description">
+                      {description}
+                    </ReactMarkdown>
                   )}
                 </div>
               </div>
@@ -68,7 +71,7 @@ class SlideItemImage extends React.Component {
           <div className="text-below-image">
             {/* Text Below Image Variant Start - assume this is default */}
             {link && (
-              <Link href={link}>
+              <Link href={link} legacyBehavior>
                 <a aria-label={image.title}>
                   <Image
                     src={image.file.url}
@@ -83,12 +86,16 @@ class SlideItemImage extends React.Component {
               <Image
                 src={image.file.url}
                 className="img-fluid"
-                alt={image.file.description}
+                alt={image.description}
               />
             )}
 
             {title && <h6 className={titleClass}>{title}</h6>}
-            {description && <ReactMarkdown className="slide-description" source={description} />}
+            {description && (
+              <ReactMarkdown className="slide-description">
+                {description}
+              </ReactMarkdown>
+            )}
           </div>
         )}
       </div>

@@ -5,7 +5,7 @@ const TextBlocks = ({ textBlocks }) => {
     <section className="text-blocks">
       {textBlocks.map((text, i) => (
         <div className="block" key={`block-${i}`}>
-          <ReactMarkdown source={text.fields.markdown} />
+          <ReactMarkdown>{text.fields.markdown}</ReactMarkdown>
         </div>
       ))}
     </section>

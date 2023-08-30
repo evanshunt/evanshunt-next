@@ -11,7 +11,7 @@ const AccordionComponent = ({ title, accordionItems }) => {
   return (
     <section className="accordion container-medium">
       {title && <p className="title">{title}</p>}
-      <Accordion preExpanded={['accordion0']} allowZeroExpanded={true}>
+      <Accordion preExpanded={["accordion0"]} allowZeroExpanded={true}>
         {accordionItems.map((accordion, i) => (
           <AccordionItem key={`accordion${i}`} uuid={`accordion${i}`}>
             <AccordionItemHeading>
@@ -21,7 +21,7 @@ const AccordionComponent = ({ title, accordionItems }) => {
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
-              <ReactMarkdown source={accordion.fields.content} />
+              <ReactMarkdown>{accordion.fields.content}</ReactMarkdown>
               {accordion.fields.servicesList && (
                 <ul className="services-list">
                   {accordion.fields.servicesList.map((service, i) => (

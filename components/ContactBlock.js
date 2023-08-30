@@ -13,11 +13,24 @@ const ContactBlock = ({
     <section className="contact-block">
       <div className="column">
         <h1>{addressTitle}</h1>
-        <ReactMarkdown source={address} />
-        <a href={directionsLink} target="_blank" rel="noreferrer" className="post-right-arrow">
+        <ReactMarkdown>{address}</ReactMarkdown>
+        <a
+          href={directionsLink}
+          target="_blank"
+          rel="noreferrer"
+          className="post-right-arrow"
+        >
           Get directions{" "}
-          <img className="dark-arrow" src="/images/small-right-arrow.svg" alt="Right pointing arrow" />
-          <img className="light-arrow" src="/images/small-right-arrow-white.svg" alt="Right pointing arrow" />
+          <img
+            className="dark-arrow"
+            src="/images/small-right-arrow.svg"
+            alt="Right pointing arrow"
+          />
+          <img
+            className="light-arrow"
+            src="/images/small-right-arrow-white.svg"
+            alt="Right pointing arrow"
+          />
         </a>
       </div>
 

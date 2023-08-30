@@ -6,7 +6,7 @@ const JobDescription = (components) => {
   return (
     <section className="job-description">
       <div className="column left container-narrow">
-        <Link href="/careers">
+        <Link href="/careers" legacyBehavior>
           <a>
             <img
               src="/images/small-left-chevron.svg"
@@ -47,12 +47,22 @@ const JobDescription = (components) => {
             }
           })}
 
-          <div className="ctas">
-            <a href="#apply-form-component" className="btn btn-outline btn-secondary">Apply Now</a>
-            {/* TODO: figure out what this link should do */}
-            <a href="#">Send to a friend <img src="/images/small-right-arrow.svg" alt="Right pointing arrow" /></a>
-          </div>
-          
+        <div className="ctas">
+          <a
+            href="#apply-form-component"
+            className="btn btn-outline btn-secondary"
+          >
+            Apply Now
+          </a>
+          {/* TODO: figure out what this link should do */}
+          <a href="#">
+            Send to a friend{" "}
+            <img
+              src="/images/small-right-arrow.svg"
+              alt="Right pointing arrow"
+            />
+          </a>
+        </div>
       </div>
     </section>
   );

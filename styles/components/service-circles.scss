@@ -59,6 +59,8 @@
   padding: 10px 25px;
   align-items: center;
   display: flex;
+  cursor: pointer;
+  text-decoration: none!important;
 
   @media (min-width: $large-phone) {
     height: 180px;
@@ -73,7 +75,7 @@
   }
 
   @media (min-width: $desktop) {
-    &:hover {
+    &:hover, &:focus-visible {
       background: $black;
       transform: scale(1.2);
 
@@ -124,20 +126,16 @@
 // specific gradients - not perfect yet... need creative help probably
 .service-circle-1 {
   background-image: linear-gradient(to bottom right, $orange, #ff4700);
-  cursor: pointer;
 }
 
 .service-circle-2 {
   background-image: linear-gradient(to bottom right, #ff4d06, #fa3944);
-  cursor: pointer;
 }
 
 .service-circle-3 {
   background-image: linear-gradient(to bottom right, #ff2a1e, #ee396c);
-  cursor: pointer;
 }
 
 .service-circle-4 {
   background-image: linear-gradient(to bottom right, #f2395e, #de4998);
-  cursor: pointer;
 }

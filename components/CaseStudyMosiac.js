@@ -1,10 +1,9 @@
-import React from 'react'
+import React from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 class CaseStudyMosiac extends React.Component {
-  
   constructor(props) {
     super(props);
     this.trigger = null;
@@ -17,63 +16,82 @@ class CaseStudyMosiac extends React.Component {
   }
 
   componentDidMount() {
+    let c1 = gsap.matchMedia();
 
-    // Mosiac Animation
-    let c1 = ScrollTrigger.matchMedia({
-      '(min-width: 992px)': () => {
-        c1 = gsap.timeline({
-          paused: true,
-          scrollTrigger: {
-            id: "mosiac-st",
-            trigger: this.trigger,
-            pin: this.wrapper,
-            scrub: 1,
-            start: "38% center",
-            markers: false,
-            invalidateOnRefresh: true
-          }
-        }),
+    c1.add("(min-width: 992px)", () => {
+      (c1 = gsap.timeline({
+        paused: true,
+        scrollTrigger: {
+          id: "mosiac-st",
+          trigger: this.trigger,
+          pin: this.wrapper,
+          scrub: 1,
+          start: "38% center",
+          markers: false,
+          invalidateOnRefresh: true,
+        },
+      })),
         // Feature Image shrinking down from center
-        c1.to(this.featureImg, {
-          duration: 1.5,
-          scaleX: 0.44,
-          scaleY: 0.4,
-          transformOrigin:"center top",
-          ease: "power4.Out"
-        }, 'featureDone')
-        .fromTo(this.img1, {
-          xPercent: -130,
-        },
-        {
-          duration: 1.5,
-          xPercent: 0,
-          ease: "power4.Out",
-        }, 'featureDone')
-        .fromTo(this.img2, {
-          xPercent: -130,
-        },
-        {
-          duration: 1.5,
-          xPercent: 0,
-          ease: "power4.Out",
-        }, 'featureDone')
-        .fromTo(this.img3, {
-          yPercent: 130,
-        },
-        {
-          duration: 1.5,
-          yPercent: 0,
-          ease: "power4.Out",
-        }, 'featureDone')
-        .fromTo(this.img4, {
-          xPercent: 130,
-        },
-        {
-          duration: 1.5,
-          xPercent: 0,
-          ease: "power4.Out",
-        }, 'featureDone');
-      }
+        c1
+          .to(
+            this.featureImg,
+            {
+              duration: 1.5,
+              scaleX: 0.44,
+              scaleY: 0.4,
+              transformOrigin: "center top",
+              ease: "power4.Out",
+            },
+            "featureDone"
+          )
+          .fromTo(
+            this.img1,
+            {
+              xPercent: -130,
+            },
+            {
+              duration: 1.5,
+              xPercent: 0,
+              ease: "power4.Out",
+            },
+            "featureDone"
+          )
+          .fromTo(
+            this.img2,
+            {
+              xPercent: -130,
+            },
+            {
+              duration: 1.5,
+              xPercent: 0,
+              ease: "power4.Out",
+            },
+            "featureDone"
+          )
+          .fromTo(
+            this.img3,
+            {
+              yPercent: 130,
+            },
+            {
+              duration: 1.5,
+              yPercent: 0,
+              ease: "power4.Out",
+            },
+            "featureDone"
+          )
+          .fromTo(
+            this.img4,
+            {
+              xPercent: 130,
+            },
+            {
+              duration: 1.5,
+              xPercent: 0,
+              ease: "power4.Out",
+            },
+            "featureDone"
+          );
     });
   }
 
@@ -84,33 +102,77 @@ class CaseStudyMosiac extends React.Component {
   }
 
   render() {
+    const { feature, images } = this.props;
+    const [img1, img2, img3, img4] = images; // not sure how this would work with more or less than the 4 images
 
-    const { feature, images } = this.props
-    const [img1,img2,img3,img4] = images // not sure how this would work with more or less than the 4 images
-
-    return(
-      <section className="case-study-mosiac" ref={div => (this.trigger = div)}>
+    console.log(img1);
+    return (
+      <section
+        className="case-study-mosiac"
+        ref={(div) => (this.trigger = div)}
+      >
         <div className="scroll-container">
-          <div ref={div => (this.wrapper = div)} className="wrapper">
+          <div ref={(div) => (this.wrapper = div)} className="wrapper">
             <div className="case-study-mosiac-columns">
               <div className="case-study-mosiac-column case-study-mosiac-column-1">
-                {img1 && <img ref={div => (this.img1 = div)} src={img1.fields.file.url} alt={img1.fields.file.url} className="img-fluid" />}
-                {img2 && <img ref={div => (this.img2 = div)} src={img2.fields.file.url} alt={img2.fields.file.url} className="img-fluid" />}
+                {img1 && (
+                  <img
+                    ref={(div) => (this.img1 = div)}
+                    src={img1.fields.file.url}
+                    alt={img1.fields.description}
+                    className="img-fluid"
+                  />
+                )}
+                {img2 && (
+                  <img
+                    ref={(div) => (this.img2 = div)}
+                    src={img2.fields.file.url}
+                    alt={img2.fields.description}
+                    className="img-fluid"
+                  />
+                )}
               </div>
               <div className="case-study-mosiac-column case-study-mosiac-column-2">
-                {feature && <img src={feature.fields.file.url} alt={feature.fields.file.url} className="img-fluid mobile-feature-image" />}
-                {img3 && <img ref={div => (this.img3 = div)} src={img3.fields.file.url} alt={img3.fields.file.url} className="img-fluid" />}
+                {feature && (
+                  <img
+                    src={feature.fields.file.url}
+                    alt={feature.fields.description}
+                    className="img-fluid mobile-feature-image"
+                  />
+                )}
+                {img3 && (
+                  <img
+                    ref={(div) => (this.img3 = div)}
+                    src={img3.fields.file.url}
+                    alt={img3.fields.description}
+                    className="img-fluid"
+                  />
+                )}
               </div>
               <div className="case-study-mosiac-column case-study-mosiac-column-3">
-                {img4 && <img ref={div => (this.img4 = div)} src={img4.fields.file.url} alt={img4.fields.file.url} className="img-fluid" />}
+                {img4 && (
+                  <img
+                    ref={(div) => (this.img4 = div)}
+                    src={img4.fields.file.url}
+                    alt={img4.fields.description}
+                    className="img-fluid"
+                  />
+                )}
               </div>
             </div>
-            {feature && <img ref={div => (this.featureImg = div)} className="feature-img" src={feature.fields.file.url} alt={feature.fields.file.url} />}
+            {feature && (
+              <img
+                ref={(div) => (this.featureImg = div)}
+                className="feature-img"
+                src={feature.fields.file.url}
+                alt={feature.fields.description}
+              />
+            )}
           </div>
         </div>
       </section>
-    )
+    );
   }
 }
 
-export default CaseStudyMosiac
+export default CaseStudyMosiac;

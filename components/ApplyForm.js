@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ReactMarkdown from "react-markdown/with-html";
+import ReactMarkdown from "react-markdown";
 
 const encode = (data) => {
   const formData = new FormData();
@@ -9,7 +9,7 @@ const encode = (data) => {
   }
 
   return formData;
-}
+};
 
 const ApplyForm = ({
   title,
@@ -35,7 +35,7 @@ const ApplyForm = ({
       resume: resume,
       message: message,
     });
-    
+
     fetch("/", {
       method: "POST",
       body: data,

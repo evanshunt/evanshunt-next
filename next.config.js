@@ -1,16 +1,20 @@
 const path = require("path");
-const Dotenv = require("dotenv");
-const DotenvWebPack = require("dotenv-webpack");
-const withFonts = require("nextjs-fonts");
+// const Dotenv = require("dotenv");
+// const DotenvWebPack = require("dotenv-webpack");
 const CMSApi = require("./utility/cms");
 const generateSitemap = require("./scripts/sitemap-gen");
 
-const next_config = withFonts({
-  target: "serverless",
+const next_config = {
+  // target: "serverless",
   trailingSlash: true,
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
+  distDir: "out_publish",
   exportPathMap: async function () {
     const paths = {
       "/": { page: "/" },
@@ -43,24 +47,31 @@ const next_config = withFonts({
 
     // generate the sitemap now that we have all the paths
     // can add more fields here if we want to customize it a bit more
-    generateSitemap(paths)
-    
+    generateSitemap(paths);
+
     return paths;
   },
   webpack: (config) => {
     config.plugins = config.plugins || [];
 
-    config.plugins = [
-      ...config.plugins,
-      // Read the .env file
-      new DotenvWebPack({
-        path: path.join(__dirname, ".env"),
-        systemvars: true,
-      }),
-    ];
+    // config.plugins.push(
+    //   new DotenvWebPack({
+    //     path: path.join(__dirname, ".env"),
+    //     systemvars: true,
+    //   })
+    // );
+
+    // config.plugins = [
+    //   // Read the .env file
+    //   new DotenvWebPack({
+    //     path: path.join(__dirname, ".env"),
+    //     systemvars: true,
+    //   }),
+    //   ...config.plugins,
+    // ];
 
     return config;
   },
-});
+};
 
 module.exports = { ...next_config };

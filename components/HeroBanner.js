@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import classNames from 'classnames'
+import classNames from "classnames";
 import gsap from "gsap";
 import { MorphSVGPlugin } from "gsap/dist/MorphSVGPlugin";
 gsap.registerPlugin(MorphSVGPlugin);
@@ -518,7 +518,7 @@ const HeroBanner = ({
 
   //Gradient object
   class Gradient {
-    constructor(...t) {
+    constructor() {
       e(this, "el", void 0),
         e(this, "cssVarRetries", 0),
         e(this, "maxCssVarRetries", 200),
@@ -910,8 +910,8 @@ const HeroBanner = ({
   let pause2 = useRef(null);
 
   // Variables for Banner Text Animations
-  const tl1 = useRef(gsap.timeline({ id:"bannerText" }));
-  const masterTl =  new gsap.timeline({paused:true, reversed: false});
+  const tl1 = useRef(gsap.timeline({ id: "bannerText" }));
+  const masterTl = new gsap.timeline({ paused: true, reversed: false });
   let bannerRef = useRef(null);
   let aSmallText = useRef(null);
   let aLargeText = useRef(null);
@@ -922,7 +922,7 @@ const HeroBanner = ({
       var gradient = new Gradient();
       gradient.initGradient("#gradient-canvas");
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gradientHero]);
 
   useEffect(() => {
@@ -940,24 +940,29 @@ const HeroBanner = ({
   }, [gradientColour]);
 
   useEffect(() => {
-
     if (typeof window !== `undefined`) {
       gsap.registerPlugin(MorphSVGPlugin);
-      gsap.core.globals("MorphSVGPlugin", MorphSVGPlugin)
+      gsap.core.globals("MorphSVGPlugin", MorphSVGPlugin);
     }
 
     /* Check if the Animation wrapper exists */
     if (playPauseAnimation.current != null) {
-      tl.current.to(MorphSVGPlugin.convertToPath(pause1.current), {
-        duration: 0.3,
-        morphSVG: play1.current, ease: 'power3.inOut'
-      })
-        .to(MorphSVGPlugin.convertToPath(pause2.current), {
+      tl.current
+        .to(MorphSVGPlugin.convertToPath(pause1.current), {
           duration: 0.3,
-          morphSVG: play2.current, ease: 'power3.inOut'
-        }, 0.05);
-      }
-
+          morphSVG: play1.current,
+          ease: "power3.inOut",
+        })
+        .to(
+          MorphSVGPlugin.convertToPath(pause2.current),
+          {
+            duration: 0.3,
+            morphSVG: play2.current,
+            ease: "power3.inOut",
+          },
+          0.05
+        );
+    }
   }, []);
 
   // Custom Play/Pause button functionality
@@ -965,76 +970,142 @@ const HeroBanner = ({
     if (video.current.paused || video.current.ended) {
       video.current.play(0);
       tl.current.reverse();
-      setplayButton('play')
-    }
-    else {
+      setplayButton("play");
+    } else {
       video.current.pause();
       tl.current.play(0);
-      setplayButton('pause')
+      setplayButton("pause");
     }
-  }
+  };
 
   // When video ends, animate the play/pause icon
   const handleRestart = () => {
     tl.current.play(0);
-    setplayButton('pause')
-  }
+    setplayButton("pause");
+  };
 
   const animateBanner = () => {
-    const bannerLine = aLine.current
+    const bannerLine = aLine.current;
 
-    if(bannerLine) {
-      tl1.current.fromTo(aLine.current, {x: -220}, { duration: 1, x: 0, ease: 'power4.out' }, "lineIn")
-      .fromTo(aSmallText.current, {opacity: 0, x: 10}, { duration: 0.8, opacity: 1, x: 0, ease: 'power4.out' }, "lineIn+=0.5")
-      .fromTo(aLargeText.current, {opacity: 0, y: 20}, { duration: 0.8, opacity: 1, y: 0, ease: 'power4.out'}, "lineIn+=1")
-    return tl;
+    if (bannerLine) {
+      tl1.current
+        .fromTo(
+          aLine.current,
+          { x: -220 },
+          { duration: 1, x: 0, ease: "power4.out" },
+          "lineIn"
+        )
+        .fromTo(
+          aSmallText.current,
+          { opacity: 0, x: 10 },
+          { duration: 0.8, opacity: 1, x: 0, ease: "power4.out" },
+          "lineIn+=0.5"
+        )
+        .fromTo(
+          aLargeText.current,
+          { opacity: 0, y: 20 },
+          { duration: 0.8, opacity: 1, y: 0, ease: "power4.out" },
+          "lineIn+=1"
+        );
+      return tl;
     }
-  }
-  
+  };
+
   // this inside the useEffect seems to help the text from disappearing once off screen
   useEffect(() => {
-    masterTl.add(animateBanner(bannerRef.current)); 
-  }, [])
+    masterTl.add(animateBanner(bannerRef.current));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const videoClasses = classNames('video-control', `${playButton}`)
+  const videoClasses = classNames("video-control", `${playButton}`);
 
   return (
-    <section className={backgroundImage || backgroundVideo ? `hero-banner tall` : `hero-banner`}>
+    <section
+      className={
+        backgroundImage || backgroundVideo ? `hero-banner tall` : `hero-banner`
+      }
+    >
       {gradientHero && (
         <canvas id="gradient-canvas" className={gradientClass}></canvas>
       )}
-      {!backgroundVideo && backgroundImage && <img src={backgroundImage} alt="" className="background-image" />}
+      {!backgroundVideo && backgroundImage && (
+        <img src={backgroundImage} alt="" className="background-image" />
+      )}
       {backgroundVideo && (
         <div className="hero-banner-video">
-          <video ref={video} autoPlay muted playsInline className="background-video" poster={backgroundImage} onEnded={handleRestart}>
+          <video
+            ref={video}
+            autoPlay
+            muted
+            playsInline
+            className="background-video"
+            poster={backgroundImage}
+            onEnded={handleRestart}
+          >
             <source src={backgroundVideo} type="video/mp4" />
           </video>
-          <div className={videoClasses} onClick={handlePlayButton}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.97 25.67" ref={playPauseAnimation} className="play-pause">
-                <g className="pause">
-                  <rect ref={pause1} className="pause-1" x="0.75" y="3.13" width="5" height="20" />
-                  <rect ref={pause2} className="pause-2" x="11.38" y="3.13" width="5" height="20" />
-                </g>
-                <g className="play">
-                  <path ref={play1} className="play-1" d="M0 0 0 25.67 8 20.79 8 4.88 0 0" />
-                  <path ref={play2} className="play-2" d="M8 4.88 8 20.79 20.97 12.83 8 4.88" />
-                </g>
-              </svg>
-          </div>
+          <button
+            className={videoClasses}
+            onClick={handlePlayButton}
+            aria-label="Play/Pause"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20.97 25.67"
+              ref={playPauseAnimation}
+              className="play-pause"
+            >
+              <g className="pause">
+                <rect
+                  ref={pause1}
+                  className="pause-1"
+                  x="0.75"
+                  y="3.13"
+                  width="5"
+                  height="20"
+                />
+                <rect
+                  ref={pause2}
+                  className="pause-2"
+                  x="11.38"
+                  y="3.13"
+                  width="5"
+                  height="20"
+                />
+              </g>
+              <g className="play">
+                <path
+                  ref={play1}
+                  className="play-1"
+                  d="M0 0 0 25.67 8 20.79 8 4.88 0 0"
+                />
+                <path
+                  ref={play2}
+                  className="play-2"
+                  d="M8 4.88 8 20.79 20.97 12.83 8 4.88"
+                />
+              </g>
+            </svg>
+          </button>
         </div>
       )}
-      {flatHero && (
-        <div className="hero-banner-flat">
-        </div>
-      )}
+      {flatHero && <div className="hero-banner-flat"></div>}
 
-      {largeText && smallText &&
-      <div className="banner-text" ref={bannerRef}>
-        {smallText && <p className="small-text" ref={aSmallText}>{smallText}</p>}
-        {smallText && <span className="line" id="line" ref={aLine} />}
-        {largeText && <h1 className="large-text" ref={aLargeText}>{largeText}</h1>}
-      </div>
-      }
+      {largeText && smallText && (
+        <div className="banner-text" ref={bannerRef}>
+          {smallText && (
+            <p className="small-text" ref={aSmallText}>
+              {smallText}
+            </p>
+          )}
+          {smallText && <span className="line" id="line" ref={aLine} />}
+          {largeText && (
+            <h1 className="large-text" ref={aLargeText}>
+              {largeText}
+            </h1>
+          )}
+        </div>
+      )}
     </section>
   );
 };

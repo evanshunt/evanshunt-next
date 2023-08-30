@@ -61,7 +61,7 @@
     }
 
     @media (min-width: $desktop) {
-      &:hover {
+      &:hover, &:focus-visible {
         
         .work-grid-img-link {
           img {
@@ -73,8 +73,9 @@
         .work-grid-cta {
           opacity: 1;
           transition: opacity 0.4s ease-in;
+          cursor: pointer;
           
-          a:hover {
+          a:hover, a:focus-visible {
             background: $black;
             text-decoration: none;
 
@@ -138,7 +139,7 @@
       text-align: center;
       transition: opacity 0.2s ease-in;
       
-      a:hover {
+      a:hover,a:focus-visible {
         color: $white;
       }
     }

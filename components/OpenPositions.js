@@ -4,7 +4,6 @@ import RichText from "./RichText";
 import gsap from "gsap";
 
 function useHover() {
-
   const mouseOver = useCallback((event) => {
     const target = event.currentTarget;
     target.animation.play();
@@ -33,39 +32,51 @@ const pillArrowTween = (element) => {
   var label = element.querySelector(".label");
   var bg = element.querySelector(".bg");
 
-  tl.fromTo(arrow, {
-    fill: "#000000",
-    xPercent: 50,
-  },
-  {
-    duration: 0.3,
-    fill: "#ffffff",
-    xPercent: 0,
-    ease: "power4.Out",
-  }, 0)
-  .fromTo(label, {
-    opacity: 0,
-    xPercent: 50,
-  },
-  {
-    duration: 0.3,
-    opacity: 1,
-    xPercent: 0,
-    ease: "power4.Out",
-  }, 0)
-  .fromTo(bg, {
-    opacity: 0,
-    scaleX: 0,
-    xPercent: 20,
-  },
-  {
-    opacity: 1,
-    scaleX: 1,
-    xPercent: 0,
-    fill: "#000000",
-    duration: 0.3,
-    ease: "power4.InOut",
-  }, 0);
+  tl.fromTo(
+    arrow,
+    {
+      fill: "#000000",
+      xPercent: 50,
+    },
+    {
+      duration: 0.3,
+      fill: "#ffffff",
+      xPercent: 0,
+      ease: "power4.Out",
+    },
+    0
+  )
+    .fromTo(
+      label,
+      {
+        opacity: 0,
+        xPercent: 50,
+      },
+      {
+        duration: 0.3,
+        opacity: 1,
+        xPercent: 0,
+        ease: "power4.Out",
+      },
+      0
+    )
+    .fromTo(
+      bg,
+      {
+        opacity: 0,
+        scaleX: 0,
+        xPercent: 20,
+      },
+      {
+        opacity: 1,
+        scaleX: 1,
+        xPercent: 0,
+        fill: "#000000",
+        duration: 0.3,
+        ease: "power4.InOut",
+      },
+      0
+    );
 
   // store the tween timeline in the javascript DOM node
   element.animation = tl;
@@ -78,19 +89,17 @@ const OpenPositions = ({ title, introText, openPositions }) => {
   const { mouseOver, mouseOut } = useHover();
 
   /* Create array of buttons so we can initialize the animation */
-  const addToRefs = el => {
+  const addToRefs = (el) => {
     if (el && !revealRefs.current.includes(el)) {
-        revealRefs.current.push(el);
+      revealRefs.current.push(el);
     }
   };
 
   useEffect(() => {
-
     // Initialize Animation for Buttons
-    revealRefs.current.forEach((el, index) => {
+    revealRefs.current.forEach((el) => {
       pillArrowTween(el);
     });
-
   }, []);
 
   return (
@@ -100,10 +109,11 @@ const OpenPositions = ({ title, introText, openPositions }) => {
 
       {openPositions.map((job, i) => (
         <div className="content-wrapper" key={`open-position${i}`}>
-
           {/* If child is markdown field - like if there aren't any job posts to show */}
           {job.sys.contentType.sys.id === "globalElementMarkdown" && (
-            <ReactMarkdown className="markdown" source={job.fields.markdown} />
+            <ReactMarkdown className="markdown">
+              {job.fields.markdown}
+            </ReactMarkdown>
           )}
 
           {/* If child is richtext field - like if there aren't any job posts to show */}
@@ -112,46 +122,43 @@ const OpenPositions = ({ title, introText, openPositions }) => {
           )}
 
           {job.sys.contentType.sys.id === "globalElementOpenPosition" && (
-          <a
-            href={job.fields.jobPostingURL}
-            className="position"
-            target="_blank"
-            rel="noreferrer"
-            ref={addToRefs}
-            onMouseOver={mouseOver}
-            onMouseOut={mouseOut}
-          >
-
-            <div className="job-description">
-              {job.fields.jobTitle && (
-                <p className="title">{job.fields.jobTitle}</p>
-              )}
-              {job.fields.department && (
-                <p className="department">{job.fields.department}</p>
-              )}
-            </div>
-
-            <svg
-              className={`svg-open-position item-${i}`}
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 180 70"
+            <a
+              href={job.fields.jobPostingURL}
+              className="position"
+              target="_blank"
+              rel="noreferrer"
+              ref={addToRefs}
+              onMouseOver={mouseOver}
+              onMouseOut={mouseOut}
             >
-              <path
-                className={`bg`}
-                d="M35,0H145a35,35,0,0,1,35,35h0a35,35,0,0,1-35,35H35A35,35,0,0,1,0,35H0A35,35,0,0,1,35,0Z"
-              />
-              <text className={`label`} transform="translate(49.08 41)">
-                View
-              </text>
-              <path
-                className={`arrow`}
-                d="M145.62,35.13,138.15,28l-2,1.73,5.25,5H114v2.52h27.37l-5.25,5,2,1.73,7.47-7.13A1.16,1.16,0,0,0,146,36,1.33,1.33,0,0,0,145.62,35.13Z"
-              />
-            </svg>
-          </a>
-        )}
+              <div className="job-description">
+                {job.fields.jobTitle && (
+                  <p className="title">{job.fields.jobTitle}</p>
+                )}
+                {job.fields.department && (
+                  <p className="department">{job.fields.department}</p>
+                )}
+              </div>
 
-
+              <svg
+                className={`svg-open-position item-${i}`}
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 180 70"
+              >
+                <path
+                  className={`bg`}
+                  d="M35,0H145a35,35,0,0,1,35,35h0a35,35,0,0,1-35,35H35A35,35,0,0,1,0,35H0A35,35,0,0,1,35,0Z"
+                />
+                <text className={`label`} transform="translate(49.08 41)">
+                  View
+                </text>
+                <path
+                  className={`arrow`}
+                  d="M145.62,35.13,138.15,28l-2,1.73,5.25,5H114v2.52h27.37l-5.25,5,2,1.73,7.47-7.13A1.16,1.16,0,0,0,146,36,1.33,1.33,0,0,0,145.62,35.13Z"
+                />
+              </svg>
+            </a>
+          )}
         </div>
       ))}
     </section>
