@@ -1,7 +1,7 @@
 const contentful = require("contentful");
 
 const getEnv = () => {
-  return process.env.NODE_ENV;
+  return process.env.NEXT_PUBLIC_NODE_ENV;
 };
 
 const contentfulSettings = () => {
