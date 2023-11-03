@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  app:
+    image: node:18
+    command: bash -c 'npm install -g next && npm install && next dev -p 3000'
+    ports:
+      - 3000:3000
+    working_dir: '/evanshunt-next'
+    expose:
+      - 3000
+    volumes:
+      - .:/evanshunt-next
+      - node_modules:/evanshunt-next/node_modules
+    env_file:
+      - .env
+volumes:
+  node_modules:
