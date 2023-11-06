@@ -82,9 +82,10 @@ const renderComponents = (components) => {
       case "componentIntroBlock":
         return (
           <IntroBlock
+            subTitle={component.fields.subTitle}
             largeText={component.fields.largeText}
             introText={component.fields.introText}
-            centerAlign={component.fields.centerAlign}
+            centreAlign={component.fields.centreAlign}
             cta={component.fields.cta}
             key={`component-${i}`}
           />
