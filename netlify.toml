@@ -2,3 +2,89 @@
   command   = "npm run build"
   functions = "out_functions"
   publish   = "out_publish"
+
+[[redirects]]
+  from = "/redirect"
+  to = "/our-work"
+  status = 301
+  
+[[redirects]]
+  from = "/who-we-are"
+  to = "/about-us"
+  status = 301
+  
+[[redirects]]
+  from = "/what-we-do"
+  to = "/our-services"
+  status = 301
+  
+[[redirects]]
+  from = "/cxdesign"
+  to = "/our-services"
+  status = 301
+  
+[[redirects]]
+  from = "/cx"
+  to = "/our-services"
+  status = 301
+  
+[[redirects]]
+  from = "/pursuit"
+  to = "/our-work/pursuit"
+  status = 301
+  
+[[redirects]]
+  from = "/dirtt"
+  to = "/our-work/dirtt"
+  status = 301
+  
+[[redirects]]
+  from = "/brookfield"
+  to = "/our-work/brookfield"
+  status = 301
+  
+[[redirects]]
+  from = "/ikon"
+  to = "/our-work/ikon-pass"
+  status = 301
+  
+[[redirects]]
+  from = "/co-op"
+  to = "/our-work"
+  status = 301
+  
+[[redirects]]
+  from = "/flyover-canada"
+  to = "/our-work"
+  status = 301
+  
+[[redirects]]
+  from = "/ciff"
+  to = "/our-work"
+  status = 301
+  
+[[redirects]]
+  from = "/vca"
+  to = "/our-work"
+  status = 301
+  
+[[redirects]]
+  from = "/secretbarrel"
+  to = "/our-work"
+  status = 301
+  
+[[redirects]]
+  from = "/jusu-body"
+  to = "/our-work"
+  status = 301
+  
+[[redirects]]
+  from = "/pronouns"
+  to = "https://www.cultureamp.com/blog/sharing-gender-pronouns-at-work/"
+  status = 301
+  
+[[redirects]]
+  from = "/pwa"
+  to = "/"
+  status = 301
+  
