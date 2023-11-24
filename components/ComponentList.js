@@ -26,12 +26,14 @@ import ServicesIntro from "./ServicesIntro";
 import Accordion from "./Accordion";
 import ServicesPagination from "./ServicesPagination";
 import MediumFeed from "./MediumFeed";
-import LogoGrid from './LogoGrid'
+import LogoGrid from "./LogoGrid";
 
 // Case Study Specific Components
 import CaseStudyMosiac from "./CaseStudyMosiac";
 import AnimatedScreenScroll from "./AnimatedScreenScroll";
 
+// News Specific Components
+import FeaturedArticles from "./news/FeaturedArticles";
 
 const renderComponents = (components) => {
   return components.map((component, i) => {
@@ -220,17 +222,17 @@ const renderComponents = (components) => {
           />
         );
 
-        case "componentAnimatedScreenScroll":
-          return (
-            <AnimatedScreenScroll
-              background={component.fields.backgroundImage}
-              screen={component.fields.screenImage}
-              foreground={component.fields.foregroundImage}
-              additionalClass={component.fields.additionalClass}
-              animationValue={component.fields.animationValue}
-              key={`component-${i}`}
-            />
-          );
+      case "componentAnimatedScreenScroll":
+        return (
+          <AnimatedScreenScroll
+            background={component.fields.backgroundImage}
+            screen={component.fields.screenImage}
+            foreground={component.fields.foregroundImage}
+            additionalClass={component.fields.additionalClass}
+            animationValue={component.fields.animationValue}
+            key={`component-${i}`}
+          />
+        );
 
       case "componentGradientBlock":
         return (
@@ -364,6 +366,18 @@ const renderComponents = (components) => {
             largeTitle={component.fields.largeTitle}
             addPadding={component.fields.addPadding}
             logos={component.fields.logos}
+          />
+        );
+
+      case "componentFeaturedArticle":
+        return (
+          <FeaturedArticles
+            title={component.fields.title}
+            date={component.fields.date}
+            image={component.fields.image}
+            previewText={component.fields.previewText}
+            cta={component.fields.featuredArticleCta}
+            key={`component-${i}`}
           />
         );
 

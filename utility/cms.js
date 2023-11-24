@@ -151,6 +151,24 @@ function CMSApi() {
         return null;
       });
   };
+
+  this.fetchNewsroomPageBySlug = async (slug) => {
+    return await this.client
+      .getEntries({
+        include: 3,
+        content_type: "pageNewsroom",
+        "fields.slug": slug,
+      })
+      .then(async (results) => {
+        const page = results.items[0];
+
+        if (page) {
+          return page;
+        }
+
+        return null;
+      });
+  };
 }
 
 module.exports = CMSApi;

@@ -8,6 +8,7 @@ const navLinks = [
   { url: "/our-services", title: "Our Services" },
   { url: "/about-us", title: "About Us" },
   { url: "/careers", title: "Careers" },
+  { url: "/newsroom", title: "Newsroom" },
   { url: "/contact", title: "Contact" },
 ];
 

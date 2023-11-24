@@ -22,6 +22,7 @@ const next_config = {
       "/our-services": { page: "/our-services" },
       "/about-us": { page: "/about-us" },
       "/contact": { page: "/contact" },
+      "/newsroom": { page: "/newsroom" },
       "/careers": { page: "/careers" },
     };
 
@@ -41,6 +42,15 @@ const next_config = {
       console.log(page.fields.slug);
       paths[`/our-services/${page.fields.slug}`] = {
         page: "/our-services/[slug]",
+        query: { slug: page.fields.slug },
+      };
+    });
+
+    const newsPages = await api.fetchContentPages("pageNewsroom");
+    newsPages.forEach((page) => {
+      console.log(page.fields.slug);
+      paths[`/newsroom/${page.fields.slug}`] = {
+        page: "/newsroom/[slug]",
         query: { slug: page.fields.slug },
       };
     });
