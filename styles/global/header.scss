@@ -21,8 +21,21 @@
     position: relative;
     background: transparent;
     
-    #header-logo .ComponentsNavLogo{
-      fill: $red;
+    #header-logo {
+      #evans-hunt {
+        fill: $red;
+      }
+    
+      #separator {
+        stroke: $red;
+      }
+    
+      #part-of,
+      #network {
+        * {
+          fill: $darkgrey;
+        }
+      }
     }
     
     .header-nav-link, .header-nav-toggle {
@@ -47,8 +60,15 @@
   &.nav-active {
     z-index: 12;
 
-    #header-logo .ComponentsNavLogo{
-      fill: $red;
+    #header-logo {
+      #evans-hunt,
+      #part-of {
+        fill: $red;
+      }
+
+      #separator {
+        stroke: $red;
+      }
     }
 
     .header-logo-link {
@@ -58,7 +78,7 @@
     .header-nav-toggle {
       color: $black;
       position: relative;
-      z-index: 2;
+      z-index: 20;
 
       @media (prefers-color-scheme: dark) {
         color: $white;
@@ -70,19 +90,40 @@
 // EH Logo in the header
 .header-logo-link {
   position: relative;
+  z-index: 20;
+
+  a {
+    display: inline-block;
+  }
 }
 
 #header-logo {
-  max-width: 86px;
+  max-width: 230px;
   width: 100%;
   height: auto;
   @media (min-width: $desktop) {
     max-width: none;
   }
 
-  & > g {
+  #evans-hunt {
     stroke-width: 1px;
-    stroke: rgba(0,0,0,.2);
+    stroke: rgba(0, 0, 0, 0.2);
+    fill: $white;
+  }
+
+  #separator {
+    stroke: $white;
+  }
+
+  #part-of,
+  #network {
+    fill: $white;
+    stroke: rgba(0,0,0,.05);
+  }
+
+  #mod-op {
+    stroke-width: 1px;
+    stroke: rgba(0, 0, 0, 0.2);
   }
 }
 
