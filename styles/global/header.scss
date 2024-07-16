@@ -28,12 +28,26 @@
     
       #separator {
         stroke: $red;
+
+        @media (prefers-color-scheme: dark) {
+          stroke: $white;
+        }
       }
     
       #part-of,
       #network {
         * {
           fill: $darkgrey;
+
+          @media (prefers-color-scheme: dark) {
+            fill: $white;
+          }
+        }
+      }
+
+      #mod-op {
+        @media (prefers-color-scheme: dark) {
+          fill: $red;
         }
       }
     }
@@ -65,6 +79,17 @@
       #part-of,
       #network {
         fill: $red;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        #part-of,
+        #network {
+          fill: $white;
+        }
+
+        #mod-op {
+          fill: $red;
+        }
       }
 
       #separator {
