@@ -21,27 +21,36 @@
     position: relative;
     background: transparent;
     
-    #header-logo {
-      #evans-hunt {
-        fill: $red;
-        
-        @media (prefers-color-scheme: dark) {
+    #header-logo-eh {
+      .evans-hunt {    
+        * {
+          fill: $red;
+
+          @media (prefers-color-scheme: dark) {
+            fill: $white;
+          }
+        }
+      }
+    }
+    
+    #header-logo-mo {
+      .modop {    
+        * {
           fill: $white;
         }
       }
-    
-      #separator {
+
+      .separator {
         stroke: $red;
 
         @media (prefers-color-scheme: dark) {
           stroke: $white;
         }
       }
-    
-      #part-of,
-      #network {
+
+      .part-of, .company {
         * {
-          fill: $darkgrey;
+          fill: #77787B;
 
           @media (prefers-color-scheme: dark) {
             fill: $white;
@@ -49,7 +58,9 @@
         }
       }
 
-      #modop * {
+      .modop-name * {
+        fill: #231F20;
+
         @media (prefers-color-scheme: dark) {
           fill: $white;
         }
@@ -78,30 +89,6 @@
   &.nav-active {
     z-index: 12;
 
-    #header-logo {
-      #evans-hunt,
-      #part-of,
-      #network {
-        fill: $red;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        #evans-hunt,
-        #part-of,
-        #network {
-          fill: $white;
-        }
-
-        #modop {
-          fill: $white;
-        }
-      }
-
-      #separator {
-        stroke: $white;
-      }
-    }
-
     .header-logo-link {
       z-index: 2;
     }
@@ -120,53 +107,96 @@
 
 // EH Logo in the header
 .header-logo-link {
+  min-width: 220px;
+  max-width: 300px;
+  width: 22vw;
+  display: flex;
+  align-items: end;
+  gap: .75rem;
   position: relative;
   z-index: 20;
 
-  a {
-    display: inline-block;
-  }
-}
-
-#header-logo {
-  max-width: 230px;
-  width: 100%;
-  height: auto;
   @media (min-width: $desktop) {
     max-width: 300px;
   }
 
-  #evans-hunt {
-    stroke-width: 1px;
-    stroke: rgba(0, 0, 0, 0.2);
-    fill: $white;
+  a {
+    display: inline-block;
   }
 
-  #separator {
-    stroke: $white;
-  }
+  svg {
+    vertical-align: baseline;
 
-  #part-of,
-  #network {
-    fill: $white;
-    stroke: rgba(0,0,0,.05);
-
-    @media (prefers-color-scheme: dark) {
-      stroke: none;
+    * {
+      transition: all 0.5s ease-in-out;
     }
   }
 
-  #modop {
-    stroke-width: 1px;
-    stroke: rgba(0, 0, 0, 0.2);
 
-    @media (prefers-color-scheme: dark) {
-      fill: $white;
-      stroke: none;
+  #header-logo-eh {
+    width: 70%;  
+    height: auto;
+
+    .evans-hunt {    
+      width: 100%;
+
+      * {
+        stroke-width: 1px;
+        stroke: rgba(0, 0, 0, 0.2);
+        fill: $white;
+      }
+    }
+  }
+
+  #header-logo-mo {
+    width: 30%;  
+    height: auto;
+
+    .modop {    
+      width: 100%;
+
+      * {
+        fill: $white;
+      }
+
+      .separator {
+        stroke: $white;
+      }
     }
   }
 }
 
+.nav-active .header-logo-link {
+  #header-logo-eh .evans-hunt * {
+    fill: $black;
+
+    @media (prefers-color-scheme: dark) {
+      fill: $white;
+    }
+  }
+
+  #header-logo-mo {
+    .part-of,
+    .modop-name,
+    .company {
+      * {
+        fill: $black;
+
+        @media (prefers-color-scheme: dark) {
+          fill: $white;
+        }
+      }
+    }
+
+    .separator {
+      stroke: $black;
+
+      @media (prefers-color-scheme: dark) {
+        stroke: $white;
+      }
+    }
+  }
+}
 
 // the mobile transition needs some polish for sure
 .header-nav {
