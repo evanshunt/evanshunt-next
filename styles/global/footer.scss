@@ -17,9 +17,10 @@
   
   .footer-left {
     display: flex;
-    align-items: center;
+    align-items: end;
     flex-wrap : wrap;
     justify-content: center;
+    gap: 20px;
     width: 100%;
     
     @media (min-width: $desktop) {
@@ -27,43 +28,33 @@
     }
   }
   
-  #footer-logo {
-    width: 100%;
+  #footer-logo-eh {
+    width: 130px;
+
     
-    @media (min-width: $desktop) {
-      width: auto;
-      margin-right: 35px;
-    }
-
-    #footer-eh * {
-      fill: $red;
-
-      @media (prefers-color-scheme: dark) {
-        fill: $white;
-      }
-    }
-
-    #footer-separator {
-      stroke: $red;
-
-      @media (prefers-color-scheme: dark) {
-        stroke: $white;
-      }
-    }
-
-    #footer-part-of,
-    #footer-network {
       * {
-        fill: $darkgrey;
+        fill: $red;
 
         @media (prefers-color-scheme: dark) {
           fill: $white;
         }
       }
-    }
+  }
 
-    #footer-modop * {
-      @media (prefers-color-scheme: dark) {
+  #footer-logo-separator {
+    stroke: $red;
+
+    @media (prefers-color-scheme: dark) {
+      stroke: $white;
+    }
+  }
+
+  #footer-logo-modop {
+    width: 100px;
+    
+
+    @media (prefers-color-scheme: dark) {
+      * {
         fill: $white;
       }
     }
