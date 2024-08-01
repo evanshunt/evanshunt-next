@@ -176,8 +176,15 @@
   }
 
   #header-logo-mo {
+    .modop-name * {
+      fill: $black;
+
+      @media (prefers-color-scheme: dark) {
+        fill: $white;
+      }
+    }
+    
     .part-of,
-    .modop-name,
     .company {
       * {
         fill: $black;
@@ -189,7 +196,7 @@
     }
 
     .separator {
-      stroke: $black;
+      stroke: $red;
 
       @media (prefers-color-scheme: dark) {
         stroke: $white;
