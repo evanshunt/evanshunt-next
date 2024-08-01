@@ -92,7 +92,7 @@ class Header extends React.Component {
 
             </a>
             <a id="header-logo-mo" href="https://www.modop.com/" target="_blank" rel="noreferrer" >
-              <svg className="modop" width="" height="" viewBox="0 0 65 30" fill="none" xmlns="http://www.w3.org/2000/svg" ria-label="a modop company">
+              <svg className="modop" width="" height="" viewBox="0 0 65 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="a modop company">
                 <path className="separator" d="M0.839996 27.51V0.16" stroke="#E43E30"/>
                 <g className="part-of">
                 <path d="M17.31 8.98C17.31 9.56 17.44 9.84 17.82 9.84C18.03 9.84 18.23 9.76 18.42 9.67L18.49 9.87C18.18 10.34 17.73 10.56 17.23 10.56C16.59 10.56 16.21 10.1 16.14 9.37C15.68 9.91 14.95 10.56 14.03 10.56C13.01 10.56 12.37 9.89 12.37 8.92C12.37 7.82 13.2 7.36 14.23 6.97L16.12 6.26V5.37C16.12 4.47 15.78 3.81 14.92 3.81C14.17 3.81 13.86 4.31 13.86 4.98C13.86 5.2 13.89 5.4 13.95 5.66L13.26 5.76C12.93 5.66 12.75 5.41 12.75 5.04C12.75 4.06 13.77 3.48 15.09 3.48C16.58 3.48 17.32 4.12 17.32 5.5V8.97L17.31 8.98ZM16.12 9.1V6.64L14.55 7.28C13.9 7.54 13.52 7.91 13.52 8.6C13.52 9.29 13.91 9.79 14.66 9.79C15.2 9.79 15.59 9.54 16.13 9.1H16.12Z" fill="black"/>
