@@ -35,6 +35,12 @@ class Header extends React.Component {
     window.removeEventListener("resize", this.handleResize);
   }
 
+  modopLink() {
+    const url = 'https://www.modop.com/';
+    window.open(url, '_blank');
+  }
+
+
   toggleMenu() {
     const body = document.querySelector("body");
     if (body) {
@@ -91,7 +97,7 @@ class Header extends React.Component {
               </svg>
 
             </a>
-            <a id="header-logo-mo" href="https://www.modop.com/" target="_blank" rel="noreferrer" >
+            <a id="header-logo-mo" href="https://www.modop.com/" target="_blank" rel="noreferrer" onClick={this.modopLink}>
               <svg className="modop" width="" height="" viewBox="0 0 65 30" fill="none" aria-label="a modop company">
                 <path className="separator" d="M0.839996 27.51V0.16" stroke="#E43E30"/>
                 <g className="part-of">
