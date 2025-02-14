@@ -17,9 +17,10 @@
   
   .footer-left {
     display: flex;
-    align-items: center;
+    align-items: end;
     flex-wrap : wrap;
     justify-content: center;
+    gap: 20px;
     width: 100%;
     
     @media (min-width: $desktop) {
@@ -27,12 +28,35 @@
     }
   }
   
-  #footer-logo {
-    width: 100%;
+  #footer-logo-eh {
+    width: 130px;
+
     
-    @media (min-width: $desktop) {
-      width: auto;
-      margin-right: 35px;
+      * {
+        fill: $red;
+
+        @media (prefers-color-scheme: dark) {
+          fill: $white;
+        }
+      }
+  }
+
+  #footer-logo-separator {
+    stroke: $red;
+
+    @media (prefers-color-scheme: dark) {
+      stroke: $white;
+    }
+  }
+
+  #footer-logo-modop {
+    width: 100px;
+    
+
+    @media (prefers-color-scheme: dark) {
+      * {
+        fill: $white;
+      }
     }
   }
   

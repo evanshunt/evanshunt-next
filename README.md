@@ -4,7 +4,7 @@ This is the codebase for the Evans Hunt website.
 
 ## Requirements
 
-* Node.js >= 12.18.3 (Netlify is using Node 10)
+* Node.js >= 18.18.2 (Netlify is using Node 10). Use `nvm` to install and switch to version 18. `nvm install 18` and `nvm use 18`
 * Next >= 9.5.2
 * Contentful >= 7.14.6
 * All other requirements in `package.json`

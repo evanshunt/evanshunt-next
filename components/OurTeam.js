@@ -59,7 +59,7 @@ const OurTeam = (props) => {
   };
 
   // make groups of 4 for each row, for animation by row purposes
-  const leaderPerRow = 3;
+  const leaderPerRow = 2;
   let leaderRows = [];
   let tempArray = [];
   for (let i = 0, j = leaders.length; i < j; i += leaderPerRow) {

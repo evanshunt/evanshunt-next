@@ -48,14 +48,13 @@
   }
   
   &-leader {
-    width: 50%;
-    margin-bottom: 40px;
+    width: 100%;
+    margin-bottom: 20px;
     padding-right: 15px;
     text-align: center;
     
     @media (min-width: $tablet) {
-      width: 33.32%;
-      margin-bottom: 82px;
+      width: 40%;
     }
     
     h3 {
@@ -64,7 +63,6 @@
       margin-bottom: .5rem;
       margin-top: 0;
       @media (min-width: $large-phone) {
-        margin-bottom: 1rem;
         margin-top: 1rem;
         font-size: 1.75rem;
       }
