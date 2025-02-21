@@ -27,14 +27,14 @@ const OurTeam = (props) => {
           y: 10,
         },
         {
-          duration: 1.25,
+          duration: 1.5,
           opacity: 1,
           y: 0,
           ease: "power4.inOut",
           scrollTrigger: {
             id: `team-${index + 1}`,
             trigger: el,
-            start: "top center+=850px",
+            start: "top center+=1100px",
             scrub: 1,
             toggleActions: "play none none none",
             once: true,
