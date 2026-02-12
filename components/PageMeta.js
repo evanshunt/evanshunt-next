@@ -3,7 +3,7 @@ import { withRouter } from "next/router";
 
 const PageMeta = ({ seoTitle, metaDescription, socialMediaImage, router }) => {
 
-  const ogImageURL = 'https:' + socialMediaImage.fields.file.url;
+  const ogImageURL = socialMediaImage && socialMediaImage.fields ? 'https:' + socialMediaImage.fields.file.url : null;
 
   return (
     <Head>
@@ -14,7 +14,7 @@ const PageMeta = ({ seoTitle, metaDescription, socialMediaImage, router }) => {
         href={`https://www.evanshunt.com${router.asPath}`}
       />
       <meta property="og:title" content={seoTitle} />
-      {socialMediaImage && (
+      {ogImageURL && (
         <meta property="og:image" content={ogImageURL} />
       )}
       {metaDescription && (

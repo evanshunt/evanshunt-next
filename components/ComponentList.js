@@ -39,19 +39,24 @@ const renderComponents = (components) => {
       case "componentHero":
         return (
           <HeroBanner
-            smallText={component.fields.smallText}
-            largeText={component.fields.largeText}
-            gradientHero={component.fields.gradientHero}
+            smallText={component.fields.smallText || ''}
+            largeText={component.fields.largeText || ''}
+            gradientHero={component.fields.gradientHero || false}
             gradientColour={
               component.fields.gradientColour &&
               component.fields.gradientColour[0]
             }
             backgroundImage={
               component.fields.backgroundImage &&
+              component.fields.backgroundImage.fields &&
+              component.fields.backgroundImage.fields.file &&
               component.fields.backgroundImage.fields.file.url
             }
             backgroundVideo={
-              component.fields.video && component.fields.video.fields.file.url
+              component.fields.video && 
+              component.fields.video.fields &&
+              component.fields.video.fields.file &&
+              component.fields.video.fields.file.url
             }
             key={`component-${i}`}
           />
