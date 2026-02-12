@@ -12,6 +12,7 @@ const HeroBanner = ({
   flatHero,
   backgroundImage,
   backgroundVideo,
+  backgroundImagePosition
 }) => {
   /*
    *   Stripe WebGl Gradient Animation
@@ -1029,7 +1030,7 @@ const HeroBanner = ({
         <canvas id="gradient-canvas" className={gradientClass}></canvas>
       )}
       {!backgroundVideo && backgroundImage && (
-        <img src={backgroundImage} alt="" className="background-image" />
+        <img src={backgroundImage} alt="" className={`background-image position-${backgroundImagePosition || 'center'}`} />
       )}
       {backgroundVideo && (
         <div className="hero-banner-video">
