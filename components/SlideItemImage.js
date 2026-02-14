@@ -10,7 +10,7 @@ class SlideItemImage extends React.Component {
   }
 
   render() {
-    const { title, description, textLayout, image, link, slideType } =
+    const { title, description, textLayout, image, link, slideType, openInNewTab } =
       this.props;
     const titleClass = classNames(
       "slide-title",
@@ -29,7 +29,11 @@ class SlideItemImage extends React.Component {
         {textLayout === "on-image" ? (
           <div className="text-on-image">
             {link && (
-              <Link href={link} aria-label={image.title}>
+              <Link 
+                href={link} 
+                aria-label={image.title}
+                target={openInNewTab ? "_blank" : undefined}
+              >
                 <div className="image-wrapper">
                   <Image
                     src={image.file.url}
@@ -72,7 +76,10 @@ class SlideItemImage extends React.Component {
             {/* Text Below Image Variant Start - assume this is default */}
             {link && (
               <Link href={link} legacyBehavior>
-                <a aria-label={image.title}>
+                <a 
+                  aria-label={image.title}
+                  target={openInNewTab ? "_blank" : undefined}
+                >
                   <Image
                     src={image.file.url}
                     className="img-fluid"

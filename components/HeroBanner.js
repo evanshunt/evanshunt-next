@@ -12,7 +12,7 @@ const HeroBanner = ({
   flatHero,
   backgroundImage,
   backgroundVideo,
-  backgroundImagePosition
+  backgroundSticky
 }) => {
   /*
    *   Stripe WebGl Gradient Animation
@@ -899,10 +899,13 @@ const HeroBanner = ({
 
   // transform gradient to classname
   const [gradientClass, setGradientClass] = useState("");
+
   const [playButton, setplayButton] = useState("play");
 
   // Variables for Play/Pause Animation
   const tl = useRef(gsap.timeline({ paused: true }));
+
+  // Variables for Play/Pause Animation
   let playPauseAnimation = useRef(null);
   let video = useRef(null);
   let play1 = useRef(null);
@@ -1030,7 +1033,11 @@ const HeroBanner = ({
         <canvas id="gradient-canvas" className={gradientClass}></canvas>
       )}
       {!backgroundVideo && backgroundImage && (
-        <img src={backgroundImage} alt="" className={`background-image position-${backgroundImagePosition || 'center'}`} />
+        <img 
+          src={backgroundImage} 
+          alt="" 
+          className={`background-image ${backgroundSticky ? "sticky" : ""}`} 
+        />
       )}
       {backgroundVideo && (
         <div className="hero-banner-video">

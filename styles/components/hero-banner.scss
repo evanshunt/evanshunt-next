@@ -10,7 +10,7 @@ section.hero-banner {
     height: 700px;
   }
 
-  &.tall {
+  &.tall:not(:has( .sticky)) {
     height: 300px;
 
     @media (min-width: $large-phone) {
@@ -83,6 +83,13 @@ section.hero-banner {
     object-fit: cover;
     object-position: center center;
     position: absolute;
+
+    &.sticky {
+      width: clamp(180px,50%, 500px);
+      height: auto;
+      right: 0;
+      bottom: 0;
+    }
   }
 
   .background-video {

@@ -343,4 +343,8 @@
       }
     }
   }
+
+  &:has(.service-block-title) .service-block-title {
+    margin-left: 3rem;
+  }
 }

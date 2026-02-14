@@ -35,13 +35,14 @@ const ServiceBlock = (props) => {
 
 // separate components to keep things tidy
 const ServiceBlockText = (props) => {
-  const { title, introText, servicesList, link } = props;
+  const { subtitle, title, introText, servicesList, link, noIntroTextMargin, widerText } = props;
 
   return (
-    <div className="service-block-text">
+    <div className={`service-block-text${widerText ? ' wider' : ''}`}>
+      {subtitle && <h2 className="service-block-subtitle">{subtitle}</h2>}
       {title && <h1 className="service-block-title">{title}</h1>}
-      <div className="service-block-copy">
-        {introText && <p className="service-block-intro">{introText}</p>}
+      <div className={`service-block-copy${noIntroTextMargin ? ' no-margin' : ''}`}>
+        {introText && <div className={`service-block-intro`} dangerouslySetInnerHTML={{ __html: introText }} />}
         {servicesList && (
           <ul className="service-block-services">
             {servicesList.map((service, i) => {
