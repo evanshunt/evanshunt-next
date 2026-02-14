@@ -7,7 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const Enshitification = (content) => {
+const Enshittification = (content) => {
   function afterLoaded() {
     return new Promise((resolve, reject) => {
       setTimeout(function () {
@@ -49,8 +49,8 @@ const Enshitification = (content) => {
         />
       ) : (
         <PageMeta
-          seoTitle="Enshitification"
-          metaDescription="Default description for enshitification page"
+          seoTitle="Enshittification"
+          metaDescription="Default description for enshittification page"
           socialMediaImage={null}
         />
       )}
@@ -59,9 +59,9 @@ const Enshitification = (content) => {
   );
 };
 
-Enshitification.getInitialProps = async () => {
+Enshittification.getInitialProps = async () => {
   const api = new CMSApi();
-  const json = await api.fetchUniquePageType("pageEnshitification");
+  const json = await api.fetchUniquePageType("pageEnshittification");
 
   if (json) {
     return json;
@@ -70,4 +70,4 @@ Enshitification.getInitialProps = async () => {
   }
 };
 
-export default Enshitification;
+export default Enshittification;
