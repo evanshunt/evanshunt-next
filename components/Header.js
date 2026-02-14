@@ -70,7 +70,8 @@ class Header extends React.Component {
   }
 
   render() {
-    const { inlineHeader } = this.props;
+    const { inlineHeader, currentPath } = this.props;
+    const isEnshitificationPage = currentPath === '/enshitification';
     const headerClasses = classNames(
       { "nav-active": this.state.navActive },
       { "nav-inline": inlineHeader }
@@ -124,41 +125,45 @@ class Header extends React.Component {
             
           </div>
         </Link>
-        <button
-          className={classNames("header-nav-toggle", {
-            active: this.state.navActive,
-          })}
-          onClick={this.toggleMenu}
-          aria-label="Toggle navigation"
-        >
-          <div>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-          </div>
-        </button>
+        {!isEnshitificationPage && (
+          <>
+            <button
+              className={classNames("header-nav-toggle", {
+                active: this.state.navActive,
+              })}
+              onClick={this.toggleMenu}
+              aria-label="Toggle navigation"
+            >
+              <div>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+              </div>
+            </button>
 
-        <nav className={headerNavClasses}>
-          <div className="header-nav-links">
-            {navLinks.map((navLink, i) => {
-              return <NavLink navLink={navLink} key={i} />;
-            })}
-          </div>
+            <nav className={headerNavClasses}>
+              <div className="header-nav-links">
+                {navLinks.map((navLink, i) => {
+                  return <NavLink navLink={navLink} key={i} />;
+                })}
+              </div>
 
-          <div className="header-nav-contact-box">
-            <div className="header-nav-contact">
-              <h4 className="header-nav-contact-heading">Get in touch</h4>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                className={"header-nav-contact-link"}
-                href="mailto:info@evanshunt.com"
-              >
-                info@evanshunt.com
-              </a>
-            </div>
-          </div>
-        </nav>
+              <div className="header-nav-contact-box">
+                <div className="header-nav-contact">
+                  <h4 className="header-nav-contact-heading">Get in touch</h4>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    className={"header-nav-contact-link"}
+                    href="mailto:info@evanshunt.com"
+                  >
+                    info@evanshunt.com
+                  </a>
+                </div>
+              </div>
+            </nav>
+          </>
+        )}
       </header>
     );
   }
@@ -179,4 +184,10 @@ const NavLink = ({ navLink }) => {
   );
 };
 
-export default Header;
+// Wrapper component that provides router context
+const HeaderWithRouter = (props) => {
+  const router = useRouter();
+  return <Header {...props} currentPath={router.pathname} />;
+};
+
+export default HeaderWithRouter;
