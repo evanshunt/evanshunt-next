@@ -14,7 +14,7 @@ const IntroBlock = ({ subTitle, largeText, introText, centreAlign, cta }) => {
       {largeText && <h1 className="intro-block-title">{largeText}</h1>}
       {introText && (
         <div className="intro-block-text">
-          <p>{introText}</p>
+          <div dangerouslySetInnerHTML={{ __html: introText }} />
           {cta && (
             <Link href={cta.fields.url} legacyBehavior>
               <a

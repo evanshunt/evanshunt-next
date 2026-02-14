@@ -58,6 +58,7 @@ const renderComponents = (components) => {
               component.fields.video.fields.file &&
               component.fields.video.fields.file.url
             }
+            backgroundSticky={component.fields.backgroundSticky}
             key={`component-${i}`}
           />
         );
@@ -110,6 +111,7 @@ const renderComponents = (components) => {
         return (
           <Slider
             title={component.fields.title}
+            largeTitle={component.fields.largeTitle}
             style={component.fields.style}
             slides={component.fields.slides}
             key={`component-${i}`}
@@ -270,9 +272,12 @@ const renderComponents = (components) => {
       case "componentServiceBlock":
         return (
           <ServiceBlock
+            subtitle={component.fields.subtitle}
             title={component.fields.title}
             introText={component.fields.introText}
             textLeftOrRight={component.fields.textLeftOrRight}
+            noIntroTextMargin={component.fields.noIntroTextMargin}
+            widerText={component.fields.widerText}
             servicesList={component.fields.servicesList}
             link={component.fields.link}
             imageBackground={component.fields.imageBackground}

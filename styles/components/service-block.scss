@@ -6,13 +6,25 @@
   @media (min-width: $tablet) {
     padding-top: 80px;
   }
+
+  &-subtitle {
+    font-family: $base-font-family;
+    font-size: 1em;
+    text-transform: uppercase;
+  }
   
   &-flex {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+
     @media (min-width: $tablet) {
       flex-wrap: nowrap;
+    }
+
+    &:has( .wider) {
+      gap: 2rem;
+      align-items: center;
     }
   }
 
@@ -42,6 +54,11 @@
     @media (min-width: $desktop) {
       max-width: 405px;
       padding-top: 100px;
+
+      &.wider {
+        max-width: 500px;
+        padding-top: 0;
+      }
     }
   }
 
@@ -54,10 +71,15 @@
   }
   
   &-copy {
-    padding-left: 15px;
+    
     font-size: 16px;
-    @media (min-width: $tablet) {
-      padding-left: 40px;
+
+    &:not(.no-margin) {
+      padding-left: 15px;
+      
+      @media (min-width: $tablet) {
+        padding-left: 40px;
+      }
     }
   }
   
@@ -72,8 +94,9 @@
   
   &-img {
     position: relative;
-    min-width: 300px;
+    min-width: 250px;
     width: 100%;
+
     @media (min-width: $desktop) {
       padding: 30px;
       width: auto;

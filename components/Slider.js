@@ -108,7 +108,7 @@ class SliderComponent extends React.Component {
   }
 
   render() {
-    const { title, slides } = this.props;
+    const { title, largeTitle, slides } = this.props;
     const { visibleSlides, slideWidth, slideHeight, slideType } = this.state;
 
     if (!slides) {
@@ -134,7 +134,13 @@ class SliderComponent extends React.Component {
           client: slideType === "client",
         })}
       >
-        {title && <h6 className="base-font-medium">{title}</h6>}
+        {title && (
+          largeTitle ? (
+            <h1 className="service-block-title">{title}</h1>
+          ) : (
+            <h6 className="base-font-medium">{title}</h6>
+          )
+        )}
 
         <CarouselProvider
           naturalSlideWidth={slideWidth}
@@ -217,6 +223,7 @@ class SliderComponent extends React.Component {
                           image={slide.fields[`${imagePropertyName}`].fields}
                           link={slide.fields.link}
                           slideType={slideType}
+                          openInNewTab={slide.fields.openInNewTab}
                         />
                       </Slide>
                     );
