@@ -40,7 +40,7 @@ const Enshittification = (content) => {
   }, []);
 
   return (
-    <Layout className="content-page enshitification-page">
+    <Layout className="content-page enshittification-page">
       {content?.fields?.pageMeta ? (
         <PageMeta
           seoTitle={content.fields.pageMeta.fields.seoTitle}
