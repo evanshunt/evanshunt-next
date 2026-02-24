@@ -83,7 +83,7 @@ class Header extends React.Component {
   }
 
   render() {
-    const { inlineHeader, currentPath } = this.props;
+    const { inlineHeader } = this.props;
     const { hideNavigation } = this.state;
     
     const headerClasses = classNames(
@@ -200,8 +200,7 @@ const NavLink = ({ navLink }) => {
 
 // Wrapper component that provides router context
 const HeaderWithRouter = (props) => {
-  const router = useRouter();
-  return <Header {...props} currentPath={router.pathname} />;
+  return <Header {...props} />;
 };
 
 export default HeaderWithRouter;
