@@ -57,21 +57,51 @@ const StaggeredImagesWithText = (props) => {
         imageAndTextBlocks.map((block, i) => {
           return (
             <div className="staggered-column" key={i} ref={addToRefs}>
-              <picture>
-                <source
-                  srcSet={`${block.fields.image.fields.file.url}?fm=webp`}
-                  type="image/webp"
-                />
-                <source
-                  srcSet={`${block.fields.image.fields.file.url}?fm=jpg`}
-                  type="image/jpeg"
-                />
-                <img
-                  className="img-fluid"
-                  src={block.fields.image.fields.file.url}
-                  alt={block.fields.image.fields.description}
-                />
-              </picture>
+              {block.fields.link ? (
+                <Link href={block.fields.link.fields.url} legacyBehavior>
+                  <a
+                    {...(block.fields.link.fields.altStyle && {
+                      className: block.fields.link.fields.altStyle
+                    })}
+                    {...(block.fields.link.fields.openInNewTab && {
+                      target: "_blank",
+                      rel: "noopener noreferrer"
+                    })}
+                  >
+                    <picture>
+                      <source
+                        srcSet={`${block.fields.image.fields.file.url}?fm=webp`}
+                        type="image/webp"
+                      />
+                      <source
+                        srcSet={`${block.fields.image.fields.file.url}?fm=jpg`}
+                        type="image/jpeg"
+                      />
+                      <img
+                        className="img-fluid"
+                        src={block.fields.image.fields.file.url}
+                        alt={block.fields.image.fields.description}
+                      />
+                    </picture>
+                  </a>
+                </Link>
+              ) : (
+                <picture>
+                  <source
+                    srcSet={`${block.fields.image.fields.file.url}?fm=webp`}
+                    type="image/webp"
+                  />
+                  <source
+                    srcSet={`${block.fields.image.fields.file.url}?fm=jpg`}
+                    type="image/jpeg"
+                  />
+                  <img
+                    className="img-fluid"
+                    src={block.fields.image.fields.file.url}
+                    alt={block.fields.image.fields.description}
+                  />
+                </picture>
+              )}
               {block.fields.title && (
                 <h2 className="title">{block.fields.title}</h2>
               )}
@@ -79,8 +109,12 @@ const StaggeredImagesWithText = (props) => {
               {block.fields.link && (
                 <Link href={block.fields.link.fields.url} legacyBehavior>
                   <a
-                    className="btn btn-secondary btn-outline-alt"
+                    className={`btn btn-secondary${block.fields.link.fields.altStyle ? ` ${block.fields.link.fields.altStyle}` : ' btn-outline-alt'}`}
                     title={block.fields.link.fields.title}
+                    {...(block.fields.link.fields.openInNewTab && {
+                      target: "_blank",
+                      rel: "noopener noreferrer"
+                    })}
                   >
                     {block.fields.link.fields.title}
                   </a>
