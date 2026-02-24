@@ -60,9 +60,6 @@ const StaggeredImagesWithText = (props) => {
               {block.fields.link ? (
                 <Link href={block.fields.link.fields.url} legacyBehavior>
                   <a
-                    {...(block.fields.link.fields.altStyle && {
-                      className: block.fields.link.fields.altStyle
-                    })}
                     {...(block.fields.link.fields.openInNewTab && {
                       target: "_blank",
                       rel: "noopener noreferrer"
@@ -109,7 +106,7 @@ const StaggeredImagesWithText = (props) => {
               {block.fields.link && (
                 <Link href={block.fields.link.fields.url} legacyBehavior>
                   <a
-                    className={`btn btn-secondary${block.fields.link.fields.altStyle ? ` ${block.fields.link.fields.altStyle}` : ' btn-outline-alt'}`}
+                    className={`btn btn-secondary${block.fields.link.fields.altStyle ? '' : ' btn-outline-alt'}`}
                     title={block.fields.link.fields.title}
                     {...(block.fields.link.fields.openInNewTab && {
                       target: "_blank",

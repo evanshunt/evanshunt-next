@@ -12,6 +12,7 @@ const OurWorkPage = (content) => {
         seoTitle={content.fields.pageMeta.fields.seoTitle}
         metaDescription={content.fields.pageMeta.fields.metaDescription}
         socialMediaImage={content.fields.pageMeta.fields.socialMediaImage}
+        hideNavigation={content.fields.pageMeta.fields.hideNavigation}
       />
       <IntroBlock introText={content.fields.introCopy} centreAlign={true} />
       <WorkGrid workPages={content.fields.workPages} />
