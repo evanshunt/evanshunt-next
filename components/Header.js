@@ -17,10 +17,12 @@ class Header extends React.Component {
     super(props);
     this.state = {
       navActive: false,
+      hideNavigation: false,
     };
 
     this.toggleMenu = this.toggleMenu.bind(this);
     this.handleResize = this.handleResize.bind(this);
+    this.handleNavigationStateChange = this.handleNavigationStateChange.bind(this);
   }
 
   componentDidMount() {
@@ -29,10 +31,17 @@ class Header extends React.Component {
       body.classList.remove("nav-open"); // ensure this doesn't get stuck on the body when navigating
     }
     window.addEventListener("resize", this.handleResize);
+    window.addEventListener("navigationStateChange", this.handleNavigationStateChange);
+    
+    // Check initial state
+    if (typeof window !== 'undefined' && window.__hideNavigation) {
+      this.setState({ hideNavigation: window.__hideNavigation });
+    }
   }
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.handleResize);
+    window.removeEventListener("navigationStateChange", this.handleNavigationStateChange);
   }
 
   modopLink() {
@@ -69,9 +78,14 @@ class Header extends React.Component {
     }
   }
 
+  handleNavigationStateChange(event) {
+    this.setState({ hideNavigation: event.detail.hideNavigation });
+  }
+
   render() {
     const { inlineHeader, currentPath } = this.props;
-    const isEnshitificationPage = currentPath === '/enshitification';
+    const { hideNavigation } = this.state;
+    
     const headerClasses = classNames(
       { "nav-active": this.state.navActive },
       { "nav-inline": inlineHeader }
@@ -125,7 +139,7 @@ class Header extends React.Component {
             
           </div>
         </Link>
-        {!isEnshitificationPage && (
+        {!hideNavigation && (
           <>
             <button
               className={classNames("header-nav-toggle", {

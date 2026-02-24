@@ -49,6 +49,7 @@ const Enshittification = (content) => {
           seoTitle={content.fields.pageMeta.fields.seoTitle}
           metaDescription={content.fields.pageMeta.fields.metaDescription}
           socialMediaImage={content.fields.pageMeta.fields.socialMediaImage}
+          hideNavigation={content.fields.pageMeta.fields.hideNavigation}
         />
       ) : (
         <PageMeta

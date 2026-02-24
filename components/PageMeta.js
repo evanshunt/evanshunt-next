@@ -1,7 +1,19 @@
 import Head from "next/head";
 import { withRouter } from "next/router";
+import { useEffect } from "react";
 
-const PageMeta = ({ seoTitle, metaDescription, socialMediaImage, router }) => {
+const PageMeta = ({ seoTitle, metaDescription, socialMediaImage, router, hideNavigation }) => {
+
+  useEffect(() => {
+    // Set global navigation state
+    if (typeof window !== 'undefined') {
+      window.__hideNavigation = hideNavigation || false;
+      // Trigger a custom event to notify Header component
+      window.dispatchEvent(new CustomEvent('navigationStateChange', {
+        detail: { hideNavigation: hideNavigation || false }
+      }));
+    }
+  }, [hideNavigation]);
 
   const ogImageURL = socialMediaImage && socialMediaImage.fields ? 'https:' + socialMediaImage.fields.file.url : null;
 

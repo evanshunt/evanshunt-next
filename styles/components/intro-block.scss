@@ -1,5 +1,5 @@
 .intro-block {
-  padding: 50px 30px;
+  padding: 50px 15px;
   
   @media (min-width: $desktop) {
     padding: 179px 179px 107px;  
@@ -25,14 +25,12 @@
 }
 
 .intro-block-text {
-  padding-left: 25px;
 
   @media (min-width: $desktop) {
     margin: 0 auto;
     max-width: 850px;
   }
   @media (min-width: $desktop-large) {
-    padding-left: 0;
 
     p {
       font-size: 1.562rem;
