@@ -23,6 +23,9 @@ const Enshittification = (content) => {
     This solution is pretty jank, please feel free to adjust/change as needed!
   */
   useEffect(() => {
+    // Debug: Log the content to see what we're getting from the API
+    console.log("Enshittification content:", content);
+    
     if (typeof window !== `undefined`) {
       gsap.registerPlugin(ScrollTrigger);
       gsap.core.globals("ScrollTrigger", ScrollTrigger);
@@ -54,19 +57,49 @@ const Enshittification = (content) => {
           socialMediaImage={null}
         />
       )}
-      {content?.fields?.components && renderComponents(content.fields.components)}
+      
+      {/* Display content if available */}
+      {content?.fields?.components ? (
+        renderComponents(content.fields.components)
+      ) : (
+        // Fallback content when CMS data is not available
+        <div style={{ padding: '2rem', textAlign: 'center' }}>
+          <h1>Enshittification Page</h1>
+          <p>Content is currently being loaded or configured in the CMS.</p>
+          {process.env.NODE_ENV === 'development' && (
+            <div style={{ backgroundColor: '#f0f0f0', padding: '1rem', marginTop: '1rem', textAlign: 'left' }}>
+              <h3>Debug Information:</h3>
+              <p><strong>Content received:</strong> {content ? 'Yes' : 'No'}</p>
+              <p><strong>Has fields:</strong> {content?.fields ? 'Yes' : 'No'}</p>
+              <p><strong>Has components:</strong> {content?.fields?.components ? 'Yes' : 'No'}</p>
+              <p><strong>Error code:</strong> {content?.errorCode || 'None'}</p>
+              <pre style={{ fontSize: '12px', overflow: 'auto' }}>
+                {JSON.stringify(content, null, 2)}
+              </pre>
+            </div>
+          )}
+        </div>
+      )}
     </Layout>
   );
 };
 
 Enshittification.getInitialProps = async () => {
-  const api = new CMSApi();
-  const json = await api.fetchUniquePageType("pageEnshittification");
+  try {
+    const api = new CMSApi();
+    const json = await api.fetchUniquePageType("pageEnshittification");
 
-  if (json) {
-    return json;
-  } else {
-    return { errorCode: 404 };
+    console.log("Fetched enshittification data:", json ? 'Found' : 'Not found');
+    
+    if (json) {
+      return json;
+    } else {
+      console.warn("No content found for pageEnshittification content type");
+      return { errorCode: 404, message: "No content found for pageEnshittification" };
+    }
+  } catch (error) {
+    console.error("Error fetching enshittification content:", error);
+    return { errorCode: 500, message: "Error fetching content", error: error.message };
   }
 };
 
