@@ -20,6 +20,10 @@ const IntroBlock = ({ subTitle, largeText, introText, centreAlign, cta }) => {
               <a
                 className="btn btn-secondary btn-outline-alt"
                 title={cta.fields.title}
+                {...(cta.fields.openInNewTab && {
+                    target: "_blank",
+                    rel: "noopener noreferrer"
+                  })}
               >
                 {cta.fields.title}
               </a>
