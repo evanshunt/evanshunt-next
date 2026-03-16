@@ -48,9 +48,12 @@ const renderComponents = (components) => {
             }
             backgroundImage={
               component.fields.backgroundImage &&
-              component.fields.backgroundImage.fields &&
-              component.fields.backgroundImage.fields.file &&
-              component.fields.backgroundImage.fields.file.url
+              component.fields.backgroundImage.fields
+                ? {
+                    src: component.fields.backgroundImage.fields.file?.url,
+                    description: component.fields.backgroundImage.fields.description || ''
+                  }
+                : null
             }
             backgroundVideo={
               component.fields.video && 
