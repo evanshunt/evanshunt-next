@@ -1034,7 +1034,7 @@ const HeroBanner = ({
       )}
       {!backgroundVideo && backgroundImage && (
         <img 
-          src={backgroundImage.src} 
+          src={backgroundImage} 
           alt={backgroundImage.description}
           className={`background-image ${backgroundSticky ? "sticky" : ""}`} 
         />
@@ -1047,7 +1047,7 @@ const HeroBanner = ({
             muted
             playsInline
             className="background-video"
-            poster={backgroundImage?.src}
+            poster={backgroundImage ? backgroundImage : ""}
             onEnded={handleRestart}
           >
             <source src={backgroundVideo} type="video/mp4" />
